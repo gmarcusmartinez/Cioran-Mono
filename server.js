@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const colors = require("colors");
 const express = require("express");
 const connectDB = require("./config/db");
+const errorHandler = require("./middleware/error");
 
 const projects = require("./routes/projects");
 
@@ -12,9 +13,11 @@ const app = express();
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
-
 app.use(express.json());
+
 app.use("/api/projects", projects);
+
+app.use(errorHandler);
 
 connectDB();
 const server = app.listen(

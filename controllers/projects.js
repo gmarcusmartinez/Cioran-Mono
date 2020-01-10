@@ -1,41 +1,49 @@
 const Project = require("../models/Project");
+const asyncHandler = require("../middleware/async");
+const ErrorResponse = require("../utils/errorResponse");
 
-exports.getProjects = async (req, res, next) => {
+exports.getProjects = asyncHandler(async (req, res, next) => {
   const projects = await Project.find();
   res
     .status(200)
-    .json({ success: true, count: projects.length, data: projects });
-};
-exports.getProject = async (req, res, next) => {
+    .json({ sucess: true, count: projects.length, data: projects });
+});
+
+exports.getProject = asyncHandler(async (req, res, next) => {
   const project = await Project.findById(req.params.id);
   if (!project) {
-    return `Project not found with id of ${req.params.id}`;
+    return next(
+      new ErrorResponse(`Project not found with id of ${req.params.id}`, 404)
+    );
   }
   res.status(200).json({ sucess: true, data: project });
-};
-exports.createProject = async (req, res, next) => {
-  try {
-    const project = await Project.create(req.body);
-    res.status(201).json({ success: true, data: project });
-  } catch (error) {
-    console.log(error.message);
-  }
-};
-exports.updateProject = async (req, res, next) => {
+});
+
+exports.createProject = asyncHandler(async (req, res, next) => {
+  const project = await Project.create(req.body);
+  res.status(201).json({ success: true, data: project });
+});
+
+exports.updateProject = asyncHandler(async (req, res, next) => {
   const project = await Project.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
     runValidators: true
   });
 
   if (!project) {
-    return `Project not found`;
+    return next(
+      new ErrorResponse(`Resource not found with id of ${req.params.id}`, 404)
+    );
   }
   res.status(200).json({ sucess: true, data: project });
-};
-exports.deleteProject = async (req, res, next) => {
+});
+
+exports.deleteProject = asyncHandler(async (req, res, next) => {
   const project = await Project.findByIdAndDelete(req.params.id);
   if (!project) {
-    return `Project not found`;
+    return next(
+      new ErrorResponse(`Project not found with id of ${req.params.id}`, 404)
+    );
   }
   res.status(200).json({ sucess: true, msg: "Project deleted." });
-};
+});
