@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const slugify = require("slugify");
 
 const ProjectSchema = new mongoose.Schema({
   title: {
@@ -8,6 +9,7 @@ const ProjectSchema = new mongoose.Schema({
     trim: true,
     maxlength: [50, "Title can not be more than 50 charachters"]
   },
+  slug: String,
   description: {
     type: String,
     required: [true, "Please add a description."],
@@ -20,4 +22,10 @@ const ProjectSchema = new mongoose.Schema({
     default: Date.now
   }
 });
+
+ProjectSchema.pre("save", function(next) {
+  this.slug = slugify(this.title, { lower: true });
+  next();
+});
+
 module.exports = mongoose.model("Project", ProjectSchema);
