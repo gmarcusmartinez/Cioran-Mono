@@ -1,5 +1,5 @@
-const formatQueryString = req => {
-  let queryString = JSON.stringify(req);
+const formatQueryString = reqQuery => {
+  let queryString = JSON.stringify(reqQuery);
 
   queryString = queryString.replace(
     /\b(gt|gte|lt|lte|in)\b/g,
@@ -8,6 +8,12 @@ const formatQueryString = req => {
   return queryString;
 };
 
-console.log(formatQueryString("/api/projects?expectedDuration[lte]=5"));
+const removeQueryParam = (query, params) => {
+  const removeFields = params;
+  removeFields.forEach(param => delete query[param]);
+};
 
-module.expots = { formatQueryString };
+module.exports = {
+  formatQueryString,
+  removeQueryParam
+};
