@@ -1,9 +1,19 @@
 const Project = require("../models/Project");
 const asyncHandler = require("../middleware/async");
 const ErrorResponse = require("../utils/errorResponse");
+const { formatQueryString } = require("../utils/queryHelpers");
 
 exports.getProjects = asyncHandler(async (req, res, next) => {
-  const projects = await Project.find();
+  let query;
+  let queryString = JSON.stringify(req.query);
+
+  queryString = queryString.replace(
+    /\b(gt|gte|lt|lte|in)\b/g,
+    match => `$${match}`
+  );
+
+  query = Project.find(JSON.parse(queryString));
+  const projects = await query;
   res
     .status(200)
     .json({ sucess: true, count: projects.length, data: projects });

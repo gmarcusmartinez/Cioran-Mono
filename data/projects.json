@@ -1,14 +1,25 @@
 [
   {
     "title": "Cioran Bug Tracker",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, aliquid. Maiores tempore fugit adipisci voluptate at eaque nulla et, voluptates, nisi debitis expedita, quam doloribus saepe temporibus accusamus reprehenderit autem harum sunt aliquam quibusdam dolorem neque accusantium a repellendus. Tempore!"
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, aliquid. Maiores tempore fugit adipisci voluptate at eaque nulla et, voluptates, nisi debitis expedita, quam doloribus saepe temporibus accusamus reprehenderit autem harum sunt aliquam quibusdam dolorem neque accusantium a repellendus. Tempore!",
+    "isActive": true,
+    "expectedDuration": 8
   },
   {
     "title": "D3 Weather App",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, aliquid. Maiores tempore fugit adipisci voluptate at eaque nulla et, voluptates, nisi debitis expedita, quam doloribus saepe temporibus accusamus reprehenderit autem harum sunt aliquam quibusdam dolorem neque accusantium a repellendus. Tempore!"
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, aliquid. Maiores tempore fugit adipisci voluptate at eaque nulla et, voluptates, nisi debitis expedita, quam doloribus saepe temporibus accusamus reprehenderit autem harum sunt aliquam quibusdam dolorem neque accusantium a repellendus. Tempore!",
+    "expectedDuration": 6
   },
   {
     "title": "Lavender",
-    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, aliquid. Maiores tempore fugit adipisci voluptate at eaque nulla et, voluptates, nisi debitis expedita, quam doloribus saepe temporibus accusamus reprehenderit autem harum sunt aliquam quibusdam dolorem neque accusantium a repellendus. Tempore!"
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, aliquid. Maiores tempore fugit adipisci voluptate at eaque nulla et, voluptates, nisi debitis expedita, quam doloribus saepe temporibus accusamus reprehenderit autem harum sunt aliquam quibusdam dolorem neque accusantium a repellendus. Tempore!",
+    "isActive": true,
+    "expectedDuration": 4
+  },
+  {
+    "title": "Test Project 4",
+    "description": "Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta, aliquid. Maiores tempore fugit adipisci voluptate at eaque nulla et, voluptates, nisi debitis expedita, quam doloribus saepe temporibus accusamus reprehenderit autem harum sunt aliquam quibusdam dolorem neque accusantium a repellendus. Tempore!",
+    "isActive": true,
+    "expectedDuration": 3
   }
 ]
