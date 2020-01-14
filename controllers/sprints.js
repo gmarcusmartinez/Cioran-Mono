@@ -57,7 +57,7 @@ exports.updateSprint = asyncHandler(async (req, res, next) => {
   let sprint = await Sprint.findById(req.params.id);
   if (!sprint) {
     return next(
-      new ErrorResponse(`No bootcamp with id of ${req.params.id}`, 404)
+      new ErrorResponse(`No sprint with id of ${req.params.id}`, 404)
     );
   }
   sprint = await Sprint.findByIdAndUpdate(req.params.id, req.body, {

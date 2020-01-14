@@ -1,7 +1,7 @@
-// const Sprint = require("../models/Sprint");
+const Sprint = require("../models/Sprint");
 const Ticket = require("../models/Ticket");
 const asyncHandler = require("../middleware/async");
-// const ErrorResponse = require("../utils/errorResponse");
+const ErrorResponse = require("../utils/errorResponse");
 
 exports.getTickets = asyncHandler(async (req, res, next) => {
   const tickets = await Ticket.find({ sprint: req.params.sprintId }).populate({
@@ -13,5 +13,70 @@ exports.getTickets = asyncHandler(async (req, res, next) => {
     success: true,
     count: tickets.length,
     data: tickets
+  });
+});
+exports.getTicket = asyncHandler(async (req, res, next) => {
+  const ticket = await Ticket.findById(req.params.id).populate({
+    path: "sprint",
+    select: "title"
+  });
+  if (!ticket) {
+    return next(
+      new ErrorResponse(`No ticket with id of ${req.params.id}`, 404)
+    );
+  }
+  res.status(200).json({
+    success: true,
+    data: ticket
+  });
+});
+
+exports.createTicket = asyncHandler(async (req, res, next) => {
+  req.body.sprint = req.params.sprintId;
+
+  const sprint = await Sprint.findById(req.params.sprintId);
+  if (!sprint) {
+    return next(
+      new ErrorResponse(`No sprints with id of ${req.params.sprintId}`, 404)
+    );
+  }
+  const ticket = await Ticket.create(req.body);
+
+  res.status(200).json({
+    success: true,
+    data: ticket
+  });
+});
+
+exports.updateTicket = asyncHandler(async (req, res, next) => {
+  let ticket = await Ticket.findById(req.params.id);
+  if (!ticket) {
+    return next(
+      new ErrorResponse(`No ticket with id of ${req.params.id}`, 404)
+    );
+  }
+  ticket = await Ticket.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true
+  });
+
+  res.status(200).json({
+    success: true,
+    data: ticket
+  });
+});
+
+exports.deleteTicket = asyncHandler(async (req, res, next) => {
+  const ticket = await Ticket.findById(req.params.id);
+  if (!ticket) {
+    return next(
+      new ErrorResponse(`No ticket with id of ${req.params.id}`, 404)
+    );
+  }
+  await ticket.remove();
+
+  res.status(200).json({
+    success: true,
+    data: {}
   });
 });

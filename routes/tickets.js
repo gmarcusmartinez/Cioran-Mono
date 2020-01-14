@@ -1,15 +1,24 @@
 const { Router } = require("express");
 
-const { getTickets } = require("../controllers/tickets");
+const {
+  getTickets,
+  getTicket,
+  createTicket,
+  updateTicket,
+  deleteTicket
+} = require("../controllers/tickets");
 
 const router = Router({ mergeParams: true });
 
-router.route("/").get(getTickets);
+router
+  .route("/")
+  .get(getTickets)
+  .post(createTicket);
 
-// router
-//   .route("/:id")
-//   .get(getSprint)
-//   .put(updateSprint)
-//   .delete(deleteSprint);
+router
+  .route("/:id")
+  .get(getTicket)
+  .put(updateTicket)
+  .delete(deleteTicket);
 
 module.exports = router;
