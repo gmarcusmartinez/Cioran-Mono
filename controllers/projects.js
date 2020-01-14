@@ -1,22 +1,58 @@
 const Project = require("../models/Project");
 const asyncHandler = require("../middleware/async");
 const ErrorResponse = require("../utils/errorResponse");
-const { formatQueryString } = require("../utils/queryHelpers");
+const {
+  formatQueryString,
+  removeQueryParam
+} = require("../utils/queryHelpers");
 
 exports.getProjects = asyncHandler(async (req, res, next) => {
   let query;
-  let queryString = JSON.stringify(req.query);
+  const reqQuery = { ...req.query };
 
-  queryString = queryString.replace(
-    /\b(gt|gte|lt|lte|in)\b/g,
-    match => `$${match}`
-  );
+  removeQueryParam(reqQuery, ["select", "sort", "page", "limit"]);
 
-  query = Project.find(JSON.parse(queryString));
+  query = Project.find(JSON.parse(formatQueryString(reqQuery)));
+
+  if (req.query.select) {
+    const fields = req.query.select.split(",").join(" ");
+    query = query.select(fields);
+  }
+
+  if (req.query.sort) {
+    const sortBy = req.query.sort.split(",").join(" ");
+    query = query.sort(sortBy);
+  } else {
+    query = query.sort("-createdAt");
+  }
+  const page = parseInt(req.query.page, 10) || 1;
+  const limit = parseInt(req.query.limit, 10) || 10;
+  const startIndex = (page - 1) * limit;
+  const endIndex = page * limit;
+
+  const total = await Project.countDocuments();
+
+  query.skip(startIndex).limit(limit);
+
   const projects = await query;
+
+  const pagination = {};
+
+  if (endIndex < total) {
+    pagination.next = {
+      page: page + 1,
+      limit
+    };
+  }
+  if (startIndex > 0) {
+    pagination.previous = {
+      page: page - 1,
+      limit
+    };
+  }
   res
     .status(200)
-    .json({ sucess: true, count: projects.length, data: projects });
+    .json({ sucess: true, count: projects.length, pagination, data: projects });
 });
 
 exports.getProject = asyncHandler(async (req, res, next) => {

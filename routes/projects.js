@@ -6,7 +6,12 @@ const {
   updateProject,
   deleteProject
 } = require("../controllers/projects");
+
+const sprintRouter = require("./sprints");
+
 const router = Router();
+
+router.use("/:projectId/sprints", sprintRouter);
 
 router
   .route("/")

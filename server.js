@@ -5,6 +5,7 @@ const express = require("express");
 const connectDB = require("./config/db");
 const errorHandler = require("./middleware/error");
 
+const sprints = require("./routes/sprints");
 const projects = require("./routes/projects");
 
 dotenv.config({ path: "./config/config.env" });
@@ -15,6 +16,7 @@ if (process.env.NODE_ENV === "development") {
 }
 app.use(express.json());
 
+app.use("/api/sprints", sprints);
 app.use("/api/projects", projects);
 
 app.use(errorHandler);
