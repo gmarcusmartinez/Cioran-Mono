@@ -42,6 +42,7 @@ const deleteData = async () => {
   try {
     await Project.deleteMany();
     await Sprint.deleteMany();
+    await Ticket.deleteMany();
     console.log("Data destroyed...".red);
     process.exit();
   } catch (error) {

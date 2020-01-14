@@ -18,6 +18,9 @@ const SprintSchema = new mongoose.Schema({
     trim: true,
     maxlength: [500, "Description can not be more than 500 charachters"]
   },
+  totalStoryPoints: {
+    type: Number
+  },
   startDate: {
     type: Date,
     default: Date.now
@@ -31,4 +34,5 @@ const SprintSchema = new mongoose.Schema({
     default: Date.now
   }
 });
+
 module.exports = mongoose.model("Sprint", SprintSchema);
