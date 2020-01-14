@@ -7,6 +7,7 @@ dotenv.config({ path: "./config/config.env" });
 
 const Project = require("./models/Project");
 const Sprint = require("./models/Sprint");
+const Ticket = require("./models/Ticket");
 
 mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
@@ -21,11 +22,15 @@ const projects = JSON.parse(
 const sprints = JSON.parse(
   fs.readFileSync(`${__dirname}/data/sprints.json`, "utf-8")
 );
+const tickets = JSON.parse(
+  fs.readFileSync(`${__dirname}/data/tickets.json`, "utf-8")
+);
 
 const importData = async () => {
   try {
-    await Project.create(projects);
-    await Sprint.create(sprints);
+    // await Project.create(projects);
+    // await Sprint.create(sprints);
+    await Ticket.create(tickets);
     console.log("Data imported...".green);
     process.exit();
   } catch (error) {

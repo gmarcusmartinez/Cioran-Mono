@@ -10,7 +10,6 @@ const {
 const sprintRouter = require("./sprints");
 
 const router = Router();
-
 router.use("/:projectId/sprints", sprintRouter);
 
 router

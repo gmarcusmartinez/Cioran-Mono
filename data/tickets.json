@@ -1,0 +1,26 @@
+[
+  {
+    "sprint": "5e1e1ecaae28d49f5c0535d5",
+    "title": "Dummy Task 1",
+    "type": "task",
+    "description": "n/a",
+    "isActive": true,
+    "storyPoints": 1
+  },
+  {
+    "sprint": "5e1e1ecaae28d49f5c0535d5",
+    "title": "Dummy Task 2",
+    "type": "task",
+    "description": "n/a",
+    "isActive": true,
+    "storyPoints": 3
+  },
+  {
+    "sprint": "5e1e1ecaae28d49f5c0535d5",
+    "title": "Dummy Task 3",
+    "type": "task",
+    "description": "n/a",
+    "isActive": true,
+    "storyPoints": 8
+  }
+]

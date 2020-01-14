@@ -5,6 +5,7 @@ const express = require("express");
 const connectDB = require("./config/db");
 const errorHandler = require("./middleware/error");
 
+const tickets = require("./routes/tickets");
 const sprints = require("./routes/sprints");
 const projects = require("./routes/projects");
 
@@ -16,6 +17,7 @@ if (process.env.NODE_ENV === "development") {
 }
 app.use(express.json());
 
+app.use("/api/tickets", tickets);
 app.use("/api/sprints", sprints);
 app.use("/api/projects", projects);
 

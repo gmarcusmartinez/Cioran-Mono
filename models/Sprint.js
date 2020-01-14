@@ -18,10 +18,6 @@ const SprintSchema = new mongoose.Schema({
     trim: true,
     maxlength: [500, "Description can not be more than 500 charachters"]
   },
-  isActive: {
-    type: Boolean,
-    default: false
-  },
   startDate: {
     type: Date,
     default: Date.now

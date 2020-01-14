@@ -8,7 +8,10 @@ const {
   deleteSprint
 } = require("../controllers/sprints");
 
+const ticketRouter = require("./tickets");
+
 const router = Router({ mergeParams: true });
+router.use("/:sprintId/tickets", ticketRouter);
 
 router
   .route("/")

@@ -10,7 +10,7 @@ exports.getSprints = asyncHandler(async (req, res, next) => {
   } else {
     query = Sprint.find().populate({
       path: "project",
-      select: "name"
+      select: "title"
     });
   }
   const sprints = await query;
