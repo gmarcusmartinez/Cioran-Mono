@@ -4,23 +4,9 @@ const asyncHandler = require("../middleware/async");
 const ErrorResponse = require("../utils/errorResponse");
 
 exports.getSprints = asyncHandler(async (req, res, next) => {
-  let query;
-  if (req.params.projectId) {
-    query = Sprint.find({ project: req.params.projectId });
-  } else {
-    query = Sprint.find().populate({
-      path: "project",
-      select: "title"
-    });
-  }
-  const sprints = await query;
-
-  res.status(200).json({
-    success: true,
-    count: sprints.length,
-    data: sprints
-  });
+  res.status(200).json(res.advancedResults);
 });
+
 exports.getSprint = asyncHandler(async (req, res, next) => {
   const sprint = await Sprint.findById(req.params.id).populate({
     path: "project",

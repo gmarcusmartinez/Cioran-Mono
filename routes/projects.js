@@ -1,5 +1,7 @@
 const { Router } = require("express");
+const Project = require("../models/Project");
 const { protect } = require("../middleware/auth");
+const advancedResults = require("../middleware/advancedResults");
 
 const {
   getProject,
@@ -16,7 +18,7 @@ router.use("/:projectId/sprints", sprintRouter);
 
 router
   .route("/")
-  .get(getProjects)
+  .get(advancedResults(Project, "sprints"), getProjects)
   .post(protect, createProject);
 
 router

@@ -17,16 +17,13 @@ const ProjectSchema = new mongoose.Schema({
     trim: true,
     maxlength: [500, "Description can not be more than 500 charachters"]
   },
-  isActive: {
-    type: Boolean,
-    default: false
-  },
   photo: {
     type: String,
     default: "no-image.jpg"
   },
-  expectedDuration: {
-    type: Number,
+  projectCreator: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User",
     required: true
   },
   createdAt: {

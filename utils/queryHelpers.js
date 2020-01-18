@@ -5,7 +5,7 @@ const formatQueryString = reqQuery => {
     /\b(gt|gte|lt|lte|in)\b/g,
     match => `$${match}`
   );
-  return queryString;
+  return JSON.parse(queryString);
 };
 
 const removeQueryParam = (query, params) => {

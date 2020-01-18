@@ -1,5 +1,7 @@
 const { Router } = require("express");
+const Sprint = require("../models/Sprint");
 const { protect } = require("../middleware/auth");
+const advancedResults = require("../middleware/advancedResults");
 
 const {
   getSprints,
@@ -16,7 +18,7 @@ router.use("/:sprintId/tickets", ticketRouter);
 
 router
   .route("/")
-  .get(getSprints)
+  .get(advancedResults(Sprint, "tickets"), getSprints)
   .post(protect, createSprint);
 
 router
