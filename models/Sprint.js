@@ -5,6 +5,10 @@ const SprintSchema = new mongoose.Schema({
     type: mongoose.Schema.ObjectId,
     ref: "Project"
   },
+  projectLead: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User"
+  },
   title: {
     type: String,
     required: [true, "Please add a title."],

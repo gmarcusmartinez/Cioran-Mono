@@ -26,6 +26,12 @@ const ProjectSchema = new mongoose.Schema({
     ref: "User",
     required: true
   },
+  team: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: "User"
+    }
+  ],
   createdAt: {
     type: Date,
     default: Date.now

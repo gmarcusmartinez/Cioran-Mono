@@ -24,25 +24,38 @@ exports.createProject = asyncHandler(async (req, res, next) => {
 });
 
 exports.updateProject = asyncHandler(async (req, res, next) => {
-  const project = await Project.findByIdAndUpdate(req.params.id, req.body, {
-    new: true,
-    runValidators: true
-  });
+  let project = await Project.findById(req.params.id);
 
-  if (!project) {
-    return next(
-      new ErrorResponse(`Resource not found with id of ${req.params.id}`, 404)
-    );
-  }
-  res.status(200).json({ sucess: true, data: project });
-});
-
-exports.deleteProject = asyncHandler(async (req, res, next) => {
-  const project = await Project.findByIdAndDelete(req.params.id);
   if (!project) {
     return next(
       new ErrorResponse(`Project not found with id of ${req.params.id}`, 404)
     );
   }
+
+  if (project.projectCreator.toString() !== req.user.id) {
+    return next(new ErrorResponse(`Not Authorized.`, 404));
+  }
+
+  project = await Project.findByIdAndUpdate(req.params.id, req.body, {
+    new: true,
+    runValidators: true
+  });
+  res.status(200).json({ sucess: true, data: project });
+});
+
+exports.deleteProject = asyncHandler(async (req, res, next) => {
+  let project = await Project.findById(req.params.id);
+
+  if (!project) {
+    return next(
+      new ErrorResponse(`Project not found with id of ${req.params.id}`, 404)
+    );
+  }
+  if (project.projectCreator.toString() !== req.user.id) {
+    return next(new ErrorResponse(`Not Authorized.`, 404));
+  }
+
+  project.remove();
+
   res.status(200).json({ sucess: true, msg: "Project deleted." });
 });

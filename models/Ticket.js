@@ -16,6 +16,12 @@ const TicketSchema = new mongoose.Schema({
     required: true,
     enum: ["feature", "bug", "test", "task"]
   },
+  status: {
+    type: String,
+    required: true,
+    enum: ["unassigned", "assigned", "complete"],
+    default: "unassigned"
+  },
   description: {
     type: String,
     trim: true,
