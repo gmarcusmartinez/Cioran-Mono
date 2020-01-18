@@ -3,6 +3,7 @@ const morgan = require("morgan");
 const colors = require("colors");
 const express = require("express");
 const connectDB = require("./config/db");
+const cookieParser = require("cookie-parser");
 const errorHandler = require("./middleware/error");
 
 const auth = require("./routes/auth");
@@ -17,6 +18,7 @@ if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
 app.use(express.json());
+app.use(cookieParser());
 
 app.use("/api/auth", auth);
 app.use("/api/tickets", tickets);

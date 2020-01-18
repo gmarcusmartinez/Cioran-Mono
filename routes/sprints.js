@@ -1,4 +1,5 @@
 const { Router } = require("express");
+const { protect } = require("../middleware/auth");
 
 const {
   getSprints,
@@ -16,12 +17,12 @@ router.use("/:sprintId/tickets", ticketRouter);
 router
   .route("/")
   .get(getSprints)
-  .post(createSprint);
+  .post(protect, createSprint);
 
 router
   .route("/:id")
   .get(getSprint)
-  .put(updateSprint)
-  .delete(deleteSprint);
+  .put(protect, updateSprint)
+  .delete(protect, deleteSprint);
 
 module.exports = router;

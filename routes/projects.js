@@ -1,4 +1,6 @@
 const { Router } = require("express");
+const { protect } = require("../middleware/auth");
+
 const {
   getProject,
   getProjects,
@@ -15,12 +17,12 @@ router.use("/:projectId/sprints", sprintRouter);
 router
   .route("/")
   .get(getProjects)
-  .post(createProject);
+  .post(protect, createProject);
 
 router
   .route("/:id")
   .get(getProject)
-  .put(updateProject)
-  .delete(deleteProject);
+  .put(protect, updateProject)
+  .delete(protect, deleteProject);
 
 module.exports = router;
