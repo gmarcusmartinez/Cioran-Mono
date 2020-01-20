@@ -3,15 +3,24 @@ const {
   register,
   login,
   getCurrentUser,
-  forgotPassword
+  forgotPassword,
+  resetPassword,
+  updateDetails,
+  updatePassword
 } = require("../controllers/auth");
+
 const { protect } = require("../middleware/auth");
 
 const router = Router();
 
-router.post("/register", register);
 router.post("/login", login);
+router.post("/register", register);
 router.post("/me", protect, getCurrentUser);
-router.post("/forgotPassword", forgotPassword);
+
+router.put("/updatedetails", protect, updateDetails);
+router.put("/updatepassword", protect, updatePassword);
+
+router.post("/forgotpassword", forgotPassword);
+router.put("/resetpassword/:resettoken", resetPassword);
 
 module.exports = router;

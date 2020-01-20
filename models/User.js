@@ -44,7 +44,7 @@ UserSchema.methods.matchPassword = async function(password) {
   return await bcrypt.compare(password, this.password);
 };
 
-UserSchema.methods.getResetPasswordToken = async function() {
+UserSchema.methods.getResetPasswordToken = function() {
   const resetToken = crypto.randomBytes(20).toString("hex");
 
   this.resetPasswordToken = crypto
@@ -52,7 +52,7 @@ UserSchema.methods.getResetPasswordToken = async function() {
     .update(resetToken)
     .digest("hex");
 
-  this.resetPasswordExpire = Date.now() + 10 * 60 * 1000;
+  this.resetPasswordExpire = Date.now() + 30 * 60 * 1000;
 
   return resetToken;
 };
