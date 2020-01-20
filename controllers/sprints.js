@@ -28,13 +28,12 @@ exports.createSprint = asyncHandler(async (req, res, next) => {
   req.body.project = req.params.projectId;
   req.body.projectLead = req.user.id;
 
-  const project = await Project.findById(req.params.projectId);
+  let project = await Project.findById(req.params.projectId);
   if (!project) {
     return next(
       new ErrorResponse(`No projects with id of ${req.params.projectId}`, 404)
     );
   }
-
   if (project.projectCreator.toString() !== req.user.id) {
     return next(new ErrorResponse(`Not Authorized.`, 401));
   }

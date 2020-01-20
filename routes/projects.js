@@ -8,7 +8,8 @@ const {
   getProjects,
   createProject,
   updateProject,
-  deleteProject
+  deleteProject,
+  joinProjectTeam
 } = require("../controllers/projects");
 
 const sprintRouter = require("./sprints");
@@ -26,5 +27,7 @@ router
   .get(getProject)
   .put(protect, updateProject)
   .delete(protect, deleteProject);
+
+router.route("/:id/join").put(protect, joinProjectTeam);
 
 module.exports = router;

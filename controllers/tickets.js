@@ -15,6 +15,7 @@ exports.getTickets = asyncHandler(async (req, res, next) => {
     data: tickets
   });
 });
+
 exports.getTicket = asyncHandler(async (req, res, next) => {
   const ticket = await Ticket.findById(req.params.id).populate({
     path: "sprint",
@@ -40,6 +41,11 @@ exports.createTicket = asyncHandler(async (req, res, next) => {
       new ErrorResponse(`No sprints with id of ${req.params.sprintId}`, 404)
     );
   }
+
+  if (sprint.projectLead.toString() !== req.user.id) {
+    return next(new ErrorResponse(`Not Authorized.`, 401));
+  }
+
   const ticket = await Ticket.create(req.body);
 
   res.status(200).json({
@@ -60,6 +66,23 @@ exports.updateTicket = asyncHandler(async (req, res, next) => {
     runValidators: true
   });
 
+  res.status(200).json({
+    success: true,
+    data: ticket
+  });
+});
+
+exports.markTicketAsComplete = asyncHandler(async (req, res, next) => {
+  let ticket = await Ticket.findById(req.params.id);
+  if (!ticket) {
+    return next(
+      new ErrorResponse(`No ticket with id of ${req.params.id}`, 404)
+    );
+  }
+  ticket.status = "complete";
+  ticket.dateCompleted = Date.now();
+
+  await ticket.save();
   res.status(200).json({
     success: true,
     data: ticket

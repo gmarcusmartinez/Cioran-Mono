@@ -7,6 +7,7 @@ const cookieParser = require("cookie-parser");
 const errorHandler = require("./middleware/error");
 
 const auth = require("./routes/auth");
+const users = require("./routes/users");
 const tickets = require("./routes/tickets");
 const sprints = require("./routes/sprints");
 const projects = require("./routes/projects");
@@ -21,6 +22,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use("/api/auth", auth);
+app.use("/api/users", users);
 app.use("/api/tickets", tickets);
 app.use("/api/sprints", sprints);
 app.use("/api/projects", projects);

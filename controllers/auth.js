@@ -99,11 +99,10 @@ exports.resetPassword = asyncHandler(async (req, res, next) => {
 });
 
 exports.updateDetails = asyncHandler(async (req, res, next) => {
-  const { name, email, password } = req.body;
+  const { name, email } = req.body;
   const fieldsToUpdate = {
     name,
-    email,
-    password
+    email
   };
   const user = await User.findByIdAndUpdate(req.user.id, fieldsToUpdate, {
     new: true,

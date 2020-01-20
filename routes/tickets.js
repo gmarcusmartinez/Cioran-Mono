@@ -6,7 +6,8 @@ const {
   getTicket,
   createTicket,
   updateTicket,
-  deleteTicket
+  deleteTicket,
+  markTicketAsComplete
 } = require("../controllers/tickets");
 
 const router = Router({ mergeParams: true });
@@ -21,5 +22,7 @@ router
   .get(getTicket)
   .put(protect, updateTicket)
   .delete(protect, deleteTicket);
+
+router.route("/:id/complete").put(protect, markTicketAsComplete);
 
 module.exports = router;

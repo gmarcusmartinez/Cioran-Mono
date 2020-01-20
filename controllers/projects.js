@@ -23,6 +23,18 @@ exports.createProject = asyncHandler(async (req, res, next) => {
   res.status(201).json({ success: true, data: project });
 });
 
+exports.joinProjectTeam = asyncHandler(async (req, res, next) => {
+  const project = await Project.findById(req.params.id);
+  if (!project) {
+    return next(
+      new ErrorResponse(`Project not found with id of ${req.params.id}`, 404)
+    );
+  }
+  project.team.push(req.user.id);
+  await project.save();
+  res.status(200).json({ sucess: true, data: project });
+});
+
 exports.updateProject = asyncHandler(async (req, res, next) => {
   let project = await Project.findById(req.params.id);
 

@@ -26,6 +26,12 @@ const ProjectSchema = new mongoose.Schema({
     ref: "User",
     required: true
   },
+  sprints: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: "Sprint"
+    }
+  ],
   team: [
     {
       type: mongoose.Schema.ObjectId,
