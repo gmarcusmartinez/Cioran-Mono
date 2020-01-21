@@ -21,7 +21,19 @@ const UserSchema = new mongoose.Schema({
   createdAt: {
     type: Date,
     default: Date.now
-  }
+  },
+  assignedTickets: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: "Ticket"
+    }
+  ],
+  completedTickets: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: "Ticket"
+    }
+  ]
 });
 
 UserSchema.pre("save", async function(next) {

@@ -25,6 +25,12 @@ const SprintSchema = new mongoose.Schema({
   totalStoryPoints: {
     type: Number
   },
+  tickets: [
+    {
+      type: mongoose.Schema.ObjectId,
+      ref: "Ticket"
+    }
+  ],
   startDate: {
     type: Date,
     default: Date.now

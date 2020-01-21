@@ -1,10 +1,13 @@
 const dotenv = require("dotenv");
 const morgan = require("morgan");
 const colors = require("colors");
+const helmet = require("helmet");
+const xss = require("xss-clean");
 const express = require("express");
 const connectDB = require("./config/db");
 const cookieParser = require("cookie-parser");
 const errorHandler = require("./middleware/error");
+const mongoSanitize = require("express-mongo-sanitize");
 
 const auth = require("./routes/auth");
 const users = require("./routes/users");
@@ -18,8 +21,13 @@ const app = express();
 if (process.env.NODE_ENV === "development") {
   app.use(morgan("dev"));
 }
+
 app.use(express.json());
 app.use(cookieParser());
+app.use(mongoSanitize());
+app.use(helmet());
+// Prevent XSS attacks
+app.use(xss());
 
 app.use("/api/auth", auth);
 app.use("/api/users", users);
