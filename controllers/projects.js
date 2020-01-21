@@ -32,6 +32,7 @@ exports.joinProjectTeam = asyncHandler(async (req, res, next) => {
   }
   project.team.push(req.user.id);
   await project.save();
+
   res.status(200).json({ sucess: true, data: project });
 });
 

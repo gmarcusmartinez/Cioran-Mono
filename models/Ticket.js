@@ -31,6 +31,10 @@ const TicketSchema = new mongoose.Schema({
     type: Boolean,
     default: false
   },
+  assignedTo: {
+    type: mongoose.Schema.ObjectId,
+    ref: "User"
+  },
   storyPoints: {
     type: Number,
     required: true,
@@ -49,7 +53,6 @@ const TicketSchema = new mongoose.Schema({
 });
 
 TicketSchema.statics.getTotalStoryPoints = async function(sprintId) {
-  console.log("Calculating total story points".blue);
   const obj = await this.aggregate([
     {
       $match: { sprint: sprintId }

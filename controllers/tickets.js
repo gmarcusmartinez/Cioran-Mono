@@ -1,3 +1,4 @@
+const User = require("../models/User");
 const Sprint = require("../models/Sprint");
 const Ticket = require("../models/Ticket");
 const asyncHandler = require("../middleware/async");
@@ -72,6 +73,35 @@ exports.updateTicket = asyncHandler(async (req, res, next) => {
   });
 });
 
+exports.assignTicket = asyncHandler(async (req, res, next) => {
+  let ticket = await Ticket.findById(req.params.id);
+  const user = await User.findById(req.user.id);
+
+  if (!ticket) {
+    return next(
+      new ErrorResponse(`No ticket with id of ${req.params.id}`, 404)
+    );
+  }
+
+  if (ticket.status === "assigned") {
+    return next(
+      new ErrorResponse(`This ticket has already been assigned. `, 404)
+    );
+  }
+
+  ticket.status = "assigned";
+  ticket.assignedTo = req.user.id;
+  user.assignedTickets.push(ticket._id);
+
+  await ticket.save();
+  await user.save();
+
+  res.status(200).json({
+    success: true,
+    data: ticket
+  });
+});
+
 exports.markTicketAsComplete = asyncHandler(async (req, res, next) => {
   let ticket = await Ticket.findById(req.params.id);
   if (!ticket) {
@@ -79,10 +109,15 @@ exports.markTicketAsComplete = asyncHandler(async (req, res, next) => {
       new ErrorResponse(`No ticket with id of ${req.params.id}`, 404)
     );
   }
+
+  let user = await User.findById(req.user.id);
+
   ticket.status = "complete";
   ticket.dateCompleted = Date.now();
 
   await ticket.save();
+  await user.save();
+
   res.status(200).json({
     success: true,
     data: ticket

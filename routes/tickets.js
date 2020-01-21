@@ -7,6 +7,7 @@ const {
   createTicket,
   updateTicket,
   deleteTicket,
+  assignTicket,
   markTicketAsComplete
 } = require("../controllers/tickets");
 
@@ -23,6 +24,7 @@ router
   .put(protect, updateTicket)
   .delete(protect, deleteTicket);
 
+router.route("/:id/assign").put(protect, assignTicket);
 router.route("/:id/complete").put(protect, markTicketAsComplete);
 
 module.exports = router;
