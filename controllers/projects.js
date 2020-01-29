@@ -30,6 +30,13 @@ exports.joinProjectTeam = asyncHandler(async (req, res, next) => {
       new ErrorResponse(`Project not found with id of ${req.params.id}`, 404)
     );
   }
+
+  if (project.team.includes(req.user.id)) {
+    return next(
+      new ErrorResponse(`You have already joined this project.`, 404)
+    );
+  }
+
   project.team.push(req.user.id);
   await project.save();
 

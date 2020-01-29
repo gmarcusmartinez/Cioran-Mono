@@ -1,6 +1,6 @@
-@import "./styles/Header";
-* {
-  box-sizing: border-box;
+@import "./components/Header/Header.scss";
+
+body {
   margin: 0;
   padding: 0;
 }

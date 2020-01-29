@@ -1,13 +1,13 @@
 import React from "react";
+import Header from "./components/Header/Header";
 import "./App.scss";
-import Header from "./components/layout/Header";
 
-const App: React.FC = () => {
+function App() {
   return (
     <div className="App">
       <Header />
     </div>
   );
-};
+}
 
 export default App;
