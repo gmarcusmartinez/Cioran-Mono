@@ -1,9 +1,12 @@
+@import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 @import "./components/Header/Header.scss";
 @import "./components/Footer/Footer.scss";
 @import "./components/Landing/Landing.scss";
+@import "./components/Common/Button/Button.scss";
 
+$primary-color: #00c4cc;
 body {
   margin: 0;
   padding: 0;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: "Roboto", sans-serif;
 }

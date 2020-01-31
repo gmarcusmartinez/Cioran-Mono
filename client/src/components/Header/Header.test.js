@@ -22,4 +22,8 @@ describe("Header", () => {
     const logo = findByTestAttr(component, "app-title");
     expect(logo.length).toBe(1);
   });
+  test("Auth-btns div renders", () => {
+    const authBtns = findByTestAttr(component, "auth-btns");
+    expect(authBtns.length).toBe(1);
+  });
 });

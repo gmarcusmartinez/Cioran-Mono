@@ -11,13 +11,11 @@ import Footer from "./components/Footer/Footer";
 function App() {
   return (
     <Provider store={store}>
-      <div className="App">
-        <Header />
-        <Switch>
-          <Route exact path="/" component={Landing} />
-        </Switch>
-        <Footer />
-      </div>
+      <Header />
+      <Switch>
+        <Route exact path="/" component={Landing} />
+      </Switch>
+      <Footer />
     </Provider>
   );
 }
