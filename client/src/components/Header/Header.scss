@@ -1,15 +1,17 @@
 $primary-color: #00c4cc;
 
 header {
-  display: flex;
-  align-items: center;
+  display: grid;
+  grid-template-columns: 3fr 2fr;
   letter-spacing: 0.1rem;
-  border-bottom: 2px solid$primary-color;
   height: 4rem;
-  h1 {
-    color: $primary-color;
-    margin-left: 2.2rem;
+  .title-div {
+    h1 {
+      color: $primary-color;
+      margin-left: 2.2rem;
+    }
   }
+
   .auth-btns {
     margin-left: auto;
     margin-right: 1rem;

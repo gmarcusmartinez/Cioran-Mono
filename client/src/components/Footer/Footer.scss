@@ -5,8 +5,9 @@ footer {
   display: flex;
   align-items: center;
   border-top: 2px solid $primary-color;
+  background-color: $primary-color;
   p {
-    color: $primary-color;
+    color: #fff;
     margin-left: 2.2rem;
     letter-spacing: 0.1rem;
   }

@@ -1,0 +1,28 @@
+.sidebar {
+  max-width: 350px;
+  height: 100vh;
+  padding: 2rem;
+  background-color: #f4f4f4;
+  h2 {
+    margin-top: 0;
+    letter-spacing: 2px;
+    color: #19256d;
+  }
+  ul {
+    padding: 0;
+    li {
+      padding: 0.8rem;
+      list-style: none;
+      color: #19256d;
+      i {
+        font-size: 1.3rem;
+      }
+      a {
+        text-decoration: none;
+        margin-left: 1.25rem;
+        color: #19256d;
+        font-size: 0.9rem;
+      }
+    }
+  }
+}

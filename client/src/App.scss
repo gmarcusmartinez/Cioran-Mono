@@ -3,10 +3,13 @@
 @import "./components/Footer/Footer.scss";
 @import "./components/Landing/Landing.scss";
 @import "./components/Common/Button/Button.scss";
+@import "./components/Dash/Dash.scss";
+@import "./components/Sidebar/Sidebar.scss";
 
 $primary-color: #00c4cc;
 body {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
   font-family: "Roboto", sans-serif;
 }

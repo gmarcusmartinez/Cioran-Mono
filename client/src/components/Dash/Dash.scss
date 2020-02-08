@@ -1,0 +1,9 @@
+.component-dashboard {
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 3fr 7fr;
+  .sidebar-section {
+    box-shadow: 2px 5px 5px #808080;
+    max-width: 300px;
+  }
+}
