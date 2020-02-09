@@ -8,3 +8,17 @@
     grid-template-columns: 1fr;
   }
 }
+.signup-btn {
+  position: absolute;
+  right: 24px;
+  top: 36px;
+  width: 80px;
+  height: 40px;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  font-size: 0.8rem;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #19256d;
+}

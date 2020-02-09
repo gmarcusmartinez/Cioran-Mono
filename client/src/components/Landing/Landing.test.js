@@ -25,4 +25,21 @@ describe("Landing", () => {
     const display = findByTestAttr(component, "app-landing-display");
     expect(display.length).toBe(1);
   });
+  test("displays signup button", () => {
+    const signupBtn = findByTestAttr(component, "signup-btn");
+    expect(signupBtn.exists()).toBe(true);
+  });
+});
+
+describe("state controlled displaySignup", () => {
+  test("state updates on signup btn click", () => {
+    const mockSetDisplaySignup = jest.fn();
+    React.useState = jest.fn(() => ["", mockSetDisplaySignup]);
+
+    const wrapper = setup();
+    const displaySignupBtn = findByTestAttr(wrapper, "signup-btn");
+
+    displaySignupBtn.simulate("click");
+    expect(mockSetDisplaySignup).toHaveBeenCalled();
+  });
 });

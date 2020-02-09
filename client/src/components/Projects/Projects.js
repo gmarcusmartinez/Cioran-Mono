@@ -1,4 +1,5 @@
 import React from "react";
+import AddProject from "../AddProject/AddProject";
 
 const Projects = () => {
   const [displayAddProject, setDisplayAddProject] = React.useState(false);
@@ -13,6 +14,7 @@ const Projects = () => {
         >
           <i className="fas fa-plus"></i>
         </button>
+        {displayAddProject ? <AddProject /> : null}
       </div>
     </div>
   );
