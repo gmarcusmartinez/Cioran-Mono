@@ -1,12 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
+
 const Sidebar = ({ links }) => {
   const lis = links.map(link => {
     return (
-      <li key={link.to}>
+      <li key={link.text}>
         <i className={link.icon}></i>
-        <Link to={link.to}>{link.text}</Link>
+        <NavLink to={link.to}>{link.text}</NavLink>
       </li>
     );
   });
@@ -14,6 +15,9 @@ const Sidebar = ({ links }) => {
   return (
     <div data-test="component-sidebar" className="sidebar">
       <h2 data-test="sidebar-title">Cioran</h2>
+      <button className="display-sidebar">
+        <i class="fas fa-chevron-left"></i>
+      </button>
       <ul>{lis}</ul>
     </div>
   );

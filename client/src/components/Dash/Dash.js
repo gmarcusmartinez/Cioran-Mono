@@ -1,26 +1,29 @@
 import React from "react";
 import Sidebar from "../Sidebar/Sidebar";
+import { Route, Switch } from "react-router-dom";
+
+import Projects from "../Projects/Projects";
 
 const Dash = () => {
   const links = [
     {
       text: "Projects",
-      to: "/projects",
+      to: "/dash/projects",
       icon: "far fa-folder"
     },
     {
       text: "My Queue",
-      to: "/queue",
+      to: "/dash/queue",
       icon: "far fa-list-alt"
     },
     {
       text: "Friends",
-      to: "/friends",
+      to: "/dash/friends",
       icon: "fas fa-user-friends"
     },
     {
       text: "Settings",
-      to: "/settings",
+      to: "/dash/settings",
       icon: "far fa-envelope"
     }
   ];
@@ -30,7 +33,11 @@ const Dash = () => {
       <div data-test="sidebar-section" className="sidebar-section">
         <Sidebar links={links} />
       </div>
-      <div data-test="content-section"></div>
+      <div data-test="content-section">
+        <Switch>
+          <Route path="/dash/projects" component={Projects} />
+        </Switch>
+      </div>
     </div>
   );
 };

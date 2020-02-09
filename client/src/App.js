@@ -6,14 +6,13 @@ import { Route, Switch } from "react-router-dom";
 
 import Landing from "./components/Landing/Landing";
 import Dashboard from "./components/Dash/Dash";
-// import Footer from "./components/Footer/Footer";
 
 function App() {
   return (
     <Provider store={store}>
       <Switch>
         <Route exact path="/" component={Landing} />
-        <Route exact path="/dash" component={Dashboard} />
+        <Route path="/dash" component={Dashboard} />
       </Switch>
     </Provider>
   );

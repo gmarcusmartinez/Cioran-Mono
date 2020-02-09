@@ -3,6 +3,7 @@
   height: 100vh;
   padding: 2rem;
   background-color: #f4f4f4;
+  position: relative;
   h2 {
     margin-top: 0;
     letter-spacing: 2px;
@@ -18,11 +19,32 @@
         font-size: 1.3rem;
       }
       a {
-        text-decoration: none;
         margin-left: 1.25rem;
         color: #19256d;
-        font-size: 0.9rem;
+        text-decoration: none;
       }
+    }
+  }
+  .display-sidebar {
+    height: 36px;
+    width: 36px;
+    border: 1px solid #19256d;
+    border-radius: 50%;
+    position: absolute;
+    right: -24px;
+    top: 24px;
+    color: #19256d;
+    outline: none;
+
+    i {
+      font-size: 0.75rem;
+    }
+    transition: background;
+    transition-duration: 0.25s;
+    transition-timing-function: ease-in-out;
+    &:hover {
+      background-color: #19256d;
+      color: #fff;
     }
   }
 }
