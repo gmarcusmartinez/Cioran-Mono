@@ -25,7 +25,9 @@ const Sidebar = ({ links }) => {
         className="display-sidebar"
         onClick={() => setDisplaySidebar(!displaySidebar)}
       >
-        <i className="fas fa-chevron-left"></i>
+        <i
+          className={`fas fa-chevron-${displaySidebar ? "left" : "right"}`}
+        ></i>
       </button>
       <ul>{lis}</ul>
     </div>

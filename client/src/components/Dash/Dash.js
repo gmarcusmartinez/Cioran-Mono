@@ -33,7 +33,7 @@ const Dash = () => {
       <div data-test="sidebar-section" className="sidebar-section">
         <Sidebar links={links} />
       </div>
-      <div data-test="content-section">
+      <div data-test="content-section" className="content-section">
         <Switch>
           <Route path="/dash/projects" component={Projects} />
         </Switch>
