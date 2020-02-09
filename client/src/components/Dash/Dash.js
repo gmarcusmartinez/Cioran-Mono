@@ -24,7 +24,7 @@ const Dash = () => {
     {
       text: "Settings",
       to: "/dash/settings",
-      icon: "far fa-envelope"
+      icon: "fas fa-cog"
     }
   ];
 

@@ -30,3 +30,16 @@ describe("Sidebar", () => {
     checkProps(Sidebar, defaultProps);
   });
 });
+
+describe("state controlled displaySidebar", () => {
+  test("state updates on display-sidebar btn click", () => {
+    const mockSetDisplaySidebar = jest.fn();
+    React.useState = jest.fn(() => ["", mockSetDisplaySidebar]);
+
+    const wrapper = setup();
+    const displaySidebarBtn = findByTestAttr(wrapper, "display-sidebar");
+
+    displaySidebarBtn.simulate("click");
+    expect(mockSetDisplaySidebar).toHaveBeenCalled();
+  });
+});

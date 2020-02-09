@@ -3,6 +3,8 @@ import PropTypes from "prop-types";
 import { NavLink } from "react-router-dom";
 
 const Sidebar = ({ links }) => {
+  const [displaySidebar, setDisplaySidebar] = React.useState(true);
+
   const lis = links.map(link => {
     return (
       <li key={link.text}>
@@ -13,15 +15,23 @@ const Sidebar = ({ links }) => {
   });
 
   return (
-    <div data-test="component-sidebar" className="sidebar">
+    <div
+      data-test="component-sidebar"
+      className={displaySidebar ? "sidebar-open" : "sidebar-close"}
+    >
       <h2 data-test="sidebar-title">Cioran</h2>
-      <button className="display-sidebar">
-        <i class="fas fa-chevron-left"></i>
+      <button
+        data-test="display-sidebar"
+        className="display-sidebar"
+        onClick={() => setDisplaySidebar(!displaySidebar)}
+      >
+        <i className="fas fa-chevron-left"></i>
       </button>
       <ul>{lis}</ul>
     </div>
   );
 };
+
 Sidebar.propTypes = {
   links: PropTypes.arrayOf(
     PropTypes.shape({
@@ -32,10 +42,3 @@ Sidebar.propTypes = {
   ).isRequired
 };
 export default Sidebar;
-
-{
-  /* <li>
-<i class="fas fa-cog"></i>
-<a href="#">Settings</a>
-</li> */
-}
