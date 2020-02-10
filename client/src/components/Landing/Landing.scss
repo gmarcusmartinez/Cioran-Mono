@@ -6,7 +6,15 @@
 @media (max-width: 768px) {
   .landing {
     grid-template-columns: 1fr;
+    .display-section {
+      display: none;
+    }
   }
+}
+.auth-section {
+  height: 100%;
+  display: flex;
+  justify-content: center;
 }
 .signup-btn {
   position: absolute;

@@ -17,4 +17,10 @@ describe("Login", () => {
     const component = findByTestAttr(wrapper, "component-login");
     expect(component.exists()).toBe(true);
   });
+  test("Should render input elements for email and password fields", () => {
+    const emailInput = findByTestAttr(wrapper, "email-input");
+    expect(emailInput.exists()).toBe(true);
+    const passwordInput = findByTestAttr(wrapper, "password-input");
+    expect(passwordInput.exists()).toBe(true);
+  });
 });

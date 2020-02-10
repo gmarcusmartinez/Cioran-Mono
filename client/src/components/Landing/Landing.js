@@ -8,14 +8,14 @@ const Landing = () => {
 
   return (
     <div className="landing" data-test="app-landing">
-      <div className="landing-display" data-test="app-landing-display"></div>
-      <div className="auth" data-test="app-auth-section">
+      <div className="display-section" data-test="app-landing-display"></div>
+      <div className="auth-section" data-test="app-auth-section">
         <button
           data-test="signup-btn"
           className="signup-btn"
           onClick={() => setDisplaySignup(!displaySignup)}
         >
-          Signup
+          {displaySignup ? "Login" : "Signup"}
         </button>
         {displaySignup ? <Signup /> : <Login />}
       </div>
