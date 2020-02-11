@@ -18,7 +18,7 @@ const Signup = () => {
   };
   return (
     <div data-test="component-signup" className="signup">
-      <h3>Get Started</h3>
+      <h3>Create your account</h3>
       <form onSubmit={e => onSubmit(e)}>
         <div className="input-field">
           <input

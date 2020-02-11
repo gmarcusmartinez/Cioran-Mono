@@ -14,7 +14,9 @@ const Projects = () => {
         >
           <i className="fas fa-plus"></i>
         </button>
-        {displayAddProject ? <AddProject /> : null}
+        {displayAddProject ? (
+          <AddProject setDisplayAddProject={setDisplayAddProject} />
+        ) : null}
       </div>
     </div>
   );

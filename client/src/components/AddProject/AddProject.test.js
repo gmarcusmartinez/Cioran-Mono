@@ -17,8 +17,8 @@ describe("AddProject", () => {
     const component = findByTestAttr(wrapper, "component-add-project");
     expect(component.exists()).toBe(true);
   });
-  test("Add Project form renders", () => {
-    const form = findByTestAttr(wrapper, "add-project-form");
-    expect(form.exists()).toBe(true);
+  test("Input element for project name renders", () => {
+    const projectName = findByTestAttr(wrapper, "project-name-input");
+    expect(projectName.exists()).toBe(true);
   });
 });
