@@ -29,3 +29,44 @@ describe("Signup", () => {
     expect(confirmPasswordInput.exists()).toBe(true);
   });
 });
+
+describe("state controlled signup input fields", () => {
+  let wrapper;
+  let mockSetFormData;
+  beforeEach(() => {
+    mockSetFormData = jest.fn();
+    React.useState = jest.fn(() => ["", mockSetFormData]);
+    wrapper = setup();
+  });
+  test("state updates with value of email input upon change", () => {
+    const emailInput = findByTestAttr(wrapper, "email-input");
+    const emailInputMockEvent = {
+      target: { name: "email", value: "test@app.com" }
+    };
+
+    emailInput.simulate("change", emailInputMockEvent);
+    expect(mockSetFormData).toHaveBeenCalledWith({
+      email: "test@app.com"
+    });
+  });
+  test("state updates with value of of password input upon change", () => {
+    const passwordInput = findByTestAttr(wrapper, "password-input");
+    const passwordInputMockEvent = {
+      target: { name: "password", value: "testing123" }
+    };
+    passwordInput.simulate("change", passwordInputMockEvent);
+    expect(mockSetFormData).toHaveBeenCalledWith({
+      password: "testing123"
+    });
+  });
+  test("state updates with value of of confirm password input upon change", () => {
+    const confirmPassword = findByTestAttr(wrapper, "confirm-password-input");
+    const confirmPasswordMockEvent = {
+      target: { name: "confirmPassword", value: "testing123" }
+    };
+    confirmPassword.simulate("change", confirmPasswordMockEvent);
+    expect(mockSetFormData).toHaveBeenCalledWith({
+      confirmPassword: "testing123"
+    });
+  });
+});
