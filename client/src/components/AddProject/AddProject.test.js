@@ -22,3 +22,24 @@ describe("AddProject", () => {
     expect(projectName.exists()).toBe(true);
   });
 });
+
+describe("state controlled addProject input field", () => {
+  let wrapper;
+  let mockSetFormData;
+  beforeEach(() => {
+    mockSetFormData = jest.fn();
+    React.useState = jest.fn(() => ["", mockSetFormData]);
+    wrapper = setup();
+  });
+  test("state updates with value of projectName input on change", () => {
+    const projectNameInput = findByTestAttr(wrapper, "project-name-input");
+    const projectNameInputMockEvent = {
+      target: { name: "projectName", value: "test project" }
+    };
+    projectNameInput.simulate("change", projectNameInputMockEvent);
+
+    expect(mockSetFormData).toHaveBeenCalledWith({
+      projectName: "test project"
+    });
+  });
+});
