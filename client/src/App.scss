@@ -1,3 +1,4 @@
+@import "variables";
 @import url("https://fonts.googleapis.com/css?family=Roboto&display=swap");
 @import "./components/Login/Login.scss";
 @import "./components/Signup/Signup.scss";
@@ -14,4 +15,35 @@ body {
   padding: 0;
   box-sizing: border-box;
   font-family: "Roboto", sans-serif;
+}
+
+%input-field-shared {
+  position: relative;
+  input {
+    padding: 0.8rem;
+    width: 260px;
+    border: none;
+    outline: none;
+    margin-top: 0.5rem;
+    margin-bottom: 1.8rem;
+    border: 1px solid $label-color;
+    border-radius: 5px;
+    &:focus {
+      border: 1px solid $primary-color;
+    }
+    &:focus ~ label {
+      top: -1rem;
+      font-size: 0.75rem;
+      color: $primary-color;
+    }
+  }
+  label {
+    position: absolute;
+    top: 18%;
+    left: 0;
+    color: rgba(14, 19, 24, 0.3);
+    font-size: 0.9rem;
+    padding: 0.5rem;
+    transition: 0.5s;
+  }
 }

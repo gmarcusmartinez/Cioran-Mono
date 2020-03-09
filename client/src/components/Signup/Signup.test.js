@@ -17,6 +17,7 @@ describe("Signup", () => {
     const component = findByTestAttr(wrapper, "component-signup");
     expect(component.exists()).toBe(true);
   });
+
   test("Should render input elements for email, password, and confirm password fields", () => {
     const emailInput = findByTestAttr(wrapper, "email-input");
     expect(emailInput.exists()).toBe(true);
@@ -38,6 +39,18 @@ describe("state controlled signup input fields", () => {
     React.useState = jest.fn(() => ["", mockSetFormData]);
     wrapper = setup();
   });
+  test("state updates with value of name input upon change", () => {
+    const userNameInput = findByTestAttr(wrapper, "userName-input");
+    const userNameMockEvent = {
+      target: { name: "userName", value: "App Test User" }
+    };
+
+    userNameInput.simulate("change", userNameMockEvent);
+    expect(mockSetFormData).toHaveBeenCalledWith({
+      userName: "App Test User"
+    });
+  });
+
   test("state updates with value of email input upon change", () => {
     const emailInput = findByTestAttr(wrapper, "email-input");
     const emailInputMockEvent = {
@@ -49,6 +62,7 @@ describe("state controlled signup input fields", () => {
       email: "test@app.com"
     });
   });
+
   test("state updates with value of of password input upon change", () => {
     const passwordInput = findByTestAttr(wrapper, "password-input");
     const passwordInputMockEvent = {
@@ -59,6 +73,7 @@ describe("state controlled signup input fields", () => {
       password: "testing123"
     });
   });
+
   test("state updates with value of of confirm password input upon change", () => {
     const confirmPassword = findByTestAttr(wrapper, "confirm-password-input");
     const confirmPasswordMockEvent = {

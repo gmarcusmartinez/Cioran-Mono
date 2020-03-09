@@ -10,7 +10,7 @@
   h2 {
     margin-top: 0;
     letter-spacing: 2px;
-    color: #19256d;
+    color: $primary-color;
   }
   ul {
     padding: 0;
@@ -23,7 +23,7 @@
       }
       a {
         margin-left: 1.25rem;
-        color: #19256d;
+        color: $primary-color;
         text-decoration: none;
       }
     }
