@@ -14,7 +14,7 @@ export const signup = ({ name, email, password }) => async dispatch => {
     );
     dispatch({
       type: SIGNUP,
-      payload: res.data.token
+      payload: res.data
     });
   } catch (err) {
     dispatch({
