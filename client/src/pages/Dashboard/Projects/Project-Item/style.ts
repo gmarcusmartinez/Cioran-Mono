@@ -7,5 +7,9 @@ export const Container = styled.div`
     margin: 1rem;
     width: 250px;
     height: 250px;
+    @media (max-width: 500px) {
+      width: 200px;
+      height: 200px;
+    }
   `}
 `;
