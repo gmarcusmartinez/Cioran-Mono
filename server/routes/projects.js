@@ -13,10 +13,15 @@ const advancedResults = require("../middleware/advancedResults");
 
 const router = Router();
 
+// Router Redirect
+const sprintRouter = require("./sprints");
+router.use("/:projectId/sprints", sprintRouter);
+
 router
   .route("/")
   .get(advancedResults(Project), getProjects)
   .post(createProject);
+
 router.route("/:id").get(getProject).put(updateProject).delete(deleteProject);
 
 module.exports = router;

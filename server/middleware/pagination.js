@@ -20,6 +20,5 @@ module.exports = async (query, model, request) => {
       limit,
     };
   }
-  console.log(pagination);
   return pagination;
 };
