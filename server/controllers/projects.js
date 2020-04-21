@@ -3,9 +3,7 @@ const asyncHandler = require("../middleware/async");
 const ErrorResponse = require("../utils/ErrorResponse");
 
 exports.getProjects = asyncHandler(async (req, res) => {
-  const projects = await Project.find();
-  const count = projects.length;
-  res.status(200).json({ success: true, count, data: projects });
+  res.status(200).json(res.advancedResults);
 });
 
 exports.getProject = asyncHandler(async (req, res, next) => {
