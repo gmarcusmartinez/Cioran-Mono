@@ -18,7 +18,8 @@ export const Form = styled.form`
     width: 400px;
     height: 300px;
     padding: 32px;
-    border: 1px solid #f5f5f5;
+    border: 1px solid #e8e8e8;
+    border-radius: 4px;
     box-shadow: 2px 2px 2px 2px #ccc;
 
     display: flex;

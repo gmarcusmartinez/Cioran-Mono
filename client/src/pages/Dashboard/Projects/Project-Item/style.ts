@@ -5,8 +5,8 @@ export const Container = styled.div`
     background-color: rgba(0, 0, 0, 0.6);
     padding: 1rem;
     margin: 1rem;
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
     @media (max-width: 500px) {
       width: 200px;
       height: 200px;

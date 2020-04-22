@@ -1,10 +1,10 @@
 import React from "react";
 import { Container, AddProjectBtn } from "./style";
-import Project from "./Project-Item/Project";
+// import ProjectItem from "./Project-Item/Project";
 import AddProject from "./AddProject/AddProject";
 
 const Projects = () => {
-  const [showAddProject, setShowAddProject] = React.useState(true);
+  const [showAddProject, setShowAddProject] = React.useState(false);
   return (
     <Container>
       <AddProjectBtn onClick={() => setShowAddProject(!showAddProject)}>
@@ -15,12 +15,6 @@ const Projects = () => {
         )}
       </AddProjectBtn>
       {showAddProject ? <AddProject /> : null}
-      <Project />
-      <Project />
-      <Project />
-      <Project />
-      <Project />
-      <Project />
     </Container>
   );
 };

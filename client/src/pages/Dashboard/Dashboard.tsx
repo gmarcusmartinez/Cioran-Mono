@@ -1,13 +1,19 @@
 import React from "react";
+import { Route, Switch } from "react-router-dom";
+
+import { Container, ContentSection } from "./styles";
 import Sidebar from "./Sidebar/Sidebar";
-import Content from "./Content/Content";
-import { Container } from "./styles";
+import Projects from "./Projects/Projects";
 
 const Dashboard = () => {
   return (
     <Container>
       <Sidebar />
-      <Content />
+      <ContentSection>
+        <Switch>
+          <Route path="/dashboard/projects" component={Projects} />
+        </Switch>
+      </ContentSection>
     </Container>
   );
 };

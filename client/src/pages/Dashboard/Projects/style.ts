@@ -3,13 +3,15 @@ import styled, { css } from "styled-components";
 export const Container = styled.div`
   ${() => css`
     height: 100%;
-    width: 100%;
+    max-width: 900px;
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     justify-content: center;
-    border: 2px solid #f4f4f4;
+    border-radius: 4px;
     position: relative;
+    @media (min-width: 1000px) {
+      max-height: 500px;
+    }
   `}
 `;
 
@@ -20,8 +22,8 @@ export const AddProjectBtn = styled.button`
     border: 2px solid #19256d;
     background-color: #19256d;
     position: absolute;
-    top: -12px;
-    right: -12px;
+    top: -16px;
+    right: -16px;
     border-radius: 50%;
     z-index: 2;
     &:focus {
