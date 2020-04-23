@@ -1,5 +1,6 @@
 import React from "react";
 import { Container, Title } from "./style";
+import { Link } from "react-router-dom";
 
 interface ProjectsItemProps {
   item: {
@@ -11,9 +12,11 @@ interface ProjectsItemProps {
 
 const ProjectItem: React.FC<ProjectsItemProps> = ({ item }) => {
   return (
-    <Container>
-      <Title>{item.title}</Title>
-    </Container>
+    <Link to={`/project/${item._id}`} style={{ textDecoration: "none" }}>
+      <Container>
+        <Title>{item.title}</Title>
+      </Container>
+    </Link>
   );
 };
 

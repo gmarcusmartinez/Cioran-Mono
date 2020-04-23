@@ -8,7 +8,10 @@ exports.getSprints = asyncHandler(async (req, res) => {
 });
 
 exports.getSprint = asyncHandler(async (req, res, next) => {
-  const sprint = await Sprint.findById(req.params.id);
+  const sprint = await Sprint.findById(req.params.id).populate({
+    path: "project",
+    select: "title",
+  });
   if (!sprint) {
     return next(new ErrorResponse("Sprint not found.", 400));
   }
@@ -26,17 +29,19 @@ exports.createSprint = asyncHandler(async (req, res) => {
 });
 
 exports.updateSprint = asyncHandler(async (req, res) => {
-  const sprint = await Sprint.findByIdAndUpdate(req.params.id, req.body, {
+  let sprint = await Sprint.findById(req.params.id);
+  if (!sprint) return next(new ErrorResponse("Sprint not found.", 400));
+
+  sprint = await Sprint.findByIdAndUpdate(req.params.id, req.body, {
     new: true,
     runValidators: true,
   });
-  if (!sprint) {
-    return next(new ErrorResponse("Sprint not found.", 400));
-  }
   res.status(201).json({ success: true, data: sprint });
 });
 
 exports.deleteSprint = asyncHandler(async (req, res) => {
-  await Sprint.findByIdAndDelete(req.params.id);
+  const sprint = await Sprint.findById(req.params.id);
+  if (!sprint) return next(new ErrorResponse("Sprint not found.", 400));
+  await sprint.remove();
   res.status(201).json({ success: true, data: {} });
 });

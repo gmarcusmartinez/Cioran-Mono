@@ -9,6 +9,7 @@ export const Container = styled.div`
     /* border: 1px solid #e8e8e8; */
     justify-content: center;
     position: relative;
+
     @media (min-width: 744px) {
       max-height: 500px;
       margin-top: 100px;
