@@ -1,7 +1,13 @@
-import { Project } from "../actions";
 import { Action, ActionTypes } from "../actions/types";
 
-export const projects = (state: Project[] = [], action: Action) => {
+const initialState = {
+  success: false,
+  count: null,
+  pagination: {},
+  projects: [],
+};
+
+export const projects = (state = initialState, action: Action) => {
   switch (action.type) {
     case ActionTypes.FETCH_PROJECTS:
       return action.payload;

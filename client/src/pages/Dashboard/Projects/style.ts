@@ -6,11 +6,12 @@ export const Container = styled.div`
     max-width: 900px;
     display: flex;
     flex-wrap: wrap;
+    /* border: 1px solid #e8e8e8; */
     justify-content: center;
-    border-radius: 4px;
     position: relative;
-    @media (min-width: 1000px) {
+    @media (min-width: 744px) {
       max-height: 500px;
+      margin-top: 100px;
     }
   `}
 `;
@@ -22,7 +23,7 @@ export const AddProjectBtn = styled.button`
     border: 2px solid #19256d;
     background-color: #19256d;
     position: absolute;
-    top: -16px;
+    top: -100px;
     right: -16px;
     border-radius: 50%;
     z-index: 2;
@@ -41,6 +42,9 @@ export const AddProjectBtn = styled.button`
         color: #19256d;
         transition: 0.25s ease-in;
       }
+    }
+    @media (max-width: 744px) {
+      top: -16px;
     }
   `}
 `;

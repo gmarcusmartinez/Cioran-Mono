@@ -1,10 +1,32 @@
 import React from "react";
-import { Container, AddProjectBtn } from "./style";
-// import ProjectItem from "./Project-Item/Project";
-import AddProject from "./AddProject/AddProject";
+import { connect } from "react-redux";
 
-const Projects = () => {
+import AddProject from "./AddProject/AddProject";
+import { Container, AddProjectBtn } from "./style";
+import ProjectItem from "./Project-Item/ProjectItem";
+import { fetchProjects, Project } from "../../../store/actions/projects";
+
+interface ProjectsProps {
+  fetchProjects: Function;
+  projects: {
+    success: boolean;
+    count: number;
+    pagination: {};
+    data: Project[];
+  };
+}
+
+const Projects: React.FC<ProjectsProps> = ({ fetchProjects, projects }) => {
   const [showAddProject, setShowAddProject] = React.useState(false);
+
+  React.useEffect(() => {
+    fetchProjects();
+  }, [fetchProjects]);
+
+  let list = projects.data
+    ? projects.data.map((p) => <ProjectItem key={p._id} item={p} />)
+    : null;
+
   return (
     <Container>
       <AddProjectBtn onClick={() => setShowAddProject(!showAddProject)}>
@@ -15,8 +37,12 @@ const Projects = () => {
         )}
       </AddProjectBtn>
       {showAddProject ? <AddProject /> : null}
+      {list}
     </Container>
   );
 };
+const mapStateToProps = (state: any) => ({
+  projects: state.projects,
+});
 
-export default Projects;
+export default connect(mapStateToProps, { fetchProjects })(Projects);
