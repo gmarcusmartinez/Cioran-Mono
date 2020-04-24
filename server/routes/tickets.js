@@ -1,9 +1,9 @@
 const { Router } = require("express");
 
-const { createTicket } = require("../controllers/tickets");
+const { getTickets, createTicket } = require("../controllers/tickets");
 
 const router = Router({ mergeParams: true });
 
-router.route("/").post(createTicket);
+router.route("/").get(getTickets).post(createTicket);
 
 module.exports = router;
