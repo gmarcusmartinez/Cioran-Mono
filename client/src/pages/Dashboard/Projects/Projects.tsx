@@ -9,32 +9,28 @@ import { fetchProjects, Project } from "../../../store/actions/projects";
 interface ProjectsProps {
   fetchProjects: Function;
   projects: {
-    success: boolean;
+    loading: boolean;
     count: number;
     pagination: {};
-    data: Project[];
+    items: Project[];
   };
 }
 
 const Projects: React.FC<ProjectsProps> = ({ fetchProjects, projects }) => {
-  const [showAddProject, setShowAddProject] = React.useState(true);
+  const [showAddProject, setShowAddProject] = React.useState(false);
 
   React.useEffect(() => {
     fetchProjects();
   }, [fetchProjects]);
 
-  let list = projects.data
-    ? projects.data.map((p) => <ProjectItem key={p._id} item={p} />)
+  let list = projects.items
+    ? projects.items.map((p) => <ProjectItem key={p._id} item={p} />)
     : null;
 
   return (
     <Container>
       <AddProjectBtn onClick={() => setShowAddProject(!showAddProject)}>
-        {showAddProject ? (
-          <i className="fas fa-times"></i>
-        ) : (
-          <i className="fas fa-plus"></i>
-        )}
+        <i className={`fas fa-${showAddProject ? "times" : "plus"}`}></i>
       </AddProjectBtn>
       {showAddProject ? <AddProject /> : null}
       {list}

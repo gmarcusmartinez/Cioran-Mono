@@ -1,28 +1,35 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Overlay, Form, Btn, FormField } from "./style";
+import { addProject } from "../../../../store/actions";
 
 interface FormState {
   title: string;
 }
 
-const AddProjectForm = () => {
-  const [formState, setFormState] = React.useState<FormState>({
+interface IFormProps {
+  addProject: Function;
+}
+
+const AddProjectForm: React.FC<IFormProps> = ({ addProject }) => {
+  const [formData, setFormData] = React.useState<FormState>({
     title: "",
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormState({
-      ...formState,
+    setFormData({
+      ...formData,
       [name]: value,
     });
   };
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(formState);
+    addProject(formData);
+    setFormData({ title: "" });
   };
 
-  const { title } = formState;
+  const { title } = formData;
   return (
     <Overlay>
       <Form onSubmit={handleSubmit}>
@@ -42,4 +49,4 @@ const AddProjectForm = () => {
   );
 };
 
-export default AddProjectForm;
+export default connect(null, { addProject })(AddProjectForm);
