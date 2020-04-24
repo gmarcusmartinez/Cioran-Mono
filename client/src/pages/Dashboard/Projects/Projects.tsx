@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import AddProject from "./AddProject/AddProject";
+import AddProject from "./AddProject/AddProjectForm";
 import { Container, AddProjectBtn } from "./style";
 import ProjectItem from "./Project-Item/ProjectItem";
 import { fetchProjects, Project } from "../../../store/actions/projects";
@@ -17,7 +17,7 @@ interface ProjectsProps {
 }
 
 const Projects: React.FC<ProjectsProps> = ({ fetchProjects, projects }) => {
-  const [showAddProject, setShowAddProject] = React.useState(false);
+  const [showAddProject, setShowAddProject] = React.useState(true);
 
   React.useEffect(() => {
     fetchProjects();

@@ -21,8 +21,8 @@ export const AddProjectBtn = styled.button`
   ${({ theme }) => css`
     height: 40px;
     width: 40px;
-    border: 2px solid #19256d;
-    background-color: #19256d;
+    border: 2px solid #008080;
+    background-color: #008080;
     position: absolute;
     top: -100px;
     right: -16px;
@@ -37,10 +37,10 @@ export const AddProjectBtn = styled.button`
     }
     &:hover {
       background-color: #fff;
-      color: #19256d;
+      color: #008080;
       transition: 0.25s ease-in;
       i {
-        color: #19256d;
+        color: #008080;
         transition: 0.25s ease-in;
       }
     }
