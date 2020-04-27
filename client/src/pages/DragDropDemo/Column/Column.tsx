@@ -26,7 +26,7 @@ const Column: React.FC<ColumnProps> = ({ items, id }) => {
             }}
           >
             {items.map((item, index) => {
-              return <Item item={item} index={index}></Item>;
+              return <Item item={item} index={index} key={index}></Item>;
             })}
             {provided.placeholder}
           </Wrapper>

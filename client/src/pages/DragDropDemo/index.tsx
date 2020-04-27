@@ -1,51 +1,57 @@
 import React from "react";
-import { v4 } from "uuid";
-import { Container } from "./styles";
-import Column from "./Column/Column";
 import { DragDropContext } from "react-beautiful-dnd";
 
-const mockItems = [
-  { id: v4(), content: "First Task" },
-  { id: v4(), content: "Second Task" },
-  { id: v4(), content: "Third Task" },
-  { id: v4(), content: "Fourth Task" },
-  { id: v4(), content: "Fifth Task" },
-  { id: v4(), content: "Sixth Task" },
-];
+import { Container } from "./styles";
+import Column from "./Column/Column";
+import { cols } from "./data";
 
-interface ICol {}
+const onDragEnd = (result: any, columns: any, setColumns: any) => {
+  if (!result.destination) return;
+  const { source, destination } = result;
+  if (source.droppableId !== destination.droppableId) {
+    const sourceColumn = columns[source.droppableId];
+    const destinationColumn = columns[destination.droppableId];
 
-const cols = {
-  [v4()]: {
-    name: "Todo",
-    items: mockItems,
-  },
-  [v4()]: {
-    name: "In Progress",
-    items: [],
-  },
-  [v4()]: {
-    name: "Done",
-    items: [],
-  },
+    const sourceItems = [...sourceColumn.items];
+    const destinationItems = [...destinationColumn.items];
+
+    const [removed] = sourceItems.splice(source.index, 1);
+    destinationItems.splice(destination.index, 0, removed);
+    setColumns({
+      ...columns,
+      [source.droppableId]: {
+        ...sourceColumn,
+        items: sourceItems,
+      },
+      [destination.droppableId]: {
+        ...destinationColumn,
+        items: destinationItems,
+      },
+    });
+  } else {
+    const column = columns[source.droppableId];
+    const copiedItems = [...column.items];
+    const [removed] = copiedItems.splice(source.index, 1);
+    copiedItems.splice(destination.index, 0, removed);
+    setColumns({
+      ...columns,
+      [source.droppableId]: {
+        ...column,
+        items: copiedItems,
+      },
+    });
+  }
 };
-
-const onDragEnd = (result: any) => {
-  console.log(result);
-};
-
 const Demo = () => {
   const [columns, setColumns] = React.useState(cols);
 
   return (
     <Container>
-      <DragDropContext onDragEnd={(result) => onDragEnd(result)}>
+      <DragDropContext
+        onDragEnd={(result) => onDragEnd(result, columns, setColumns)}
+      >
         {Object.entries(columns).map(([id, column]) => {
-          return (
-            <>
-              <Column items={column.items} id={id} key={id}></Column>
-            </>
-          );
+          return <Column items={column.items} id={id} key={id}></Column>;
         })}
       </DragDropContext>
     </Container>

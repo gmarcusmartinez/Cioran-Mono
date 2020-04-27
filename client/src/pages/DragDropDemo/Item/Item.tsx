@@ -22,7 +22,9 @@ const Item: React.FC<ItemProps> = ({ item, index }) => {
               backgroundColor: snapshot.isDragging ? "#263B4A" : "#456C86",
               ...provided.draggableProps.style,
             }}
-          ></Wrapper>
+          >
+            {item.content}
+          </Wrapper>
         );
       }}
     </Draggable>
