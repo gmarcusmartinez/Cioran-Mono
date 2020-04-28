@@ -1,9 +1,9 @@
-import React from "react";
-import { DragDropContext } from "react-beautiful-dnd";
+import React from 'react';
+import { DragDropContext } from 'react-beautiful-dnd';
 
-import { Container } from "./styles";
-import Column from "./Column/Column";
-import { cols } from "./data";
+import { Container } from './styles';
+import Column from './Column/Column';
+import { cols } from './data';
 
 const onDragEnd = (result: any, columns: any, setColumns: any) => {
   if (!result.destination) return;
@@ -42,6 +42,7 @@ const onDragEnd = (result: any, columns: any, setColumns: any) => {
     });
   }
 };
+
 const Demo = () => {
   const [columns, setColumns] = React.useState(cols);
 
