@@ -23,17 +23,14 @@ interface ProjectProps {
 
 const Project: React.FC<ProjectProps> = ({ fetchSprints, match, sprints }) => {
   const projectId = match.params.id;
-
   React.useEffect(() => {
     fetchSprints(projectId);
   }, [fetchSprints, projectId]);
 
-  console.log(sprints);
-
   return (
     <div className='projects-wrapper'>
       <Sidebar width={100} bg={'#66b2b2'} />
-      <SprintSideBar />
+      <SprintSideBar sprintArr={sprints.items} />
       <div className='sprint-content'></div>
     </div>
   );
