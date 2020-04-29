@@ -1,10 +1,10 @@
-import React from "react";
-import { connect } from "react-redux";
+import React from 'react';
+import { connect } from 'react-redux';
 
-import AddProject from "./AddProject/AddProjectForm";
-import { Container, AddProjectBtn } from "./style";
-import ProjectItem from "./Project-Item/ProjectItem";
-import { fetchProjects, Project } from "../../../store/actions/projects";
+import AddProject from './AddProject/AddProjectForm';
+import { Container, AddProjectBtn } from './style';
+import ProjectItem from './Project-Item/ProjectItem';
+import { fetchProjects, Project } from '../../../store/actions/projects';
 
 interface ProjectsProps {
   fetchProjects: Function;
@@ -30,7 +30,7 @@ const Projects: React.FC<ProjectsProps> = ({ fetchProjects, projects }) => {
   return (
     <Container>
       <AddProjectBtn onClick={() => setShowAddProject(!showAddProject)}>
-        <i className={`fas fa-${showAddProject ? "times" : "plus"}`}></i>
+        <i className={`fas fa-${showAddProject ? 'times' : 'plus'}`}></i>
       </AddProjectBtn>
       {showAddProject ? <AddProject /> : null}
       {list}

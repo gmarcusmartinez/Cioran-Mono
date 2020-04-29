@@ -1,6 +1,6 @@
-import axios from "axios";
-import { Dispatch } from "redux";
-import { ActionTypes } from "./types";
+import axios from 'axios';
+import { Dispatch } from 'redux';
+import { ActionTypes } from './types';
 
 export interface Project {
   _id: string;
@@ -22,7 +22,7 @@ export interface AddProjectAction {
 }
 
 export const fetchProjects = () => async (dispatch: Dispatch) => {
-  const res = await axios.get("/api/projects");
+  const res = await axios.get('/api/projects');
   dispatch<FetchProjectsAction>({
     type: ActionTypes.FETCH_PROJECTS,
     payload: res.data,
@@ -31,7 +31,7 @@ export const fetchProjects = () => async (dispatch: Dispatch) => {
 
 const config = {
   headers: {
-    "Content-Type": "application/json",
+    'Content-Type': 'application/json',
   },
 };
 interface IFormData {
@@ -40,7 +40,7 @@ interface IFormData {
 export const addProject = (formData: IFormData) => async (
   dispatch: Dispatch
 ) => {
-  const res = await axios.post("/api/projects", formData, config);
+  const res = await axios.post('/api/projects', formData, config);
   dispatch<AddProjectAction>({
     type: ActionTypes.ADD_PROJECT,
     payload: res.data,

@@ -8,7 +8,7 @@ const App = () => {
   return (
     <Switch>
       <Route path='/dashboard' component={Dashboard} />
-      <Route path='/' component={Project} />
+      <Route path='/project/:id' component={Project} />
     </Switch>
   );
 };
