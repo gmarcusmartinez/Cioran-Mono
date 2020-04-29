@@ -1,5 +1,5 @@
-.sprints-wrapper {
-  width: 240px;
+.projects-wrapper {
   height: 100%;
-  box-shadow: 2px 2px 2px 2px #c3c3c3;
+  width: 100%;
+  display: flex;
 }

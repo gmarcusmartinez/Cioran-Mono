@@ -9,9 +9,7 @@ const GlobalStyle = createGlobalStyle`
     Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
   html,body, #root {
-    background-color: #fff;
-    height:100%;
-    
+    height:100%; 
   }
 `;
 

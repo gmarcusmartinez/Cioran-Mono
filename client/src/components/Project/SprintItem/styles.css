@@ -1,0 +1,16 @@
+.wrapper {
+  border: 2px solid #c3c3c3;
+  cursor: pointer;
+  height: 64px;
+  margin: 1px;
+  margin-left: 1%;
+  width: 98%;
+}
+.title {
+  font-size: 12px;
+  text-align: center;
+  color: #888;
+  margin-top: 8px;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
