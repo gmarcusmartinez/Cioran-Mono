@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import './styles.css';
 import Sidebar from '../../components/common/SideBar';
 import SprintSideBar from '../../components/Project/SprintSideBar/SprintSideBar';
+import SprintConsole from '../../components/Project/SprintConsole/SprintConsole';
 import { fetchSprints, Sprint } from '../../store/actions';
 
 interface ProjectProps {
@@ -29,9 +30,9 @@ const Project: React.FC<ProjectProps> = ({ fetchSprints, match, sprints }) => {
 
   return (
     <div className='projects-wrapper'>
-      <Sidebar width={100} bg={'#66b2b2'} />
+      <Sidebar width={80} bg={'#66b2b2'} />
       <SprintSideBar sprintArr={sprints.items} />
-      <div className='sprint-content'></div>
+      <SprintConsole />
     </div>
   );
 };
