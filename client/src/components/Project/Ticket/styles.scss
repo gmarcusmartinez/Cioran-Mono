@@ -1,0 +1,17 @@
+.ticket {
+  height: 32px;
+  display: grid;
+  grid-template-columns: 40% 10% 20% 15% 15%;
+  .t-item {
+    align-items: center;
+    background-color: #f4f4f4;
+    display: flex;
+    font-size: 14px;
+    justify-content: center;
+    margin: 0 1px;
+    text-align: center;
+    &:last-child {
+      color: #008880;
+    }
+  }
+}

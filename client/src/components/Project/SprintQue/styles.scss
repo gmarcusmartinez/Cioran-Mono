@@ -1,9 +1,7 @@
 .sprint-que {
-  background-color: #f4f4f4;
   margin: 0.5rem 1rem;
   display: flex;
   flex-direction: column;
-
   .sq-title {
     background-color: #008080;
     height: 48px;
@@ -21,6 +19,17 @@
       color: #fff;
       font-size: 14px;
       letter-spacing: 0.1rem;
+    }
+  }
+  .ticket-table {
+    display: grid;
+    grid-template-columns: 40% 10% 20% 15% 15%;
+    th {
+      color: #008080;
+      border: 1px 1px 1px 0 solid #c3c3c3;
+      padding: 9px;
+      font-size: 14px;
+      text-align: center;
     }
   }
 }
