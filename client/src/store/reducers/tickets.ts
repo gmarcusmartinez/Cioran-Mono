@@ -7,11 +7,12 @@ const initialState = {
   items: [],
 };
 
-export const sprints = (state = initialState, action: Action) => {
+export const tickets = (state = initialState, action: Action) => {
   switch (action.type) {
-    case ActionTypes.FETCH_SPRINTS:
+    case ActionTypes.FETCH_TICKETS:
       return {
         ...state,
+        loading: false,
         count: action.payload.count,
         items: action.payload.data,
       };

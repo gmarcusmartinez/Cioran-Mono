@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './styles.scss';
 import Ticket from '../Ticket/Ticket';
 import { Sprint } from '../../../store/actions';
@@ -11,10 +12,6 @@ interface SprintQueProps {
 }
 
 const SprintQue: React.FC<SprintQueProps> = ({ selectedSprint }) => {
-  React.useEffect(() => {
-    if (selectedSprint) console.log(selectedSprint._id);
-  }, [selectedSprint]);
-
   return (
     <div className='sprint-que'>
       <div className='sq-title'>
@@ -39,4 +36,4 @@ const SprintQue: React.FC<SprintQueProps> = ({ selectedSprint }) => {
   );
 };
 
-export default SprintQue;
+export default connect(null, {})(SprintQue);

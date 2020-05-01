@@ -1,15 +1,22 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import './styles.css';
-import { Sprint } from '../../../store/actions';
+import { Sprint, fetchTickets } from '../../../store/actions';
 
 interface SprintItemProps {
   item: Sprint;
   setSelectedSprint: Function;
+  fetchTickets: Function;
 }
 
-const SprintItem: React.FC<SprintItemProps> = ({ item, setSelectedSprint }) => {
+const SprintItem: React.FC<SprintItemProps> = ({
+  item,
+  setSelectedSprint,
+  fetchTickets,
+}) => {
   const onClick = () => {
     setSelectedSprint(item);
+    fetchTickets(item._id);
   };
   return (
     <div className='wrapper' onClick={onClick}>
@@ -18,4 +25,4 @@ const SprintItem: React.FC<SprintItemProps> = ({ item, setSelectedSprint }) => {
   );
 };
 
-export default SprintItem;
+export default connect(null, { fetchTickets })(SprintItem);

@@ -32,8 +32,6 @@ const Project: React.FC<ProjectProps> = ({ fetchSprints, match, sprints }) => {
     fetchSprints(projectId);
   }, [fetchSprints, projectId]);
 
-  const activeSprint = sprints.items.find((s) => s.isActive === true);
-
   return (
     <div className='projects-wrapper'>
       <Sidebar width={80} bg={'#FAB28B'} />
