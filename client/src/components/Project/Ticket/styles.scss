@@ -2,6 +2,7 @@
   height: 32px;
   display: grid;
   grid-template-columns: 40% 10% 20% 15% 15%;
+  margin-bottom: 2px;
   .t-item {
     align-items: center;
     background-color: #f4f4f4;
@@ -11,8 +12,25 @@
     justify-content: center;
     margin: 0 1px;
     text-align: center;
+    text-transform: capitalize;
     &:last-child {
       color: #fa8072;
+    }
+  }
+  td:first-child {
+    display: grid;
+    grid-template-columns: 4% 96%;
+    background-color: #f4f4f4;
+    font-size: 14px;
+    color: #666;
+    margin: 0 1px;
+    text-align: center;
+    text-transform: capitalize;
+    .ticket-bar {
+      background-color: #fa8072;
+    }
+    .ticket-title {
+      align-self: center;
     }
   }
 }

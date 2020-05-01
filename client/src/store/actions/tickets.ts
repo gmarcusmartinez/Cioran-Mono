@@ -3,6 +3,7 @@ import { Dispatch } from 'redux';
 import { ActionTypes } from './types';
 
 export interface ITicket {
+  _id: string;
   sprint: string;
   title: string;
   type: string;
