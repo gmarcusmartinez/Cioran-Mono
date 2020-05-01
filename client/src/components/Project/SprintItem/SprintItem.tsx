@@ -4,11 +4,15 @@ import { Sprint } from '../../../store/actions';
 
 interface SprintItemProps {
   item: Sprint;
+  setSelectedSprint: Function;
 }
 
-const SprintItem: React.FC<SprintItemProps> = ({ item }) => {
+const SprintItem: React.FC<SprintItemProps> = ({ item, setSelectedSprint }) => {
+  const onClick = () => {
+    setSelectedSprint(item);
+  };
   return (
-    <div className='wrapper'>
+    <div className='wrapper' onClick={onClick}>
       <div className='title'>{item.title}</div>
     </div>
   );

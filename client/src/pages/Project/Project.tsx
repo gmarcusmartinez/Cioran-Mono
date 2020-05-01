@@ -3,8 +3,10 @@ import { connect } from 'react-redux';
 
 import './styles.css';
 import Sidebar from '../../components/common/SideBar';
+import SprintQue from '../../components/Project/SprintQue/SprintQue';
 import SprintSideBar from '../../components/Project/SprintSideBar/SprintSideBar';
 import SprintConsole from '../../components/Project/SprintConsole/SprintConsole';
+
 import { fetchSprints, Sprint } from '../../store/actions';
 
 interface ProjectProps {
@@ -23,16 +25,25 @@ interface ProjectProps {
 }
 
 const Project: React.FC<ProjectProps> = ({ fetchSprints, match, sprints }) => {
+  const [selectedSprint, setSelectedSprint] = React.useState(null);
+
   const projectId = match.params.id;
   React.useEffect(() => {
     fetchSprints(projectId);
   }, [fetchSprints, projectId]);
 
+  const activeSprint = sprints.items.find((s) => s.isActive === true);
+
   return (
     <div className='projects-wrapper'>
-      <Sidebar width={80} bg={'#66b2b2'} />
-      <SprintSideBar sprintArr={sprints.items} />
-      <SprintConsole />
+      <Sidebar width={80} bg={'#FAB28B'} />
+      <SprintSideBar
+        sprintArr={sprints.items}
+        setSelectedSprint={setSelectedSprint}
+      />
+      <SprintConsole>
+        <SprintQue selectedSprint={selectedSprint} />
+      </SprintConsole>
     </div>
   );
 };

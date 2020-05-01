@@ -7,15 +7,25 @@ import { Sprint } from '../../../store/actions/';
 
 interface SprintSideBarProps {
   sprintArr: Sprint[];
+  setSelectedSprint: Function;
 }
 
-const SprintSideBar: React.FC<SprintSideBarProps> = ({ sprintArr }) => {
+const SprintSideBar: React.FC<SprintSideBarProps> = ({
+  sprintArr,
+  setSelectedSprint,
+}) => {
   let list = sprintArr
-    ? sprintArr.map((s) => <SprintItem key={s._id} item={s} />)
+    ? sprintArr.map((s) => (
+        <SprintItem
+          key={s._id}
+          item={s}
+          setSelectedSprint={setSelectedSprint}
+        />
+      ))
     : null;
 
   return (
-    <SideBar width={240} bg={'#fff'} boxShadow='2px 2px 2px #c3c3c3'>
+    <SideBar width={240} bg={'#fff'} boxShadow='1px 1px 1px #c3c3c3'>
       <h2>Sprints</h2>
       {list}
     </SideBar>

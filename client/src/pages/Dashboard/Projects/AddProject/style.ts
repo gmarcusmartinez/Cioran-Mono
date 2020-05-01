@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Overlay = styled.div`
   ${() => css`
@@ -23,11 +23,11 @@ export const Form = styled.form`
     display: flex;
     flex-direction: column;
     h3 {
-      color: #008080;
+      color: #fa8072;
       font-size: 22px;
       font-weight: 300;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
   `}
 `;
@@ -37,11 +37,11 @@ export const FormField = styled.div`
     width: 100%;
     margin: 2rem 0;
     label {
-      color: #008080;
+      color: #fa8072;
       font-size: 14px;
       font-weight: 400;
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-        Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen,
+        Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     }
     input {
       width: 100%;
@@ -63,7 +63,7 @@ export const FormField = styled.div`
 
 export const Btn = styled.button`
   ${() => css`
-    background-color: #008080;
+    background-color: #fa8072;
     color: #fff;
     width: 100px;
     height: 40px;

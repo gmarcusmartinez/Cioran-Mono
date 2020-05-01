@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styled, { css } from 'styled-components';
 
 export const Container = styled.div`
   ${() => css`
@@ -20,7 +20,7 @@ export const AddProjectBtn = styled.button`
   ${({ theme }) => css`
     height: 40px;
     width: 40px;
-    background-color: #008080;
+    background-color: #fa8072;
     position: absolute;
     top: -100px;
     right: -16px;
