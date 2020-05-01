@@ -2,7 +2,7 @@ import React from 'react';
 
 interface SideBarProps {
   width: number;
-  bg: string;
+  bg?: string;
   boxShadow?: string;
 }
 

@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import AddProject from './AddProject/AddProjectForm';
-import { Container, AddProjectBtn } from './style';
-import ProjectItem from './Project-Item/ProjectItem';
+import './styles.scss';
+import ProjectItem from '../ProjectItem/ProjectItem';
+import AddProjectForm from '../AddProjectForm/AddProjectForm';
 import { fetchProjects, Project } from '../../../store/actions/projects';
 
 interface ProjectsProps {
@@ -16,7 +16,10 @@ interface ProjectsProps {
   };
 }
 
-const Projects: React.FC<ProjectsProps> = ({ fetchProjects, projects }) => {
+const ProjectConsole: React.FC<ProjectsProps> = ({
+  fetchProjects,
+  projects,
+}) => {
   const [showAddProject, setShowAddProject] = React.useState(false);
 
   React.useEffect(() => {
@@ -28,17 +31,20 @@ const Projects: React.FC<ProjectsProps> = ({ fetchProjects, projects }) => {
     : null;
 
   return (
-    <Container>
-      <AddProjectBtn onClick={() => setShowAddProject(!showAddProject)}>
+    <div className='project-console'>
+      <div
+        className='add-project-btn'
+        onClick={() => setShowAddProject(!showAddProject)}
+      >
         <i className={`fas fa-${showAddProject ? 'times' : 'plus'}`}></i>
-      </AddProjectBtn>
-      {showAddProject ? <AddProject /> : null}
+      </div>
+      {showAddProject ? <AddProjectForm /> : null}
       {list}
-    </Container>
+    </div>
   );
 };
 const mapStateToProps = (state: any) => ({
   projects: state.projects,
 });
 
-export default connect(mapStateToProps, { fetchProjects })(Projects);
+export default connect(mapStateToProps, { fetchProjects })(ProjectConsole);

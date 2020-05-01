@@ -1,7 +1,7 @@
-import React from "react";
-import { connect } from "react-redux";
-import { Overlay, Form, Btn, FormField } from "./style";
-import { addProject } from "../../../../store/actions";
+import React from 'react';
+import './styles.scss';
+import { connect } from 'react-redux';
+import { addProject } from '../../../store/actions';
 
 interface FormState {
   title: string;
@@ -13,7 +13,7 @@ interface IFormProps {
 
 const AddProjectForm: React.FC<IFormProps> = ({ addProject }) => {
   const [formData, setFormData] = React.useState<FormState>({
-    title: "",
+    title: '',
   });
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -26,26 +26,26 @@ const AddProjectForm: React.FC<IFormProps> = ({ addProject }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     addProject(formData);
-    setFormData({ title: "" });
+    setFormData({ title: '' });
   };
 
   const { title } = formData;
   return (
-    <Overlay>
-      <Form onSubmit={handleSubmit}>
+    <div className='overlay'>
+      <form className='add-project-form' onSubmit={handleSubmit}>
         <h3>Add Project</h3>
-        <FormField>
+        <div className='form-field'>
           <label>Project Name</label>
           <input
-            type="text"
-            name="title"
+            type='text'
+            name='title'
             value={title}
             onChange={handleChange}
           />
-        </FormField>
-        <Btn>Submit</Btn>
-      </Form>
-    </Overlay>
+        </div>
+        <button className='btn'>Submit</button>
+      </form>
+    </div>
   );
 };
 

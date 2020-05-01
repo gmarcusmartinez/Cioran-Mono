@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import './styles.css';
 
-import Projects from './Projects/Projects';
+import ProjectConsole from '../../components/Dashboard/ProjectConsole/ProjectConsole';
 import DashSideBar from '../../components/Dashboard/DashSideBar/DashSideBar';
 
 const Dashboard = () => {
@@ -12,7 +12,7 @@ const Dashboard = () => {
       <DashSideBar />
       <div className='content'>
         <Switch>
-          <Route path='/dashboard/projects' component={Projects} />
+          <Route path='/dashboard/projects' component={ProjectConsole} />
         </Switch>
       </div>
     </div>
