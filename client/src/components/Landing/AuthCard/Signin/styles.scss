@@ -1,0 +1,33 @@
+.signin {
+  color: black;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 15% 15% 10% 15% 15% 15% 15%;
+
+  &__title {
+    font-size: 1.6rem;
+    text-align: center;
+    align-self: center;
+    color: $color-dark-gray;
+  }
+  .or-hr {
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    margin: 0 1rem;
+    hr {
+      border: none;
+      border-bottom: 0.1rem solid rgba($color-dark-gray, 0.25);
+      margin: 0.7rem 0;
+      flex: 1 0;
+      height: 0.1rem;
+    }
+    span {
+      color: rgba($color-dark-gray, 0.25);
+      margin: 0 0.8rem;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 1.2rem;
+    }
+  }
+}

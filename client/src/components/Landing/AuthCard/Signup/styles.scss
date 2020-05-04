@@ -1,0 +1,14 @@
+.signup {
+  color: $color-dark-gray;
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-rows: 25% 15% 15% 15% 15% 15%;
+
+  &__title {
+    font-size: 1.6rem;
+    text-align: center;
+    align-self: center;
+    color: $color-dark-gray;
+  }
+}

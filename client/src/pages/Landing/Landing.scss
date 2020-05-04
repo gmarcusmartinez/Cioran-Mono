@@ -1,10 +1,34 @@
 .landing {
   &__hero {
-    height: 85vh;
     background-image: linear-gradient(
       to right,
       rgba($color-primary, 0.8),
       rgba($color-light, 0.8)
     );
+    clip-path: polygon(0% 0, 100% 0, 100% 100%, 0 85%);
+    height: 85vh;
+
+    display: grid;
+    grid-template-rows: 12% 88%;
+    grid-template-columns: 50% 50%;
+    grid-gap: 1rem;
+    grid-template-areas:
+      'header header'
+      'display auth';
+    .hero__header {
+      grid-area: header;
+      border: 1px dashed $color-white;
+    }
+    .hero__display {
+      grid-area: display;
+      border: 1px dashed $color-white;
+    }
+    .hero__auth {
+      grid-area: auth;
+      border: 1px dashed $color-white;
+
+      display: flex;
+      justify-content: center;
+    }
   }
 }
