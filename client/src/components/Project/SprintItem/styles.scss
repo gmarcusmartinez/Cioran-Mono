@@ -1,0 +1,16 @@
+.sprint-item {
+  border: 0.1rem solid $color-primary-gray;
+  border-radius: 0.4rem;
+  height: 5.6rem;
+  margin: 0.1rem 0.2rem 0.7rem 0.2rem;
+  padding-top: 0.8rem;
+  margin-left: 5%;
+  width: 90%;
+  &__title {
+    color: $color-primary;
+    font-size: 1.2rem;
+    letter-spacing: 0.1rem;
+    text-align: center;
+    text-transform: uppercase;
+  }
+}

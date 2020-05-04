@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles.css';
 
 const SprintConsole: React.FC = ({ children }) => {
   return (

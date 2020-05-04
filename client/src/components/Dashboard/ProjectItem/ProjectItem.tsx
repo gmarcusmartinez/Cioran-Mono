@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles.css';
 import { Link } from 'react-router-dom';
 
 interface ProjectsItemProps {
@@ -13,8 +12,8 @@ interface ProjectsItemProps {
 const ProjectItem: React.FC<ProjectsItemProps> = ({ item }) => {
   return (
     <Link to={`/project/${item._id}`} style={{ textDecoration: 'none' }}>
-      <div className='project-wrapper'>
-        <div className='project-title'>{item.title}</div>
+      <div className='project'>
+        <div className='project__title'>{item.title}</div>
       </div>
     </Link>
   );

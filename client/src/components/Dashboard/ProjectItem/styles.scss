@@ -1,0 +1,20 @@
+.project-wrapper {
+  border: 0.1rem solid $color-primary-gray;
+  border-radius: 1.6rem;
+  cursor: pointer;
+  display: flex;
+  height: 15rem;
+  justify-content: center;
+  margin: 0 0.5rem;
+  padding: 1rem;
+  position: relative;
+  text-decoration: none;
+  width: 15rem;
+  &__title {
+    font-size: 1.6rem;
+    text-align: center;
+    font-family: 'Quicksand', sans-serif;
+    letter-spacing: 0.1rem;
+    color: $color-dark-gray;
+  }
+}

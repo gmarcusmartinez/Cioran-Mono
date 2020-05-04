@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './styles.css';
 import { Sprint, fetchTickets } from '../../../store/actions';
 
 interface SprintItemProps {
@@ -19,8 +18,8 @@ const SprintItem: React.FC<SprintItemProps> = ({
     fetchTickets(item._id);
   };
   return (
-    <div className='wrapper' onClick={onClick}>
-      <div className='title'>{item.title}</div>
+    <div className='sprint-item' onClick={onClick}>
+      <div className='sprint-item__title'>{item.title}</div>
     </div>
   );
 };

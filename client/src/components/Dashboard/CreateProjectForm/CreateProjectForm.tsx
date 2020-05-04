@@ -1,5 +1,4 @@
 import React from 'react';
-import './styles.scss';
 import { connect } from 'react-redux';
 import { addProject } from '../../../store/actions';
 
@@ -11,7 +10,7 @@ interface IFormProps {
   addProject: Function;
 }
 
-const AddProjectForm: React.FC<IFormProps> = ({ addProject }) => {
+const CreateProjectForm: React.FC<IFormProps> = ({ addProject }) => {
   const [formData, setFormData] = React.useState<FormState>({
     title: '',
   });
@@ -33,7 +32,7 @@ const AddProjectForm: React.FC<IFormProps> = ({ addProject }) => {
   return (
     <div className='overlay'>
       <form className='add-project-form' onSubmit={handleSubmit}>
-        <h3>Add Project</h3>
+        <h3>Create Project</h3>
         <div className='form-field'>
           <label>Project Name</label>
           <input
@@ -49,4 +48,4 @@ const AddProjectForm: React.FC<IFormProps> = ({ addProject }) => {
   );
 };
 
-export default connect(null, { addProject })(AddProjectForm);
+export default connect(null, { addProject })(CreateProjectForm);

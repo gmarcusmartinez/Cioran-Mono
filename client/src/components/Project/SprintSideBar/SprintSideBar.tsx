@@ -1,6 +1,5 @@
 import React from 'react';
 
-import './styles.css';
 import SideBar from '../../common/SideBar';
 import SprintItem from '../SprintItem/SprintItem';
 import { Sprint } from '../../../store/actions/';
@@ -25,7 +24,7 @@ const SprintSideBar: React.FC<SprintSideBarProps> = ({
     : null;
 
   return (
-    <SideBar width={240} bg={'#fff'} boxShadow='1px 1px 1px #c3c3c3'>
+    <SideBar width={220} bg={'$color-white'} boxShadow='1px 1px  #c3c3c3'>
       <h2>Sprints</h2>
       {list}
     </SideBar>

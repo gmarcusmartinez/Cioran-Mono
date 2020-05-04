@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import './styles.scss';
 import ProjectItem from '../ProjectItem/ProjectItem';
-import AddProjectForm from '../AddProjectForm/AddProjectForm';
+import CreateProjectBtn from '../CreateProjectBtn/CreateProjectBtn';
+import CreateProjectForm from '../CreateProjectForm/CreateProjectForm';
 import { fetchProjects, Project } from '../../../store/actions/projects';
 
 interface ProjectsProps {
@@ -32,13 +32,8 @@ const ProjectConsole: React.FC<ProjectsProps> = ({
 
   return (
     <div className='project-console'>
-      <div
-        className='add-project-btn'
-        onClick={() => setShowAddProject(!showAddProject)}
-      >
-        <i className={`fas fa-${showAddProject ? 'times' : 'plus'}`}></i>
-      </div>
-      {showAddProject ? <AddProjectForm /> : null}
+      {showAddProject ? <CreateProjectForm /> : null}
+      <CreateProjectBtn />
       {list}
     </div>
   );

@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import './styles.scss';
 import Ticket from '../Ticket/Ticket';
 import { Sprint, ITicket } from '../../../store/actions';
 

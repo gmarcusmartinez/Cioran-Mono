@@ -1,0 +1,19 @@
+@import 'base/base';
+@import 'base/typography';
+
+@import 'abstracts/variables';
+
+//Pages
+@import '../pages/Landing/Landing.scss';
+
+//Components
+@import '../components/Project/Ticket/styles';
+@import '../components/Project/SprintQue/styles';
+@import '../components/Project/SprintItem/styles';
+@import '../components/Project/SprintConsole/styles';
+@import '../components/Project/SprintSideBar/styles';
+
+@import '../components//Dashboard/CreateProjectBtn/styles';
+@import '../components//Dashboard/CreateProjectForm/styles';
+@import '../components//Dashboard/ProjectConsole/styles';
+@import '../components//Dashboard/ProjectItem/styles';

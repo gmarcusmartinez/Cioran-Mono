@@ -1,0 +1,10 @@
+.landing {
+  &__hero {
+    height: 85vh;
+    background-image: linear-gradient(
+      to right,
+      rgba($color-primary, 0.8),
+      rgba($color-light, 0.8)
+    );
+  }
+}
