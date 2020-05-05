@@ -1,10 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Modal from '../../common/Modal/Modal';
+import Modal from '../../common/Modal';
 import ProjectItem from '../ProjectItem/ProjectItem';
 import CreateProjectBtn from '../CreateProjectBtn/CreateProjectBtn';
-import CreateProjectForm from '../CreateProjectForm/CreateProjectForm';
 import { fetchProjects, Project } from '../../../store/actions/projects';
 
 interface ProjectsProps {
@@ -21,7 +20,7 @@ const ProjectConsole: React.FC<ProjectsProps> = ({
   fetchProjects,
   projects,
 }) => {
-  const [showAddProject, setShowAddProject] = React.useState(false);
+  const [showCreateProject, setShowCreateProject] = React.useState(false);
 
   React.useEffect(() => {
     fetchProjects();
@@ -33,11 +32,13 @@ const ProjectConsole: React.FC<ProjectsProps> = ({
 
   return (
     <div className='project-console'>
-      <div onClick={() => setShowAddProject(true)}>
+      <div onClick={() => setShowCreateProject(true)}>
         <CreateProjectBtn />
       </div>
       {list}
-      {showAddProject ? <Modal closeModal={setShowAddProject} /> : null}
+      {showCreateProject ? (
+        <Modal showModal={setShowCreateProject} title='Create Project' />
+      ) : null}
     </div>
   );
 };

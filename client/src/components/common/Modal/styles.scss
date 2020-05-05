@@ -1,5 +1,6 @@
 .modal {
   background-color: rgba(0, 0, 0, 0.8);
+
   height: 100vh;
   width: 100vw;
 
@@ -12,11 +13,30 @@
 
   opacity: 1;
 
-  &__content {
+  &__body {
     background-color: $color-white;
-    width: 50%;
+    width: 40%;
     height: 75%;
     border-radius: 0.4rem;
     transition: all 0.5s 0.2s;
+  }
+  &__header {
+    color: $color-primary-gray;
+    margin: 1rem 2rem;
+    padding: 0 0 1rem 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  &__title {
+    letter-spacing: 0.1rem;
+    font-weight: 400;
+    font-size: 2.1rem;
+  }
+  &__close {
+    font-size: 3rem;
+    align-self: flex-start;
+    cursor: pointer;
   }
 }

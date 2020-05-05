@@ -1,6 +1,7 @@
 import React from 'react';
 
 import SideBar from '../../common/SideBar';
+import Modal from '../../common/Modal';
 import SprintItem from '../SprintItem/SprintItem';
 import { Sprint } from '../../../store/actions/';
 
@@ -13,6 +14,8 @@ const SprintSideBar: React.FC<SprintSideBarProps> = ({
   sprintArr,
   setSelectedSprint,
 }) => {
+  const [showSprintManager, setShowSprintManager] = React.useState(false);
+
   let list = sprintArr
     ? sprintArr.map((s) => (
         <SprintItem
@@ -26,7 +29,11 @@ const SprintSideBar: React.FC<SprintSideBarProps> = ({
   return (
     <SideBar width={220} bg={'$color-white'} boxShadow='1px 1px  #c3c3c3'>
       <h2>Sprints</h2>
+      <button onClick={() => setShowSprintManager(true)}>Sprint Manager</button>
       {list}
+      {showSprintManager ? (
+        <Modal title='Sprint Manager' showModal={setShowSprintManager} />
+      ) : null}
     </SideBar>
   );
 };
