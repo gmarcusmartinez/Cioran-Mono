@@ -12,8 +12,8 @@ interface ProjectsItemProps {
 const ProjectItem: React.FC<ProjectsItemProps> = ({ item }) => {
   return (
     <Link to={`/project/${item._id}`} style={{ textDecoration: 'none' }}>
-      <div className='project'>
-        <div className='project__title'>{item.title}</div>
+      <div className='project-item'>
+        <div className='project-item__title'>{item.title}</div>
       </div>
     </Link>
   );

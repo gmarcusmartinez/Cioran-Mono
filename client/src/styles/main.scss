@@ -1,10 +1,11 @@
 @import 'base/base';
 @import 'base/typography';
+@import 'base/animations';
 
 @import 'abstracts/variables';
 
 //Pages
-@import '../pages/Landing/Landing.scss';
+@import '../pages/Landing/styles';
 
 //Components
 @import '../components/Project/Ticket/styles';
@@ -22,3 +23,6 @@
 @import '../components/Landing/AuthCard/Signup/styles.scss';
 @import '../components/Landing/AuthCard/Signin/styles.scss';
 @import '../components/Landing/AuthCard/Default/styles.scss';
+
+@import '../components/common/GoogleBtn/styles';
+@import '../components/common/Modal/styles';

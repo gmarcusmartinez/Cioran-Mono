@@ -11,11 +11,3 @@ const CreateProjectBtn = () => {
 };
 
 export default CreateProjectBtn;
-
-{
-  /* <div
-className='add-project-btn'
-onClick={() => setShowAddProject(!showAddProject)}
->
-</div> */
-}

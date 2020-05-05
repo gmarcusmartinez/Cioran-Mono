@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
+import Modal from '../../common/Modal/Modal';
 import ProjectItem from '../ProjectItem/ProjectItem';
 import CreateProjectBtn from '../CreateProjectBtn/CreateProjectBtn';
 import CreateProjectForm from '../CreateProjectForm/CreateProjectForm';
@@ -32,9 +33,11 @@ const ProjectConsole: React.FC<ProjectsProps> = ({
 
   return (
     <div className='project-console'>
-      {showAddProject ? <CreateProjectForm /> : null}
-      <CreateProjectBtn />
+      <div onClick={() => setShowAddProject(true)}>
+        <CreateProjectBtn />
+      </div>
       {list}
+      {showAddProject ? <Modal closeModal={setShowAddProject} /> : null}
     </div>
   );
 };

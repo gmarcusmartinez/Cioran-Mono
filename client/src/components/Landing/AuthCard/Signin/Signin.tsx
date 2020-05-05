@@ -1,5 +1,5 @@
 import React from 'react';
-import GoogleIcon from '../../../common/GoogleIcon';
+import GoogleBtn from '../../../common/GoogleBtn/GoogleBtn';
 
 interface SigninFormProps {
   setFormDisplay: Function;
@@ -11,17 +11,13 @@ const Signin: React.FunctionComponent<SigninFormProps> = ({
   return (
     <div className='signin'>
       <h2 className='signin__title'>Signin to your account</h2>
-      <button className='oauth-btn'>
-        <span>
-          <GoogleIcon />
-        </span>
-        Signin with Google
-      </button>
+      <GoogleBtn title='Signin' />
       <div className='or-hr'>
         <hr />
         <span>or</span>
         <hr />
       </div>
+
       <input type='email' className='auth-input' placeholder='Email' />
       <input type='password' className='auth-input' placeholder='Password' />
       <button className='app-theme-btn'>Signin</button>

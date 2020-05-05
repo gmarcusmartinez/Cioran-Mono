@@ -15,8 +15,8 @@ const Signup: React.FunctionComponent<SignupFormProps> = ({
       <input type='password' className='auth-input' placeholder='Password' />
       <button className='app-theme-btn'>Get Started!</button>
       <div className='switch'>
-        Already signedup?
-        <span onClick={() => setFormDisplay('RENDER_LOGIN')}>Login</span>
+        Already have an account?
+        <span onClick={() => setFormDisplay('RENDER_LOGIN')}>Signin</span>
       </div>
     </div>
   );

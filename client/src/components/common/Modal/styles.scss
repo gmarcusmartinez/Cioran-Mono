@@ -1,0 +1,22 @@
+.modal {
+  background-color: rgba(0, 0, 0, 0.8);
+  height: 100vh;
+  width: 100vw;
+
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  opacity: 1;
+
+  &__content {
+    background-color: $color-white;
+    width: 50%;
+    height: 75%;
+    border-radius: 0.4rem;
+    transition: all 0.5s 0.2s;
+  }
+}

@@ -2,11 +2,13 @@
   height: 42rem;
   width: 32rem;
   background-color: $color-white;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+
   border-radius: 0.6rem;
   margin-top: 2rem;
   &:hover {
-    transform: translateY(1px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    transform: translateY(2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
   }
 }
 
@@ -27,50 +29,21 @@
 }
 
 .app-theme-btn {
-  border: none;
-  color: $color-white;
-  border-radius: 0.4rem;
-  border-color: $color-light;
-  border: 0.2rem solid transparent;
   background-color: $color-accent-primary;
+  border: 0.2rem solid transparent;
+  border-radius: 0.4rem;
+  color: $color-white;
+  cursor: pointer;
 
   font-size: 14px;
   font-weight: 500;
 
-  width: 84%;
-  margin: 0 8%;
   height: 4rem;
+  margin: 0 8%;
+  width: 84%;
+
   &:hover {
     background-color: $color-accent-light;
-    transition: 0.25s ease-in-out;
-  }
-}
-
-.oauth-btn {
-  border: none;
-  border-radius: 0.4rem;
-  background-color: $color-white;
-  border: 0.2rem solid transparent;
-  border-color: rgba($color-primary-gray, 0.15);
-
-  font-size: 1.4rem;
-  font-weight: 500;
-  color: rgba(14, 19, 24, 0.7);
-
-  width: 84%;
-  margin: 0 8%;
-  height: 4.2rem;
-  align-self: center;
-  position: relative;
-
-  &:hover {
-    border-color: rgba($color-primary-gray, 0.35);
-    transition: 0.25s ease-out;
-  }
-  span {
-    position: absolute;
-    left: 1rem;
-    top: 0.8rem;
   }
 }
 

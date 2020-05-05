@@ -11,6 +11,7 @@ const Landing = () => {
           <AuthCard />
         </div>
       </div>
+      <section className='landing__about'></section>
     </div>
   );
 };
