@@ -1,0 +1,28 @@
+.dashboard-wrapper {
+  height: 100vh;
+  display: grid;
+
+  grid-template-rows: 5% 95%;
+  grid-template-columns: 5% 15% 40% 40%;
+
+  grid-template-areas:
+    'head head head head'
+    'slim side content content';
+}
+
+.dashboard-header-frame {
+  grid-area: head;
+  background-color: var(--color-primary-light);
+}
+.dashboard-slim-sidebar {
+  grid-area: slim;
+  background-color: var(--color-primary-light);
+}
+.dashboard-sidebar {
+  grid-area: side;
+}
+.content {
+  grid-area: content;
+  margin: 2rem 4rem;
+  max-width: 65rem;
+}

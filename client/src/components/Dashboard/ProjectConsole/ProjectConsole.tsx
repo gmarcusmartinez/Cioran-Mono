@@ -22,7 +22,6 @@ const ProjectConsole: React.FC<ProjectsProps> = ({
   projects,
 }) => {
   const [showCreateProject, setShowCreateProject] = React.useState(false);
-
   React.useEffect(() => {
     fetchProjects();
   }, [fetchProjects]);
@@ -31,17 +30,25 @@ const ProjectConsole: React.FC<ProjectsProps> = ({
     ? projects.items.map((p) => <ProjectItem key={p._id} item={p} />)
     : null;
 
+  const renderModal = () => {
+    return showCreateProject ? (
+      <Modal showModal={setShowCreateProject} title='Create Project'>
+        <CreateProjectForm />
+      </Modal>
+    ) : null;
+  };
   return (
     <div className='project-console'>
-      <div onClick={() => setShowCreateProject(true)}>
-        <CreateProjectBtn />
+      <div className='project-console__title'>My Projects</div>
+      <div
+        className='polygon-border-bottom-primary-light'
+        style={{ margin: '2rem 0' }}
+      ></div>
+      <div className='project-list'>
+        <CreateProjectBtn showModal={setShowCreateProject} />
+        {list}
       </div>
-      {list}
-      {showCreateProject ? (
-        <Modal showModal={setShowCreateProject} title='Create Project'>
-          <CreateProjectForm />
-        </Modal>
-      ) : null}
+      {renderModal()}
     </div>
   );
 };

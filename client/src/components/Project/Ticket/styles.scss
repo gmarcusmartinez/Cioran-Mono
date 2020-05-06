@@ -5,7 +5,7 @@
   margin-bottom: 0.2rem;
   .t-item {
     align-items: center;
-    background-color: var(--color-grey-dark);
+    background-color: var(--color-grey-light);
 
     display: flex;
     font-size: 1.4rem;
@@ -29,7 +29,7 @@
     text-align: center;
     text-transform: capitalize;
     .ticket-bar {
-      background-color: var(--color-grey-light);
+      background-color: var(--color-primary);
     }
     .ticket-title {
       align-self: center;

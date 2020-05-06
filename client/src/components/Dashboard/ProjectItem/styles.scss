@@ -1,24 +1,4 @@
 .project-item {
   border: 0.1rem solid var(--color-grey-medium);
-  border-radius: 1.6rem;
-  cursor: pointer;
-  display: flex;
-  height: 15rem;
-  justify-content: center;
-  margin: 0 0.5rem;
-  padding: 1rem;
-  position: relative;
-  text-decoration: none;
-  width: 15rem;
-  &__title {
-    font-size: 1.6rem;
-    text-align: center;
-    font-family: 'Quicksand', sans-serif;
-    letter-spacing: 0.1rem;
-    color: var(--color-grey-dark);
-  }
-  &:hover {
-    transform: translateY(2px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
-  }
+  @include projectItem;
 }

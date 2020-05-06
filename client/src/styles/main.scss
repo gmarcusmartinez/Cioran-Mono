@@ -3,10 +3,13 @@
 @import 'base/animations';
 
 @import 'abstracts/variables';
+@import 'abstracts/mixins';
 @import 'components/btn';
 
 //Pages
 @import '../pages/Landing/styles';
+@import '../pages/Project/styles';
+@import '../pages/Dashboard/styles';
 
 //Components
 @import '../components/Project/Ticket/styles';
@@ -19,6 +22,7 @@
 @import '../components/Dashboard/CreateProjectBtn/styles';
 @import '../components/Dashboard/ProjectConsole/styles';
 @import '../components/Dashboard/ProjectItem/styles';
+@import '../components/Dashboard/DashSideBar/styles';
 
 @import '../components/Landing/AuthCard/styles.scss';
 @import '../components/Landing/AuthCard/Signup/styles.scss';
@@ -27,3 +31,4 @@
 
 @import '../components/common/GoogleBtn/styles';
 @import '../components/common/Modal/styles';
+@import '../components/common/Sidebar/styles';

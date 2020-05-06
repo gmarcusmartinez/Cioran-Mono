@@ -1,9 +1,12 @@
 import React from 'react';
-import './styles.scss';
 
-const CreateProjectBtn = () => {
+interface CreateProjectBtnProps {
+  showModal: Function;
+}
+
+const CreateProjectBtn: React.FC<CreateProjectBtnProps> = ({ showModal }) => {
   return (
-    <div className='create-project-btn'>
+    <div className='create-project-btn' onClick={() => showModal(true)}>
       <div className='plus'>+</div>
       <p>Create Project</p>
     </div>

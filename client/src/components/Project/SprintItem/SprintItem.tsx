@@ -18,9 +18,9 @@ const SprintItem: React.FC<SprintItemProps> = ({
     fetchTickets(item._id);
   };
   return (
-    <div className='sprint-item' onClick={onClick}>
-      <div className='sprint-item__title'>{item.title}</div>
-    </div>
+    <button className='sprint-item btn-white' onClick={onClick}>
+      {item.title}
+    </button>
   );
 };
 

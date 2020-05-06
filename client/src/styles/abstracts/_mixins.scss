@@ -1,0 +1,36 @@
+@mixin btn {
+  border: none;
+  border-radius: 0.4rem;
+  color: var(--color-white);
+  cursor: pointer;
+  height: 4rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  outline: none;
+}
+
+@mixin projectItem {
+  border-radius: 1.6rem;
+  cursor: pointer;
+
+  height: 15rem;
+  width: 15rem;
+
+  display: flex;
+  justify-content: center;
+  position: relative;
+
+  margin: 0.5rem;
+  padding: 1rem;
+  text-decoration: none;
+  &__title {
+    font-size: 1.6rem;
+    text-align: center;
+    letter-spacing: 0.1rem;
+    color: var(--color-grey-dark);
+  }
+  &:hover {
+    transform: translateY(2px);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+}

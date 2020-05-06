@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import './styles.css';
-import Sidebar from '../../components/common/SideBar';
+import SideBar from '../../components/common/SideBar';
 import SprintQue from '../../components/Project/SprintQue/SprintQue';
 import SprintSideBar from '../../components/Project/SprintSideBar/SprintSideBar';
 import SprintConsole from '../../components/Project/SprintConsole/SprintConsole';
@@ -34,7 +33,7 @@ const Project: React.FC<ProjectProps> = ({ fetchSprints, match, sprints }) => {
 
   return (
     <div className='projects-wrapper'>
-      <Sidebar width={80} bg={'#FAB28B'} />
+      <SideBar width={80} bg={'#FAB28B'} />
       <SprintSideBar
         sprintArr={sprints.items}
         setSelectedSprint={setSelectedSprint}

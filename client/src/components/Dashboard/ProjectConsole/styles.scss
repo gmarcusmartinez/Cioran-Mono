@@ -1,12 +1,23 @@
 .project-console {
-  height: 100%;
-  max-width: 90rem;
   display: flex;
+  flex-direction: column;
   flex-wrap: wrap;
-  margin-left: 10rem;
 
-  @media (min-width: 744px) {
-    max-height: 50rem;
-    margin-top: 10rem;
+  &__title {
+    color: var(--color-grey-medium);
+    font-size: 2.2rem;
+    letter-spacing: 0.1rem;
+    margin: 1rem 0 0 2rem;
   }
+}
+.project-list {
+  display: flex;
+  flex-direction: row;
+
+  flex-wrap: wrap;
+}
+.polygon-border-bottom-primary-light {
+  background-color: var(--color-primary-light);
+  height: 2.2rem;
+  clip-path: polygon(2% 0, 100% 0, 98% 100%, 0 100%);
 }

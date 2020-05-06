@@ -1,10 +1,21 @@
 import React from 'react';
-import SideBar from '../../common/SideBar';
+import { NavLink } from 'react-router-dom';
 
-const DashSideBar = () => {
-  return (
-    <SideBar width={260} bg={'#fff'} boxShadow='1px 1px 1px #c3c3c3'></SideBar>
-  );
+interface IDashNavLink {
+  text: string;
+  to: string;
+}
+interface DashSideBarProps {
+  links: IDashNavLink[];
+}
+
+const DashSideBar: React.FC<DashSideBarProps> = ({ links }) => {
+  let list = links.map((l) => (
+    <NavLink to={l.to} className='dashboard-nav-link'>
+      {l.text}
+    </NavLink>
+  ));
+  return <div className='dashboard-sidebar'>{list}</div>;
 };
 
 export default DashSideBar;
