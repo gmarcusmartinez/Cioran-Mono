@@ -3,6 +3,7 @@
 @import 'base/animations';
 
 @import 'abstracts/variables';
+@import 'components/btn';
 
 //Pages
 @import '../pages/Landing/styles';
@@ -14,9 +15,10 @@
 @import '../components/Project/SprintConsole/styles';
 @import '../components/Project/SprintSideBar/styles';
 
-@import '../components//Dashboard/CreateProjectBtn/styles';
-@import '../components//Dashboard/ProjectConsole/styles';
-@import '../components//Dashboard/ProjectItem/styles';
+@import '../components/Dashboard/CreateProjectForm/styles';
+@import '../components/Dashboard/CreateProjectBtn/styles';
+@import '../components/Dashboard/ProjectConsole/styles';
+@import '../components/Dashboard/ProjectItem/styles';
 
 @import '../components/Landing/AuthCard/styles.scss';
 @import '../components/Landing/AuthCard/Signup/styles.scss';

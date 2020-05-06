@@ -13,7 +13,7 @@ const Signup: React.FunctionComponent<SignupFormProps> = ({
       <input type='text' className='auth-input' placeholder='Name' />
       <input type='email' className='auth-input' placeholder='Email' />
       <input type='password' className='auth-input' placeholder='Password' />
-      <button className='app-theme-btn'>Get Started!</button>
+      <button className='signup-btn btn-accent'>Get Started!</button>
       <div className='switch'>
         Already have an account?
         <span onClick={() => setFormDisplay('RENDER_LOGIN')}>Signin</span>

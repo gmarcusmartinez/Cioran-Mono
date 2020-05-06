@@ -1,4 +1,4 @@
-import { FetchProjectsAction, AddProjectAction } from './projects';
+import { FetchProjectsAction, CreateProjectAction } from './projects';
 import { FetchSprintssAction } from './sprints';
 import { FetchTicketsAction } from './tickets';
 
@@ -10,6 +10,6 @@ export enum ActionTypes {
 }
 export type Action =
   | FetchProjectsAction
-  | AddProjectAction
+  | CreateProjectAction
   | FetchSprintssAction
   | FetchTicketsAction;

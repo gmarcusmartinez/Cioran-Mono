@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   .sq-title {
-    background-color: $color-primary;
+    background-color: var(--color-primary);
     height: 4.8rem;
     clip-path: polygon(2% 0, 100% 0, 98% 100%, 0 100%);
 
@@ -12,13 +12,13 @@
     flex-direction: column;
     justify-content: center;
     h3 {
-      color: $color-white;
+      color: var(--color-white);
       font-weight: 300;
       letter-spacing: 0.2rem;
       font-size: 1.8rem;
     }
     p {
-      color: $color-white;
+      color: var(--color-white);
       font-size: 1.4rem;
       letter-spacing: 0.1rem;
     }
@@ -27,8 +27,8 @@
     display: grid;
     grid-template-columns: 40% 10% 20% 15% 15%;
     th {
-      color: $color-primary;
-      border: 0.1rem 0.1rem 0.1rem 0 solid $color-primary-gray;
+      color: var(--color-primary);
+      border: 0.1rem 0.1rem 0.1rem 0 solid var(--color-grey-medium);
       padding: 0.9rem;
       font-size: 1.4rem;
       text-align: center;

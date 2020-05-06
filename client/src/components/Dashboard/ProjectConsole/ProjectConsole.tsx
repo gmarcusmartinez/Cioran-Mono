@@ -5,6 +5,7 @@ import Modal from '../../common/Modal';
 import ProjectItem from '../ProjectItem/ProjectItem';
 import CreateProjectBtn from '../CreateProjectBtn/CreateProjectBtn';
 import { fetchProjects, Project } from '../../../store/actions/projects';
+import CreateProjectForm from '../CreateProjectForm/CreateProjectForm';
 
 interface ProjectsProps {
   fetchProjects: Function;
@@ -37,7 +38,9 @@ const ProjectConsole: React.FC<ProjectsProps> = ({
       </div>
       {list}
       {showCreateProject ? (
-        <Modal showModal={setShowCreateProject} title='Create Project' />
+        <Modal showModal={setShowCreateProject} title='Create Project'>
+          <CreateProjectForm />
+        </Modal>
       ) : null}
     </div>
   );

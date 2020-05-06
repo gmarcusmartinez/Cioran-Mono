@@ -1,9 +1,9 @@
 .oauth-btn {
   border: none;
   border-radius: 0.4rem;
-  background-color: $color-white;
+  background-color: var(--color-white);
   border: 0.2rem solid transparent;
-  border-color: rgba($color-primary-gray, 0.15);
+  border-color: var(--color-grey-light);
 
   font-size: 1.4rem;
   font-weight: 500;
@@ -16,7 +16,7 @@
   position: relative;
 
   &:hover {
-    border-color: rgba($color-primary-gray, 0.35);
+    border-color: var(--color-grey-medium);
     transition: 0.25s ease-out;
   }
   span {

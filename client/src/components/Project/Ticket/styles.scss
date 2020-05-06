@@ -5,29 +5,31 @@
   margin-bottom: 0.2rem;
   .t-item {
     align-items: center;
-    background-color: $color-light-gray;
+    background-color: var(--color-grey-dark);
+
     display: flex;
     font-size: 1.4rem;
-    color: $color-dark-gray;
+    color: var(--color-grey-dark);
     justify-content: center;
     margin: 0 0.1rem;
     text-align: center;
     text-transform: capitalize;
     &:last-child {
-      color: $color-primary;
+      color: var(--color-primary);
     }
   }
   td:first-child {
     display: grid;
     grid-template-columns: 4% 96%;
-    background-color: $color-light-gray;
+    background-color: var(--color-grey-light);
+
     font-size: 1.4rem;
-    color: $color-dark-gray;
+    color: var(--color-grey-dark);
     margin: 0 0.1rem;
     text-align: center;
     text-transform: capitalize;
     .ticket-bar {
-      background-color: $color-light;
+      background-color: var(--color-grey-light);
     }
     .ticket-title {
       align-self: center;

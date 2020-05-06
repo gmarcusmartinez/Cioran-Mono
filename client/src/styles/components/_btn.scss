@@ -1,0 +1,14 @@
+.btn-accent {
+  background-color: var(--color-accent-primary);
+  border: 0.2rem solid transparent;
+  border-radius: 0.4rem;
+  color: var(--color-white);
+  cursor: pointer;
+  height: 4rem;
+
+  font-size: 14px;
+  font-weight: 500;
+  &:hover {
+    background-color: var(--color-accent-light);
+  }
+}

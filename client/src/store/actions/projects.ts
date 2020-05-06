@@ -16,7 +16,7 @@ export interface FetchProjectsAction {
     data: Project[];
   };
 }
-export interface AddProjectAction {
+export interface CreateProjectAction {
   type: ActionTypes.ADD_PROJECT;
   payload: Project;
 }
@@ -37,11 +37,11 @@ const config = {
 interface IFormData {
   title: string;
 }
-export const addProject = (formData: IFormData) => async (
+export const createProject = (formData: IFormData) => async (
   dispatch: Dispatch
 ) => {
   const res = await axios.post('/api/projects', formData, config);
-  dispatch<AddProjectAction>({
+  dispatch<CreateProjectAction>({
     type: ActionTypes.ADD_PROJECT,
     payload: res.data,
   });

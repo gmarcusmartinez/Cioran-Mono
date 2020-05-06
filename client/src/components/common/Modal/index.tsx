@@ -5,7 +5,7 @@ interface ModalProps {
   title: string;
 }
 
-const Modal: React.FC<ModalProps> = ({ showModal, title }) => {
+const Modal: React.FC<ModalProps> = ({ showModal, title, children }) => {
   return ReactDOM.createPortal(
     <div className='modal'>
       <div className='modal__body'>
@@ -15,6 +15,7 @@ const Modal: React.FC<ModalProps> = ({ showModal, title }) => {
             &times;
           </p>
         </div>
+        <div className='modal__content'>{children}</div>
       </div>
     </div>,
     document.querySelector('#portal')!

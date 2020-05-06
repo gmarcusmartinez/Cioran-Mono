@@ -13,7 +13,7 @@ const Default: React.FunctionComponent<DefaultFormProps> = ({
       <div className='auth-title'>Get started for free!</div>
       <GoogleBtn title='Signup' />
       <button
-        className='app-theme-btn'
+        className='default-btn btn-accent'
         onClick={() => setFormDisplay('RENDER_SIGNUP')}
       >
         Signup with Email

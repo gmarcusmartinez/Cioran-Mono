@@ -1,5 +1,6 @@
 .signup {
-  color: $color-dark-gray;
+  color: var(--color-grey-dark);
+
   height: 100%;
   width: 100%;
   display: grid;
@@ -9,6 +10,6 @@
     font-size: 1.6rem;
     text-align: center;
     align-self: center;
-    color: $color-dark-gray;
+    color: var(--color-grey-dark);
   }
 }

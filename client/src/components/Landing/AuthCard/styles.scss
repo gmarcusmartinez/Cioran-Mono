@@ -1,7 +1,7 @@
 .auth-card {
   height: 42rem;
   width: 32rem;
-  background-color: $color-white;
+  background-color: var(--color-white);
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
 
   border-radius: 0.6rem;
@@ -16,35 +16,23 @@
   margin: 0 10%;
   font-size: 1.4rem;
   span {
-    color: $color-accent-primary;
+    color: var(--color-accent-primary);
     margin-left: 1rem;
     font-size: 1.4rem;
     font-family: Arial, Helvetica, sans-serif;
 
     &:hover {
       cursor: pointer;
-      color: $color-accent-light;
+      color: var(--color-accent-light);
     }
   }
 }
 
-.app-theme-btn {
-  background-color: $color-accent-primary;
-  border: 0.2rem solid transparent;
-  border-radius: 0.4rem;
-  color: $color-white;
-  cursor: pointer;
-
-  font-size: 14px;
-  font-weight: 500;
-
-  height: 4rem;
+.signup-btn,
+.signin-btn,
+.default-btn {
   margin: 0 8%;
   width: 84%;
-
-  &:hover {
-    background-color: $color-accent-light;
-  }
 }
 
 .auth-input {
@@ -52,24 +40,24 @@
   margin: 0 8%;
   padding-left: 0.8rem;
   height: 4rem;
-  background: $color-white;
+  background: var(--color-white);
 
   border: none;
   border: 0.2rem solid transparent;
-  border-color: rgba($color-primary-gray, 0.3);
+  border-color: var(--color-grey-light);
   border-radius: 0.4rem;
 
   line-height: 1.6rem;
   font-size: 1.4rem;
-  color: $color-dark-gray;
+  color: var(--color-grey-dark);
 
   &:hover {
-    border-color: rgba($color-dark-gray, 0.35);
+    border-color: var(--color-grey-light);
     transition: 0.25s ease-out;
   }
   &:focus {
     outline: none;
-    border-color: $color-accent-primary;
+    border-color: var(--color-accent-light);
     transition: 0.25s ease-out;
   }
 }

@@ -1,25 +1,29 @@
 .create-project-btn {
-  border: 2px dashed #aaa;
-  border-radius: 16px;
+  border: 0.2rem dashed var(--color-grey-medium);
+  border-radius: 1.6rem;
   cursor: pointer;
   display: flex;
-  height: 150px;
+  height: 15rem;
   justify-content: center;
   margin: 0 0.5rem;
   position: relative;
-  width: 150px;
+  width: 15rem;
   .plus {
-    color: #aaa;
-    font-size: 40px;
+    color: var(--color-grey-medium);
+    font-size: 4rem;
     margin-top: 30%;
     font-weight: 300;
   }
   p {
-    top: 16px;
-    color: #aaa;
-    font-size: 16px;
+    top: 1.6rem;
+    color: var(--color-grey-medium);
+    font-size: 1.6rem;
     font-weight: 300;
     letter-spacing: 0.1rem;
     position: absolute;
+  }
+  &:hover {
+    transform: translateY(2px);
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.2);
   }
 }
