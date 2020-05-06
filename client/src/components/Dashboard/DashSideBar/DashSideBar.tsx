@@ -12,7 +12,7 @@ interface DashSideBarProps {
 const DashSideBar: React.FC<DashSideBarProps> = ({ links }) => {
   let list = links.map((l) => (
     <NavLink to={l.to} className='dashboard-nav-link'>
-      {l.text}
+      <div className='dashboard-nav-link__text'>{l.text}</div>
     </NavLink>
   ));
   return <div className='dashboard-sidebar'>{list}</div>;

@@ -29,25 +29,15 @@ const CreateProjectForm: React.FC<IFormProps> = ({ createProject }) => {
 
   const { title } = formData;
   return (
-    <>
-      <form className='create-project-form' onSubmit={handleSubmit}>
-        <div className='form-field'>
-          <label>Project Name</label>
-          <input
-            type='text'
-            name='title'
-            value={title}
-            onChange={handleChange}
-          />
-        </div>
-        <button
-          className='btn-accent'
-          style={{ width: '40%', alignSelf: 'flex-end' }}
-        >
-          Submit
-        </button>
-      </form>
-    </>
+    <form className='create-project-form' onSubmit={handleSubmit}>
+      <div className='form-field'>
+        <label>Project Name</label>
+        <input type='text' name='title' value={title} onChange={handleChange} />
+      </div>
+      <button className='btn-primary' style={{ width: '40%' }}>
+        Submit
+      </button>
+    </form>
   );
 };
 

@@ -12,6 +12,13 @@
     background-color: var(--color-primary-dark);
   }
 }
+.btn-primary-light {
+  background-color: var(--color-primary-light);
+  @include btn;
+  &:hover {
+    background-color: var(--color-primary);
+  }
+}
 
 .btn-white {
   background-color: var(--color-white);

@@ -3,7 +3,8 @@
   display: flex;
   flex-direction: column;
   .sq-title {
-    background-color: var(--color-primary);
+    background-color: var(--color-primary-light);
+
     height: 4.8rem;
     clip-path: polygon(2% 0, 100% 0, 98% 100%, 0 100%);
 

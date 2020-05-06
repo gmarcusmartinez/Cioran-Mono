@@ -25,21 +25,24 @@ const SprintSideBar: React.FC<SprintSideBarProps> = ({
         />
       ))
     : null;
-
+    
+  const renderModal = () => {
+    return showSprintManager ? (
+      <Modal title='Sprint Manager' showModal={setShowSprintManager} />
+    ) : null;
+  };
   return (
     <SideBar width={220} bg={'$color-white'} boxShadow='1px 1px  #c3c3c3'>
       <h2>Sprints</h2>
       <button
         onClick={() => setShowSprintManager(true)}
-        className='btn-primary'
+        className='btn-primary-light'
         style={{ width: '90%', marginLeft: '5%' }}
       >
         Sprint Manager
       </button>
       {list}
-      {showSprintManager ? (
-        <Modal title='Sprint Manager' showModal={setShowSprintManager} />
-      ) : null}
+      {renderModal()}
     </SideBar>
   );
 };

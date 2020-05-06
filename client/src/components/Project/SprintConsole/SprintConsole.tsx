@@ -1,8 +1,17 @@
 import React from 'react';
 import Modal from '../../common/Modal';
+import CreateTicketForm from '../CreateTicketForm/CreateTicketForm';
 
 const SprintConsole: React.FC = ({ children }) => {
   const [showCreateTicket, setShowCreateTicket] = React.useState(false);
+
+  const renderModal = () => {
+    return showCreateTicket ? (
+      <Modal title='Create Ticket' showModal={setShowCreateTicket}>
+        <CreateTicketForm />
+      </Modal>
+    ) : null;
+  };
 
   return (
     <div className='sprint-console'>
@@ -10,9 +19,7 @@ const SprintConsole: React.FC = ({ children }) => {
         <button onClick={() => setShowCreateTicket(true)}>Create Ticket</button>
       </div>
       {children}
-      {showCreateTicket ? (
-        <Modal title='Create Ticket' showModal={setShowCreateTicket} />
-      ) : null}
+      {renderModal()}
     </div>
   );
 };

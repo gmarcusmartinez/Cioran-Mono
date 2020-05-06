@@ -27,10 +27,27 @@
     font-size: 1.6rem;
     text-align: center;
     letter-spacing: 0.1rem;
-    color: var(--color-grey-dark);
+    color: var(--color-grey-medium);
   }
   &:hover {
     transform: translateY(2px);
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  }
+}
+
+@mixin formEl {
+  background-color: var(--color-white);
+  font-size: 1.8rem;
+
+  border: none;
+  border: 0.1rem solid var(--color-grey-dark);
+  border-radius: 0.4rem;
+
+  height: 3.4rem;
+  width: 100%;
+
+  &:focus {
+    outline: none;
+    border: 0.2rem solid var(--color-primary);
   }
 }

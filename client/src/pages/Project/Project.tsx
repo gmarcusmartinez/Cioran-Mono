@@ -33,7 +33,7 @@ const Project: React.FC<ProjectProps> = ({ fetchSprints, match, sprints }) => {
 
   return (
     <div className='projects-wrapper'>
-      <SideBar width={80} bg={'#FAB28B'} />
+      <div className='project-slim-sidebar'></div>
       <SprintSideBar
         sprintArr={sprints.items}
         setSelectedSprint={setSelectedSprint}
