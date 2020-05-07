@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import SideBar from '../../components/common/SideBar';
 import SprintQue from '../../components/Project/SprintQue/SprintQue';
 import SprintSideBar from '../../components/Project/SprintSideBar/SprintSideBar';
 import SprintConsole from '../../components/Project/SprintConsole/SprintConsole';
@@ -38,9 +37,10 @@ const Project: React.FC<ProjectProps> = ({ fetchSprints, match, sprints }) => {
         sprintArr={sprints.items}
         setSelectedSprint={setSelectedSprint}
       />
-      <SprintConsole>
+      <div className='sprint-wrapper'>
+        <SprintConsole selectedSprint={selectedSprint} />
         <SprintQue selectedSprint={selectedSprint} />
-      </SprintConsole>
+      </div>
     </div>
   );
 };

@@ -2,12 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createProject } from '../../../store/actions';
 
-interface FormState {
-  title: string;
-}
-
 interface IFormProps {
   createProject: Function;
+}
+interface FormState {
+  title: string;
 }
 
 const CreateProjectForm: React.FC<IFormProps> = ({ createProject }) => {

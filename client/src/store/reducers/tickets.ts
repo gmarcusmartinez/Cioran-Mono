@@ -16,6 +16,10 @@ export const tickets = (state = initialState, action: Action) => {
         count: action.payload.count,
         items: action.payload.data,
       };
+    case ActionTypes.CREATE_TICKET:
+      return {
+        ...state,
+      };
     default:
       return state;
   }

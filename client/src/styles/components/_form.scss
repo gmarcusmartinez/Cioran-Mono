@@ -13,8 +13,9 @@
   }
   select {
     @include formEl;
-    color: var(--color-primary);
+    color: black;
   }
+
   textarea {
     @include formEl;
     height: 6.4rem;

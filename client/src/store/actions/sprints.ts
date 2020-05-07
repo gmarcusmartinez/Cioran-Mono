@@ -12,7 +12,7 @@ export interface Sprint {
   objective: string;
 }
 
-export interface FetchSprintssAction {
+export interface FetchSprintsAction {
   type: ActionTypes.FETCH_SPRINTS;
   payload: {
     success: boolean;
@@ -25,7 +25,7 @@ export const fetchSprints = (projectId: string) => async (
   dispatch: Dispatch
 ) => {
   const res = await axios.get(`/api/sprints?project=${projectId}`);
-  dispatch<FetchSprintssAction>({
+  dispatch<FetchSprintsAction>({
     type: ActionTypes.FETCH_SPRINTS,
     payload: res.data,
   });

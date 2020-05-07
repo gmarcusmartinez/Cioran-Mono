@@ -34,3 +34,30 @@ export const fetchTickets = (sprintId: string) => async (
     payload: res.data,
   });
 };
+
+export interface CreateTicketAction {
+  type: ActionTypes.CREATE_TICKET;
+  payload: ITicket;
+}
+const config = {
+  headers: {
+    'Content-Type': 'application/json',
+  },
+};
+interface CREATE_TICKET_FORM_DATA {
+  title: string;
+}
+export const createTicket = (
+  formData: CREATE_TICKET_FORM_DATA,
+  sprint_id: string
+) => async (dispatch: Dispatch) => {
+  const res = await axios.post(
+    `/api/sprints/${sprint_id}/tickets`,
+    formData,
+    config
+  );
+  dispatch<CreateTicketAction>({
+    type: ActionTypes.CREATE_TICKET,
+    payload: res.data,
+  });
+};
