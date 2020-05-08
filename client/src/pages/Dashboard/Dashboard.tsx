@@ -1,7 +1,6 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import SideBar from '../../components/common/SideBar';
 import DashSideBar from '../../components/Dashboard/DashSideBar/DashSideBar';
 import ProjectConsole from '../../components/Dashboard/ProjectConsole/ProjectConsole';
 
@@ -27,8 +26,6 @@ const links = [
 const Dashboard = () => {
   return (
     <div className='dashboard-wrapper'>
-      <div className='dashboard-header-frame'></div>
-      <div className='dashboard-slim-sidebar'></div>
       <DashSideBar links={links} />
       <div className='content'>
         <Switch>

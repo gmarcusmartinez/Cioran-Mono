@@ -1,7 +1,7 @@
 .project-console {
   display: flex;
   flex-direction: column;
-  flex-wrap: wrap;
+  max-width: 65rem;
   &__title {
     color: var(--color-grey-light);
     font-size: 2.4rem;
@@ -12,11 +12,11 @@
 .project-list {
   display: flex;
   flex-direction: row;
-
   flex-wrap: wrap;
 }
 .polygon-border-bottom-primary-light {
+  margin: 2rem 0;
   background-color: var(--color-primary-light);
-  height: 2.2rem;
+  height: 1rem;
   clip-path: polygon(2% 0, 100% 0, 98% 100%, 0 100%);
 }

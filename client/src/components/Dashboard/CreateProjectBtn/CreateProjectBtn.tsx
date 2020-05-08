@@ -7,8 +7,7 @@ interface CreateProjectBtnProps {
 const CreateProjectBtn: React.FC<CreateProjectBtnProps> = ({ showModal }) => {
   return (
     <div className='create-project-btn' onClick={() => showModal(true)}>
-      <div className='plus'>+</div>
-      <p>Create Project</p>
+      Create Project
     </div>
   );
 };

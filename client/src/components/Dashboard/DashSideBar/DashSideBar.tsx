@@ -15,7 +15,12 @@ const DashSideBar: React.FC<DashSideBarProps> = ({ links }) => {
       <div className='dashboard-nav-link__text'>{l.text}</div>
     </NavLink>
   ));
-  return <div className='dashboard-sidebar'>{list}</div>;
+  return (
+    <div className='dashboard-sidebar'>
+      <div className='dashboard-sidebar__usr-img'></div>
+      {list}
+    </div>
+  );
 };
 
 export default DashSideBar;

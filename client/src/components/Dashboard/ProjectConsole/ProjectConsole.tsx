@@ -40,10 +40,7 @@ const ProjectConsole: React.FC<ProjectsProps> = ({
   return (
     <div className='project-console'>
       <div className='project-console__title'>My Projects</div>
-      <div
-        className='polygon-border-bottom-primary-light'
-        style={{ margin: '2rem 0' }}
-      ></div>
+      <div className='polygon-border-bottom-primary-light'></div>
       <div className='project-list'>
         <CreateProjectBtn showModal={setShowCreateProject} />
         {list}
