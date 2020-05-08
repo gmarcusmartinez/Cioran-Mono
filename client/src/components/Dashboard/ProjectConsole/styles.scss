@@ -2,9 +2,8 @@
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
-
   &__title {
-    color: var(--color-grey-medium);
+    color: var(--color-grey-light);
     font-size: 2.4rem;
     letter-spacing: 0.1rem;
     margin: 1rem 0 0 2rem;

@@ -12,6 +12,8 @@
 @mixin projectItem {
   border-radius: 1.6rem;
   cursor: pointer;
+  background-color: var(--color-dark-theme-tertiary);
+  box-shadow: 0 10px 20px rgb(0, 0, 0);
 
   height: 15rem;
   width: 15rem;
@@ -27,11 +29,11 @@
     font-size: 1.6rem;
     text-align: center;
     letter-spacing: 0.1rem;
-    color: var(--color-grey-medium);
+    color: var(--color-grey-light);
   }
   &:hover {
     transform: translateY(2px);
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 20px 40px rgb(0, 0, 0);
   }
 }
 

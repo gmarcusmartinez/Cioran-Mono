@@ -1,5 +1,5 @@
 .default {
-  color: var(--color-grey-dark);
+  color: var(--color-white);
   height: 100%;
   width: 100%;
   display: grid;
@@ -9,6 +9,7 @@
     align-items: center;
     justify-content: center;
     font-size: 1.6rem;
+    color: var(--color-grey-light);
   }
   .auth-subtitle {
     display: flex;

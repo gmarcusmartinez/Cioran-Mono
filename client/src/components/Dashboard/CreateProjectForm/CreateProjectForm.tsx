@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { createProject } from '../../../store/actions';
-
+import { FormInput } from '../../common/Form';
 interface IFormProps {
   createProject: Function;
 }
@@ -29,10 +29,12 @@ const CreateProjectForm: React.FC<IFormProps> = ({ createProject }) => {
   const { title } = formData;
   return (
     <form className='create-project-form' onSubmit={handleSubmit}>
-      <div className='form-field'>
-        <label>Project Name</label>
-        <input type='text' name='title' value={title} onChange={handleChange} />
-      </div>
+      <FormInput
+        label='Project Name'
+        name='title'
+        value={title}
+        onChange={handleChange}
+      />
       <button className='btn-primary' style={{ width: '40%' }}>
         Submit
       </button>

@@ -20,7 +20,7 @@ const Signin: React.FunctionComponent<SigninFormProps> = ({
 
       <input type='email' className='auth-input' placeholder='Email' />
       <input type='password' className='auth-input' placeholder='Password' />
-      <button className='signin-btn btn-accent'>Signin</button>
+      <button className='signin-btn btn-primary'>Signin</button>
       <div className='switch'>
         Dont have an account?
         <span onClick={() => setFormDisplay('RENDER_DEFAULT')}>Signup</span>

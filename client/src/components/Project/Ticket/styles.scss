@@ -3,6 +3,7 @@
   display: grid;
   grid-template-columns: 40% 10% 20% 15% 15%;
   margin-bottom: 0.2rem;
+
   .t-item {
     align-items: center;
     background-color: var(--color-grey-light);
@@ -29,7 +30,7 @@
     text-align: center;
     text-transform: capitalize;
     .ticket-bar {
-      background-color: var(--color-primary);
+      background-color: var(--color-primary-primary);
     }
     .ticket-title {
       align-self: center;

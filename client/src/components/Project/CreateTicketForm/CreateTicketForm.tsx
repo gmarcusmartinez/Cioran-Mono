@@ -1,12 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import { Sprint } from '../../../store/actions';
 import { createTicket } from '../../../store/actions';
-import FormSelect from '../../common/FormSelect/FormSelect';
+import { FormInput, FormSelect, FormTextArea } from '../../common/Form';
+
+import {
+  formInitialState,
+  ticketTypeOptions,
+  storyPointOptions,
+} from './options';
 
 interface CreateTicketFormProps {
-  selectedSprint: Sprint | null;
+  sprint_id: string | null;
   createTicket: Function;
 }
 interface FormState {
@@ -16,28 +20,8 @@ interface FormState {
   description: string;
 }
 
-const ticketTypeOptions = [
-  { text: 'task' },
-  { text: 'feature' },
-  { text: 'bug' },
-  { text: 'tests' },
-];
-const storyPointOptions = [
-  { text: 1 },
-  { text: 2 },
-  { text: 3 },
-  { text: 5 },
-  { text: 8 },
-  { text: 13 },
-];
-const formInitialState = {
-  title: '',
-  type: '',
-  storyPoints: 1,
-  description: '',
-};
 const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
-  selectedSprint,
+  sprint_id,
   createTicket,
 }) => {
   const [formData, setFormData] = React.useState<FormState>(formInitialState);
@@ -56,7 +40,7 @@ const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
 
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    createTicket(formData, selectedSprint!._id);
+    createTicket(formData, sprint_id!);
     setFormData(formInitialState);
   };
 
@@ -67,11 +51,12 @@ const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className='form-field'>
-        <label>Ticket Title</label>
-        <span className='form-field__required'>*</span>
-        <input type='text' name='title' value={title} onChange={handleChange} />
-      </div>
+      <FormInput
+        label='Ticket Title'
+        name='title'
+        value={title}
+        onChange={handleChange}
+      />
       <FormSelect
         label='Ticket Type'
         value={type}
@@ -88,16 +73,12 @@ const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
         renderOptions={renderOptions}
         options={storyPointOptions}
       />
-      <div className='form-field'>
-        <label>Description</label>
-        <textarea
-          value={description}
-          onChange={handleChange}
-          rows={2}
-          name='description'
-        ></textarea>
-      </div>
-
+      <FormTextArea
+        label='description'
+        value={description}
+        name='description'
+        onChange={handleChange}
+      />
       <button
         className='btn-primary'
         style={{ width: '40%', alignSelf: 'flex-end' }}

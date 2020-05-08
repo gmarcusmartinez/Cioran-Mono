@@ -13,7 +13,7 @@ const SprintConsole: React.FC<SprintConsoleProps> = ({ selectedSprint }) => {
   const renderModal = () => {
     return showCreateTicket ? (
       <Modal title='Create Ticket' showModal={setShowCreateTicket}>
-        <CreateTicketForm selectedSprint={selectedSprint} />
+        <CreateTicketForm sprint_id={selectedSprint!._id} />
       </Modal>
     ) : null;
   };
@@ -23,7 +23,7 @@ const SprintConsole: React.FC<SprintConsoleProps> = ({ selectedSprint }) => {
       <button
         onClick={() => setShowCreateTicket(true)}
         className='btn-primary-light'
-        style={{ width: '14rem', marginTop: '5rem' }}
+        id='showCreateTicket-btn'
       >
         Create Ticket
       </button>
@@ -31,6 +31,10 @@ const SprintConsole: React.FC<SprintConsoleProps> = ({ selectedSprint }) => {
   };
   return (
     <div className='sprint-console'>
+      <div className='story-points'>
+        <div className='story-points__title'>Story Points</div>
+        <>{selectedSprint?.totalStoryPoints}</>
+      </div>
       {renderCreateTicketBtn()}
       {renderModal()}
     </div>

@@ -1,14 +1,14 @@
 .auth-card {
   height: 42rem;
   width: 32rem;
-  background-color: var(--color-white);
-  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+  background-color: var(--color-dark-theme-secondary);
+  box-shadow: 0 5px 10px rgb(0, 0, 0);
 
   border-radius: 0.6rem;
   margin-top: 2rem;
   &:hover {
     transform: translateY(2px);
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 10px 20px rgb(0, 0, 0);
   }
 }
 
@@ -16,14 +16,14 @@
   margin: 0 10%;
   font-size: 1.4rem;
   span {
-    color: var(--color-accent-primary);
+    color: var(--color-primary-primary);
     margin-left: 1rem;
     font-size: 1.4rem;
     font-family: Arial, Helvetica, sans-serif;
 
     &:hover {
       cursor: pointer;
-      color: var(--color-accent-light);
+      color: var(--color-primary-light);
     }
   }
 }
@@ -40,24 +40,19 @@
   margin: 0 8%;
   padding-left: 0.8rem;
   height: 4rem;
-  background: var(--color-white);
+  background-color: var(--color-dark-theme-secondary);
 
   border: none;
-  border: 0.2rem solid transparent;
-  border-color: var(--color-grey-light);
+  border: 0.1rem solid var(--color-dark-theme-light);
   border-radius: 0.4rem;
 
   line-height: 1.6rem;
   font-size: 1.4rem;
-  color: var(--color-grey-dark);
+  color: var(--color-grey-light);
 
-  &:hover {
-    border-color: var(--color-grey-light);
-    transition: 0.25s ease-out;
-  }
   &:focus {
     outline: none;
-    border-color: var(--color-accent-light);
+    border: 0.2rem solid var(--color-primary-light);
     transition: 0.25s ease-out;
   }
 }

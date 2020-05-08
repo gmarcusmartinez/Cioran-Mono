@@ -25,7 +25,7 @@ const SprintSideBar: React.FC<SprintSideBarProps> = ({
         />
       ))
     : null;
-    
+
   const renderModal = () => {
     return showSprintManager ? (
       <Modal title='Sprint Manager' showModal={setShowSprintManager} />
@@ -36,7 +36,7 @@ const SprintSideBar: React.FC<SprintSideBarProps> = ({
       <h2>Sprints</h2>
       <button
         onClick={() => setShowSprintManager(true)}
-        className='btn-primary-light'
+        className='btn-primary'
         style={{ width: '90%', marginLeft: '5%' }}
       >
         Sprint Manager
