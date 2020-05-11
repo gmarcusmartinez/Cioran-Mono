@@ -9,11 +9,8 @@ const Ticket: React.FC<TicketProps> = ({
   ticket: { title, type, status, storyPoints },
 }) => {
   return (
-    <tr className='ticket'>
-      <td>
-        <div className='ticket-bar'></div>
-        <div className='ticket-title'>{title}</div>
-      </td>
+    <tr className={`ticket ${status}`}>
+      <td className='t-item'>{title}</td>
       <td className='t-item'>{type}</td>
       <td className='t-item'>--</td>
       <td className='t-item'>{status}</td>

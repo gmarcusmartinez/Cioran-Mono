@@ -47,5 +47,5 @@ export const signin = asyncHandler(async (req: Request, res: Response) => {
 
 export const signout = asyncHandler(async (req: Request, res: Response) => {
   req.session = null;
-  res.send({ msg: 'Logged out' });
+  res.send({ msg: 'User signed out' });
 });

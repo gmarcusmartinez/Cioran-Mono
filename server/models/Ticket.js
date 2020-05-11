@@ -1,31 +1,31 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
 const TicketSchema = new mongoose.Schema({
   sprint: {
     type: mongoose.Schema.ObjectId,
-    ref: "Sprint",
+    ref: 'Sprint',
   },
   title: {
     type: String,
-    required: [true, "Please add a title."],
+    required: [true, 'Please add a title.'],
     trim: true,
-    maxlength: [50, "Title can not be more than 50 charachters"],
+    maxlength: [50, 'Title can not be more than 50 charachters'],
   },
   type: {
     type: String,
     required: true,
-    enum: ["feature", "bug", "tests", "task"],
+    enum: ['feature', 'bug', 'tests', 'task'],
   },
   status: {
     type: String,
     required: true,
-    enum: ["unassigned", "assigned", "completed"],
-    default: "unassigned",
+    enum: ['unassigned', 'assigned', 'completed'],
+    default: 'unassigned',
   },
   description: {
     type: String,
     trim: true,
-    maxlength: [500, "Description can not be more than 500 charachters"],
+    maxlength: [500, 'Description can not be more than 500 charachters'],
   },
   isActive: {
     type: Boolean,
@@ -63,15 +63,15 @@ TicketSchema.statics.getTotalStoryPoints = async function (sprintId) {
     },
     {
       $group: {
-        _id: "$sprint",
+        _id: '$sprint',
         totalStoryPoints: {
-          $sum: "$storyPoints",
+          $sum: '$storyPoints',
         },
       },
     },
   ]);
   try {
-    await this.model("Sprint").findByIdAndUpdate(sprintId, {
+    await this.model('Sprint').findByIdAndUpdate(sprintId, {
       totalStoryPoints: obj[0].totalStoryPoints,
     });
   } catch (error) {
@@ -79,11 +79,11 @@ TicketSchema.statics.getTotalStoryPoints = async function (sprintId) {
   }
 };
 
-TicketSchema.post("save", function () {
+TicketSchema.post('save', function () {
   this.constructor.getTotalStoryPoints(this.sprint);
 });
-TicketSchema.pre("remove", function () {
+TicketSchema.pre('remove', function () {
   this.constructor.getTotalStoryPoints(this.sprint);
 });
 
-module.exports = mongoose.model("Ticket", TicketSchema);
+module.exports = mongoose.model('Ticket', TicketSchema);

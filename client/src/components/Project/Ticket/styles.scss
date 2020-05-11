@@ -12,34 +12,26 @@
     cursor: pointer;
   }
   .t-item {
+    display: flex;
     align-items: center;
 
-    display: flex;
     font-size: 1.4rem;
     color: var(--color-grey-light);
     justify-content: center;
 
-    text-align: center;
     text-transform: capitalize;
     &:last-child {
       color: var(--color-primary-light);
     }
   }
-  td:first-child {
-    display: grid;
-    grid-template-columns: 4% 96%;
+}
 
-    font-size: 1.4rem;
-    color: var(--color-grey-light);
-    margin: 0 0.1rem;
-    text-transform: capitalize;
-    .ticket-bar {
-      background-color: var(--color-primary-light);
-      border-radius: 0.2rem;
-    }
-    .ticket-title {
-      margin-left: 2rem;
-      align-self: center;
+.completed {
+  background-color: var(--color-dark-theme-secondary);
+  .t-item {
+    color: var(--color-grey-secondary);
+    &:last-child {
+      color: var(--color-grey-secondary);
     }
   }
 }

@@ -3,16 +3,18 @@ import mongoose from 'mongoose';
 interface ProjectAttrs {
   title: string;
   slug: string;
+  projectOwner: string;
 }
 
 interface ProjectModel extends mongoose.Model<ProjectDoc> {
   build(attrs: ProjectAttrs): ProjectDoc;
 }
 
-interface ProjectDoc extends mongoose.Document {
+export interface ProjectDoc extends mongoose.Document {
   title: string;
   photo: string;
   slug: string;
+  projectOwner: string;
 }
 
 const projectSchema = new mongoose.Schema({
@@ -27,6 +29,11 @@ const projectSchema = new mongoose.Schema({
   },
   slug: {
     type: String,
+    required: true,
+  },
+  projectOwner: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
     required: true,
   },
 });

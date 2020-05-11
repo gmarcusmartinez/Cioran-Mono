@@ -5,11 +5,18 @@ import { currentUser } from '../middlewares/current-user';
 import { validateRequest } from '../middlewares/validate-request';
 import { createProjectValidation } from '../validation/project-validation';
 
-import { getProjects, createProject } from '../controllers/projects';
+import {
+  getProjects,
+  getProject,
+  createProject,
+  updateProject,
+  deleteProject,
+} from '../controllers/projects';
 
-const projectRouter = Router();
-projectRouter.route('/').get(currentUser, requireAuth, getProjects);
-projectRouter
+const router = Router();
+router.route('/').get(currentUser, requireAuth, getProjects);
+
+router
   .route('/')
   .post(
     currentUser,
@@ -18,5 +25,9 @@ projectRouter
     validateRequest,
     createProject
   );
-
-export { projectRouter };
+router
+  .route('/:id')
+  .get(currentUser, requireAuth, getProject)
+  .put(currentUser, requireAuth, updateProject)
+  .delete(currentUser, requireAuth, deleteProject);
+export { router as projectRouter };
