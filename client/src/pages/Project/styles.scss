@@ -1,15 +1,24 @@
 .projects-wrapper {
-  height: 100%;
-  width: 100%;
-  display: flex;
-}
-.project-slim-sidebar {
-  background-color: var(--color-primary-light);
-  width: 8rem;
-  height: 100%;
-}
-.sprint-wrapper {
-  width: 80%;
+  height: calc(100% - 2em);
+  width: calc(100% - 2em);
+  margin: 2rem;
+  background-color: var(--color-dark-theme-secondary);
   display: grid;
-  grid-template-rows: 40% 60%;
+  grid-template-columns: 20% 80%;
+
+  @media (max-width: 970px) {
+    height: 100%;
+    width: 100%;
+    margin: 0rem;
+  }
+
+  .sprint-wrapper {
+    display: grid;
+    grid-template-rows: 15% 15% 70%;
+  }
+
+  .project-team-section {
+    // border: 0.1rem solid var(--color-grey-light);
+    margin: 1rem;
+  }
 }

@@ -50,7 +50,7 @@ const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
   const { title, type, storyPoints, description } = formData;
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className='create-ticket-form'>
       <FormInput
         label='Ticket Title'
         name='title'
@@ -79,10 +79,7 @@ const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
         name='description'
         onChange={handleChange}
       />
-      <button
-        className='btn-primary'
-        style={{ width: '40%', alignSelf: 'flex-end' }}
-      >
+      <button className='btn-primary' style={{ height: '4rem' }}>
         Submit
       </button>
     </form>

@@ -1,20 +1,26 @@
 .sprint-que {
-  margin: 0.5rem 1rem;
+  margin: 2rem;
   display: flex;
   flex-direction: column;
+  z-index: 0;
+  overflow-y: scroll;
 
   .ticket-table {
     display: grid;
-    grid-template-columns: 40% 10% 20% 15% 15%;
-    background-color: var(--color-primary-primary);
-    clip-path: polygon(2% 0, 100% 0, 98% 100%, 0 100%);
+    grid-template-columns: 50% 10% 15% 15% 10%;
+    background-color: var(--color-primary);
+    color: #fff;
     th {
-      color: var(--color-white);
-      border: 0.1rem 0.1rem 0.1rem 0 solid var(--color-grey-medium);
-      padding: 0.9rem;
+      border: 0.1rem solid var(--color-dark-theme-secondary);
+      padding: 0.5rem;
       font-size: 1.4rem;
       font-weight: 500;
       text-align: center;
+      @media (max-width: 1300px) {
+        &:last-child {
+          font-size: 1rem;
+        }
+      }
     }
   }
 }

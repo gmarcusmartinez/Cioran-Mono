@@ -1,31 +1,48 @@
 .sprint-console {
-  height: 90%;
-  border: 1px solid var(--color-grey-dark);
-  margin: 1rem 2rem;
-  position: relative;
+  height: 100%;
+  padding: 1rem;
+
+  display: flex;
+  align-items: center;
+
+  &__title {
+    color: var(--color-primary-light);
+    font-weight: 300;
+    font-size: 2.4rem;
+    margin-left: 2.4rem;
+  }
 
   .story-points {
-    position: absolute;
-    right: 1rem;
-    top: 1rem;
+    color: var(--color-grey-light);
+    margin-left: auto;
 
-    color: var(--color-grey-medium);
     display: flex;
     flex-direction: column;
     align-items: center;
     text-align: center;
-    padding: 1rem;
+    justify-content: center;
+    font-size: 1.4rem;
+
+    padding: 0.5rem;
     line-height: 1.4;
     width: 10rem;
     height: 10rem;
-    border: 0.2rem solid var(--color-primary-light);
-    border-radius: 0.4rem;
+    border: 0.8rem solid var(--color-primary-light);
+    border-radius: 50%;
   }
   #showCreateTicket-btn {
-    background-color: var(--color-primary-primary);
-    width: 10rem;
-    position: absolute;
-    right: 1rem;
-    top: 12rem;
+    background-color: var(--color-dark-theme-primary);
+    border-radius: 50%;
+    border: 2px solid var(--color-primary-light);
+    color: var(--color-primary-light);
+
+    font-size: 2rem;
+    text-align: center;
+    width: 5rem;
+    height: 5rem;
+
+    z-index: 0;
+
+    outline: none;
   }
 }

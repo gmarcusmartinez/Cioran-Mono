@@ -1,8 +1,9 @@
 .form-field {
   width: 100%;
-  margin: 2rem 0;
+  margin: 1rem 0;
+
   label {
-    color: var(--color-grey-dark);
+    color: var(--color-grey-light);
     font-size: 1.4rem;
     font-weight: 400;
   }
@@ -13,7 +14,7 @@
   }
   select {
     @include formEl;
-    color: black;
+    color: var(--color-grey-light);
     text-transform: capitalize;
   }
 

@@ -1,6 +1,5 @@
 import React from 'react';
 
-import SideBar from '../../common/SideBar';
 import Modal from '../../common/Modal';
 import SprintItem from '../SprintItem/SprintItem';
 import { Sprint } from '../../../store/actions/';
@@ -31,19 +30,19 @@ const SprintSideBar: React.FC<SprintSideBarProps> = ({
       <Modal title='Sprint Manager' showModal={setShowSprintManager} />
     ) : null;
   };
+
   return (
-    <SideBar width={220} bg={'$color-white'} boxShadow='1px 1px  #c3c3c3'>
-      <h2>Sprints</h2>
-      <button
+    <div className='sprint-sidebar'>
+      <h2 className='sprint-sidebar__title'>Sprints</h2>
+      <div
         onClick={() => setShowSprintManager(true)}
-        className='btn-primary'
-        style={{ width: '90%', marginLeft: '5%' }}
+        className='sprint-sidebar__btn'
       >
-        Sprint Manager
-      </button>
+        Sprint Manager +
+      </div>
       {list}
       {renderModal()}
-    </SideBar>
+    </div>
   );
 };
 

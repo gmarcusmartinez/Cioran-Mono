@@ -1,38 +1,44 @@
 .ticket {
   height: 3.2rem;
-  display: grid;
-  grid-template-columns: 40% 10% 20% 15% 15%;
   margin-bottom: 0.2rem;
+  background-color: var(--color-dark-theme-primary);
+  border-radius: 0.4rem;
 
+  display: grid;
+  grid-template-columns: 50% 10% 15% 15% 10%;
+
+  &:hover {
+    background-color: var(--color-dark-theme-tertiary);
+    cursor: pointer;
+  }
   .t-item {
     align-items: center;
-    background-color: var(--color-grey-light);
 
     display: flex;
     font-size: 1.4rem;
-    color: var(--color-grey-dark);
+    color: var(--color-grey-light);
     justify-content: center;
-    margin: 0 0.1rem;
+
     text-align: center;
     text-transform: capitalize;
     &:last-child {
-      color: var(--color-primary);
+      color: var(--color-primary-light);
     }
   }
   td:first-child {
     display: grid;
     grid-template-columns: 4% 96%;
-    background-color: var(--color-grey-light);
 
     font-size: 1.4rem;
-    color: var(--color-grey-dark);
+    color: var(--color-grey-light);
     margin: 0 0.1rem;
-    text-align: center;
     text-transform: capitalize;
     .ticket-bar {
-      background-color: var(--color-primary-primary);
+      background-color: var(--color-primary-light);
+      border-radius: 0.2rem;
     }
     .ticket-title {
+      margin-left: 2rem;
       align-self: center;
     }
   }

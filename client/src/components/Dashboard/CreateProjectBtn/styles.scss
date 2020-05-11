@@ -2,6 +2,7 @@
   border: 0.2rem dashed var(--color-grey-light);
   @include projectItem;
   display: flex;
+  text-align: center;
 
   color: var(--color-grey-light);
   font-size: 1.6rem;

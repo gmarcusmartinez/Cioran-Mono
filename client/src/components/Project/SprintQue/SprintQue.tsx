@@ -3,8 +3,13 @@ import { connect } from 'react-redux';
 import Ticket from '../Ticket/Ticket';
 import { Sprint, ITicket } from '../../../store/actions';
 
-const headers = ['Item', 'Type', 'Assigned To', 'Status', 'Story Points'];
-const ths = headers.map((h) => <th key={h}>{h}</th>);
+const headers = [
+  { text: 'Ticket', sort: 'title' },
+  { text: 'Type', sort: 'type' },
+  { text: 'Assigned To', sort: 'title' },
+  { text: 'Status', sort: 'status' },
+  { text: 'Story Points', sort: 'storyPoints' },
+];
 
 interface SprintQueProps {
   selectedSprint: Sprint | null;
@@ -15,6 +20,9 @@ const SprintQue: React.FC<SprintQueProps> = ({ tickets }) => {
   let list = tickets
     ? tickets.map((t) => <Ticket key={t._id} ticket={t} />)
     : null;
+
+  const ths = headers.map((h) => <th key={h.text}>{h.text}</th>);
+
   return (
     <div className='sprint-que'>
       <table>

@@ -32,12 +32,15 @@ const Project: React.FC<ProjectProps> = ({ fetchSprints, match, sprints }) => {
 
   return (
     <div className='projects-wrapper'>
-      <div className='project-slim-sidebar'></div>
       <SprintSideBar
         sprintArr={sprints.items}
         setSelectedSprint={setSelectedSprint}
       />
+
       <div className='sprint-wrapper'>
+        <div className='project-team-section'>
+          <h2 className='project-header'></h2>
+        </div>
         <SprintConsole selectedSprint={selectedSprint} />
         <SprintQue selectedSprint={selectedSprint} />
       </div>

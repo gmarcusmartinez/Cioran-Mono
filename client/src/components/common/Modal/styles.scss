@@ -14,19 +14,19 @@
   opacity: 1;
 
   &__body {
-    background-color: var(--color-dark-theme-secondary);
-    width: 40%;
+    background-color: var(--color-dark-theme-primary);
+    width: 40rem;
     height: 75%;
     border-radius: 0.4rem;
     transition: all 0.5s 0.2s;
   }
   &__header {
     color: var(--color-grey-light);
-    margin: 1rem 2rem;
-    padding: 0 0 1rem 0;
+    margin: 2rem 2rem 2rem 4rem;
 
     display: flex;
     align-items: center;
+    justify-content: center;
     justify-content: space-between;
   }
   &__title {
@@ -36,12 +36,11 @@
   }
   &__close {
     font-size: 3rem;
-    align-self: flex-start;
     cursor: pointer;
   }
   &__content {
     margin: 2rem;
-    height: 70%;
+    height: 100%;
 
     display: flex;
     justify-content: center;

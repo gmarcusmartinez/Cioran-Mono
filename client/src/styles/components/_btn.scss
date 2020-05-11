@@ -13,11 +13,11 @@
   }
 }
 
-.btn-white {
-  background-color: var(--color-white);
-  color: var(--color-primary-dark);
+.btn-dark {
+  background-color: var(--color-dark-theme-primary);
+  color: var(--color-grey-light);
   @include btn;
   &:hover {
-    border: 1px solid var(--color-primary-light);
+    border: 0.2rem solid var(--color-primary);
   }
 }
