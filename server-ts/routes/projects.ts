@@ -4,6 +4,7 @@ import { requireAuth } from '../middlewares/require-auth';
 import { currentUser } from '../middlewares/current-user';
 import { validateRequest } from '../middlewares/validate-request';
 import { createProjectValidation } from '../validation/project-validation';
+import { sprintRouter } from './sprints';
 
 import {
   getProjects,
@@ -14,6 +15,9 @@ import {
 } from '../controllers/projects';
 
 const router = Router();
+
+router.use('/:projectId/sprints', sprintRouter);
+
 router.route('/').get(currentUser, requireAuth, getProjects);
 
 router

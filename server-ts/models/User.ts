@@ -1,7 +1,6 @@
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
 import { PasswordManager } from '../services/PasswordManager';
-import { ProjectDoc } from './Project';
 const keys = require('../config/keys');
 
 interface UserAttrs {
