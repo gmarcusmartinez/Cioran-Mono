@@ -1,4 +1,5 @@
 import React from 'react';
+import axios from 'axios';
 import AuthCard from '../../components/Landing/AuthCard/AuthCard';
 
 const Landing = () => {

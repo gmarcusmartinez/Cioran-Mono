@@ -4,7 +4,7 @@ import { CustomError } from './custom-error';
 export class RequestValidationError extends CustomError {
   statusCode = 400;
   constructor(public errors: ValidationError[]) {
-    super('Error connecting to database.s');
+    super('Error connecting to database.');
 
     Object.setPrototypeOf(this, RequestValidationError.prototype);
   }

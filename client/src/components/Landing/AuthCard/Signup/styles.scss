@@ -1,10 +1,10 @@
 .signup {
   color: var(--color-grey-light);
-
+  padding: 2rem;
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-rows: 25% 15% 15% 15% 15% 15%;
+  grid-template-rows: 20% 15% 15% 15% 25% 10%;
 
   &__title {
     font-size: 1.6rem;

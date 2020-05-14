@@ -7,7 +7,7 @@ import ProjectConsole from '../../components/Dashboard/ProjectConsole/ProjectCon
 const links = [
   {
     text: 'projects',
-    to: '/dashboard/projects',
+    to: '/dashboard/',
   },
   {
     text: 'my que',
@@ -29,7 +29,7 @@ const Dashboard = () => {
       <DashSideBar links={links} />
       <div className='content'>
         <Switch>
-          <Route path='/dashboard/projects' component={ProjectConsole} />
+          <Route exact path='/dashboard/' component={ProjectConsole} />
         </Switch>
       </div>
     </div>
