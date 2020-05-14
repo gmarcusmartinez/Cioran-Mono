@@ -31,14 +31,14 @@ const TicketSchema = new mongoose.Schema({
     type: Boolean,
     default: false,
   },
-  // assignedTo: {
-  //   type: mongoose.Schema.ObjectId,
-  //   ref: "User",
-  // },
-  // createdBy: {
-  //     type: mongoose.Schema.ObjectId,
-  //     ref: "User",
-  //   },
+  assignedTo: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+  },
+  createdBy: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+  },
   storyPoints: {
     type: Number,
     required: true,

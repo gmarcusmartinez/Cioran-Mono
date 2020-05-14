@@ -4,6 +4,7 @@ import { Sprint } from '../models/Sprint';
 import { Project } from '../models/Project';
 import { asyncHandler } from '../middlewares/async';
 import { BadRequestError } from '../errors/bad-request-error';
+import { NotAuthorizedError } from '../errors/not-authorized-error';
 
 export const createSprint = asyncHandler(
   async (req: Request, res: Response) => {
@@ -11,6 +12,10 @@ export const createSprint = asyncHandler(
 
     const project = await Project.findById(req.params.projectId);
     if (!project) throw new BadRequestError('Project Not Found.');
+
+    if (project.projectOwner.toString() !== req.currentUser.id) {
+      throw new NotAuthorizedError();
+    }
 
     const sprint = await Sprint.build(req.body);
     await sprint.save();
@@ -33,6 +38,9 @@ export const deleteSprint = asyncHandler(
     let project = await Project.findById(sprint.project);
     if (!project) throw new BadRequestError('Project Not Found.');
 
+    if (project.projectOwner.toString() !== req.currentUser.id) {
+      throw new NotAuthorizedError();
+    }
     const updatedSprints = project.sprints.filter(
       (s) => s._id.toString() !== sprint._id.toString()
     );

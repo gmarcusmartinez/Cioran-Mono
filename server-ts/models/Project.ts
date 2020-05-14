@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import { sprintSchema, SprintAttrs } from './Sprint';
 
 interface ProjectAttrs {
   title: string;
@@ -51,6 +50,12 @@ const projectSchema = new mongoose.Schema({
       title: String,
       startDate: Date,
       endDate: Date,
+    },
+  ],
+  team: [
+    {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: 'Users',
     },
   ],
 });

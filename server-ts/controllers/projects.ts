@@ -12,9 +12,7 @@ export const getProjects = asyncHandler(async (req: Request, res: Response) => {
 
 export const getProject = asyncHandler(async (req: Request, res: Response) => {
   const project = await Project.findById(req.params.id);
-  if (!project) {
-    throw new BadRequestError('Project Not Found.');
-  }
+  if (!project) throw new BadRequestError('Project Not Found.');
   res.status(200).send(project);
 });
 
@@ -34,9 +32,7 @@ export const updateProject = asyncHandler(
   async (req: Request, res: Response) => {
     let project = await Project.findById(req.params.id);
 
-    if (!project) {
-      throw new BadRequestError('Project Not Found.');
-    }
+    if (!project) throw new BadRequestError('Project Not Found.');
     if (project.projectOwner.toString() !== req.currentUser.id) {
       throw new NotAuthorizedError();
     }
@@ -53,9 +49,7 @@ export const deleteProject = asyncHandler(
   async (req: Request, res: Response) => {
     let project = await Project.findById(req.params.id);
 
-    if (!project) {
-      throw new BadRequestError('Project Not Found.');
-    }
+    if (!project) throw new BadRequestError('Project Not Found.');
     if (project.projectOwner.toString() !== req.currentUser.id) {
       throw new NotAuthorizedError();
     }
