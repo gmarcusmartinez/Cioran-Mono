@@ -38,9 +38,7 @@ const Project: React.FC<ProjectProps> = ({ fetchSprints, match, sprints }) => {
       />
 
       <div className='sprint-wrapper'>
-        <div className='project-team-section'>
-          <h2 className='project-header'></h2>
-        </div>
+        <div className='project-team-section'></div>
         <SprintConsole selectedSprint={selectedSprint} />
         <SprintQue selectedSprint={selectedSprint} />
       </div>

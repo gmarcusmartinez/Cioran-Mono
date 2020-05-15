@@ -1,18 +1,18 @@
 import React from 'react';
-import axios from 'axios';
+
+import { connect } from 'react-redux';
+import { signup, ISignupForm } from '../../../../store/actions';
 
 interface SignupFormProps {
   setFormDisplay: Function;
+  signup: Function;
 }
-interface SignupFormState {
-  name: string;
-  email: string;
-  password: string;
-}
+
 const Signup: React.FunctionComponent<SignupFormProps> = ({
   setFormDisplay,
+  signup,
 }) => {
-  const [formData, setFormData] = React.useState<SignupFormState>({
+  const [formData, setFormData] = React.useState<ISignupForm>({
     name: '',
     email: '',
     password: '',
@@ -27,14 +27,7 @@ const Signup: React.FunctionComponent<SignupFormProps> = ({
   };
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    const config = {
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    };
-    const response = await axios.post('/api/auth/signup', formData, config);
-
-    console.log(response.data);
+    signup(formData);
     setFormData({ name: '', email: '', password: '' });
   };
   const { name, email, password } = formData;
@@ -42,6 +35,7 @@ const Signup: React.FunctionComponent<SignupFormProps> = ({
   return (
     <form className='signup' onSubmit={handleSubmit}>
       <h2 className='signup__title'>Create Your Account</h2>
+
       <input
         placeholder='Name'
         type='text'
@@ -75,4 +69,4 @@ const Signup: React.FunctionComponent<SignupFormProps> = ({
   );
 };
 
-export default Signup;
+export default connect(null, { signup })(Signup);

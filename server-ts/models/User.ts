@@ -60,9 +60,13 @@ userSchema.pre('save', async function (done) {
 });
 
 userSchema.methods.getSignedJwtToken = function () {
-  return jwt.sign({ id: this.id, email: this.email }, keys.jwtSecret, {
-    expiresIn: keys.jwtExpire,
-  });
+  return jwt.sign(
+    { id: this.id, email: this.email, name: this.name },
+    keys.jwtSecret,
+    {
+      expiresIn: keys.jwtExpire,
+    }
+  );
 };
 const User = mongoose.model<UserDoc, UserModel>('User', userSchema);
 

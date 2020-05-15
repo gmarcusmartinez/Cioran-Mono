@@ -4,6 +4,7 @@ import jwt from 'jsonwebtoken';
 const keys = require('../config/keys');
 
 interface UserPayload {
+  name: string;
   id: string;
   email: string;
 }
