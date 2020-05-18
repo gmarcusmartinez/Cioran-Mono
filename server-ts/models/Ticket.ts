@@ -1,9 +1,8 @@
 import mongoose from 'mongoose';
-import { MongoInstance } from 'mongodb-memory-server';
 
 interface TicketAttrs {
   title: string;
-  type: string;
+  ticketType: string;
   status: string;
   description: string;
   priority: string;
@@ -13,15 +12,21 @@ interface TicketModel extends mongoose.Model<TicketDoc> {
   build(attrs: TicketAttrs): TicketDoc;
 }
 interface TicketDoc extends mongoose.Document {
+  sprint: string;
   title: string;
-  type: string;
+  ticketType: string;
   status: string;
-  description: string;
-  priority: string;
   storyPoints: number;
+  priority: string;
+  description: string;
+  assignedTo: string;
+  createdBy: string;
+  dateAssigned: Date;
+  dateCompleted: Date;
+  createdAt: Date;
 }
 
-const ticketSchema = new mongoose.Schema({
+export const ticketSchema = new mongoose.Schema({
   sprint: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Sprint',
@@ -31,7 +36,7 @@ const ticketSchema = new mongoose.Schema({
     required: true,
     trim: true,
   },
-  type: {
+  ticketType: {
     type: String,
     required: true,
     enum: ['feature', 'bug', 'tests', 'task'],
@@ -58,18 +63,21 @@ const ticketSchema = new mongoose.Schema({
     trim: true,
   },
   assignedTo: {
-    type: mongoose.Schema.Types.ObjectId,
+    type: mongoose.Schema.Types.ObjectId || null,
     ref: 'User',
+    default: null,
   },
   createdBy: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'User',
   },
   dateAssigned: {
-    type: Date,
+    type: Date || null,
+    default: null,
   },
   dateCompleted: {
-    type: Date,
+    type: Date || null,
+    default: null,
   },
   createdAt: {
     type: Date,
@@ -99,7 +107,6 @@ ticketSchema.statics.getTotalStoryPoints = async function (sprintId: string) {
     console.error(error);
   }
 };
-const Ticket = mongoose.model<TicketDoc, TicketModel>('Ticket', ticketSchema);
 
 ticketSchema.post('save', function () {
   this.constructor.getTotalStoryPoints(this.sprint);
@@ -112,5 +119,6 @@ ticketSchema.post('save', function () {
 ticketSchema.statics.build = (attrs: TicketAttrs) => {
   return new Ticket(attrs);
 };
+const Ticket = mongoose.model<TicketDoc, TicketModel>('Ticket', ticketSchema);
 
 export { Ticket };

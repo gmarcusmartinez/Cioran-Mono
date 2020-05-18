@@ -4,10 +4,13 @@ import { User } from '../models/User';
 import { asyncHandler } from '../middlewares/async';
 import { BadRequestError } from '../errors/bad-request-error';
 import { PasswordManager } from '../services/PasswordManager';
+import { NotAuthorizedError } from '../errors/not-authorized-error';
 
 export const getCurrentUser = asyncHandler(
   async (req: Request, res: Response) => {
-    res.send({ currentUser: req.currentUser || null });
+    const user = await User.findById(req.currentUser.id);
+    if (!user) throw new NotAuthorizedError();
+    res.send(user);
   }
 );
 

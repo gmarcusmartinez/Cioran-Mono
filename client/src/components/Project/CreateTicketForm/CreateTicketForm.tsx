@@ -7,6 +7,7 @@ import {
   formInitialState,
   ticketTypeOptions,
   storyPointOptions,
+  priorityOptions,
 } from './options';
 
 interface CreateTicketFormProps {
@@ -18,6 +19,7 @@ interface FormState {
   type: string;
   storyPoints: number;
   description: string;
+  priority: string;
 }
 
 const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
@@ -47,7 +49,7 @@ const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
   const renderOptions = (arr: any[]) => {
     return arr.map((el) => <option key={el.text}>{el.text}</option>);
   };
-  const { title, type, storyPoints, description } = formData;
+  const { title, type, priority, storyPoints, description } = formData;
 
   return (
     <form onSubmit={handleSubmit} className='create-ticket-form'>
@@ -72,6 +74,14 @@ const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
         onChange={handleChange}
         renderOptions={renderOptions}
         options={storyPointOptions}
+      />
+      <FormSelect
+        label='Priority'
+        value={priority}
+        name='priority'
+        onChange={handleChange}
+        renderOptions={renderOptions}
+        options={priorityOptions}
       />
       <FormTextArea
         label='description'

@@ -18,7 +18,11 @@ const Default: React.FunctionComponent<DefaultFormProps> = ({
       >
         Signup with Email
       </button>
-      <div className='switch'>
+
+      <div
+        className='switch'
+        style={{ justifySelf: 'center', marginTop: '15%' }}
+      >
         Already have an account?
         <span onClick={() => setFormDisplay('RENDER_LOGIN')}>Signin</span>
       </div>

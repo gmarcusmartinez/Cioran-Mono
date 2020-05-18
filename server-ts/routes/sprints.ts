@@ -1,11 +1,11 @@
 import { Router } from 'express';
 
+import { ticketRouter } from './tickets';
 import { requireAuth } from '../middlewares/require-auth';
 import { currentUser } from '../middlewares/current-user';
 import { validateRequest } from '../middlewares/validate-request';
-import { createSprint, deleteSprint } from '../controllers/sprints';
+import { createSprint, getSprint } from '../controllers/sprints';
 import { createSprintValidation } from '../validation/sprint-validation';
-import { ticketRouter } from './tickets';
 
 const router = Router({ mergeParams: true });
 
@@ -20,6 +20,6 @@ router
     validateRequest,
     createSprint
   );
-router.route('/:id').delete(currentUser, requireAuth, deleteSprint);
+router.route('/:id').get(currentUser, requireAuth, getSprint);
 
 export { router as sprintRouter };

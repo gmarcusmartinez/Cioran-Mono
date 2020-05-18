@@ -8,11 +8,21 @@
     letter-spacing: 0.1rem;
     margin: 1rem 0 0 2rem;
   }
+  @media (max-width: 500px) {
+    height: 100%;
+    width: 100%;
+  }
 }
 .project-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  @media (max-width: 500px) {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 }
 .polygon-border-bottom-primary-light {
   margin: 2rem 0;

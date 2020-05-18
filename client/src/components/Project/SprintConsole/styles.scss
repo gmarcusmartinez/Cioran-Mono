@@ -1,18 +1,25 @@
 .sprint-console {
-  height: 100%;
-  padding: 1rem;
+  color: var(--color-grey-light);
 
-  display: flex;
-  align-items: center;
+  height: 100%;
+  margin: 0 2rem;
+
+  display: grid;
+  grid-template-rows: 60% 40%;
+  grid-template-columns: 15% 85%;
+  grid-template-areas:
+    'title body'
+    'createTicket body';
 
   &__title {
-    color: var(--color-primary-light);
     font-weight: 300;
     font-size: 2.4rem;
-    margin-left: 2.4rem;
+    text-align: center;
   }
 
   .story-points {
+    grid-area: body;
+
     color: var(--color-grey-light);
     margin-left: auto;
 
@@ -22,27 +29,34 @@
     text-align: center;
     justify-content: center;
     font-size: 1.4rem;
+    align-self: center;
 
     padding: 0.5rem;
     line-height: 1.4;
-    width: 10rem;
-    height: 10rem;
-    border: 0.8rem solid var(--color-primary-light);
+    width: 8rem;
+    height: 8rem;
+    border: 0.6rem solid var(--color-primary-light);
     border-radius: 50%;
+    &__title {
+      font-weight: 300;
+      font-size: 1.1rem;
+      text-align: center;
+    }
   }
-  #showCreateTicket-btn {
-    background-color: var(--color-dark-theme-primary);
-    border-radius: 50%;
-    border: 2px solid var(--color-primary-light);
-    color: var(--color-primary-light);
-
-    font-size: 2rem;
-    text-align: center;
-    width: 5rem;
-    height: 5rem;
-
-    z-index: 0;
-
+  #create-ticket-btn {
+    grid-area: createTicket;
+    color: var(--color-grey-light);
+    background-color: transparent;
+    border: none;
     outline: none;
+    cursor: pointer;
+    font-size: 1.4rem;
+    letter-spacing: 0.2rem;
+
+    transition: 0.25s ease-in-out;
+    &:hover {
+      background-color: var(--color-primary);
+    }
   }
+  z-index: 0;
 }

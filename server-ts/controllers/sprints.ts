@@ -29,6 +29,20 @@ export const createSprint = asyncHandler(
     res.status(201).send(sprint);
   }
 );
+
+export const getSprint = asyncHandler(async (req: Request, res: Response) => {
+  const sprint = await Sprint.findById(req.params.id);
+  if (!sprint) throw new BadRequestError('Project Not Found.');
+
+  const project = await Project.findById(sprint.project);
+  if (!project) throw new BadRequestError('Project Not Found.');
+  if (!project.team.includes(req.currentUser.id.toString())) {
+    throw new NotAuthorizedError();
+  }
+
+  res.status(200).send(sprint);
+});
+
 export const updateSprint = asyncHandler(
   async (req: Request, res: Response) => {
     let sprint = await Sprint.findById(req.params.id);

@@ -3,10 +3,6 @@ const Project = require('../models/Project');
 const asyncHandler = require('../middleware/async');
 const ErrorResponse = require('../utils/ErrorResponse');
 
-exports.getSprints = asyncHandler(async (req, res) => {
-  res.status(200).json(res.advancedResults);
-});
-
 exports.getSprint = asyncHandler(async (req, res, next) => {
   const sprint = await Sprint.findById(req.params.id).populate({
     path: 'project',

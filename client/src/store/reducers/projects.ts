@@ -1,19 +1,22 @@
-import { Action, ActionTypes } from "../actions/types";
-
+import { Action, ActionTypes } from '../actions/types';
 const initialState = {
   loading: false,
-  count: null,
-  pagination: {},
-  items: [],
+  project: null,
 };
 
 export const projects = (state = initialState, action: Action) => {
-  switch (action.type) {
-    case ActionTypes.FETCH_PROJECTS:
+  const { type, payload } = action;
+
+  switch (type) {
+    case ActionTypes.CREATE_PROJECT:
       return {
         ...state,
-        count: action.payload.count,
-        items: action.payload.data,
+        project: payload,
+      };
+    case ActionTypes.GET_PROJECT:
+      return {
+        ...state,
+        project: payload,
       };
     default:
       return state;

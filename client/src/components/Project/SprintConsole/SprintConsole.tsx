@@ -20,25 +20,24 @@ const SprintConsole: React.FC<SprintConsoleProps> = ({ selectedSprint }) => {
 
   const renderCreateTicketBtn = () => {
     return selectedSprint ? (
-      <button
-        onClick={() => setShowCreateTicket(true)}
-        id='showCreateTicket-btn'
-      >
-        +
+      <button onClick={() => setShowCreateTicket(true)} id='create-ticket-btn'>
+        Create Ticket
       </button>
     ) : null;
   };
 
   return (
-    <div className='sprint-console'>
-      {renderCreateTicketBtn()}
-      <h3 className='sprint-console__title'>{selectedSprint?.title}</h3>
-      <div className='story-points'>
-        <div className='story-points__title'>Story Points</div>
-        <>{selectedSprint?.totalStoryPoints}</>
+    <>
+      <div className='sprint-console'>
+        {renderCreateTicketBtn()}
+        <h3 className='sprint-console__title'>{selectedSprint?.title}</h3>
+        <div className='story-points'>
+          <div className='story-points__title'>Story Points</div>
+          <>{selectedSprint?.totalStoryPoints}</>
+        </div>
       </div>
       {renderModal()}
-    </div>
+    </>
   );
 };
 

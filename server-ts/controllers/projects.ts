@@ -1,5 +1,6 @@
 import { Request, Response } from 'express';
 
+import { User } from '../models/User';
 import { Project } from '../models/Project';
 import { asyncHandler } from '../middlewares/async';
 import { BadRequestError } from '../errors/bad-request-error';
@@ -13,17 +14,26 @@ export const getProjects = asyncHandler(async (req: Request, res: Response) => {
 export const getProject = asyncHandler(async (req: Request, res: Response) => {
   const project = await Project.findById(req.params.id);
   if (!project) throw new BadRequestError('Project Not Found.');
+  if (!project.team.includes(req.currentUser.id.toString())) {
+    throw new NotAuthorizedError();
+  }
   res.status(200).send(project);
 });
 
 export const createProject = asyncHandler(
   async (req: Request, res: Response) => {
-    const projectOwner = req.currentUser.id;
-    const { title, slug } = req.body;
+    const user = await User.findById(req.currentUser.id);
 
-    const project = Project.build({ title, slug, projectOwner });
-
+    const project = Project.build(req.body);
+    project.projectOwner = req.currentUser.id;
+    project.team.push(req.currentUser.id);
     await project.save();
+
+    const { _id, title } = project;
+    const projectSubDoc = { _id, title };
+    user?.projects.push(projectSubDoc);
+    await user?.save();
+
     res.status(201).send(project);
   }
 );

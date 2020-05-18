@@ -1,17 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createProject } from '../../../store/actions';
+import { createProject, ICreateProjectFormState } from '../../../store/actions';
 import { FormInput } from '../../common/Form';
-interface IFormProps {
+
+interface ICreateProjectFormProps {
   createProject: Function;
 }
-interface FormState {
-  title: string;
-}
 
-const CreateProjectForm: React.FC<IFormProps> = ({ createProject }) => {
-  const [formData, setFormData] = React.useState<FormState>({
+const CreateProjectForm: React.FC<ICreateProjectFormProps> = ({
+  createProject,
+}) => {
+  const [formData, setFormData] = React.useState<ICreateProjectFormState>({
     title: '',
+    slug: '',
   });
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
@@ -23,10 +24,10 @@ const CreateProjectForm: React.FC<IFormProps> = ({ createProject }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     createProject(formData);
-    setFormData({ title: '' });
+    setFormData({ title: '', slug: '' });
   };
 
-  const { title } = formData;
+  const { title, slug } = formData;
   return (
     <form className='create-project-form' onSubmit={handleSubmit}>
       <FormInput
@@ -34,6 +35,13 @@ const CreateProjectForm: React.FC<IFormProps> = ({ createProject }) => {
         name='title'
         value={title}
         onChange={handleChange}
+      />
+      <FormInput
+        label='Project Slug'
+        name='slug'
+        value={slug}
+        onChange={handleChange}
+        info='Slug should be between 4-6 characters'
       />
       <button className='btn-primary' style={{ width: '40%' }}>
         Submit

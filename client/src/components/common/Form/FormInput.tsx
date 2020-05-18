@@ -5,6 +5,7 @@ interface FormInputProps {
   value: string;
   name: string;
   onChange: (event: ChangeEvent<HTMLInputElement>) => void;
+  info?: string;
 }
 
 export const FormInput: React.FC<FormInputProps> = ({
@@ -12,12 +13,14 @@ export const FormInput: React.FC<FormInputProps> = ({
   name,
   value,
   onChange,
+  info,
 }) => {
   return (
     <div className='form-field'>
       <label>{label}</label>
       <span className='form-field__required'>*</span>
       <input type='text' name={name} value={value} onChange={onChange} />
+      <div className='form-field__info'>{info}</div>
     </div>
   );
 };

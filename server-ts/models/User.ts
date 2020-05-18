@@ -8,6 +8,10 @@ interface UserAttrs {
   email: string;
   password: string;
 }
+interface ProjectSubDoc {
+  _id: string;
+  title: string;
+}
 
 interface UserModel extends mongoose.Model<UserDoc> {
   build(attrs: UserAttrs): UserDoc;
@@ -17,6 +21,7 @@ interface UserDoc extends mongoose.Document {
   name: string;
   email: string;
   password: string;
+  projects: ProjectSubDoc[];
   getSignedJwtToken(): string;
 }
 
@@ -34,6 +39,12 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    projects: [
+      {
+        _id: mongoose.Schema.Types.ObjectId,
+        title: String,
+      },
+    ],
   },
   {
     toJSON: {
@@ -61,13 +72,19 @@ userSchema.pre('save', async function (done) {
 
 userSchema.methods.getSignedJwtToken = function () {
   return jwt.sign(
-    { id: this.id, email: this.email, name: this.name },
+    {
+      id: this.id,
+      email: this.email,
+      name: this.name,
+      projects: this.projects,
+    },
     keys.jwtSecret,
     {
       expiresIn: keys.jwtExpire,
     }
   );
 };
+
 const User = mongoose.model<UserDoc, UserModel>('User', userSchema);
 
 export { User };

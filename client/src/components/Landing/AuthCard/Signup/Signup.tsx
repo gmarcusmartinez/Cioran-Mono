@@ -1,5 +1,4 @@
 import React from 'react';
-
 import { connect } from 'react-redux';
 import { signup, ISignupForm } from '../../../../store/actions';
 
@@ -35,7 +34,6 @@ const Signup: React.FunctionComponent<SignupFormProps> = ({
   return (
     <form className='signup' onSubmit={handleSubmit}>
       <h2 className='signup__title'>Create Your Account</h2>
-
       <input
         placeholder='Name'
         type='text'

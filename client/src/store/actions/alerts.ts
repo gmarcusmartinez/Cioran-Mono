@@ -4,7 +4,8 @@ import { ActionTypes } from './types';
 
 export interface IAlert {
   id: string;
-  msg: string;
+  message: string;
+  field: string;
 }
 
 export interface SetAlertAction {
@@ -16,11 +17,11 @@ export interface RemovetAlertAction {
   payload: string;
 }
 
-export const setAlert = (msg: string) => async (dispatch: Dispatch) => {
+export const setAlert = (message: string) => (dispatch: Dispatch) => {
   const id = v4();
   dispatch({
     type: ActionTypes.SET_ALERT,
-    payload: { msg, id },
+    payload: { message, id },
   });
   setTimeout(
     () =>

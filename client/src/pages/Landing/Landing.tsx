@@ -2,23 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import Alert from '../../components/common/Alert/Alert';
-import AuthCard from '../../components/Landing/AuthCard/AuthCard';
-import { getCurrentUser, signout } from '../../store/actions';
+import AuthCard from '../../components/Landing/AuthCard';
 
 interface LandingProps {
   getCurrentUser: Function;
-  signout: Function;
 }
-const Landing: React.FC<LandingProps> = ({ getCurrentUser, signout }) => {
-  React.useEffect(() => {
-    getCurrentUser();
-  }, [getCurrentUser]);
+const Landing: React.FC<LandingProps> = () => {
   return (
     <div className='landing'>
       <div className='landing__hero'>
-        <div className='hero__header'>
-          <button onClick={() => signout()}>Singout</button>
-        </div>
+        <div className='hero__header'></div>
         <div className='hero__display'>
           <h1 className='app-logo'>Cioran</h1>
           <p className='hero__slogan'>
@@ -37,4 +30,4 @@ const Landing: React.FC<LandingProps> = ({ getCurrentUser, signout }) => {
   );
 };
 
-export default connect(null, { getCurrentUser, signout })(Landing);
+export default connect(null, {})(Landing);

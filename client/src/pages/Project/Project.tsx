@@ -5,38 +5,34 @@ import SprintQue from '../../components/Project/SprintQue/SprintQue';
 import SprintSideBar from '../../components/Project/SprintSideBar/SprintSideBar';
 import SprintConsole from '../../components/Project/SprintConsole/SprintConsole';
 
-import { fetchSprints, Sprint } from '../../store/actions';
+import { getProject, Sprint } from '../../store/actions';
 
 interface ProjectProps {
-  fetchSprints: Function;
+  getProject: Function;
   match: {
     params: {
       id: string;
     };
   };
-  sprints: {
+  project: {
     loading: boolean;
-    count: number;
-    pagination: {};
-    items: Sprint[];
+    sprints: Sprint[];
   };
 }
 
-const Project: React.FC<ProjectProps> = ({ fetchSprints, match, sprints }) => {
+const Project: React.FC<ProjectProps> = ({ getProject, match, project }) => {
   const [selectedSprint, setSelectedSprint] = React.useState(null);
-
   const projectId = match.params.id;
   React.useEffect(() => {
-    fetchSprints(projectId);
-  }, [fetchSprints, projectId]);
+    getProject(projectId);
+  }, [getProject, projectId]);
 
   return (
     <div className='projects-wrapper'>
       <SprintSideBar
-        sprintArr={sprints.items}
+        sprintArr={project?.sprints}
         setSelectedSprint={setSelectedSprint}
       />
-
       <div className='sprint-wrapper'>
         <div className='project-team-section'></div>
         <SprintConsole selectedSprint={selectedSprint} />
@@ -46,7 +42,7 @@ const Project: React.FC<ProjectProps> = ({ fetchSprints, match, sprints }) => {
   );
 };
 const mapStateToProps = (state: any) => ({
-  sprints: state.sprints,
+  project: state.projects.project,
 });
 
-export default connect(mapStateToProps, { fetchSprints })(Project);
+export default connect(mapStateToProps, { getProject })(Project);

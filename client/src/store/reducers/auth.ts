@@ -1,18 +1,25 @@
 import { Action, ActionTypes } from '../actions/types';
 
-const initialState = {
+export const initialAuthState = {
   loading: true,
   currentUser: null,
+  isAuthenticated: false,
 };
 
-export const auth = (state = initialState, action: Action) => {
+export const auth = (state = initialAuthState, action: Action) => {
   switch (action.type) {
-    case ActionTypes.SIGNOUT:
     case ActionTypes.GET_CURRENT_USER:
       return {
         ...state,
         loading: false,
+        currentUser: action.payload,
+      };
+    case ActionTypes.SIGNOUT:
+      return {
+        ...state,
+        loading: false,
         currentUser: action.payload.currentUser,
+        isAuthenticated: false,
       };
     case ActionTypes.SIGNUP:
     case ActionTypes.SIGNIN:
@@ -20,6 +27,7 @@ export const auth = (state = initialState, action: Action) => {
         ...state,
         loading: false,
         currentUser: action.payload,
+        isAuthenticated: true,
       };
     default:
       return state;

@@ -10,7 +10,7 @@ const Alert: React.FC<AlertProps> = ({ alerts }) => {
   const list = alerts
     ? alerts.map((a) => (
         <div key={a.id} className='alert'>
-          {a.msg}
+          {a.message}
         </div>
       ))
     : null;

@@ -19,6 +19,7 @@
     height: 75%;
     border-radius: 0.4rem;
     transition: all 0.5s 0.2s;
+    overflow-y: scroll;
   }
   &__header {
     color: var(--color-grey-light);

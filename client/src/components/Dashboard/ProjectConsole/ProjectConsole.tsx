@@ -4,30 +4,21 @@ import { connect } from 'react-redux';
 import Modal from '../../common/Modal';
 import ProjectItem from '../ProjectItem/ProjectItem';
 import CreateProjectBtn from '../CreateProjectBtn/CreateProjectBtn';
-import { fetchProjects, Project } from '../../../store/actions/projects';
+import { IProject, getCurrentUser } from '../../../store/actions';
 import CreateProjectForm from '../CreateProjectForm/CreateProjectForm';
 
 interface ProjectsProps {
-  fetchProjects: Function;
-  projects: {
-    loading: boolean;
-    count: number;
-    pagination: {};
-    items: Project[];
-  };
+  projects: IProject[] | null;
 }
 
-const ProjectConsole: React.FC<ProjectsProps> = ({
-  fetchProjects,
-  projects,
-}) => {
+const ProjectConsole: React.FC<ProjectsProps> = ({ projects }) => {
   const [showCreateProject, setShowCreateProject] = React.useState(false);
   React.useEffect(() => {
-    fetchProjects();
-  }, [fetchProjects]);
+    getCurrentUser();
+  }, [getCurrentUser]);
 
-  let list = projects.items
-    ? projects.items.map((p) => <ProjectItem key={p._id} item={p} />)
+  let list = projects
+    ? projects.map((p: IProject) => <ProjectItem key={p._id} item={p} />)
     : null;
 
   const renderModal = () => {
@@ -50,7 +41,7 @@ const ProjectConsole: React.FC<ProjectsProps> = ({
   );
 };
 const mapStateToProps = (state: any) => ({
-  projects: state.projects,
+  projects: state.auth.currentUser?.projects,
 });
 
-export default connect(mapStateToProps, { fetchProjects })(ProjectConsole);
+export default connect(mapStateToProps, { getCurrentUser })(ProjectConsole);

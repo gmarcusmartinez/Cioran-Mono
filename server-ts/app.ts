@@ -9,6 +9,7 @@ import { errorHandler } from './middlewares/error-handler';
 import { authRouter } from './routes/auth';
 import { projectRouter } from './routes/projects';
 import { sprintRouter } from './routes/sprints';
+import { ticketRouter } from './routes/tickets';
 
 const app = express();
 
@@ -20,8 +21,9 @@ app.use(
   })
 );
 app.use('/api/auth', authRouter);
-app.use('/api/projects', projectRouter);
 app.use('/api/sprints', sprintRouter);
+app.use('/api/tickets', ticketRouter);
+app.use('/api/projects', projectRouter);
 
 app.all('*', async () => {
   throw new NotFoundError();

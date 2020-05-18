@@ -12,9 +12,15 @@ export const storyPointOptions = [
   { text: 8 },
   { text: 13 },
 ];
+export const priorityOptions = [
+  { text: 'low' },
+  { text: 'medium' },
+  { text: 'high' },
+];
 export const formInitialState = {
   title: '',
   type: '',
   storyPoints: 1,
   description: '',
+  priority: 'low',
 };

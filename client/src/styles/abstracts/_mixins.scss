@@ -39,6 +39,11 @@
     height: 12.5rem;
     width: 12.5rem;
   }
+  @media (max-width: 500px) {
+    height: 22rem;
+    width: 22rem;
+    margin: 0.5rem;
+  }
 }
 
 @mixin formEl {

@@ -26,4 +26,9 @@
     color: var(--color-primary);
     margin-left: 1rem;
   }
+  &__info {
+    font-size: 1.1rem;
+    color: var(--color-grey-light);
+    font-style: italic;
+  }
 }

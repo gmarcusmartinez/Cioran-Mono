@@ -3,7 +3,6 @@ import mongoose from 'mongoose';
 interface ProjectAttrs {
   title: string;
   slug: string;
-  projectOwner: string;
 }
 
 interface SprintSubDoc {
@@ -23,6 +22,7 @@ interface ProjectDoc extends mongoose.Document {
   slug: string;
   projectOwner: string;
   sprints: SprintSubDoc[];
+  team: string[];
 }
 
 const projectSchema = new mongoose.Schema({

@@ -1,13 +1,14 @@
-import { FetchProjectsAction, CreateProjectAction } from './projects';
 import { FetchSprintsAction } from './sprints';
 import { FetchTicketsAction, CreateTicketAction } from './tickets';
 import { SetAlertAction, RemovetAlertAction } from './alerts';
 import {
   GetCurrentUserAction,
-  SignoutAction,
   SignupAction,
+  SignoutAction,
   SigninAction,
-} from './auth';
+  GetProjectAction,
+  CreateProjectAction,
+} from './';
 
 export enum ActionTypes {
   SET_ALERT = 'SET_ALERT',
@@ -16,21 +17,23 @@ export enum ActionTypes {
   SIGNUP = 'SIGNUP',
   SIGNIN = 'SIGNIN',
   SIGNOUT = 'SIGNOUT',
-  ADD_PROJECT = 'ADD_PROJECT',
-  FETCH_PROJECTS = 'FETCH_PROJECTS',
+  CREATE_PROJECT = 'CREATE_PROJECT',
+  GET_PROJECT = 'GET_PROJECT',
+  GET_PROJECTS = 'GET_PROJECTS',
   FETCH_SPRINTS = 'FETCH_SPRINTS',
   FETCH_TICKETS = 'FETCH_TICKETS',
   CREATE_TICKET = 'CREATE_TICKET',
 }
 export type Action =
-  | FetchProjectsAction
+  | SignoutAction
+  | SignupAction
+  | SigninAction
+  | GetProjectAction
+  | CreateProjectAction
   | CreateProjectAction
   | FetchSprintsAction
   | FetchTicketsAction
   | CreateTicketAction
   | SetAlertAction
   | RemovetAlertAction
-  | GetCurrentUserAction
-  | SignoutAction
-  | SignupAction
-  | SigninAction;
+  | GetCurrentUserAction;
