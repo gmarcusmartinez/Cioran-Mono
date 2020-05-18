@@ -16,7 +16,7 @@ interface CreateTicketFormProps {
 }
 interface FormState {
   title: string;
-  type: string;
+  ticketType: string;
   storyPoints: number;
   description: string;
   priority: string;
@@ -49,7 +49,7 @@ const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
   const renderOptions = (arr: any[]) => {
     return arr.map((el) => <option key={el.text}>{el.text}</option>);
   };
-  const { title, type, priority, storyPoints, description } = formData;
+  const { title, ticketType, priority, storyPoints, description } = formData;
 
   return (
     <form onSubmit={handleSubmit} className='create-ticket-form'>
@@ -61,8 +61,8 @@ const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
       />
       <FormSelect
         label='Ticket Type'
-        value={type}
-        name='type'
+        value={ticketType}
+        name='ticketType'
         onChange={handleChange}
         renderOptions={renderOptions}
         options={ticketTypeOptions}

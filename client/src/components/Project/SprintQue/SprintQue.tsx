@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Ticket from '../Ticket/Ticket';
-import { Sprint, ITicket } from '../../../store/actions';
+import { ISprint, ITicket } from '../../../store/actions';
 
 const headers = [
   { text: 'Ticket', sort: 'title' },
@@ -12,7 +12,7 @@ const headers = [
 ];
 
 interface SprintQueProps {
-  selectedSprint: Sprint | null;
+  selectedSprint: ISprint | null;
   tickets: ITicket[];
 }
 
@@ -35,7 +35,7 @@ const SprintQue: React.FC<SprintQueProps> = ({ tickets }) => {
   );
 };
 const mapStateToProps = (state: any) => ({
-  tickets: state.tickets.items,
+  tickets: state.sprints.sprint?.tickets,
 });
 
 export default connect(mapStateToProps, {})(SprintQue);

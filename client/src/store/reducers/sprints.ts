@@ -2,18 +2,16 @@ import { Action, ActionTypes } from '../actions/types';
 
 const initialState = {
   loading: true,
-  count: null,
-  pagination: {},
-  items: [],
+  sprint: null,
 };
 
 export const sprints = (state = initialState, action: Action) => {
   switch (action.type) {
-    case ActionTypes.FETCH_SPRINTS:
+    case ActionTypes.GET_SPRINT:
       return {
         ...state,
-        count: action.payload.count,
-        items: action.payload.data,
+        loading: false,
+        sprint: action.payload,
       };
     default:
       return state;

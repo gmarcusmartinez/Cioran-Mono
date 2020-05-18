@@ -5,7 +5,7 @@ import SprintQue from '../../components/Project/SprintQue/SprintQue';
 import SprintSideBar from '../../components/Project/SprintSideBar/SprintSideBar';
 import SprintConsole from '../../components/Project/SprintConsole/SprintConsole';
 
-import { getProject, Sprint } from '../../store/actions';
+import { getProject, ISprint } from '../../store/actions';
 
 interface ProjectProps {
   getProject: Function;
@@ -16,7 +16,7 @@ interface ProjectProps {
   };
   project: {
     loading: boolean;
-    sprints: Sprint[];
+    sprints: ISprint[];
   };
 }
 

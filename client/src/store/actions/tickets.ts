@@ -6,7 +6,7 @@ export interface ITicket {
   _id: string;
   sprint: string;
   title: string;
-  type: string;
+  ticketType: string;
   status: string;
   description: string;
   isActive: boolean;
@@ -16,34 +16,10 @@ export interface ITicket {
   createdAt: Date;
 }
 
-export interface FetchTicketsAction {
-  type: ActionTypes.FETCH_TICKETS;
-  payload: {
-    success: boolean;
-    count: number;
-    data: ITicket[];
-  };
-}
-
-export const fetchTickets = (sprintId: string) => async (
-  dispatch: Dispatch
-) => {
-  const res = await axios.get(`/api/sprints/${sprintId}/tickets`);
-  dispatch<FetchTicketsAction>({
-    type: ActionTypes.FETCH_TICKETS,
-    payload: res.data,
-  });
-};
-
 export interface CreateTicketAction {
   type: ActionTypes.CREATE_TICKET;
   payload: ITicket;
 }
-const config = {
-  headers: {
-    'Content-Type': 'application/json',
-  },
-};
 interface CREATE_TICKET_FORM_DATA {
   title: string;
 }
@@ -51,6 +27,8 @@ export const createTicket = (
   formData: CREATE_TICKET_FORM_DATA,
   sprint_id: string
 ) => async (dispatch: Dispatch) => {
+  const config = { headers: { 'Content-Type': 'application/json' } };
+
   const res = await axios.post(
     `/api/sprints/${sprint_id}/tickets`,
     formData,

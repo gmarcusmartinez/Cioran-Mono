@@ -2,10 +2,10 @@ import React from 'react';
 
 import Modal from '../../common/Modal';
 import SprintItem from '../SprintItem/SprintItem';
-import { Sprint } from '../../../store/actions/';
+import { ISprint } from '../../../store/actions/';
 
 interface SprintSideBarProps {
-  sprintArr: Sprint[];
+  sprintArr: ISprint[];
   setSelectedSprint: Function;
 }
 

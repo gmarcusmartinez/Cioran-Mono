@@ -1,21 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { Sprint, fetchTickets } from '../../../store/actions';
+import { ISprint, getSprint } from '../../../store/actions';
 
 interface SprintItemProps {
-  item: Sprint;
+  item: ISprint;
   setSelectedSprint: Function;
-  fetchTickets: Function;
+  getSprint: Function;
 }
 
 const SprintItem: React.FC<SprintItemProps> = ({
   item,
   setSelectedSprint,
-  fetchTickets,
+  getSprint,
 }) => {
   const onClick = () => {
     setSelectedSprint(item);
-    fetchTickets(item._id);
+    getSprint(item._id);
   };
   return (
     <div className='sprint-item' onClick={onClick}>
@@ -24,4 +24,4 @@ const SprintItem: React.FC<SprintItemProps> = ({
   );
 };
 
-export default connect(null, { fetchTickets })(SprintItem);
+export default connect(null, { getSprint })(SprintItem);

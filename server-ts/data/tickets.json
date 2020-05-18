@@ -1,0 +1,168 @@
+[
+  {
+    "_id": "5ea224658065b61488982af8",
+    "title": "Create Ticket Backend",
+    "ticketType": "task",
+    "description": "Wire up controller and route to create a ticket for a sprint",
+    "storyPoints": 1,
+    "sprint": "5e9f429cfb5075d3b2fcd0c7"
+  },
+  {
+    "_id": "5ea225e16d3a2215295207f0",
+    "title": "Aggregate Story Points",
+    "ticketType": "task",
+    "description": "Middleware for Ticket model to calculate total story points for sprint.",
+    "storyPoints": 1,
+    "sprint": "5e9f429cfb5075d3b2fcd0c7",
+    "createdAt": "2020-04-23T23:33:53.719Z"
+  },
+  {
+    "_id": "5ea226176d3a2215295207f1",
+    "title": "Ticket CRUD",
+    "ticketType": "task",
+    "description": "CRUD functionality for single ticket resource.",
+    "storyPoints": 1,
+    "sprint": "5e9f429cfb5075d3b2fcd0c7",
+    "createdAt": "2020-04-23T23:34:47.819Z"
+  },
+  {
+    "_id": "5eb4613daa5deccb9e5b9df5",
+    "title": "Create Ticket Action Creator",
+    "ticketType": "task",
+    "description": "Connect CreateTicketForm to redux store and call action creator on form submission.",
+    "storyPoints": 3,
+    "sprint": "5eb45dfb2b4adac7258e6fe3",
+    "createdAt": "2020-05-07T19:27:57.530Z"
+  },
+  {
+    "_id": "5eb46f44aa5deccb9e5b9df6",
+    "title": "Reusable form components",
+    "ticketType": "task",
+    "storyPoints": 2,
+    "description": "Select and Input comonents",
+    "sprint": "5eb45dfb2b4adac7258e6fe3",
+    "createdAt": "2020-05-07T20:27:48.966Z"
+  },
+  {
+    "_id": "5eb489f076fd35d5d77d7464",
+    "title": "StoryPoints component design",
+    "ticketType": "task",
+    "storyPoints": 1,
+    "description": "",
+    "sprint": "5eb45dfb2b4adac7258e6fe3",
+    "createdAt": "2020-05-07T22:21:36.315Z"
+  },
+  {
+    "_id": "5eb497f176fd35d5d77d7466",
+    "title": "Fetch Sprint action creator",
+    "ticketType": "task",
+    "storyPoints": 3,
+    "description": "",
+    "sprint": "5eb45dfb2b4adac7258e6fe3",
+    "createdAt": "2020-05-07T23:21:21.940Z"
+  },
+  {
+    "_id": "5eb5ac5bf771f206a8a0e93e",
+    "title": "Sprint Que Responsive Layout",
+    "ticketType": "task",
+    "storyPoints": 2,
+    "description": "Begin to remove columns from sprint queue as screen size shrinks.",
+    "sprint": "5eb45dfb2b4adac7258e6fe3",
+    "createdAt": "2020-05-08T19:00:43.260Z"
+  },
+  {
+    "_id": "5eb5c35af771f206a8a0e940",
+    "title": "Client: Ticket Priority",
+    "ticketType": "task",
+    "storyPoints": 2,
+    "description": "Select 3 colors to demonstrate low medium and high priority. These colors will be displayed in the ticket sidebar in the item column.",
+    "sprint": "5eb45dfb2b4adac7258e6fe3",
+    "createdAt": "2020-05-08T20:38:50.962Z"
+  },
+  {
+    "_id": "5eb5c36df771f206a8a0e941",
+    "title": "Server: Ticket Priority",
+    "ticketType": "task",
+    "storyPoints": 2,
+    "description": "",
+    "sprint": "5eb45dfb2b4adac7258e6fe3",
+    "createdAt": "2020-05-08T20:39:09.020Z"
+  },
+  {
+    "_id": "5eb5d175f771f206a8a0e944",
+    "title": "Server: Sprint - Start / End Dates",
+    "ticketType": "task",
+    "storyPoints": 2,
+    "description": "Implement a field on the Sprint model which can accept dates to define the start date and end date of a Sprint.",
+    "sprint": "5eb5d0f0f771f206a8a0e943",
+    "createdAt": "2020-05-08T21:39:01.133Z"
+  },
+  {
+    "_id": "5eb5d239f771f206a8a0e945",
+    "title": "Client: Ticket Modal",
+    "ticketType": "feature",
+    "storyPoints": 2,
+    "description": "Ticket Modal should have all of the fields implemented in design.",
+    "sprint": "5eb5d0f0f771f206a8a0e943",
+    "createdAt": "2020-05-08T21:42:17.464Z"
+  },
+  {
+    "_id": "5eb5d263f771f206a8a0e946",
+    "title": "Design: Ticket Modal",
+    "ticketType": "task",
+    "storyPoints": 1,
+    "description": "Quick Sketch on Draw.io of how Ticket should look when displayed in Modal.",
+    "sprint": "5eb5d0f0f771f206a8a0e943",
+    "createdAt": "2020-05-08T21:42:59.655Z"
+  },
+  {
+    "_id": "5eb5d2e5f771f206a8a0e947",
+    "title": "Server - Fetch Ticket",
+    "ticketType": "task",
+    "storyPoints": 2,
+    "description": "",
+    "sprint": "5eb5d0f0f771f206a8a0e943",
+    "createdAt": "2020-05-08T21:45:09.348Z"
+  },
+  {
+    "_id": "5eb5d2f8f771f206a8a0e948",
+    "title": "Client: Redux - FetchTicket",
+    "ticketType": "task",
+    "storyPoints": 3,
+    "description": "",
+    "sprint": "5eb5d0f0f771f206a8a0e943",
+    "createdAt": "2020-05-08T21:45:28.847Z"
+  },
+  {
+    "status": "completed",
+    "priority": "low",
+    "assignedTo": null,
+    "dateAssigned": null,
+    "dateCompleted": null,
+    "_id": "5eb5d3faf771f206a8a0e949",
+    "title": "Server: Auth Routes and controllers",
+    "ticketType": "task",
+    "storyPoints": 13,
+    "description": "Implements routes to signup/ sign in and sign out a user. As well as Creating the User model and hashing and storing passwords. Implement JWT for authentication.",
+    "sprint": "5eb5d0f0f771f206a8a0e943",
+    "createdAt": "2020-05-08T21:49:46.210Z"
+  },
+  {
+    "_id": "5eb5d474f771f206a8a0e94a",
+    "title": "Client: Update Ticket Modal",
+    "ticketType": "feature",
+    "storyPoints": 3,
+    "description": "Modal should contain all current Fields with the ability to change them and resubmit to server.",
+    "sprint": "5eb5d0f0f771f206a8a0e943",
+    "createdAt": "2020-05-08T21:51:48.942Z"
+  },
+  {
+    "_id": "5eb5d4cef771f206a8a0e94b",
+    "title": "Design - My Que",
+    "ticketType": "task",
+    "storyPoints": 1,
+    "description": "Quick Sketch of what queue should look like. Queue should contain all assigned tickets from all projects for a given user.",
+    "sprint": "5eb5d0f0f771f206a8a0e943",
+    "createdAt": "2020-05-08T21:53:18.885Z"
+  }
+]

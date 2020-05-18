@@ -1,0 +1,18 @@
+[
+  {
+    "photo": "no-image.jpg",
+    "team": ["5eb88d7afa6bbc469bc0d3a8"],
+    "_id": "5e9f3656608b81ce3132247c",
+    "title": "Cioran Agile Software",
+    "projectOwner": "5eb88d7afa6bbc469bc0d3a8",
+    "slug": "CIOR",
+    "sprints": [
+      {
+        "_id": "5eb5d0f0f771f206a8a0e943",
+        "title": "Sprint D",
+        "startDate": "2020-05-25T07:00:01.000Z",
+        "endDate": "2020-06-01T07:00:00.000Z"
+      }
+    ]
+  }
+]

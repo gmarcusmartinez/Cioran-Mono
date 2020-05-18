@@ -56,6 +56,6 @@ export const createTicket = asyncHandler(
     sprint.tickets.push(ticketSubDoc);
     await sprint.save();
 
-    res.status(201).send(sprint);
+    res.status(201).send(ticket);
   }
 );

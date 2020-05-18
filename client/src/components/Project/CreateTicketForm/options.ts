@@ -19,7 +19,7 @@ export const priorityOptions = [
 ];
 export const formInitialState = {
   title: '',
-  type: '',
+  ticketType: '',
   storyPoints: 1,
   description: '',
   priority: 'low',

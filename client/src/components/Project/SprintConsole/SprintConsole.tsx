@@ -1,10 +1,10 @@
 import React from 'react';
 import Modal from '../../common/Modal';
 import CreateTicketForm from '../CreateTicketForm/CreateTicketForm';
-import { Sprint } from '../../../store/actions';
+import { ISprint } from '../../../store/actions';
 
 interface SprintConsoleProps {
-  selectedSprint: Sprint | null;
+  selectedSprint: ISprint | null;
 }
 
 const SprintConsole: React.FC<SprintConsoleProps> = ({ selectedSprint }) => {

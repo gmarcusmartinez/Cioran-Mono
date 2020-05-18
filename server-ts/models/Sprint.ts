@@ -61,10 +61,10 @@ export const sprintSchema = new mongoose.Schema({
     },
   ],
   startDate: {
-    type: Date,
+    type: Date || null,
   },
   endDate: {
-    type: Date,
+    type: Date || null,
   },
   createdAt: {
     type: Date,

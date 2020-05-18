@@ -5,7 +5,9 @@
   "main": "index.js",
   "scripts": {
     "dev": "ts-node-dev --poll index.ts",
-    "test": "jest --watchAll --no-cache"
+    "test": "jest --watchAll --no-cache",
+    "seed-d": "ts-node-dev  seeder.ts -d ",
+    "seed-i": "ts-node-dev  seeder.ts -i "
   },
   "jest": {
     "preset": "ts-jest",

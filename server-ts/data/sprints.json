@@ -1,0 +1,65 @@
+[
+  {
+    "totalStoryPoints": 24,
+    "_id": "5eb5d0f0f771f206a8a0e943",
+    "title": "Sprint D",
+    "project": "5e9f3656608b81ce3132247c",
+    "createdAt": "2020-05-08T21:36:48.421Z",
+    "tickets": [
+      {
+        "_id": "5ec1c3efddc10e6aa5b10f01",
+        "title": "Hook up CreateTicket to Redux",
+        "ticketType": "task",
+        "status": "unassigned",
+        "priority": "low",
+        "storyPoints": 3,
+        "assignedTo": null
+      },
+      {
+        "_id": "5eb6eba7f293252874c50027",
+        "title": "Client: Ticket - Sort By Field",
+        "ticketType": "feature",
+        "status": "unassigned",
+        "priority": "low",
+        "storyPoints": 8,
+        "assignedTo": null
+      },
+      {
+        "_id": "5eb5db59f771f206a8a0e951",
+        "title": "Client: Ticket Assigned Style/ Functionality",
+        "ticketType": "task",
+        "status": "unassigned",
+        "priority": "low",
+        "storyPoints": 5,
+        "assignedTo": null
+      },
+      {
+        "_id": "5eb5db2cf771f206a8a0e950",
+        "title": "Client - Ticket: Completed Style / Functionality",
+        "ticketType": "task",
+        "status": "unassigned",
+        "priority": "low",
+        "storyPoints": 5,
+        "assignedTo": null
+      },
+      {
+        "_id": "5eb5d900f771f206a8a0e94e",
+        "title": "ProjectItem Mobile Media Queries.",
+        "ticketType": "task",
+        "status": "unassigned",
+        "priority": "low",
+        "storyPoints": 2,
+        "assignedTo": null
+      },
+      {
+        "_id": "5eb5d654f771f206a8a0e94c",
+        "title": "Client: Ticket animations",
+        "ticketType": "feature",
+        "status": "unassigned",
+        "priority": "low",
+        "storyPoints": 1,
+        "assignedTo": null
+      }
+    ]
+  }
+]
