@@ -98,42 +98,6 @@
     "createdAt": "2020-05-08T21:39:01.133Z"
   },
   {
-    "_id": "5eb5d239f771f206a8a0e945",
-    "title": "Client: Ticket Modal",
-    "ticketType": "feature",
-    "storyPoints": 2,
-    "description": "Ticket Modal should have all of the fields implemented in design.",
-    "sprint": "5eb5d0f0f771f206a8a0e943",
-    "createdAt": "2020-05-08T21:42:17.464Z"
-  },
-  {
-    "_id": "5eb5d263f771f206a8a0e946",
-    "title": "Design: Ticket Modal",
-    "ticketType": "task",
-    "storyPoints": 1,
-    "description": "Quick Sketch on Draw.io of how Ticket should look when displayed in Modal.",
-    "sprint": "5eb5d0f0f771f206a8a0e943",
-    "createdAt": "2020-05-08T21:42:59.655Z"
-  },
-  {
-    "_id": "5eb5d2e5f771f206a8a0e947",
-    "title": "Server - Fetch Ticket",
-    "ticketType": "task",
-    "storyPoints": 2,
-    "description": "",
-    "sprint": "5eb5d0f0f771f206a8a0e943",
-    "createdAt": "2020-05-08T21:45:09.348Z"
-  },
-  {
-    "_id": "5eb5d2f8f771f206a8a0e948",
-    "title": "Client: Redux - FetchTicket",
-    "ticketType": "task",
-    "storyPoints": 3,
-    "description": "",
-    "sprint": "5eb5d0f0f771f206a8a0e943",
-    "createdAt": "2020-05-08T21:45:28.847Z"
-  },
-  {
     "status": "completed",
     "priority": "low",
     "assignedTo": null,

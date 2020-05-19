@@ -9,6 +9,8 @@ export interface ISprint {
   project: string;
   createdAt: Date;
   tickets: [];
+  startDate: Date;
+  endDate: Date;
 }
 
 export interface GetSprintAction {

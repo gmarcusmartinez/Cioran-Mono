@@ -1,39 +1,42 @@
-import axios from 'axios';
+import sprints from '../../../api/sprints';
 import { Dispatch } from 'redux';
-import { ActionTypes } from './types';
+import { ActionTypes } from '../types';
 
 export interface ITicket {
   _id: string;
-  sprint: string;
   title: string;
   ticketType: string;
   status: string;
-  description: string;
-  isActive: boolean;
   storyPoints: number;
+  priority: string;
+  description: string;
+  sprint: string;
+  project: string;
+  assignedTo: string;
+  createdBy: string;
   dateAssigned: Date;
   dateCompleted: Date;
   createdAt: Date;
 }
-
 export interface CreateTicketAction {
   type: ActionTypes.CREATE_TICKET;
   payload: ITicket;
 }
-interface CREATE_TICKET_FORM_DATA {
-  title: string;
-}
-export const createTicket = (
-  formData: CREATE_TICKET_FORM_DATA,
-  sprint_id: string
-) => async (dispatch: Dispatch) => {
-  const config = { headers: { 'Content-Type': 'application/json' } };
 
-  const res = await axios.post(
-    `/api/sprints/${sprint_id}/tickets`,
-    formData,
-    config
-  );
+interface FormData {
+  title: string;
+  ticketType: string;
+  storyPoints: number;
+  description: string;
+  priority: string;
+}
+
+export const createTicket = (formData: FormData, sprint_id: string) => async (
+  dispatch: Dispatch
+) => {
+  const config = { headers: { 'Content-Type': 'application/json' } };
+  const res = await sprints.post(`/${sprint_id}/tickets`, formData, config);
+
   dispatch<CreateTicketAction>({
     type: ActionTypes.CREATE_TICKET,
     payload: res.data,

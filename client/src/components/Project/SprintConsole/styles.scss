@@ -5,16 +5,23 @@
   margin: 0 2rem;
 
   display: grid;
-  grid-template-rows: 60% 40%;
-  grid-template-columns: 15% 85%;
+  grid-template-rows: 40% 30% 30%;
+  grid-template-columns: 200px auto;
+
   grid-template-areas:
-    'title body'
-    'createTicket body';
+    'title  body'
+    'date  body'
+    'createTicket  body';
 
   &__title {
     font-weight: 300;
     font-size: 2.4rem;
-    text-align: center;
+  }
+  &__dates {
+    grid-area: date;
+    font-size: 1.4rem;
+    font-style: italic;
+    color: var(--color-primary-light);
   }
 
   .story-points {
@@ -55,7 +62,7 @@
 
     transition: 0.25s ease-in-out;
     &:hover {
-      background-color: var(--color-primary);
+      color: var(--color-primary);
     }
   }
   z-index: 0;

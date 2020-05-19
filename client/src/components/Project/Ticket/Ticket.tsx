@@ -6,10 +6,11 @@ interface TicketProps {
 }
 
 const Ticket: React.FC<TicketProps> = ({
-  ticket: { title, ticketType, status, storyPoints },
+  ticket: { priority, title, ticketType, status, storyPoints },
 }) => {
   return (
     <tr className={`ticket ${status}`}>
+      <td className={`t-item ${priority}`}></td>
       <td className='t-item'>{title}</td>
       <td className='t-item'>{ticketType}</td>
       <td className='t-item'>--</td>

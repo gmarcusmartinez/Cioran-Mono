@@ -2,9 +2,7 @@ import { Action, ActionTypes } from '../actions/types';
 
 const initialState = {
   loading: true,
-  count: null,
-  pagination: {},
-  items: [],
+  ticket: null,
 };
 
 export const tickets = (state = initialState, action: Action) => {

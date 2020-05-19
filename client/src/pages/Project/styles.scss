@@ -4,7 +4,7 @@
   margin: 2rem;
   background-color: var(--color-dark-theme-secondary);
   display: grid;
-  grid-template-columns: 15% 85%;
+  grid-template-columns: 260px auto;
 
   @media (max-width: 970px) {
     height: 100%;
@@ -18,7 +18,9 @@
   }
 
   .project-team-section {
-    // border: 0.1rem solid var(--color-grey-light);
-    margin: 1rem;
+    margin: 2rem;
+    color: var(--color-grey-light);
+    letter-spacing: 0.25rem;
+    font-size: 1.6rem;
   }
 }

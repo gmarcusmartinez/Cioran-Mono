@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Ticket from '../Ticket/Ticket';
-import { ISprint, ITicket } from '../../../store/actions';
+import { ITicket } from '../../../store/actions';
 
 const headers = [
   { text: 'Ticket', sort: 'title' },
@@ -12,7 +12,6 @@ const headers = [
 ];
 
 interface SprintQueProps {
-  selectedSprint: ISprint | null;
   tickets: ITicket[];
 }
 

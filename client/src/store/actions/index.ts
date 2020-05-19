@@ -1,6 +1,5 @@
 export * from './types';
 export * from './alerts';
-export * from './tickets';
 
 export * from './auth/signup';
 export * from './auth/signin';
@@ -11,3 +10,5 @@ export * from './projects/getProject';
 export * from './projects/createProject';
 
 export * from './sprints/getSprint';
+
+export * from './tickets/createTicket';

@@ -4,17 +4,11 @@ import { ISprint, getSprint } from '../../../store/actions';
 
 interface SprintItemProps {
   item: ISprint;
-  setSelectedSprint: Function;
   getSprint: Function;
 }
 
-const SprintItem: React.FC<SprintItemProps> = ({
-  item,
-  setSelectedSprint,
-  getSprint,
-}) => {
+const SprintItem: React.FC<SprintItemProps> = ({ item, getSprint }) => {
   const onClick = () => {
-    setSelectedSprint(item);
     getSprint(item._id);
   };
   return (

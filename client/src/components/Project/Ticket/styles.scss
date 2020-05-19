@@ -5,7 +5,7 @@
   border-radius: 0.4rem;
 
   display: grid;
-  grid-template-columns: 50% 10% 15% 15% 10%;
+  grid-template-columns: 1% 49% 10% 15% 15% 10%;
 
   &:hover {
     background-color: var(--color-dark-theme-tertiary);
@@ -17,12 +17,26 @@
 
     font-size: 1.4rem;
     color: var(--color-grey-light);
-    justify-content: center;
 
     text-transform: capitalize;
     &:last-child {
       color: var(--color-primary-light);
     }
+    &:not(:nth-child(2)) {
+      justify-content: center;
+    }
+    &:nth-child(2) {
+      margin-left: 2rem;
+    }
+  }
+  .low {
+    background-color: var(--color-green);
+  }
+  .medium {
+    background-color: var(--color-orange);
+  }
+  .high {
+    background-color: var(--color-red);
   }
 }
 
@@ -30,12 +44,18 @@
   background-color: var(--color-dark-theme-secondary);
   .t-item {
     color: var(--color-grey-secondary);
+    text-decoration: line-through;
     &:last-child {
       color: var(--color-grey-secondary);
     }
-    &:first-child {
-      text-decoration: line-through;
-      text-decoration-color: var(--color-primary-light);
+  }
+}
+.assigned {
+  background-color: var(--color-dark-theme-secondary);
+  .t-item {
+    color: var(--color-grey-secondary);
+    &:last-child {
+      color: var(--color-grey-secondary);
     }
   }
 }

@@ -1,30 +1,40 @@
 .sprint-sidebar {
   background-color: var(--color-dark-theme-secondary);
   box-shadow: 0 2px 5px rgb(0, 0, 0);
-  max-width: 220px;
+  max-width: 260px;
 
   height: 100%;
   color: var(--color-grey-light);
 
-  display: flex;
-  flex-direction: column;
-
-  &__title {
-    margin: 2rem 0 2rem 4rem;
-    font-weight: 400;
-    font-size: 2.4rem;
-    letter-spacing: 0.1rem;
+  display: grid;
+  grid-template-columns: 60px 200px;
+  .project-nav {
+    background-color: var(--color-dark-theme-primary);
   }
-  &__btn {
-    cursor: pointer;
-    font-size: 1.4rem;
-    letter-spacing: 0.2rem;
-    padding: 1rem;
-    margin: 0.5rem;
-    text-align: center;
-    transition: 0.25s ease-in-out;
-    &:hover {
-      background-color: var(--color-primary);
+  .sprint-nav {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+      margin: 2rem 0 2rem 2rem;
+      font-weight: 400;
+      font-size: 2.4rem;
+      letter-spacing: 0.1rem;
+    }
+    &__btn {
+      border: none;
+      cursor: pointer;
+      outline: none;
+
+      padding: 1rem 0;
+      margin-left: 2rem;
+      font-size: 1.4rem;
+      letter-spacing: 0.2rem;
+
+      transition: 0.25s ease-in-out;
+      &:hover {
+        color: var(--color-primary);
+      }
     }
   }
 }

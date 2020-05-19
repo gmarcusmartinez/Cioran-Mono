@@ -5,7 +5,7 @@ import SprintQue from '../../components/Project/SprintQue/SprintQue';
 import SprintSideBar from '../../components/Project/SprintSideBar/SprintSideBar';
 import SprintConsole from '../../components/Project/SprintConsole/SprintConsole';
 
-import { getProject, ISprint } from '../../store/actions';
+import { getProject, ISprint, IProject } from '../../store/actions';
 
 interface ProjectProps {
   getProject: Function;
@@ -14,14 +14,10 @@ interface ProjectProps {
       id: string;
     };
   };
-  project: {
-    loading: boolean;
-    sprints: ISprint[];
-  };
+  project: IProject;
 }
 
 const Project: React.FC<ProjectProps> = ({ getProject, match, project }) => {
-  const [selectedSprint, setSelectedSprint] = React.useState(null);
   const projectId = match.params.id;
   React.useEffect(() => {
     getProject(projectId);
@@ -29,14 +25,11 @@ const Project: React.FC<ProjectProps> = ({ getProject, match, project }) => {
 
   return (
     <div className='projects-wrapper'>
-      <SprintSideBar
-        sprintArr={project?.sprints}
-        setSelectedSprint={setSelectedSprint}
-      />
+      <SprintSideBar sprintArr={project?.sprints} />
       <div className='sprint-wrapper'>
-        <div className='project-team-section'></div>
-        <SprintConsole selectedSprint={selectedSprint} />
-        <SprintQue selectedSprint={selectedSprint} />
+        <div className='project-team-section'>{project?.title}</div>
+        <SprintConsole />
+        <SprintQue />
       </div>
     </div>
   );

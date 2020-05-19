@@ -1,4 +1,3 @@
-import { CreateTicketAction } from './tickets';
 import { SetAlertAction, RemovetAlertAction } from './alerts';
 import {
   GetCurrentUserAction,
@@ -8,6 +7,7 @@ import {
   GetProjectAction,
   CreateProjectAction,
   GetSprintAction,
+  CreateTicketAction,
 } from './';
 
 export enum ActionTypes {

@@ -6,23 +6,13 @@ import { ISprint } from '../../../store/actions/';
 
 interface SprintSideBarProps {
   sprintArr: ISprint[];
-  setSelectedSprint: Function;
 }
 
-const SprintSideBar: React.FC<SprintSideBarProps> = ({
-  sprintArr,
-  setSelectedSprint,
-}) => {
+const SprintSideBar: React.FC<SprintSideBarProps> = ({ sprintArr }) => {
   const [showSprintManager, setShowSprintManager] = React.useState(false);
 
   let list = sprintArr
-    ? sprintArr.map((s) => (
-        <SprintItem
-          key={s._id}
-          item={s}
-          setSelectedSprint={setSelectedSprint}
-        />
-      ))
+    ? sprintArr.map((s) => <SprintItem key={s._id} item={s} />)
     : null;
 
   const renderModal = () => {
@@ -30,18 +20,26 @@ const SprintSideBar: React.FC<SprintSideBarProps> = ({
       <Modal title='Sprint Manager' showModal={setShowSprintManager} />
     ) : null;
   };
-
-  return (
-    <div className='sprint-sidebar'>
-      <h2 className='sprint-sidebar__title'>Sprints</h2>
+  const renderBtn = () => {
+    return (
       <div
         onClick={() => setShowSprintManager(true)}
-        className='sprint-sidebar__btn'
+        className='sprint-nav__btn'
       >
         Sprint Manager +
       </div>
-      {list}
-      {renderModal()}
+    );
+  };
+
+  return (
+    <div className='sprint-sidebar'>
+      <div className='project-nav'></div>
+      <div className='sprint-nav'>
+        <h2 className='sprint-nav__title'>Sprints</h2>
+        {renderBtn()}
+        {list}
+        {renderModal()}
+      </div>
     </div>
   );
 };
