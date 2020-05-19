@@ -11,4 +11,5 @@ export * from './projects/createProject';
 
 export * from './sprints/getSprint';
 
+export * from './tickets/getTicket';
 export * from './tickets/createTicket';

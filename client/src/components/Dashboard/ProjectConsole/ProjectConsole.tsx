@@ -15,7 +15,7 @@ const ProjectConsole: React.FC<ProjectsProps> = ({ projects }) => {
   const [showCreateProject, setShowCreateProject] = React.useState(false);
   React.useEffect(() => {
     getCurrentUser();
-  }, [getCurrentUser]);
+  }, []);
 
   let list = projects
     ? projects.map((p: IProject) => <ProjectItem key={p._id} item={p} />)

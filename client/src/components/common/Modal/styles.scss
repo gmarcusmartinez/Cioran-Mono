@@ -23,7 +23,7 @@
   }
   &__header {
     color: var(--color-grey-light);
-    margin: 2rem 2rem 2rem 4rem;
+    margin: 2rem 2rem 2rem 2rem;
 
     display: flex;
     align-items: center;
@@ -33,15 +33,14 @@
   &__title {
     letter-spacing: 0.1rem;
     font-weight: 400;
-    font-size: 2.1rem;
   }
   &__close {
     font-size: 3rem;
     cursor: pointer;
   }
   &__content {
-    margin: 2rem;
-    height: 100%;
+    margin: 1rem 2rem;
+    height: max-content;
 
     display: flex;
     justify-content: center;

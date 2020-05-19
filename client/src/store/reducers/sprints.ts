@@ -1,5 +1,4 @@
 import { Action, ActionTypes } from '../actions/types';
-import { ISprint } from '../actions/sprints/getSprint';
 const initialState = {
   loading: true,
   sprint:

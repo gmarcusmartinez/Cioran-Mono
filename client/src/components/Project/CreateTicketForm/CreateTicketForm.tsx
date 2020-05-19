@@ -89,7 +89,7 @@ const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
         name='description'
         onChange={handleChange}
       />
-      <button className='btn-primary' style={{ height: '4rem' }}>
+      <button className='btn-primary' style={{ width: '90%' }}>
         Submit
       </button>
     </form>

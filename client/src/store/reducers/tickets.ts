@@ -7,9 +7,10 @@ const initialState = {
 
 export const tickets = (state = initialState, action: Action) => {
   switch (action.type) {
-    case ActionTypes.CREATE_TICKET:
+    case ActionTypes.GET_TICKET:
       return {
-        ...state,
+        loading: false,
+        ticket: action.payload,
       };
     default:
       return state;

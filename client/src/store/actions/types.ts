@@ -1,4 +1,5 @@
 import { SetAlertAction, RemovetAlertAction } from './alerts';
+
 import {
   GetCurrentUserAction,
   SignupAction,
@@ -8,6 +9,7 @@ import {
   CreateProjectAction,
   GetSprintAction,
   CreateTicketAction,
+  GetTicketAction,
 } from './';
 
 export enum ActionTypes {
@@ -22,6 +24,7 @@ export enum ActionTypes {
   GET_PROJECTS = 'GET_PROJECTS',
   GET_SPRINT = 'GET_SPRINT',
   CREATE_TICKET = 'CREATE_TICKET',
+  GET_TICKET = 'GET_TICKET',
 }
 export type Action =
   | SignoutAction
@@ -34,4 +37,5 @@ export type Action =
   | CreateTicketAction
   | SetAlertAction
   | RemovetAlertAction
-  | GetCurrentUserAction;
+  | GetCurrentUserAction
+  | GetTicketAction;
