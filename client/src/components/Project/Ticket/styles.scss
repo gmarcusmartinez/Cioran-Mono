@@ -1,42 +1,18 @@
 .ticket {
-  height: 3.2rem;
-  margin-bottom: 0.2rem;
-  background-color: var(--color-dark-theme-primary);
-  border-radius: 0.4rem;
-
+  @include ticketEl;
   display: grid;
   grid-template-columns: 1% 49% 10% 15% 15% 10%;
-
-  &:hover {
-    background-color: var(--color-dark-theme-tertiary);
-    cursor: pointer;
-  }
-  .t-item {
-    display: flex;
-    align-items: center;
-
-    font-size: 1.4rem;
-    color: var(--color-grey-light);
-
-    text-transform: capitalize;
-    &:last-child {
-      color: var(--color-primary-light);
-    }
+  .t-col {
+    @include ticketCol;
     &:not(:nth-child(2)) {
       justify-content: center;
     }
     &:nth-child(2) {
       margin-left: 2rem;
     }
-  }
-  .low {
-    background-color: var(--color-green);
-  }
-  .medium {
-    background-color: var(--color-orange);
-  }
-  .high {
-    background-color: var(--color-red);
+    &:last-child {
+      color: var(--color-primary-light);
+    }
   }
 }
 
@@ -50,6 +26,7 @@
     }
   }
 }
+
 .assigned {
   background-color: var(--color-dark-theme-secondary);
   .t-item {

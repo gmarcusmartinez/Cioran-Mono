@@ -14,10 +14,11 @@
 }
 
 .btn-dark {
-  background-color: var(--color-dark-theme-primary);
+  background-color: var(--color-dark-theme-secondary);
   color: var(--color-grey-light);
+  transition: 0.2s ease-in-out;
   @include btn;
   &:hover {
-    border: 0.2rem solid var(--color-primary);
+    background-color: var(--color-primary);
   }
 }

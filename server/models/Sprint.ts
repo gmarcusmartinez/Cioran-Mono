@@ -11,15 +11,6 @@ export interface SprintAttrs {
 interface SprintModel extends mongoose.Model<SprintDoc> {
   build(attrs: SprintAttrs): SprintDoc;
 }
-// interface TicketSubdoc {
-//   _id: string;
-//   title: string;
-//   ticketType: string;
-//   status: string;
-//   priority: string;
-//   storyPoints: number;
-//   project: string;
-// }
 
 interface SprintDoc extends mongoose.Document {
   project: string;
@@ -50,19 +41,7 @@ export const sprintSchema = new mongoose.Schema({
     type: Number,
     default: 0,
   },
-  tickets: [
-    ticketSchema,
-    // {
-    //   _id: mongoose.Schema.Types.ObjectId,
-    //   title: String,
-    //   ticketType: String,
-    //   status: String,
-    //   priority: String,
-    //   storyPoints: Number,
-    //   assignedTo: mongoose.Schema.Types.ObjectId || null,
-    //   project: mongoose.Schema.Types.ObjectId,
-    // },
-  ],
+  tickets: [ticketSchema],
   startDate: {
     type: Date || null,
   },

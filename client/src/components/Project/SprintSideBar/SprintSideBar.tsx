@@ -9,31 +9,27 @@ interface SprintSideBarProps {
 }
 
 const SprintSideBar: React.FC<SprintSideBarProps> = ({ sprintArr }) => {
-  const [showSprintManager, setShowSprintManager] = React.useState(false);
+  const [displayModal, setDisplayModal] = React.useState(false);
 
   let list = sprintArr
     ? sprintArr.map((s) => <SprintItem key={s._id} item={s} />)
     : null;
 
   const renderModal = () => {
-    return showSprintManager ? (
-      <Modal title='Sprint Manager' showModal={setShowSprintManager} />
+    return displayModal ? (
+      <Modal title='Create Sprint' showModal={setDisplayModal} />
     ) : null;
   };
   const renderBtn = () => {
     return (
-      <div
-        onClick={() => setShowSprintManager(true)}
-        className='sprint-nav__btn'
-      >
-        Sprint Manager +
+      <div onClick={() => setDisplayModal(true)} className='sprint-nav__btn'>
+        Create Sprint +
       </div>
     );
   };
 
   return (
     <div className='sprint-sidebar'>
-      <div className='project-nav'></div>
       <div className='sprint-nav'>
         <h2 className='sprint-nav__title'>Sprints</h2>
         {renderBtn()}

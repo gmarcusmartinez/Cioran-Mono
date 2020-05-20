@@ -1,22 +1,17 @@
 .sprint-sidebar {
   background-color: var(--color-dark-theme-secondary);
   box-shadow: 0 2px 5px rgb(0, 0, 0);
-  max-width: 260px;
+  max-width: 200px;
 
   height: 100%;
   color: var(--color-grey-light);
 
-  display: grid;
-  grid-template-columns: 60px 200px;
-  .project-nav {
-    background-color: var(--color-dark-theme-primary);
-  }
   .sprint-nav {
     display: flex;
     flex-direction: column;
 
     &__title {
-      margin: 2rem 0 2rem 2rem;
+      margin: 2rem 0 2rem 20%;
       font-weight: 400;
       font-size: 2.4rem;
       letter-spacing: 0.1rem;
@@ -27,7 +22,7 @@
       outline: none;
 
       padding: 1rem 0;
-      margin-left: 2rem;
+      margin: 0 0 2rem 20%;
       font-size: 1.4rem;
       letter-spacing: 0.2rem;
 

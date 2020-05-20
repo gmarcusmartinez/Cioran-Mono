@@ -98,7 +98,7 @@ ticketSchema.statics.getTotalStoryPoints = async function (sprintId: string) {
       totalStoryPoints: obj[0].totalStoryPoints,
     });
   } catch (error) {
-    console.error(error);
+    console.error(error.message);
   }
 };
 

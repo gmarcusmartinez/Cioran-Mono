@@ -8,10 +8,12 @@
   .ticket-table {
     display: grid;
     grid-template-columns: 50% 10% 15% 15% 10%;
-    background-color: var(--color-dark-theme-tertiary);
+    background-color: var(--color-dark-theme-primary);
     color: #fff;
     th {
-      border: 0.1rem solid var(--color-dark-theme-secondary);
+      &:not(:first-child) {
+        border-left: 0.2rem solid var(--color-dark-theme-secondary);
+      }
       padding: 0.4rem;
       font-size: 1.4rem;
       font-weight: 500;

@@ -31,12 +31,12 @@ const Ticket: React.FC<TicketProps> = ({ ticket, sprint, getTicket }) => {
   return (
     <>
       <tr className={`ticket ${ticket.status}`} onClick={handleClick}>
-        <td className={`t-item ${ticket.priority}`}></td>
-        <td className='t-item'>{ticket.title}</td>
-        <td className='t-item'>{ticket.ticketType}</td>
-        <td className='t-item'>--</td>
-        <td className='t-item'>{ticket.status}</td>
-        <td className='t-item'>{ticket.storyPoints}</td>
+        <td className={`t-col ${ticket.priority}`}></td>
+        <td className='t-col'>{ticket.title}</td>
+        <td className='t-col'>{ticket.ticketType}</td>
+        <td className='t-col'>--</td>
+        <td className='t-col'>{ticket.status}</td>
+        <td className='t-col'>{ticket.storyPoints}</td>
       </tr>
       {renderModal()}
     </>

@@ -40,7 +40,7 @@ const TicketDisplay: React.FC<TicketDisplayProps> = ({ ticket }) => {
         <span className='ticket-field-value'>{ticket.description}</span>
       </div>
       <button
-        className='btn-primary'
+        className='btn-dark'
         style={{ width: '90%', marginLeft: '5%', marginTop: '2rem' }}
       >
         Assign to Que

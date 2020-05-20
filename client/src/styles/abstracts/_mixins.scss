@@ -66,3 +66,30 @@
     transition: 0.25s ease-out;
   }
 }
+
+@mixin ticketEl {
+  height: 3.2rem;
+  margin-bottom: 0.2rem;
+  background-color: var(--color-dark-theme-primary);
+  &:hover {
+    background-color: var(--color-dark-theme-tertiary);
+    cursor: pointer;
+  }
+  .low {
+    background-color: var(--color-green);
+  }
+  .medium {
+    background-color: var(--color-orange);
+  }
+  .high {
+    background-color: var(--color-red);
+  }
+}
+
+@mixin ticketCol {
+  align-items: center;
+  color: var(--color-grey-light);
+  display: flex;
+  font-size: 1.4rem;
+  text-transform: capitalize;
+}

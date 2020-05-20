@@ -18,17 +18,17 @@ const SprintConsole: React.FC<SprintConsoleProps> = ({ sprint }) => {
     ) : null;
   };
   const renderCreateTicketBtn = () => {
-    return sprint ? (
+    return sprint?._id ? (
       <div onClick={() => setShowCreateTicket(true)} id='create-ticket-btn'>
         Create Ticket
       </div>
     ) : null;
   };
   const renderStoryPoints = () => {
-    return sprint ? (
+    return sprint?._id ? (
       <div className='story-points'>
         <div className='story-points__title'>Story Points</div>
-        <>{sprint.totalStoryPoints}</>
+        {sprint.totalStoryPoints}
       </div>
     ) : null;
   };

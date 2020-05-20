@@ -1,0 +1,17 @@
+.my-que {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  &__ticket-table {
+    display: grid;
+    grid-template-columns: 10% 50% 25% 15%;
+    color: #fff;
+  }
+  &__th {
+    padding: 0.4rem;
+    font-size: 1.4rem;
+    letter-spacing: 0.1rem;
+    font-weight: 500;
+    text-align: center;
+  }
+}

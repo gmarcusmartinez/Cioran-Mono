@@ -1,0 +1,14 @@
+.my-que-ticket {
+  @include ticketEl;
+  display: grid;
+  grid-template-columns: 1% 9% 50% 25% 15%;
+  .t-col {
+    @include ticketCol;
+    &:not(:nth-child(3)) {
+      justify-content: center;
+    }
+    &:nth-child(3) {
+      margin-left: 2rem;
+    }
+  }
+}
