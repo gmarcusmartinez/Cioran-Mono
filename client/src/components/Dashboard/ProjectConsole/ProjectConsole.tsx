@@ -4,18 +4,20 @@ import { connect } from 'react-redux';
 import Modal from '../../common/Modal';
 import ProjectItem from '../ProjectItem/ProjectItem';
 import CreateProjectBtn from '../CreateProjectBtn/CreateProjectBtn';
-import { IProject, getCurrentUser } from '../../../store/actions';
+import { IProject, getCurrentUser, getProjects } from '../../../store/actions';
 import CreateProjectForm from '../CreateProjectForm/CreateProjectForm';
 
 interface ProjectsProps {
   projects: IProject[] | null;
+  getProjects: Function;
 }
 
-const ProjectConsole: React.FC<ProjectsProps> = ({ projects }) => {
+const ProjectConsole: React.FC<ProjectsProps> = ({ projects, getProjects }) => {
   const [showCreateProject, setShowCreateProject] = React.useState(false);
   React.useEffect(() => {
     getCurrentUser();
-  }, []);
+    getProjects();
+  }, [getProjects]);
 
   let list = projects
     ? projects.map((p: IProject) => <ProjectItem key={p._id} item={p} />)
@@ -41,7 +43,9 @@ const ProjectConsole: React.FC<ProjectsProps> = ({ projects }) => {
   );
 };
 const mapStateToProps = (state: any) => ({
-  projects: state.auth.currentUser?.projects,
+  projects: state.projects?.projects,
 });
 
-export default connect(mapStateToProps, { getCurrentUser })(ProjectConsole);
+export default connect(mapStateToProps, { getCurrentUser, getProjects })(
+  ProjectConsole
+);

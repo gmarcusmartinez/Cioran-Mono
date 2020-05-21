@@ -7,6 +7,7 @@ export * from './auth/signout';
 export * from './auth/getCurrentUser';
 
 export * from './projects/getProject';
+export * from './projects/getProjects';
 export * from './projects/createProject';
 
 export * from './sprints/getSprint';

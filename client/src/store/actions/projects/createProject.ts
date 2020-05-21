@@ -2,17 +2,19 @@ import projects from '../../../api/projects';
 import { Dispatch } from 'redux';
 import { ActionTypes } from '../types';
 
-interface Project {
+export interface IProject {
   _id: string;
   title: string;
-  slug: string;
   photo: string;
-  sprints: [];
+  slug: string;
+  projectOwner: string;
+  sprints: any[];
+  team: any[];
 }
 
 export interface CreateProjectAction {
   type: ActionTypes.CREATE_PROJECT;
-  payload: Project;
+  payload: IProject;
 }
 
 export interface ICreateProjectFormState {

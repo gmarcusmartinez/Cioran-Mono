@@ -6,6 +6,8 @@ export interface ICurrentUser {
   id: string;
   name: string;
   email: string;
+  assignedTickets: [];
+  completedTickets: [];
 }
 
 export interface GetCurrentUserAction {

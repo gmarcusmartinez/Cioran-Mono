@@ -6,6 +6,7 @@ import {
   SignoutAction,
   SigninAction,
   GetProjectAction,
+  GetProjectsAction,
   CreateProjectAction,
   GetSprintAction,
   CreateTicketAction,
@@ -31,6 +32,7 @@ export type Action =
   | SignupAction
   | SigninAction
   | GetProjectAction
+  | GetProjectsAction
   | CreateProjectAction
   | CreateProjectAction
   | GetSprintAction

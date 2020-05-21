@@ -1,16 +1,14 @@
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
-import { PasswordManager } from '../services/PasswordManager';
-const keys = require('../config/keys');
 
+import { TicketDoc, ticketSchema } from './Ticket';
+import { PasswordManager } from '../services/PasswordManager';
+
+const keys = require('../config/keys');
 interface UserAttrs {
   name: string;
   email: string;
   password: string;
-}
-interface ProjectSubDoc {
-  _id: string;
-  title: string;
 }
 
 interface UserModel extends mongoose.Model<UserDoc> {
@@ -21,7 +19,8 @@ interface UserDoc extends mongoose.Document {
   name: string;
   email: string;
   password: string;
-  projects: ProjectSubDoc[];
+  assignedTickets: TicketDoc[];
+  completedTickets: TicketDoc[];
   getSignedJwtToken(): string;
 }
 
@@ -39,12 +38,8 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
-    projects: [
-      {
-        _id: mongoose.Schema.Types.ObjectId,
-        title: String,
-      },
-    ],
+    assignedTickets: [ticketSchema],
+    completedTickets: [ticketSchema],
   },
   {
     toJSON: {

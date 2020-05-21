@@ -1,13 +1,13 @@
 import { Request, Response } from 'express';
 
-import { User } from '../models/User';
 import { Project } from '../models/Project';
 import { asyncHandler } from '../middlewares/async';
 import { BadRequestError } from '../errors/bad-request-error';
 import { NotAuthorizedError } from '../errors/not-authorized-error';
 
 export const getProjects = asyncHandler(async (req: Request, res: Response) => {
-  const projects = await Project.find({ projectOwner: req.currentUser.id });
+  const projects = await Project.find();
+  // const projects = await Project.find({ projectOwner: req.currentUser.id });
   res.status(200).send(projects);
 });
 
@@ -22,18 +22,11 @@ export const getProject = asyncHandler(async (req: Request, res: Response) => {
 
 export const createProject = asyncHandler(
   async (req: Request, res: Response) => {
-    const user = await User.findById(req.currentUser.id);
-
     const project = Project.build(req.body);
     project.projectOwner = req.currentUser.id;
     project.team.push(req.currentUser.id);
+
     await project.save();
-
-    const { _id, title } = project;
-    const projectSubDoc = { _id, title };
-    user?.projects.push(projectSubDoc);
-    await user?.save();
-
     res.status(201).send(project);
   }
 );
