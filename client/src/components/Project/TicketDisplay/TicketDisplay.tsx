@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import { ITicket } from '../../../store/actions';
 interface TicketDisplayProps {
   ticket: ITicket;
@@ -26,7 +27,7 @@ const TicketDisplay: React.FC<TicketDisplayProps> = ({ ticket }) => {
       <TicketDisplayItem text='Priority' value={ticket.priority} />
       <TicketDisplayItem text='Status' value={ticket.status} />
       <TicketDisplayItem text='Story Points' value={ticket.storyPoints} />
-      {!ticket.assignedTo ? (
+      {ticket.assignedTo ? (
         <TicketDisplayItem text='Assigned To' value={ticket.assignedTo} />
       ) : null}
       {!ticket.dateAssigned ? (
@@ -39,14 +40,13 @@ const TicketDisplay: React.FC<TicketDisplayProps> = ({ ticket }) => {
         <span className='ticket-field-key'>Description</span>
         <span className='ticket-field-value'>{ticket.description}</span>
       </div>
-      <button
-        className='btn-dark'
-        style={{ width: '90%', marginLeft: '5%', marginTop: '2rem' }}
-      >
-        Assign to Que
-      </button>
+      {!ticket.assignedTo ? (
+        <button className='btn-dark' id='assign-ticket-btn'>
+          Assign to Que
+        </button>
+      ) : null}
     </div>
   );
 };
 
-export default TicketDisplay;
+export default connect()(TicketDisplay);

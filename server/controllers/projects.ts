@@ -7,7 +7,6 @@ import { NotAuthorizedError } from '../errors/not-authorized-error';
 
 export const getProjects = asyncHandler(async (req: Request, res: Response) => {
   const projects = await Project.find();
-  // const projects = await Project.find({ projectOwner: req.currentUser.id });
   res.status(200).send(projects);
 });
 

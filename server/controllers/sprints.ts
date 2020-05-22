@@ -1,6 +1,5 @@
 import { Request, Response } from 'express';
 
-import { Sprint } from '../models/Sprint';
 import { Project } from '../models/Project';
 import { asyncHandler } from '../middlewares/async';
 import { BadRequestError } from '../errors/bad-request-error';
@@ -17,79 +16,61 @@ export const createSprint = asyncHandler(
       throw new NotAuthorizedError();
     }
 
-    const sprint = await Sprint.build(req.body);
-    await sprint.save();
-
-    const { _id, title, startDate, endDate } = sprint;
-    const sprintSubDoc = { _id, title, startDate, endDate };
-
-    project.sprints.push(sprintSubDoc);
+    const sprint = req.body;
+    project.sprints.push(sprint);
     await project.save();
 
     res.status(201).send(sprint);
   }
 );
 
-export const getSprint = asyncHandler(async (req: Request, res: Response) => {
-  const sprint = await Sprint.findById(req.params.id);
-  if (!sprint) throw new BadRequestError('Project Not Found.');
+// export const updateSprint = asyncHandler(
+//   async (req: Request, res: Response) => {
+//     let sprint = await Sprint.findById(req.params.id);
+//     if (!sprint) throw new BadRequestError('Sprint Not Found.');
 
-  const project = await Project.findById(sprint.project);
-  if (!project) throw new BadRequestError('Project Not Found.');
-  if (!project.team.includes(req.currentUser.id.toString())) {
-    throw new NotAuthorizedError();
-  }
+//     const project = await Project.findById(sprint.project);
+//     if (!project) throw new BadRequestError('Project Not Found.');
 
-  res.status(200).send(sprint);
-});
+//     if (project.projectOwner.toString() !== req.currentUser.id) {
+//       throw new NotAuthorizedError();
+//     }
 
-export const updateSprint = asyncHandler(
-  async (req: Request, res: Response) => {
-    let sprint = await Sprint.findById(req.params.id);
-    if (!sprint) throw new BadRequestError('Sprint Not Found.');
+//     sprint = await Sprint.findByIdAndUpdate(req.params.id, req.body, {
+//       new: true,
+//       runValidators: true,
+//     });
 
-    const project = await Project.findById(sprint.project);
-    if (!project) throw new BadRequestError('Project Not Found.');
+//     res.status(200).send(sprint);
+//   }
+// );
 
-    if (project.projectOwner.toString() !== req.currentUser.id) {
-      throw new NotAuthorizedError();
-    }
+// export const deleteSprint = asyncHandler(
+//   async (req: Request, res: Response) => {
+//     const sprint = await Sprint.findById(req.params.id);
+//     if (!sprint) throw new BadRequestError('Sprint Not Found.');
 
-    sprint = await Sprint.findByIdAndUpdate(req.params.id, req.body, {
-      new: true,
-      runValidators: true,
-    });
+//     let project = await Project.findById(sprint.project);
+//     if (!project) throw new BadRequestError('Project Not Found.');
 
-    res.status(200).send(sprint);
-  }
-);
+//     if (project.projectOwner.toString() !== req.currentUser.id) {
+//       throw new NotAuthorizedError();
+//     }
+//     const updatedSprints = project.sprints.filter(
+//       (s) => s._id.toString() !== sprint._id.toString()
+//     );
 
-export const deleteSprint = asyncHandler(
-  async (req: Request, res: Response) => {
-    const sprint = await Sprint.findById(req.params.id);
-    if (!sprint) throw new BadRequestError('Sprint Not Found.');
+//     project = await Project.findByIdAndUpdate(
+//       sprint.project,
+//       { sprints: updatedSprints },
+//       {
+//         new: true,
+//         runValidators: true,
+//       }
+//     );
 
-    let project = await Project.findById(sprint.project);
-    if (!project) throw new BadRequestError('Project Not Found.');
+//     await sprint.remove();
 
-    if (project.projectOwner.toString() !== req.currentUser.id) {
-      throw new NotAuthorizedError();
-    }
-    const updatedSprints = project.sprints.filter(
-      (s) => s._id.toString() !== sprint._id.toString()
-    );
-
-    project = await Project.findByIdAndUpdate(
-      sprint.project,
-      { sprints: updatedSprints },
-      {
-        new: true,
-        runValidators: true,
-      }
-    );
-
-    await sprint.remove();
-
-    res.status(200).send('Sprint removed');
-  }
-);
+//     res.status(200).send('Sprint removed');
+//   }
+// );

@@ -1,15 +1,8 @@
 import mongoose from 'mongoose';
-
+import { SprintDoc, sprintSchema } from './Sprint';
 interface ProjectAttrs {
   title: string;
   slug: string;
-}
-
-interface SprintSubDoc {
-  _id: string;
-  title: string;
-  startDate: Date;
-  endDate: Date;
 }
 
 interface ProjectModel extends mongoose.Model<ProjectDoc> {
@@ -21,7 +14,7 @@ interface ProjectDoc extends mongoose.Document {
   photo: string;
   slug: string;
   projectOwner: string;
-  sprints: SprintSubDoc[];
+  sprints: SprintDoc[];
   team: string[];
 }
 
@@ -44,14 +37,7 @@ const projectSchema = new mongoose.Schema({
     ref: 'User',
     required: true,
   },
-  sprints: [
-    {
-      _id: mongoose.Schema.Types.ObjectId,
-      title: String,
-      startDate: Date,
-      endDate: Date,
-    },
-  ],
+  sprints: [sprintSchema],
   team: [
     {
       type: mongoose.Schema.Types.ObjectId,

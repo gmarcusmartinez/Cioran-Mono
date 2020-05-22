@@ -79,35 +79,4 @@ const ticketSchema = new mongoose.Schema({
   },
 });
 
-// ticketSchema.statics.getTotalStoryPoints = async function (sprintId: string) {
-//   const obj = await this.aggregate([
-//     {
-//       $match: { sprint: sprintId },
-//     },
-//     {
-//       $group: {
-//         _id: '$sprint',
-//         totalStoryPoints: {
-//           $sum: '$storyPoints',
-//         },
-//       },
-//     },
-//   ]);
-//   try {
-//     await this.model('Sprint').findByIdAndUpdate(sprintId, {
-//       totalStoryPoints: obj[0].totalStoryPoints,
-//     });
-//   } catch (error) {
-//     console.error(error.message);
-//   }
-// };
-
-// ticketSchema.post('save', function () {
-//   this.constructor.getTotalStoryPoints(this.sprint);
-// });
-
-// ticketSchema.pre('remove', function () {
-//     this.constructor.getTotalStoryPoints(this.sprint);
-// });
-
 export { ticketSchema };

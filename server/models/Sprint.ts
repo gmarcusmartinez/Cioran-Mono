@@ -1,18 +1,7 @@
 import mongoose from 'mongoose';
 import { ticketSchema, TicketDoc } from './Ticket';
-export interface SprintAttrs {
-  project: string;
-  title: string;
-  objective: string;
-  totalStoryPoints: number;
-  startDate: Date;
-  endDate: Date;
-}
-interface SprintModel extends mongoose.Model<SprintDoc> {
-  build(attrs: SprintAttrs): SprintDoc;
-}
 
-interface SprintDoc extends mongoose.Document {
+export interface SprintDoc extends mongoose.Document {
   project: string;
   title: string;
   objective: string;
@@ -21,7 +10,7 @@ interface SprintDoc extends mongoose.Document {
   startDate: Date;
   endDate: Date;
 }
-export const sprintSchema = new mongoose.Schema({
+const sprintSchema = new mongoose.Schema({
   project: {
     type: mongoose.Schema.Types.ObjectId,
     ref: 'Project',
@@ -53,9 +42,5 @@ export const sprintSchema = new mongoose.Schema({
     default: Date.now,
   },
 });
-sprintSchema.statics.build = (attrs: SprintAttrs) => {
-  return new Sprint(attrs);
-};
-const Sprint = mongoose.model<SprintDoc, SprintModel>('Sprint', sprintSchema);
 
-export { Sprint };
+export { sprintSchema };

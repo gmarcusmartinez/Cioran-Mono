@@ -1,6 +1,6 @@
-import sprints from '../../../api/sprints';
 import { Dispatch } from 'redux';
 import { ActionTypes } from '../types';
+import { IProject } from '../projects/createProject';
 
 export interface ISprint {
   _id: string;
@@ -18,10 +18,16 @@ export interface GetSprintAction {
   payload: ISprint;
 }
 
-export const getSprint = (id: string) => async (dispatch: Dispatch) => {
-  const res = await sprints.get(`/${id}`);
-  dispatch<GetSprintAction>({
-    type: ActionTypes.GET_SPRINT,
-    payload: res.data,
-  });
+export const getSprint = (project: IProject, id: string) => (
+  dispatch: Dispatch
+) => {
+  try {
+    const sprint = project.sprints.find((s: ISprint) => s._id === id);
+    dispatch<GetSprintAction>({
+      type: ActionTypes.GET_SPRINT,
+      payload: sprint,
+    });
+  } catch (err) {
+    console.log(err.message);
+  }
 };

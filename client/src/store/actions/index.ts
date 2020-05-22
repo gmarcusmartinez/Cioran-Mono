@@ -14,3 +14,4 @@ export * from './sprints/getSprint';
 
 export * from './tickets/getTicket';
 export * from './tickets/createTicket';
+export * from './tickets/assignTicket';

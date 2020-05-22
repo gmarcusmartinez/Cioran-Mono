@@ -36,7 +36,6 @@ export const createTicket = (formData: FormData, sprint_id: string) => async (
 ) => {
   const config = { headers: { 'Content-Type': 'application/json' } };
   const res = await sprints.post(`/${sprint_id}/tickets`, formData, config);
-
   dispatch<CreateTicketAction>({
     type: ActionTypes.CREATE_TICKET,
     payload: res.data,
