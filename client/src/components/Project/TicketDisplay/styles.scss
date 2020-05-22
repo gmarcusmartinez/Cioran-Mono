@@ -9,7 +9,7 @@
     display: grid;
     grid-template-columns: 40% 60%;
   }
-  &__description {
+  &:nth-child(8) {
     display: grid;
     grid-template-rows: 20% 80%;
     font-size: 1.4rem;

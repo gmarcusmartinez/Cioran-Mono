@@ -21,13 +21,13 @@ export const createTicket = asyncHandler(
       throw new NotAuthorizedError();
     }
     const sprint = findSprint(project.sprints, req.params.sprintId);
-
     const ticket = req.body;
+
     ticket.sprint = req.params.sprintId;
     ticket.createdBy = req.currentUser.id;
     ticket.project = req.body.projectId;
-
     sprint.tickets.push(ticket);
+
     await project.save();
 
     res.status(201).send(sprint);

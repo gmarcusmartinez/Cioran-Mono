@@ -12,6 +12,11 @@ export const tickets = (state = initialState, action: Action) => {
         loading: false,
         ticket: action.payload,
       };
+    case ActionTypes.ASSIGN_TICKET:
+      return {
+        loading: false,
+        ticket: action.payload,
+      };
     default:
       return state;
   }

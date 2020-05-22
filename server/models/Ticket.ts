@@ -57,8 +57,7 @@ const ticketSchema = new mongoose.Schema({
     ref: 'Project',
   },
   assignedTo: {
-    type: mongoose.Schema.Types.ObjectId || null,
-    ref: 'User',
+    type: String,
     default: null,
   },
   createdBy: {

@@ -11,6 +11,7 @@ import {
   GetSprintAction,
   CreateTicketAction,
   GetTicketAction,
+  AssignTicketAction,
 } from './';
 
 export enum ActionTypes {
@@ -41,4 +42,5 @@ export type Action =
   | SetAlertAction
   | RemovetAlertAction
   | GetCurrentUserAction
-  | GetTicketAction;
+  | GetTicketAction
+  | AssignTicketAction;

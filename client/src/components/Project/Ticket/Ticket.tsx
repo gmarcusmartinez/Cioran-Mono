@@ -9,6 +9,10 @@ interface TicketProps {
   sprint: ISprint;
   getTicket: Function;
 }
+const firstNameOnly = (name: string | null): string => {
+  if (name === null) return '';
+  return name.split(' ')[0];
+};
 
 const Ticket: React.FC<TicketProps> = ({ ticket, sprint, getTicket }) => {
   const [displayModal, setDisplayModal] = React.useState(false);
@@ -34,7 +38,7 @@ const Ticket: React.FC<TicketProps> = ({ ticket, sprint, getTicket }) => {
         <td className={`t-col ${ticket.priority}`}></td>
         <td className='t-col'>{ticket.title}</td>
         <td className='t-col'>{ticket.ticketType}</td>
-        <td className='t-col'>--</td>
+        <td className='t-col'>{firstNameOnly(ticket.assignedTo)}</td>
         <td className='t-col'>{ticket.status}</td>
         <td className='t-col'>{ticket.storyPoints}</td>
       </tr>
