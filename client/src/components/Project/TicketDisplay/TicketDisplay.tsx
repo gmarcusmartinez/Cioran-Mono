@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { assignTicket } from '../../../store/actions';
-import { TicketDisplayItem } from './TicketDisplayItem';
+
+import { TicketDisplayItem, ticketDisplayItems } from './TicketDisplayItem';
 
 interface TicketDisplayProps {
   ticket: any;
@@ -9,17 +10,6 @@ interface TicketDisplayProps {
   project: string;
   assignTicket: Function;
 }
-
-const ticketDisplayItems = [
-  { text: 'Type', prop: 'ticketType' },
-  { text: 'Priority', prop: 'priority' },
-  { text: 'Status', prop: 'status' },
-  { text: 'Story Points', prop: 'storyPoints' },
-  { text: 'Assigned To', prop: 'assignedTo' },
-  { text: 'Date Assigned', prop: 'dateAssigned' },
-  { text: 'Date Completed', prop: 'dateCompleted' },
-  { text: 'Description', prop: 'description' },
-];
 
 const TicketDisplay: React.FC<TicketDisplayProps> = ({
   ticket,
@@ -30,15 +20,13 @@ const TicketDisplay: React.FC<TicketDisplayProps> = ({
   let list = ticketDisplayItems.map(({ text, prop }) => (
     <TicketDisplayItem key={text} text={text} value={ticket[prop]} />
   ));
-
-  const renderAssignToQueBtn = () => {
+  const handleAssignTicket = () => {
+    return assignTicket({ sprint, project }, ticket._id);
+  };
+  const renderAssignToQueBtn = (text: string) => {
     return !ticket.assignedTo ? (
-      <button
-        className='btn-dark'
-        id='assign-ticket-btn'
-        onClick={() => assignTicket({ sprint, project }, ticket._id)}
-      >
-        Assign to Que
+      <button className='btn-dark' onClick={handleAssignTicket}>
+        {text}
       </button>
     ) : null;
   };
@@ -46,7 +34,7 @@ const TicketDisplay: React.FC<TicketDisplayProps> = ({
   return (
     <div className='ticket-display'>
       {list}
-      {renderAssignToQueBtn()}
+      {renderAssignToQueBtn('Assign to Que')}
     </div>
   );
 };

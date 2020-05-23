@@ -7,13 +7,26 @@ export interface TicketDoc extends mongoose.Document {
   storyPoints: number;
   priority: string;
   description: string;
-  sprint: string;
-  project: string;
-  assignedTo: string;
+  sprint: SprintSubDoc;
+  project: ProjectSubDoc;
+  assignedTo: UserSubDoc;
   createdBy: string;
   dateAssigned: Date;
   dateCompleted: Date;
   createdAt: Date;
+}
+export interface UserSubDoc {
+  _id: string;
+  name: string;
+  photo: string;
+}
+export interface SprintSubDoc {
+  _id: string;
+  endDate: Date;
+}
+export interface ProjectSubDoc {
+  _id: string;
+  slug: string;
 }
 
 const ticketSchema = new mongoose.Schema({
@@ -30,7 +43,7 @@ const ticketSchema = new mongoose.Schema({
   status: {
     type: String,
     required: true,
-    enum: ['unassigned', 'assigned', 'completed'],
+    enum: ['unassigned', 'assigned', 'submitted', 'completed'],
     default: 'unassigned',
   },
   storyPoints: {
@@ -49,15 +62,24 @@ const ticketSchema = new mongoose.Schema({
     trim: true,
   },
   sprint: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Sprint',
+    type: {
+      _id: String,
+      endDate: Date,
+    },
   },
   project: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: 'Project',
+    type: {
+      _id: String,
+      slug: String,
+    },
   },
   assignedTo: {
-    type: String,
+    type:
+      {
+        _id: String,
+        name: String,
+        photo: String,
+      } || null,
     default: null,
   },
   createdBy: {

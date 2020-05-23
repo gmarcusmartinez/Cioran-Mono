@@ -26,10 +26,6 @@ const sprintSchema = new mongoose.Schema({
     trim: true,
     maxlength: 140,
   },
-  totalStoryPoints: {
-    type: Number,
-    default: 0,
-  },
   tickets: [ticketSchema],
   startDate: {
     type: Date || null,

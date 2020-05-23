@@ -1,68 +1,87 @@
 [
   {
     "photo": "no-image.jpg",
-    "team": ["5eb88d7afa6bbc469bc0d3a8"],
+    "team": ["5ec6c1d7b5f2884eac2faf06"],
     "_id": "5e9f3656608b81ce3132247c",
     "title": "Cioran Agile Software",
-    "projectOwner": "5eb88d7afa6bbc469bc0d3a8",
+    "projectOwner": "5ec6c1d7b5f2884eac2faf06",
     "slug": "CIOR",
     "sprints": [
       {
-        "totalStoryPoints": 36,
-        "_id": "5eb5d0f0f771f206a8a0e943",
-        "title": "Sprint D",
-        "project": "5e9f3656608b81ce3132247c",
-        "createdAt": "2020-05-08T21:36:48.421Z",
-        "startDate": "2020-05-18T07:00:01.000Z",
-        "endDate": "2020-05-25T07:00:00.000Z",
         "tickets": [
           {
-            "status": "unassigned",
+            "status": "assigned",
             "priority": "low",
-            "assignedTo": null,
-            "dateAssigned": null,
+            "assignedTo": {
+              "_id": "5ec6c1d7b5f2884eac2faf06",
+              "name": "Marcus Martinez",
+              "photo": ""
+            },
+            "dateAssigned": "2020-05-23T00:27:28.628Z",
             "dateCompleted": null,
-            "createdAt": "2020-05-19T17:00:01.616Z",
-            "_id": "5ec41091836218be46da2676",
+            "createdAt": "2020-05-23T00:26:41.511Z",
+            "_id": "5ec86dc1b1f8cc173a413346",
             "title": "Hook up CreateTicket to Redux",
             "ticketType": "task",
             "storyPoints": 3,
             "description": "",
-            "sprint": "5eb5d0f0f771f206a8a0e943",
-            "createdBy": "5eb88d7afa6bbc469bc0d3a8",
-            "project": "5e9f3656608b81ce3132247c"
+            "project": {
+              "_id": "5e9f3656608b81ce3132247c",
+              "slug": "CIOR"
+            },
+            "sprint": {
+              "_id": "5ec86d94b1f8cc173a413345",
+              "endDate": "2020-05-25T07:00:00.000Z"
+            },
+            "createdBy": "5ec6c1d7b5f2884eac2faf06"
           },
           {
             "status": "unassigned",
-            "priority": "medium",
+            "priority": "low",
             "assignedTo": null,
             "dateAssigned": null,
             "dateCompleted": null,
-            "createdAt": "2020-05-19T17:00:19.133Z",
-            "_id": "5ec410a3836218be46da2677",
+            "createdAt": "2020-05-23T00:31:49.235Z",
+            "_id": "5ec86ef5b1f8cc173a413348",
             "title": "Client: Ticket - Sort By Field",
             "ticketType": "feature",
             "storyPoints": 8,
             "description": "",
-            "sprint": "5eb5d0f0f771f206a8a0e943",
-            "createdBy": "5eb88d7afa6bbc469bc0d3a8",
-            "project": "5e9f3656608b81ce3132247c"
+            "project": {
+              "_id": "5e9f3656608b81ce3132247c",
+              "slug": "CIOR"
+            },
+            "sprint": {
+              "_id": "5ec86d94b1f8cc173a413345",
+              "endDate": "2020-05-25T07:00:00.000Z"
+            },
+            "createdBy": "5ec6c1d7b5f2884eac2faf06"
           },
           {
-            "status": "unassigned",
+            "status": "assigned",
             "priority": "low",
-            "assignedTo": null,
-            "dateAssigned": null,
+            "assignedTo": {
+              "_id": "5ec6c1d7b5f2884eac2faf06",
+              "name": "Marcus Martinez",
+              "photo": ""
+            },
+            "dateAssigned": "2020-05-23T00:45:28.032Z",
             "dateCompleted": null,
-            "createdAt": "2020-05-19T17:00:47.393Z",
-            "_id": "5ec410bf836218be46da2678",
+            "createdAt": "2020-05-23T00:32:04.903Z",
+            "_id": "5ec86f04b1f8cc173a413349",
             "title": "Client: Ticket Assigned Style/ Functionality",
             "ticketType": "task",
             "storyPoints": 5,
             "description": "",
-            "sprint": "5eb5d0f0f771f206a8a0e943",
-            "createdBy": "5eb88d7afa6bbc469bc0d3a8",
-            "project": "5e9f3656608b81ce3132247c"
+            "project": {
+              "_id": "5e9f3656608b81ce3132247c",
+              "slug": "CIOR"
+            },
+            "sprint": {
+              "_id": "5ec86d94b1f8cc173a413345",
+              "endDate": "2020-05-25T07:00:00.000Z"
+            },
+            "createdBy": "5ec6c1d7b5f2884eac2faf06"
           },
           {
             "status": "unassigned",
@@ -70,15 +89,21 @@
             "assignedTo": null,
             "dateAssigned": null,
             "dateCompleted": null,
-            "createdAt": "2020-05-19T17:00:57.816Z",
-            "_id": "5ec410c9836218be46da2679",
+            "createdAt": "2020-05-23T00:32:51.663Z",
+            "_id": "5ec86f33b1f8cc173a41334a",
             "title": "Client - Ticket: Completed Style / Functionality",
             "ticketType": "task",
             "storyPoints": 5,
             "description": "",
-            "sprint": "5eb5d0f0f771f206a8a0e943",
-            "createdBy": "5eb88d7afa6bbc469bc0d3a8",
-            "project": "5e9f3656608b81ce3132247c"
+            "project": {
+              "_id": "5e9f3656608b81ce3132247c",
+              "slug": "CIOR"
+            },
+            "sprint": {
+              "_id": "5ec86d94b1f8cc173a413345",
+              "endDate": "2020-05-25T07:00:00.000Z"
+            },
+            "createdBy": "5ec6c1d7b5f2884eac2faf06"
           },
           {
             "status": "unassigned",
@@ -86,79 +111,117 @@
             "assignedTo": null,
             "dateAssigned": null,
             "dateCompleted": null,
-            "createdAt": "2020-05-19T17:01:08.739Z",
-            "_id": "5ec410d4836218be46da267a",
+            "createdAt": "2020-05-23T00:41:43.329Z",
+            "_id": "5ec87147b1f8cc173a41334b",
             "title": "ProjectItem Mobile Media Queries.",
             "ticketType": "task",
             "storyPoints": 2,
             "description": "",
-            "sprint": "5eb5d0f0f771f206a8a0e943",
-            "createdBy": "5eb88d7afa6bbc469bc0d3a8",
-            "project": "5e9f3656608b81ce3132247c"
+            "project": {
+              "_id": "5e9f3656608b81ce3132247c",
+              "slug": "CIOR"
+            },
+            "sprint": {
+              "_id": "5ec86d94b1f8cc173a413345",
+              "endDate": "2020-05-25T07:00:00.000Z"
+            },
+            "createdBy": "5ec6c1d7b5f2884eac2faf06"
           },
           {
-            "status": "unassigned",
+            "status": "assigned",
             "priority": "low",
-            "assignedTo": null,
-            "dateAssigned": null,
+            "assignedTo": {
+              "_id": "5ec6c1d7b5f2884eac2faf06",
+              "name": "Marcus Martinez",
+              "photo": ""
+            },
+            "dateAssigned": "2020-05-23T00:45:36.831Z",
             "dateCompleted": null,
-            "createdAt": "2020-05-19T17:01:25.760Z",
-            "_id": "5ec410e5836218be46da267b",
+            "createdAt": "2020-05-23T00:42:00.487Z",
+            "_id": "5ec87158b1f8cc173a41334c",
             "title": "Client: Ticket animations",
             "ticketType": "feature",
             "storyPoints": 1,
             "description": "",
-            "sprint": "5eb5d0f0f771f206a8a0e943",
-            "createdBy": "5eb88d7afa6bbc469bc0d3a8",
-            "project": "5e9f3656608b81ce3132247c"
+            "project": {
+              "_id": "5e9f3656608b81ce3132247c",
+              "slug": "CIOR"
+            },
+            "sprint": {
+              "_id": "5ec86d94b1f8cc173a413345",
+              "endDate": "2020-05-25T07:00:00.000Z"
+            },
+            "createdBy": "5ec6c1d7b5f2884eac2faf06"
           },
           {
-            "status": "unassigned",
+            "status": "assigned",
             "priority": "low",
-            "assignedTo": null,
-            "dateAssigned": null,
+            "assignedTo": {
+              "_id": "5ec6c1d7b5f2884eac2faf06",
+              "name": "Marcus Martinez",
+              "photo": ""
+            },
+            "dateAssigned": "2020-05-23T00:46:12.781Z",
             "dateCompleted": null,
-            "createdAt": "2020-05-19T17:01:37.782Z",
-            "_id": "5ec410f1836218be46da267c",
+            "createdAt": "2020-05-23T00:42:17.495Z",
+            "_id": "5ec87169b1f8cc173a41334d",
             "title": "Get Sprint Action Creator",
             "ticketType": "task",
             "storyPoints": 2,
             "description": "",
-            "sprint": "5eb5d0f0f771f206a8a0e943",
-            "createdBy": "5eb88d7afa6bbc469bc0d3a8",
-            "project": "5e9f3656608b81ce3132247c"
+            "project": {
+              "_id": "5e9f3656608b81ce3132247c",
+              "slug": "CIOR"
+            },
+            "sprint": {
+              "_id": "5ec86d94b1f8cc173a413345",
+              "endDate": "2020-05-25T07:00:00.000Z"
+            },
+            "createdBy": "5ec6c1d7b5f2884eac2faf06"
           },
           {
             "status": "unassigned",
-            "priority": "medium",
+            "priority": "low",
             "assignedTo": null,
             "dateAssigned": null,
             "dateCompleted": null,
-            "createdAt": "2020-05-19T17:01:46.905Z",
-            "_id": "5ec410fa836218be46da267d",
+            "createdAt": "2020-05-23T00:43:17.016Z",
+            "_id": "5ec871a5b1f8cc173a41334e",
             "title": "Client: Redux - GetTicket",
             "ticketType": "task",
             "storyPoints": 2,
             "description": "",
-            "sprint": "5eb5d0f0f771f206a8a0e943",
-            "createdBy": "5eb88d7afa6bbc469bc0d3a8",
-            "project": "5e9f3656608b81ce3132247c"
+            "project": {
+              "_id": "5e9f3656608b81ce3132247c",
+              "slug": "CIOR"
+            },
+            "sprint": {
+              "_id": "5ec86d94b1f8cc173a413345",
+              "endDate": "2020-05-25T07:00:00.000Z"
+            },
+            "createdBy": "5ec6c1d7b5f2884eac2faf06"
           },
           {
             "status": "unassigned",
-            "priority": "medium",
+            "priority": "low",
             "assignedTo": null,
             "dateAssigned": null,
             "dateCompleted": null,
-            "createdAt": "2020-05-19T17:01:57.275Z",
-            "_id": "5ec41105836218be46da267e",
+            "createdAt": "2020-05-23T00:43:38.033Z",
+            "_id": "5ec871bab1f8cc173a41334f",
             "title": "Server - Get Ticket",
             "ticketType": "task",
             "storyPoints": 2,
             "description": "",
-            "sprint": "5eb5d0f0f771f206a8a0e943",
-            "createdBy": "5eb88d7afa6bbc469bc0d3a8",
-            "project": "5e9f3656608b81ce3132247c"
+            "project": {
+              "_id": "5e9f3656608b81ce3132247c",
+              "slug": "CIOR"
+            },
+            "sprint": {
+              "_id": "5ec86d94b1f8cc173a413345",
+              "endDate": "2020-05-25T07:00:00.000Z"
+            },
+            "createdBy": "5ec6c1d7b5f2884eac2faf06"
           },
           {
             "status": "unassigned",
@@ -166,31 +229,21 @@
             "assignedTo": null,
             "dateAssigned": null,
             "dateCompleted": null,
-            "createdAt": "2020-05-19T17:02:06.438Z",
-            "_id": "5ec4110e836218be46da267f",
-            "title": "Design: Ticket Modal",
-            "ticketType": "task",
-            "storyPoints": 1,
-            "description": "",
-            "sprint": "5eb5d0f0f771f206a8a0e943",
-            "createdBy": "5eb88d7afa6bbc469bc0d3a8",
-            "project": "5e9f3656608b81ce3132247c"
-          },
-          {
-            "status": "unassigned",
-            "priority": "medium",
-            "assignedTo": null,
-            "dateAssigned": null,
-            "dateCompleted": null,
-            "createdAt": "2020-05-19T17:02:16.455Z",
-            "_id": "5ec41118836218be46da2680",
+            "createdAt": "2020-05-23T00:43:49.366Z",
+            "_id": "5ec871c5b1f8cc173a413350",
             "title": "Client: Ticket Modal",
             "ticketType": "feature",
             "storyPoints": 1,
             "description": "",
-            "sprint": "5eb5d0f0f771f206a8a0e943",
-            "createdBy": "5eb88d7afa6bbc469bc0d3a8",
-            "project": "5e9f3656608b81ce3132247c"
+            "project": {
+              "_id": "5e9f3656608b81ce3132247c",
+              "slug": "CIOR"
+            },
+            "sprint": {
+              "_id": "5ec86d94b1f8cc173a413345",
+              "endDate": "2020-05-25T07:00:00.000Z"
+            },
+            "createdBy": "5ec6c1d7b5f2884eac2faf06"
           },
           {
             "status": "unassigned",
@@ -198,35 +251,97 @@
             "assignedTo": null,
             "dateAssigned": null,
             "dateCompleted": null,
-            "createdAt": "2020-05-19T17:02:23.914Z",
-            "_id": "5ec4111f836218be46da2681",
-            "title": "Client: Assign Ticket",
-            "ticketType": "feature",
-            "storyPoints": 3,
-            "description": "",
-            "sprint": "5eb5d0f0f771f206a8a0e943",
-            "createdBy": "5eb88d7afa6bbc469bc0d3a8",
-            "project": "5e9f3656608b81ce3132247c"
-          },
-          {
-            "status": "unassigned",
-            "priority": "low",
-            "assignedTo": null,
-            "dateAssigned": null,
-            "dateCompleted": null,
-            "createdAt": "2020-05-19T17:02:29.816Z",
-            "_id": "5ec41125836218be46da2682",
-            "title": "Ticket Doc project field",
-            "ticketType": "bug",
+            "createdAt": "2020-05-23T00:44:44.624Z",
+            "_id": "5ec871fcb1f8cc173a413351",
+            "title": "Server:User / Project Subdoc for Ticket",
+            "ticketType": "task",
             "storyPoints": 1,
             "description": "",
-            "sprint": "5eb5d0f0f771f206a8a0e943",
-            "createdBy": "5eb88d7afa6bbc469bc0d3a8",
-            "project": "5e9f3656608b81ce3132247c"
+            "project": {
+              "_id": "5e9f3656608b81ce3132247c",
+              "slug": "CIOR"
+            },
+            "sprint": {
+              "_id": "5ec86d94b1f8cc173a413345",
+              "endDate": "2020-05-25T07:00:00.000Z"
+            },
+            "createdBy": "5ec6c1d7b5f2884eac2faf06"
+          },
+          {
+            "status": "unassigned",
+            "priority": "low",
+            "assignedTo": null,
+            "dateAssigned": null,
+            "dateCompleted": null,
+            "createdAt": "2020-05-23T00:47:00.221Z",
+            "_id": "5ec87284b1f8cc173a413355",
+            "title": "Server: Unassign Ticket",
+            "ticketType": "task",
+            "storyPoints": 2,
+            "description": "",
+            "project": {
+              "_id": "5e9f3656608b81ce3132247c",
+              "slug": "CIOR"
+            },
+            "sprint": {
+              "_id": "5ec86d94b1f8cc173a413345",
+              "endDate": "2020-05-25T07:00:00.000Z"
+            },
+            "createdBy": "5ec6c1d7b5f2884eac2faf06"
+          },
+          {
+            "status": "unassigned",
+            "priority": "low",
+            "assignedTo": null,
+            "dateAssigned": null,
+            "dateCompleted": null,
+            "createdAt": "2020-05-23T00:47:08.317Z",
+            "_id": "5ec8728cb1f8cc173a413356",
+            "title": "Client: Unassign Ticket",
+            "ticketType": "task",
+            "storyPoints": 1,
+            "description": "",
+            "project": {
+              "_id": "5e9f3656608b81ce3132247c",
+              "slug": "CIOR"
+            },
+            "sprint": {
+              "_id": "5ec86d94b1f8cc173a413345",
+              "endDate": "2020-05-25T07:00:00.000Z"
+            },
+            "createdBy": "5ec6c1d7b5f2884eac2faf06"
+          },
+          {
+            "status": "unassigned",
+            "priority": "low",
+            "assignedTo": null,
+            "dateAssigned": null,
+            "dateCompleted": null,
+            "createdAt": "2020-05-23T00:47:21.565Z",
+            "_id": "5ec87299b1f8cc173a413357",
+            "title": "Server :Complete Ticket",
+            "ticketType": "task",
+            "storyPoints": 1,
+            "description": "",
+            "project": {
+              "_id": "5e9f3656608b81ce3132247c",
+              "slug": "CIOR"
+            },
+            "sprint": {
+              "_id": "5ec86d94b1f8cc173a413345",
+              "endDate": "2020-05-25T07:00:00.000Z"
+            },
+            "createdBy": "5ec6c1d7b5f2884eac2faf06"
           }
         ],
-        "__v": 13
+        "createdAt": "2020-05-23T00:25:56.762Z",
+        "_id": "5ec86d94b1f8cc173a413345",
+        "title": "Sprint D",
+        "startDate": "2020-05-18T07:00:01.000Z",
+        "endDate": "2020-05-25T07:00:00.000Z",
+        "project": "5e9f3656608b81ce3132247c"
       }
-    ]
+    ],
+    "__v": 0
   }
 ]

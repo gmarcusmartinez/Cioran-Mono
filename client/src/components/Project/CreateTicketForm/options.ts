@@ -23,4 +23,5 @@ export const formInitialState = {
   storyPoints: 1,
   description: '',
   priority: 'low',
+  project: '',
 };

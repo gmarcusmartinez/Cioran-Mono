@@ -1,10 +1,10 @@
 import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
-
 import { TicketDoc, ticketSchema } from './Ticket';
 import { PasswordManager } from '../services/PasswordManager';
 
 const keys = require('../config/keys');
+
 interface UserAttrs {
   name: string;
   email: string;
@@ -15,10 +15,11 @@ interface UserModel extends mongoose.Model<UserDoc> {
   build(attrs: UserAttrs): UserDoc;
 }
 
-interface UserDoc extends mongoose.Document {
+export interface UserDoc extends mongoose.Document {
   name: string;
   email: string;
   password: string;
+  photo: string;
   assignedTickets: TicketDoc[];
   completedTickets: TicketDoc[];
   getSignedJwtToken(): string;
@@ -37,6 +38,10 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
       required: true,
+    },
+    photo: {
+      type: String,
+      default: '',
     },
     assignedTickets: [ticketSchema],
     completedTickets: [ticketSchema],

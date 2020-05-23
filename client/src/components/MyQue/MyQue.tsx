@@ -10,17 +10,17 @@ const headers = [
   { text: 'Due Date', sort: 'date' },
 ];
 
+const ths = headers.map((h) => (
+  <th key={h.text} className='my-que__th'>
+    {h.text}
+  </th>
+));
+
 interface MyQueProps {
   tickets: ITicket[];
 }
 
 const MyQue: React.FC<MyQueProps> = ({ tickets }) => {
-  const ths = headers.map((h) => (
-    <th key={h.text} className='my-que__th'>
-      {h.text}
-    </th>
-  ));
-
   let list = tickets
     ? tickets.map((t) => <MyQueTicket key={t._id} ticket={t} />)
     : null;
@@ -36,6 +36,7 @@ const MyQue: React.FC<MyQueProps> = ({ tickets }) => {
     </div>
   );
 };
+
 const mapStateToProps = (state: any) => ({
   tickets: state.auth.currentUser?.assignedTickets,
 });

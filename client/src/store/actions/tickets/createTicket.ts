@@ -10,9 +10,9 @@ export interface ITicket {
   storyPoints: number;
   priority: string;
   description: string;
-  sprint: string;
-  project: string;
-  assignedTo: string;
+  sprint: { endDate: Date };
+  project: { slug: string };
+  assignedTo: { name: string };
   createdBy: string;
   dateAssigned: Date;
   dateCompleted: Date;
@@ -23,15 +23,16 @@ export interface CreateTicketAction {
   payload: ITicket;
 }
 
-interface FormData {
+interface FormState {
   title: string;
   ticketType: string;
   storyPoints: number;
   description: string;
   priority: string;
+  project: string;
 }
 
-export const createTicket = (formData: FormData, sprint_id: string) => async (
+export const createTicket = (formData: FormState, sprint_id: string) => async (
   dispatch: Dispatch
 ) => {
   const config = { headers: { 'Content-Type': 'application/json' } };

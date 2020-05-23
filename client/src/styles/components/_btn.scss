@@ -14,10 +14,16 @@
 }
 
 .btn-dark {
-  background-color: var(--color-dark-theme-secondary);
+  background-color: transparent;
+  border: none;
   color: var(--color-grey-light);
-  transition: 0.2s ease-in-out;
-  @include btn;
+  font-size: 1.4rem;
+  height: 4rem;
+  letter-spacing: 0.1rem;
+  margin-top: 2rem;
+  text-transform: uppercase;
+  transition: 0.25s ease-in-out;
+  width: 100%;
   &:hover {
     background-color: var(--color-primary);
   }

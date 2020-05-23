@@ -13,6 +13,7 @@
 
   .sprint-wrapper {
     display: grid;
+    overflow-y: scroll;
     grid-template-rows: 15% 15% 70%;
   }
 

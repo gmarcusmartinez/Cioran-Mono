@@ -11,8 +11,8 @@
   }
   &:nth-child(8) {
     display: grid;
-    grid-template-rows: 20% 80%;
     font-size: 1.4rem;
+    grid-template-rows: 20% 80%;
   }
 }
 .ticket-field-value {
@@ -24,13 +24,7 @@
   }
 }
 .ticket-field-key {
+  color: var(--color-grey-light);
   font-style: italic;
   margin-left: 1rem;
-  color: var(--color-grey-light);
-}
-
-#assign-ticket-btn {
-  width: 90%;
-  margin-left: 5%;
-  margin-top: 2rem;
 }

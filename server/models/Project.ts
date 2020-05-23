@@ -9,7 +9,7 @@ interface ProjectModel extends mongoose.Model<ProjectDoc> {
   build(attrs: ProjectAttrs): ProjectDoc;
 }
 
-interface ProjectDoc extends mongoose.Document {
+export interface ProjectDoc extends mongoose.Document {
   title: string;
   photo: string;
   slug: string;

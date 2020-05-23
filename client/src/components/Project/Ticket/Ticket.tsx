@@ -38,7 +38,9 @@ const Ticket: React.FC<TicketProps> = ({ ticket, sprint, getTicket }) => {
         <td className={`t-col ${ticket.priority}`}></td>
         <td className='t-col'>{ticket.title}</td>
         <td className='t-col'>{ticket.ticketType}</td>
-        <td className='t-col'>{firstNameOnly(ticket.assignedTo)}</td>
+        <td className='t-col'>
+          {ticket.assignedTo ? firstNameOnly(ticket.assignedTo.name) : null}
+        </td>
         <td className='t-col'>{ticket.status}</td>
         <td className='t-col'>{ticket.storyPoints}</td>
       </tr>

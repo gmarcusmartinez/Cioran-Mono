@@ -47,11 +47,11 @@
 }
 
 @mixin formEl {
-  background-color: var(--color-dark-theme-secondary);
+  background-color: var(--color-dark-theme-primary);
 
   border: none;
-  border: 0.1rem solid var(--color-dark-theme-light);
-  border-radius: 0.4rem;
+  border: 0.1rem solid var(--color-dark-theme-secondary);
+  border-radius: 0.2rem;
 
   height: 4rem;
   width: 100%;

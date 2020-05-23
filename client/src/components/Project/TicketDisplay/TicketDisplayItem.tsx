@@ -1,10 +1,19 @@
 import React from 'react';
-
 interface TicketDisplayItemProps {
   text: string;
-  value: string | number;
+  value: string | number | Date;
 }
-const TicketDisplayItem: React.FC<TicketDisplayItemProps> = ({
+export const ticketDisplayItems = [
+  { text: 'Type', prop: 'ticketType' },
+  { text: 'Priority', prop: 'priority' },
+  { text: 'Status', prop: 'status' },
+  { text: 'Story Points', prop: 'storyPoints' },
+  { text: 'Assigned To', prop: 'assignedTo.name' },
+  { text: 'Date Assigned', prop: `dateAssigned` },
+  { text: 'Date Completed', prop: 'dateCompleted' },
+  { text: 'Description', prop: 'description' },
+];
+export const TicketDisplayItem: React.FC<TicketDisplayItemProps> = ({
   text,
   value,
 }) => {
@@ -15,5 +24,3 @@ const TicketDisplayItem: React.FC<TicketDisplayItemProps> = ({
     </div>
   );
 };
-
-export { TicketDisplayItem };
