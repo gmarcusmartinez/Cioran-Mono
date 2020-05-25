@@ -1,4 +1,5 @@
 import React from 'react';
+
 interface TicketDisplayItemProps {
   text: string;
   value: string | number | Date;

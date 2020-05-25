@@ -1,7 +1,6 @@
-import { Request, Response, NextFunction } from 'express';
 import jwt from 'jsonwebtoken';
-
-const keys = require('../config/keys');
+import { Request, Response, NextFunction } from 'express';
+import keys from '../config/keys';
 
 interface UserPayload {
   name: string;

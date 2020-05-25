@@ -16,6 +16,24 @@
   }
 }
 
+.assigned {
+  background-color: var(--color-dark-theme-secondary);
+  .t-col {
+    color: var(--color-grey-secondary);
+    &:last-child {
+      color: var(--color-dark-theme-tertiary);
+    }
+  }
+}
+.submitted {
+  background-color: var(--color-dark-theme-secondary);
+  .t-col {
+    color: var(--color-grey-primary);
+    &:nth-child(5) {
+      color: var(--color-green);
+    }
+  }
+}
 .completed {
   background-color: var(--color-dark-theme-secondary);
   .t-col {
@@ -23,16 +41,6 @@
     text-decoration: line-through;
     &:last-child {
       color: var(--color-grey-secondary);
-    }
-  }
-}
-
-.assigned {
-  background-color: var(--color-dark-theme-secondary);
-  .t-col {
-    color: var(--color-grey-secondary);
-    &:last-child {
-      color: var(--color-dark-theme-tertiary);
     }
   }
 }

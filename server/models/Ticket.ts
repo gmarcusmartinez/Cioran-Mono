@@ -1,4 +1,7 @@
 import mongoose from 'mongoose';
+import { UserSubDoc } from './User';
+import { SprintSubDoc } from './Sprint';
+import { ProjectSubDoc } from './Project';
 
 export interface TicketDoc extends mongoose.Document {
   title: string;
@@ -9,24 +12,15 @@ export interface TicketDoc extends mongoose.Document {
   description: string;
   sprint: SprintSubDoc;
   project: ProjectSubDoc;
-  assignedTo: UserSubDoc;
+  assignedTo: UserSubDoc | null;
   createdBy: string;
-  dateAssigned: Date;
-  dateCompleted: Date;
+  dateAssigned: Date | null;
+  dateSubmitted: Date | null;
+  dateCompleted: Date | null;
   createdAt: Date;
-}
-export interface UserSubDoc {
-  _id: string;
-  name: string;
-  photo: string;
-}
-export interface SprintSubDoc {
-  _id: string;
-  endDate: Date;
-}
-export interface ProjectSubDoc {
-  _id: string;
-  slug: string;
+  assign(user: UserSubDoc): void;
+  unassign(): void;
+  submit(): void;
 }
 
 const ticketSchema = new mongoose.Schema({
@@ -90,6 +84,10 @@ const ticketSchema = new mongoose.Schema({
     type: Date || null,
     default: null,
   },
+  dateSubmitted: {
+    type: Date || null,
+    default: null,
+  },
   dateCompleted: {
     type: Date || null,
     default: null,
@@ -99,5 +97,22 @@ const ticketSchema = new mongoose.Schema({
     default: Date.now,
   },
 });
+
+ticketSchema.methods.assign = function (user: UserSubDoc) {
+  this.assignedTo = user;
+  this.dateAssigned = new Date(Date.now());
+  this.status = 'assigned';
+};
+
+ticketSchema.methods.unassign = function () {
+  this.assignedTo = null;
+  this.dateAssigned = null;
+  this.status = 'unassigned';
+};
+
+ticketSchema.methods.submit = function () {
+  this.dateSubmitted = null;
+  this.status = 'submitted';
+};
 
 export { ticketSchema };

@@ -3,7 +3,7 @@ import jwt from 'jsonwebtoken';
 import { TicketDoc, ticketSchema } from './Ticket';
 import { PasswordManager } from '../services/PasswordManager';
 
-const keys = require('../config/keys');
+import keys from '../config/keys';
 
 interface UserAttrs {
   name: string;
@@ -21,8 +21,15 @@ export interface UserDoc extends mongoose.Document {
   password: string;
   photo: string;
   assignedTickets: TicketDoc[];
-  completedTickets: TicketDoc[];
+  submittedTickets: TicketDoc[];
   getSignedJwtToken(): string;
+  createSubDoc(): UserSubDoc;
+  removeFromQ(queue: string, ticket: TicketDoc): void;
+}
+export interface UserSubDoc {
+  _id: string;
+  name: string;
+  photo: string;
 }
 
 const userSchema = new mongoose.Schema(
@@ -43,8 +50,14 @@ const userSchema = new mongoose.Schema(
       type: String,
       default: '',
     },
+    projects: [
+      {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Project',
+      },
+    ],
     assignedTickets: [ticketSchema],
-    completedTickets: [ticketSchema],
+    submittedTickets: [ticketSchema],
   },
   {
     toJSON: {
@@ -70,17 +83,23 @@ userSchema.pre('save', async function (done) {
   done();
 });
 
+userSchema.methods.createSubDoc = function () {
+  const { _id, name, photo } = this;
+  return { _id, name, photo };
+};
+
 userSchema.methods.getSignedJwtToken = function () {
-  return jwt.sign(
-    {
-      id: this.id,
-      email: this.email,
-    },
-    keys.jwtSecret,
-    {
-      expiresIn: keys.jwtExpire,
-    }
+  const { _id, email } = this;
+  return jwt.sign({ _id, email }, keys.jwtSecret, {
+    expiresIn: keys.jwtExpire,
+  });
+};
+
+userSchema.methods.removeFromQ = function (queue: string, ticket: TicketDoc) {
+  const index = this[queue].findIndex(
+    (t: TicketDoc) => t._id.toString() === ticket._id.toString()
   );
+  if (index !== 1) this.assignedTickets.splice(index, 1);
 };
 
 const User = mongoose.model<UserDoc, UserModel>('User', userSchema);

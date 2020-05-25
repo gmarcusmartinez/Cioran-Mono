@@ -9,7 +9,14 @@ export interface SprintDoc extends mongoose.Document {
   tickets: TicketDoc[];
   startDate: Date;
   endDate: Date;
+  createSubDoc(): SprintSubDoc;
 }
+
+export interface SprintSubDoc {
+  _id: string;
+  endDate: Date;
+}
+
 const sprintSchema = new mongoose.Schema({
   project: {
     type: mongoose.Schema.Types.ObjectId,
@@ -38,5 +45,10 @@ const sprintSchema = new mongoose.Schema({
     default: Date.now,
   },
 });
+
+sprintSchema.methods.createSubDoc = function () {
+  const { _id, endDate } = this;
+  return { _id, endDate };
+};
 
 export { sprintSchema };

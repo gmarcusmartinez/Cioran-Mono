@@ -16,6 +16,11 @@ export interface ProjectDoc extends mongoose.Document {
   projectOwner: string;
   sprints: SprintDoc[];
   team: string[];
+  createSubDoc(): ProjectSubDoc;
+}
+export interface ProjectSubDoc {
+  _id: string;
+  slug: string;
 }
 
 const projectSchema = new mongoose.Schema({
@@ -48,6 +53,11 @@ const projectSchema = new mongoose.Schema({
 
 projectSchema.statics.build = (attrs: ProjectAttrs) => {
   return new Project(attrs);
+};
+
+projectSchema.methods.createSubDoc = function () {
+  const { _id, slug } = this;
+  return { _id, slug };
 };
 
 const Project = mongoose.model<ProjectDoc, ProjectModel>(

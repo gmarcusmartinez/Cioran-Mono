@@ -1,38 +1,25 @@
 import { Request, Response } from 'express';
-
 import { User } from '../models/User';
 import { Project } from '../models/Project';
 import { asyncHandler } from '../middlewares/async';
 import { BadRequestError } from '../errors/bad-request-error';
 import { NotAuthorizedError } from '../errors/not-authorized-error';
-import {
-  assign,
-  findSprint,
-  findTicket,
-  validateUnique,
-  validateUnassigned,
-  createUserSubDoc,
-  createSprintSubDoc,
-  createProjectSubDoc,
-} from '../utils';
+import { find, buildTicket, validate } from '../utils';
 
 export const createTicket = asyncHandler(
   async (req: Request, res: Response) => {
-    const project = await Project.findById(req.body.project);
+    const user = req.currentUser.id;
+    const project = await Project.findById(req.body.projectId);
     if (!project) throw new BadRequestError('Project Not Found.');
-    if (!project.team.includes(req.currentUser.id)) {
-      throw new NotAuthorizedError();
-    }
-    const sprint = findSprint(project.sprints, req.params.sprintId);
-    const sprintSubDoc = createSprintSubDoc(sprint);
-    const projectSubDoc = createProjectSubDoc(project);
+    if (!project.team.includes(user)) throw new NotAuthorizedError();
 
-    const ticket = req.body;
-    ticket.sprint = sprintSubDoc;
-    ticket.project = projectSubDoc;
-    ticket.createdBy = req.currentUser.id;
+    const sprint = find.findSprint(project.sprints, req.params.sprintId);
+    const sprintSubDoc = sprint.createSubDoc();
+    const projectSubDoc = project.createSubDoc();
+
+    const ticket = buildTicket(req.body, sprintSubDoc, projectSubDoc, user);
+
     sprint.tickets.push(ticket);
-
     await project.save();
 
     res.status(201).send(ticket);
@@ -41,20 +28,21 @@ export const createTicket = asyncHandler(
 
 export const assignTicket = asyncHandler(
   async (req: Request, res: Response) => {
-    const project = await Project.findById(req.body.project);
+    const userId = req.currentUser.id;
+    const { id: ticketId } = req.params;
+    const { sprintId, projectId } = req.body;
+
+    const user = await User.findById(userId);
+    const project = await Project.findById(projectId);
     if (!project) throw new BadRequestError('Project Not Found.');
-    if (!project.team.includes(req.currentUser.id)) {
-      throw new NotAuthorizedError();
-    }
-    const user = await User.findById(req.currentUser.id);
-    const userSubDoc = createUserSubDoc(user!);
 
-    const sprint = findSprint(project.sprints, req.body.sprint);
-    const ticket = findTicket(sprint.tickets, req.params.ticketId);
+    const ticket = find.ticket(project, sprintId, ticketId, userId);
 
-    validateUnassigned(ticket);
-    validateUnique(user!.assignedTickets, req.params.ticketId);
-    assign(ticket, userSubDoc);
+    validate.unassigned(ticket);
+    validate.unique(user!.assignedTickets, req.params.ticketId);
+
+    const userSubDoc = user!.createSubDoc();
+    ticket.assign(userSubDoc);
 
     user!.assignedTickets.push(ticket);
     await project.save();
@@ -63,27 +51,53 @@ export const assignTicket = asyncHandler(
     res.status(200).send(ticket);
   }
 );
-// export const completeTicket = asyncHandler(
-//   async (req: Request, res: Response) => {
-//     const project = await Project.findById(req.body.project);
-//     if (!project) throw new BadRequestError('Project Not Found.');
-//     if (!project.team.includes(req.currentUser.id)) {
-//       throw new NotAuthorizedError();
-//     }
-//     const user = await User.findById(req.currentUser.id);
-//     if (!user) throw new NotAuthorizedError();
-//  const userSubDoc = createUserSubDoc(user)
+export const unassignTicket = asyncHandler(
+  async (req: Request, res: Response) => {
+    const { sprintId, projectId } = req.body;
+    const { id: ticketId } = req.params;
+    const userId = req.currentUser.id;
 
-//     const sprint = findSprint(project.sprints, req.body.sprint);
-//     const ticket = findTicket(sprint.tickets, req.params.ticketId);
+    const user = await User.findById(userId);
+    if (!user) throw new NotAuthorizedError();
 
-//     validateUnassigned(ticket);
-//     validateUnique(user!.assignedTickets, req.params.ticketId);
+    const project = await Project.findById(projectId);
+    if (!project) throw new BadRequestError('Project Not Found.');
 
-//     user!.assignedTickets.push(ticket);
-//     await project.save();
-//     await user!.save();
+    const ticket = find.ticket(project, sprintId, ticketId, userId);
 
-//     res.status(200).send(ticket);
-//   }
-// );
+    ticket.unassign();
+    user.removeFromQ('assignedTickets', ticket);
+
+    await project.save();
+    await user!.save();
+
+    res.status(200).send(ticket);
+  }
+);
+
+export const submitTicketForReview = asyncHandler(
+  async (req: Request, res: Response) => {
+    const { id: ticketId } = req.params;
+    const { sprintId, projectId } = req.body;
+    const userId = req.currentUser.id;
+
+    const user = await User.findById(userId);
+    if (!user) throw new NotAuthorizedError();
+
+    const project = await Project.findById(projectId);
+    if (!project) throw new BadRequestError('Project Not Found.');
+
+    const ticketProjectCopy = find.ticket(project, sprintId, ticketId, userId);
+    ticketProjectCopy.submit();
+
+    const ticketUserCopy = find.findTicket(user.assignedTickets, ticketId);
+    ticketUserCopy.submit();
+
+    user.removeFromQ('assignedTickets', ticketUserCopy);
+    user.submittedTickets.push(ticketUserCopy);
+
+    await project.save();
+    await user!.save();
+    res.send(user);
+  }
+);
