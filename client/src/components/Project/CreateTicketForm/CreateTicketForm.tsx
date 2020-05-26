@@ -12,7 +12,7 @@ import {
 
 interface CreateTicketFormProps {
   sprint_id: string | null;
-  project: string;
+  projectId: string;
   createTicket: Function;
 }
 interface FormState {
@@ -21,13 +21,13 @@ interface FormState {
   storyPoints: number;
   description: string;
   priority: string;
-  project: string;
+  projectId: string;
 }
 
 const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
   sprint_id,
   createTicket,
-  project,
+  projectId,
 }) => {
   const [formData, setFormData] = React.useState<FormState>(formInitialState);
 
@@ -40,7 +40,7 @@ const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
     setFormData({
       ...formData,
       [name]: value,
-      project,
+      projectId,
     });
   };
 
@@ -100,7 +100,7 @@ const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
   );
 };
 const mapStateToProps = (state: any) => ({
-  project: state.projects.project._id,
+  projectId: state.projects.project._id,
 });
 
 export default connect(mapStateToProps, { createTicket })(CreateTicketForm);

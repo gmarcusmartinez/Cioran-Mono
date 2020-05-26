@@ -6,22 +6,22 @@ import { TicketDisplayItem, ticketDisplayItems } from './TicketDisplayItem';
 
 interface TicketDisplayProps {
   ticket: any;
-  sprint: string;
-  project: string;
+  sprintId: string;
+  projectId: string;
   assignTicket: Function;
 }
 
 const TicketDisplay: React.FC<TicketDisplayProps> = ({
   ticket,
-  project,
-  sprint,
+  projectId,
+  sprintId,
   assignTicket,
 }) => {
   let list = ticketDisplayItems.map(({ text, prop }) => (
     <TicketDisplayItem key={text} text={text} value={ticket[prop]} />
   ));
   const handleAssignTicket = () => {
-    return assignTicket({ sprint, project }, ticket._id);
+    return assignTicket({ sprintId, projectId }, ticket._id);
   };
   const renderAssignToQueBtn = (text: string) => {
     return !ticket.assignedTo ? (
@@ -39,8 +39,8 @@ const TicketDisplay: React.FC<TicketDisplayProps> = ({
   );
 };
 const mapStateToProps = (state: any) => ({
-  project: state.projects.project._id,
-  sprint: state.sprints.sprint._id,
+  projectId: state.projects.project._id,
+  sprintId: state.sprints.sprint._id,
 });
 
 export default connect(mapStateToProps, { assignTicket })(TicketDisplay);

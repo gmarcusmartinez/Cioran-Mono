@@ -3,6 +3,7 @@ import React from 'react';
 import Modal from '../../common/Modal';
 import SprintItem from '../SprintItem/SprintItem';
 import { ISprint } from '../../../store/actions/';
+import CreateSprintForm from '../CreateSprintForm/CreateSprintForm';
 
 interface SprintSideBarProps {
   sprintArr: ISprint[];
@@ -17,7 +18,9 @@ const SprintSideBar: React.FC<SprintSideBarProps> = ({ sprintArr }) => {
 
   const renderModal = () => {
     return displayModal ? (
-      <Modal title='Create Sprint' showModal={setDisplayModal} />
+      <Modal title='Create Sprint' showModal={setDisplayModal}>
+        <CreateSprintForm />
+      </Modal>
     ) : null;
   };
   const renderBtn = () => {

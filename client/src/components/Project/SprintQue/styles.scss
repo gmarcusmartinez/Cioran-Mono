@@ -25,3 +25,26 @@
     }
   }
 }
+
+.pagination {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: flex-end;
+  .arrow,
+  li {
+    display: inline-block;
+    list-style: none;
+
+    margin: 0.5rem 0.1rem;
+    padding: 0.5rem 1rem;
+
+    background: var(--color-dark-theme-primary);
+    color: var(--color-primary);
+    font-size: 1.4rem;
+    transition: 0.2s ease-in;
+    &:hover {
+      background: var(--color-dark-theme-tertiary);
+    }
+  }
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Ticket from '../Ticket/Ticket';
+import Pagination from './Pagination';
 import { ITicket, ISprint } from '../../../store/actions';
 
 const headers = [
@@ -18,18 +19,33 @@ interface SprintQueProps {
 }
 
 const SprintQue: React.FC<SprintQueProps> = ({ tickets, sprint }) => {
-  let list = tickets
-    ? tickets.map((t) => <Ticket key={t._id} ticket={t} />)
-    : null;
+  const [currentPage, setCurrentPage] = React.useState(1);
+  const ticketsPerPage = 12;
 
+  const lastIndex = currentPage * ticketsPerPage;
+  const firstIndex = lastIndex - ticketsPerPage;
+  const currentTickets = tickets.slice(firstIndex, lastIndex);
+
+  let list = currentTickets.map((t) => <Ticket key={t._id} ticket={t} />);
+
+  const paginate = (num: number) => {
+    setCurrentPage(num);
+  };
   const renderTable = () => {
     return sprint!._id ? (
-      <table>
-        <thead>
-          <tr className='ticket-table'>{ths}</tr>
-        </thead>
-        <tbody>{list}</tbody>
-      </table>
+      <>
+        <table>
+          <thead>
+            <tr className='ticket-table'>{ths}</tr>
+          </thead>
+          <tbody>{list}</tbody>
+        </table>
+        <Pagination
+          totalItems={tickets.length}
+          itemsPerPage={ticketsPerPage}
+          paginate={paginate}
+        />
+      </>
     ) : null;
   };
 

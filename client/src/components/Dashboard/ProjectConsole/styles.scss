@@ -30,3 +30,15 @@
   height: 1rem;
   clip-path: polygon(2% 0, 100% 0, 98% 100%, 0 100%);
 }
+
+.create-project-btn {
+  border: 0.2rem dashed var(--color-grey-light);
+  @include projectItem;
+  display: flex;
+  text-align: center;
+
+  color: var(--color-grey-light);
+  font-size: 1.6rem;
+  font-weight: 300;
+  letter-spacing: 0.1rem;
+}

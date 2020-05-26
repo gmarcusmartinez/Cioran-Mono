@@ -4,7 +4,7 @@ export const formatDate = (d: Date) => {
   const month = formatMonth(+shortDate[1] - 1);
 
   const date = +shortDate[2].split('')[1];
-  const day = formatSuffix(date);
+  const day = +shortDate[2].split('')[0] + formatSuffix(date);
 
   return `${month} ${day} ${year}`;
 };
