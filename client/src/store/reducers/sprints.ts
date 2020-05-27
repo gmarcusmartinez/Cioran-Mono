@@ -1,6 +1,7 @@
 import { Action, ActionTypes } from '../actions/types';
 const initialState = {
   loading: true,
+  ticketPage: 1,
   sprint:
     {
       tickets: [],
@@ -13,8 +14,13 @@ export const sprints = (state = initialState, action: Action) => {
       return {
         ...state,
         loading: false,
-        currentPage: 1,
         sprint: action.payload,
+        ticketPage: 1,
+      };
+    case ActionTypes.SET_CURRENT_PAGE:
+      return {
+        ...state,
+        ticketPage: action.payload,
       };
     case ActionTypes.CREATE_TICKET:
       return {

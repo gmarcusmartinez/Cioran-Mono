@@ -1,4 +1,4 @@
-import { Dispatch } from 'redux';
+import { Dispatch, AnyAction } from 'redux';
 import { ActionTypes } from '../types';
 import { IProject } from '../projects/createProject';
 
@@ -11,7 +11,6 @@ export interface ISprint {
   tickets: [];
   startDate: Date;
   endDate: Date;
-  currentPage: number;
 }
 
 export interface GetSprintAction {
@@ -28,7 +27,20 @@ export const getSprint = (project: IProject, id: string) => (
       type: ActionTypes.GET_SPRINT,
       payload: sprint,
     });
+    dispatch<AnyAction>({
+      type: ActionTypes.SET_CURRENT_PAGE,
+      payload: 1,
+    });
   } catch (err) {
     console.log(err.message);
   }
 };
+export interface SetCurrentPageAction {
+  type: ActionTypes.SET_CURRENT_PAGE;
+  payload: number;
+}
+
+export const setCurrentPage = (num: number) => ({
+  type: ActionTypes.SET_CURRENT_PAGE,
+  payload: num,
+});

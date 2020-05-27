@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Ticket from '../Ticket/Ticket';
-import Pagination from './Pagination';
-import { ITicket, ISprint } from '../../../store/actions';
+import Pagination from '../../common/Pagination/Pagination';
+import { ITicket, ISprint, setCurrentPage } from '../../../store/actions';
 
 const headers = [
   { text: 'Ticket', sort: 'title' },
@@ -16,17 +16,23 @@ const ths = headers.map((h) => <th key={h.text}>{h.text}</th>);
 interface SprintQueProps {
   tickets: ITicket[];
   sprint?: ISprint;
+  ticketPage: number;
+  setCurrentPage: Function;
 }
 /**
  * Sprint Item sets current page to 1 on App state
  * Sprint Que takes value from state and sets it to current page
  */
 
-const SprintQue: React.FC<SprintQueProps> = ({ tickets, sprint }) => {
-  const [currentPage, setCurrentPage] = React.useState(1);
+const SprintQue: React.FC<SprintQueProps> = ({
+  tickets,
+  sprint,
+  ticketPage,
+  setCurrentPage,
+}) => {
   const ticketsPerPage = 12;
 
-  const lastIndex = currentPage * ticketsPerPage;
+  const lastIndex = ticketPage * ticketsPerPage;
   const firstIndex = lastIndex - ticketsPerPage;
   const currentTickets = tickets.slice(firstIndex, lastIndex);
 
@@ -58,6 +64,7 @@ const SprintQue: React.FC<SprintQueProps> = ({ tickets, sprint }) => {
 const mapStateToProps = (state: any) => ({
   tickets: state.sprints.sprint?.tickets,
   sprint: state.sprints.sprint,
+  ticketPage: state.sprints.ticketPage,
 });
 
-export default connect(mapStateToProps, {})(SprintQue);
+export default connect(mapStateToProps, { setCurrentPage })(SprintQue);

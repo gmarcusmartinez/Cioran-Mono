@@ -9,6 +9,7 @@ import {
   GetProjectsAction,
   CreateProjectAction,
   GetSprintAction,
+  SetCurrentPageAction,
   CreateTicketAction,
   GetTicketAction,
   AssignTicketAction,
@@ -25,6 +26,7 @@ export enum ActionTypes {
   GET_PROJECT = 'GET_PROJECT',
   GET_PROJECTS = 'GET_PROJECTS',
   GET_SPRINT = 'GET_SPRINT',
+  SET_CURRENT_PAGE = 'SET_CURRENT_PAGE',
   CREATE_TICKET = 'CREATE_TICKET',
   GET_TICKET = 'GET_TICKET',
   ASSIGN_TICKET = 'ASSIGN_TICKET',
@@ -38,6 +40,7 @@ export type Action =
   | CreateProjectAction
   | CreateProjectAction
   | GetSprintAction
+  | SetCurrentPageAction
   | CreateTicketAction
   | SetAlertAction
   | RemovetAlertAction
