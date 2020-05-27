@@ -1,5 +1,5 @@
 export * from './types';
-export * from './alerts';
+export * from './alerts/setAlert';
 
 export * from './auth/signup';
 export * from './auth/signin';

@@ -13,7 +13,7 @@ export const getProjects = asyncHandler(async (req: Request, res: Response) => {
 export const getProject = asyncHandler(async (req: Request, res: Response) => {
   const project = await Project.findById(req.params.id);
   if (!project) throw new BadRequestError('Project Not Found.');
-  if (!project.team.includes(req.currentUser.id.toString())) {
+  if (!project.team.includes(req.currentUser._id.toString())) {
     throw new NotAuthorizedError();
   }
   res.status(200).send(project);
@@ -22,8 +22,8 @@ export const getProject = asyncHandler(async (req: Request, res: Response) => {
 export const createProject = asyncHandler(
   async (req: Request, res: Response) => {
     const project = Project.build(req.body);
-    project.projectOwner = req.currentUser.id;
-    project.team.push(req.currentUser.id);
+    project.projectOwner = req.currentUser._id;
+    project.team.push(req.currentUser._id);
 
     await project.save();
     res.status(201).send(project);
@@ -35,7 +35,7 @@ export const updateProject = asyncHandler(
     let project = await Project.findById(req.params.id);
 
     if (!project) throw new BadRequestError('Project Not Found.');
-    if (project.projectOwner.toString() !== req.currentUser.id) {
+    if (project.projectOwner.toString() !== req.currentUser._id) {
       throw new NotAuthorizedError();
     }
 
@@ -52,7 +52,7 @@ export const deleteProject = asyncHandler(
     let project = await Project.findById(req.params.id);
 
     if (!project) throw new BadRequestError('Project Not Found.');
-    if (project.projectOwner.toString() !== req.currentUser.id) {
+    if (project.projectOwner.toString() !== req.currentUser._id) {
       throw new NotAuthorizedError();
     }
 

@@ -25,10 +25,14 @@ const SprintConsole: React.FC<SprintConsoleProps> = ({ sprint }) => {
     ) : null;
   };
   const renderStoryPoints = () => {
+    let total = 0;
+    sprint!.tickets.forEach((t: any) => {
+      total += t.storyPoints;
+    });
     return sprint?._id ? (
       <div className='story-points'>
         <div className='story-points__title'>Story Points</div>
-        {sprint.totalStoryPoints}
+        {total}
       </div>
     ) : null;
   };

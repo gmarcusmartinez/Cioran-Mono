@@ -1,6 +1,7 @@
+import { IAlert } from '../actions';
 import { Action, ActionTypes } from '../actions/types';
 
-const initialState: any[] = [];
+const initialState: IAlert[] = [];
 
 export const alerts = (state = initialState, action: Action) => {
   switch (action.type) {

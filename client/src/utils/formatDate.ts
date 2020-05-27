@@ -1,4 +1,6 @@
-export const formatDate = (d: Date) => {
+export const formatDate = (d: Date | undefined): string => {
+  if (!d) return '';
+
   let shortDate = trimDate(d);
   const year = shortDate[0];
   const month = formatMonth(+shortDate[1] - 1);
@@ -10,7 +12,7 @@ export const formatDate = (d: Date) => {
 };
 
 const trimDate = (d: Date): string[] => {
-  return d.toString().split('').slice(2, 10).join('').split('-');
+  return d.toString().split('').slice(0, 10).join('').split('-');
 };
 
 const formatMonth = (idx: number): string => {

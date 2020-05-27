@@ -21,6 +21,7 @@ export interface TicketDoc extends mongoose.Document {
   assign(user: UserSubDoc): void;
   unassign(): void;
   submit(): void;
+  markComplete(): void;
 }
 
 const ticketSchema = new mongoose.Schema({
@@ -111,8 +112,13 @@ ticketSchema.methods.unassign = function () {
 };
 
 ticketSchema.methods.submit = function () {
-  this.dateSubmitted = null;
+  this.dateSubmitted = new Date(Date.now());
   this.status = 'submitted';
+};
+
+ticketSchema.methods.markComplete = function () {
+  this.dateCompleted = new Date(Date.now());
+  this.status = 'completed';
 };
 
 export { ticketSchema };

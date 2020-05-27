@@ -12,10 +12,11 @@ const Pagination: React.FC<PaginationProps> = ({
   paginate,
 }) => {
   const [block, setBlock] = React.useState(0);
+  const blockSize = 5;
 
   const createBlocks = (total: number[]) => {
     const temp = [];
-    while (total.length) temp.push(total.splice(0, 10));
+    while (total.length) temp.push(total.splice(0, blockSize));
     return temp;
   };
 
@@ -43,11 +44,9 @@ const Pagination: React.FC<PaginationProps> = ({
       setBlock(block - 1);
     }
   };
-  console.log(lastPageNumber);
-
   return (
     <div className='pagination'>
-      {lastPageNumber >= 10 ? (
+      {blockSize >= 10 ? (
         <div className='arrow' onClick={previous}>
           &larr;
         </div>
@@ -61,7 +60,7 @@ const Pagination: React.FC<PaginationProps> = ({
           );
         })}
       </ul>
-      {lastPageNumber >= 10 ? (
+      {blockSize >= 10 ? (
         <div className='arrow' onClick={next}>
           &rarr;
         </div>

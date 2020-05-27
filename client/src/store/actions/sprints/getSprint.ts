@@ -11,6 +11,7 @@ export interface ISprint {
   tickets: [];
   startDate: Date;
   endDate: Date;
+  currentPage: number;
 }
 
 export interface GetSprintAction {

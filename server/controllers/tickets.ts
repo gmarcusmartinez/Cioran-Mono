@@ -8,7 +8,7 @@ import { find, buildTicket, validate } from '../utils';
 
 export const createTicket = asyncHandler(
   async (req: Request, res: Response) => {
-    const user = req.currentUser.id;
+    const user = req.currentUser._id;
     const project = await Project.findById(req.body.projectId);
     if (!project) throw new BadRequestError('Project Not Found.');
     if (!project.team.includes(user)) throw new NotAuthorizedError();
@@ -28,7 +28,7 @@ export const createTicket = asyncHandler(
 
 export const assignTicket = asyncHandler(
   async (req: Request, res: Response) => {
-    const userId = req.currentUser.id;
+    const userId = req.currentUser._id;
     const { id: ticketId } = req.params;
     const { sprintId, projectId } = req.body;
 
@@ -55,7 +55,7 @@ export const unassignTicket = asyncHandler(
   async (req: Request, res: Response) => {
     const { sprintId, projectId } = req.body;
     const { id: ticketId } = req.params;
-    const userId = req.currentUser.id;
+    const userId = req.currentUser._id;
 
     const user = await User.findById(userId);
     if (!user) throw new NotAuthorizedError();
@@ -66,7 +66,7 @@ export const unassignTicket = asyncHandler(
     const ticket = find.ticket(project, sprintId, ticketId, userId);
 
     ticket.unassign();
-    user.removeFromQ('assignedTickets', ticket);
+    user.removeFromQ(ticket);
 
     await project.save();
     await user!.save();
@@ -79,7 +79,7 @@ export const submitTicketForReview = asyncHandler(
   async (req: Request, res: Response) => {
     const { id: ticketId } = req.params;
     const { sprintId, projectId } = req.body;
-    const userId = req.currentUser.id;
+    const userId = req.currentUser._id;
 
     const user = await User.findById(userId);
     if (!user) throw new NotAuthorizedError();
@@ -91,13 +91,29 @@ export const submitTicketForReview = asyncHandler(
     ticketProjectCopy.submit();
 
     const ticketUserCopy = find.findTicket(user.assignedTickets, ticketId);
-    ticketUserCopy.submit();
-
-    user.removeFromQ('assignedTickets', ticketUserCopy);
-    user.submittedTickets.push(ticketUserCopy);
+    user.removeFromQ(ticketUserCopy);
 
     await project.save();
-    await user!.save();
-    res.send(user);
+    await user.save();
+    res.send({ success: true, ticketProjectCopy });
+  }
+);
+
+export const markTicketAsComplete = asyncHandler(
+  async (req: Request, res: Response) => {
+    const { id: ticketId } = req.params;
+    const { sprintId, projectId } = req.body;
+    const userId = req.currentUser._id!;
+
+    const project = await Project.findById(projectId);
+    if (!project) throw new BadRequestError('Project Not Found.');
+    if (project.projectOwner.toString() !== userId)
+      throw new NotAuthorizedError();
+
+    const ticketProjectCopy = find.ticket(project, sprintId, ticketId, userId);
+    ticketProjectCopy.markComplete();
+
+    await project.save();
+    res.send({ success: true, ticketProjectCopy });
   }
 );

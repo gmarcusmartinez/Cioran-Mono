@@ -1,6 +1,6 @@
-import { SetAlertAction, RemovetAlertAction } from './alerts';
-
 import {
+  SetAlertAction,
+  RemovetAlertAction,
   GetCurrentUserAction,
   SignupAction,
   SignoutAction,

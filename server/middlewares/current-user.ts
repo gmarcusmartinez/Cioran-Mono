@@ -4,7 +4,7 @@ import keys from '../config/keys';
 
 interface UserPayload {
   name: string;
-  id: string;
+  _id: string;
   email: string;
 }
 

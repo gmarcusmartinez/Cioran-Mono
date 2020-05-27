@@ -12,7 +12,7 @@ export const createSprint = asyncHandler(
     const project = await Project.findById(req.params.projectId);
     if (!project) throw new BadRequestError('Project Not Found.');
 
-    if (project.projectOwner.toString() !== req.currentUser.id) {
+    if (project.projectOwner.toString() !== req.currentUser._id) {
       throw new NotAuthorizedError();
     }
 

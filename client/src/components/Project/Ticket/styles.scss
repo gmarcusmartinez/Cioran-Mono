@@ -20,9 +20,6 @@
   background-color: var(--color-dark-theme-secondary);
   .t-col {
     color: var(--color-grey-secondary);
-    &:last-child {
-      color: var(--color-dark-theme-tertiary);
-    }
   }
 }
 .submitted {
@@ -35,12 +32,14 @@
   }
 }
 .completed {
-  background-color: var(--color-dark-theme-secondary);
+  background-color: var(--color-dark-theme-primary);
   .t-col {
-    color: var(--color-grey-primary);
-    text-decoration: line-through;
+    color: var(--color-green);
+    &:nth-child(2) {
+      text-decoration: line-through;
+    }
     &:last-child {
-      color: var(--color-grey-secondary);
+      color: var(--color-green);
     }
   }
 }

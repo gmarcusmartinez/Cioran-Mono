@@ -5,9 +5,7 @@ import history from '../../../core/history';
 
 export interface SignoutAction {
   type: ActionTypes.SIGNOUT;
-  payload: {
-    currentUser: null;
-  };
+  payload: null;
 }
 export const signout = () => async (dispatch: Dispatch) => {
   const res = await auth.post('/signout');

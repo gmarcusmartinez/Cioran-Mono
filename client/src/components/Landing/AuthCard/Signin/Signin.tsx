@@ -2,11 +2,12 @@ import React from 'react';
 import GoogleBtn from '../../../common/GoogleBtn/GoogleBtn';
 
 import { connect } from 'react-redux';
-import { signin, ISigninForm } from '../../../../store/actions';
+import { signin, ISigninForm, setAlert } from '../../../../store/actions';
 
 interface SigninProps {
   setFormDisplay: Function;
   signin: Function;
+  setAlert: Function;
 }
 
 const Signin: React.FunctionComponent<SigninProps> = ({
@@ -65,4 +66,4 @@ const Signin: React.FunctionComponent<SigninProps> = ({
   );
 };
 
-export default connect(null, { signin })(Signin);
+export default connect(null, { signin, setAlert })(Signin);

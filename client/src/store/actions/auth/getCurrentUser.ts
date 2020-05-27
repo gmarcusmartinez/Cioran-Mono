@@ -3,11 +3,13 @@ import auth from '../../../api/auth';
 import { ActionTypes } from '../types';
 
 export interface ICurrentUser {
-  id: string;
+  _id: string;
   name: string;
   email: string;
+  photo: string;
+  projects: [];
   assignedTickets: [];
-  completedTickets: [];
+  submittedTickets: [];
 }
 
 export interface GetCurrentUserAction {

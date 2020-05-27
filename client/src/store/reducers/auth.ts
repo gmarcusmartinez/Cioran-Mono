@@ -7,18 +7,19 @@ export const initialAuthState = {
 };
 
 export const auth = (state = initialAuthState, action: Action) => {
-  switch (action.type) {
+  const { type, payload } = action;
+  switch (type) {
     case ActionTypes.GET_CURRENT_USER:
       return {
         ...state,
         loading: false,
-        currentUser: action.payload,
+        currentUser: payload,
       };
     case ActionTypes.SIGNOUT:
       return {
         ...state,
         loading: false,
-        currentUser: action.payload.currentUser,
+        currentUser: payload,
         isAuthenticated: false,
       };
     case ActionTypes.SIGNUP:
@@ -26,7 +27,7 @@ export const auth = (state = initialAuthState, action: Action) => {
       return {
         ...state,
         loading: false,
-        currentUser: action.payload,
+        currentUser: payload,
         isAuthenticated: true,
       };
     default:

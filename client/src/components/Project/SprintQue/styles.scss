@@ -1,8 +1,12 @@
 .sprint-que {
   margin: 1rem 2rem 2rem 2rem;
+
   display: flex;
   flex-direction: column;
   z-index: 0;
+  table {
+    min-height: 45rem;
+  }
 
   .ticket-table {
     display: grid;

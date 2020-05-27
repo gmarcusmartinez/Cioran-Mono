@@ -1,21 +1,25 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import '../styles/main.scss';
 import { Route, Switch } from 'react-router-dom';
 
+import '../styles/main.scss';
+import history from '../core/history';
 import Landing from '../pages/Landing/Landing';
 import Project from '../pages/Project/Project';
 import Dashboard from '../pages/Dashboard/Dashboard';
-import { getCurrentUser } from '../store/actions';
+import { getCurrentUser, ICurrentUser } from '../store/actions';
 
 interface AppProps {
   getCurrentUser: Function;
+  currentUser: ICurrentUser;
 }
 
-const App: React.FC<AppProps> = ({ getCurrentUser }) => {
+const App: React.FC<AppProps> = ({ getCurrentUser, currentUser }) => {
   React.useEffect(() => {
     getCurrentUser();
   }, [getCurrentUser]);
+
+  if (currentUser) history.push('/dashboard');
   return (
     <Switch>
       <Route exact path='/' component={Landing} />
@@ -25,4 +29,8 @@ const App: React.FC<AppProps> = ({ getCurrentUser }) => {
   );
 };
 
-export default connect(null, { getCurrentUser })(App);
+const mapStateToProps = (state: any) => ({
+  currentUser: state.auth.currentUser,
+});
+
+export default connect(mapStateToProps, { getCurrentUser })(App);

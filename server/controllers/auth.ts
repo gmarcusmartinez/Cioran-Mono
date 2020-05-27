@@ -8,7 +8,7 @@ import { NotAuthorizedError } from '../errors/not-authorized-error';
 
 export const getCurrentUser = asyncHandler(
   async (req: Request, res: Response) => {
-    const user = await User.findById(req.currentUser.id);
+    const user = await User.findById(req.currentUser._id);
     if (!user) throw new NotAuthorizedError();
     res.send(user);
   }

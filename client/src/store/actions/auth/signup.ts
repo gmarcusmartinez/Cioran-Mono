@@ -1,8 +1,10 @@
 import { Dispatch } from 'redux';
+
 import auth from '../../../api/auth';
 import { ActionTypes } from '../types';
 import history from '../../../core/history';
 import { ICurrentUser } from './getCurrentUser';
+import { setAlert } from '../alerts/setAlert';
 
 export interface SignupAction {
   type: ActionTypes.SIGNUP;
@@ -25,6 +27,10 @@ export const signup = (formData: ISignupForm) => async (dispatch: Dispatch) => {
     history.push('/dashboard');
   } catch (err) {
     const { errors } = err.response.data;
-    console.log(errors);
+    if (errors) {
+      errors.forEach((e: { message: string }) => {
+        setAlert(e.message);
+      });
+    }
   }
 };

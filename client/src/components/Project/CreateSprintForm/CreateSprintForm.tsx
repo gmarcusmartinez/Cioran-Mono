@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { FormInput } from '../../common/Form';
+import DatePicker from '../../common/DatePicker/DatePicker';
 
 interface CreateSprintFormProps {}
 
@@ -22,16 +23,16 @@ const CreateSprintForm: React.FC<CreateSprintFormProps> = ({}) => {
 
   const { title } = formData;
   return (
-    <form className='create-project-form' onSubmit={handleSubmit}>
+    <form className='create-sprint-form' onSubmit={handleSubmit}>
       <FormInput
         label='Sprint Title'
         name='title'
         value={title}
         onChange={handleChange}
       />
-      <button className='btn-primary' style={{ width: '40%' }}>
-        Submit
-      </button>
+      <DatePicker label='Start Date' />
+      <DatePicker label='End Date' />
+      <button className='btn-dark'>Submit</button>
     </form>
   );
 };

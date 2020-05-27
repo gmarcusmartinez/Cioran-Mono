@@ -17,6 +17,10 @@ interface SprintQueProps {
   tickets: ITicket[];
   sprint?: ISprint;
 }
+/**
+ * Sprint Item sets current page to 1 on App state
+ * Sprint Que takes value from state and sets it to current page
+ */
 
 const SprintQue: React.FC<SprintQueProps> = ({ tickets, sprint }) => {
   const [currentPage, setCurrentPage] = React.useState(1);
@@ -27,7 +31,6 @@ const SprintQue: React.FC<SprintQueProps> = ({ tickets, sprint }) => {
   const currentTickets = tickets.slice(firstIndex, lastIndex);
 
   let list = currentTickets.map((t) => <Ticket key={t._id} ticket={t} />);
-
   const paginate = (num: number) => {
     setCurrentPage(num);
   };

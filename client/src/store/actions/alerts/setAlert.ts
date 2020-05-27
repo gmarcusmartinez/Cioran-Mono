@@ -1,6 +1,6 @@
 import { v4 } from 'uuid';
 import { Dispatch } from 'redux';
-import { ActionTypes } from './types';
+import { ActionTypes } from '../types';
 
 export interface IAlert {
   id: string;
@@ -12,6 +12,7 @@ export interface SetAlertAction {
   type: ActionTypes.SET_ALERT;
   payload: IAlert;
 }
+
 export interface RemovetAlertAction {
   type: ActionTypes.REMOVE_ALERT;
   payload: string;

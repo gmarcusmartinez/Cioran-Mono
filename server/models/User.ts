@@ -24,7 +24,7 @@ export interface UserDoc extends mongoose.Document {
   submittedTickets: TicketDoc[];
   getSignedJwtToken(): string;
   createSubDoc(): UserSubDoc;
-  removeFromQ(queue: string, ticket: TicketDoc): void;
+  removeFromQ(ticket: TicketDoc): void;
 }
 export interface UserSubDoc {
   _id: string;
@@ -57,7 +57,6 @@ const userSchema = new mongoose.Schema(
       },
     ],
     assignedTickets: [ticketSchema],
-    submittedTickets: [ticketSchema],
   },
   {
     toJSON: {
@@ -95,11 +94,14 @@ userSchema.methods.getSignedJwtToken = function () {
   });
 };
 
-userSchema.methods.removeFromQ = function (queue: string, ticket: TicketDoc) {
-  const index = this[queue].findIndex(
+userSchema.methods.removeFromQ = function (ticket: TicketDoc) {
+  const index = this.assignedTickets.findIndex(
     (t: TicketDoc) => t._id.toString() === ticket._id.toString()
   );
-  if (index !== 1) this.assignedTickets.splice(index, 1);
+  if (index !== -1) this.assignedTickets.splice(index, 1);
+  else {
+    console.log();
+  }
 };
 
 const User = mongoose.model<UserDoc, UserModel>('User', userSchema);

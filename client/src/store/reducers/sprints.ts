@@ -13,6 +13,7 @@ export const sprints = (state = initialState, action: Action) => {
       return {
         ...state,
         loading: false,
+        currentPage: 1,
         sprint: action.payload,
       };
     case ActionTypes.CREATE_TICKET:
