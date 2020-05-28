@@ -1,33 +1,14 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-import MyQue from '../../components/MyQue/MyQue';
-import DashSideBar from '../../components/Dashboard/DashSideBar/DashSideBar';
-import ProjectConsole from '../../components/Dashboard/ProjectConsole/ProjectConsole';
-
-const links = [
-  {
-    text: 'projects',
-    to: '/dashboard/',
-  },
-  {
-    text: 'my que',
-    to: '/dashboard/que',
-  },
-  {
-    text: 'inbox',
-    to: '/dashboard/inbox',
-  },
-  {
-    text: 'settings',
-    to: '/dashboard/settings',
-  },
-];
+import MyQue from '../../components/MyQue';
+import DashboardSideBar from '../../components/Dashboard/DashboardSideBar';
+import ProjectConsole from '../../components/Project/ProjectConsole/ProjectConsole';
 
 const Dashboard = () => {
   return (
     <div className='dashboard-wrapper'>
-      <DashSideBar links={links} />
+      <DashboardSideBar />
       <div className='content'>
         <Switch>
           <Route exact path='/dashboard/' component={ProjectConsole} />

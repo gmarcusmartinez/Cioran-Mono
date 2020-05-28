@@ -7,22 +7,41 @@ interface IDashNavLink {
   text: string;
   to: string;
 }
-interface DashSideBarProps {
-  links: IDashNavLink[];
+
+interface DashboardSidebarProps {
   signout: Function;
   currentUser?: ICurrentUser;
 }
 
-const DashSideBar: React.FC<DashSideBarProps> = ({
-  links,
+const links = [
+  {
+    text: 'projects',
+    to: '/dashboard/',
+  },
+  {
+    text: 'my que',
+    to: '/dashboard/que',
+  },
+  {
+    text: 'inbox',
+    to: '/dashboard/inbox',
+  },
+  {
+    text: 'settings',
+    to: '/dashboard/settings',
+  },
+];
+
+const list = links.map((l: IDashNavLink) => (
+  <NavLink to={l.to} className='dashboard-nav-link' key={l.to}>
+    <div className='dashboard-nav-link__text'>{l.text}</div>
+  </NavLink>
+));
+
+const DashboardSidebar: React.FC<DashboardSidebarProps> = ({
   signout,
   currentUser,
 }) => {
-  let list = links.map((l) => (
-    <NavLink to={l.to} className='dashboard-nav-link' key={l.to}>
-      <div className='dashboard-nav-link__text'>{l.text}</div>
-    </NavLink>
-  ));
   return (
     <div className='dashboard-sidebar'>
       <div className='dashboard-sidebar__usr-img'></div>
@@ -39,4 +58,4 @@ const mapStateToProps = (state: any) => ({
   currentUser: state.auth.currentUser,
 });
 
-export default connect(mapStateToProps, { signout })(DashSideBar);
+export default connect(mapStateToProps, { signout })(DashboardSidebar);

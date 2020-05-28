@@ -2,33 +2,34 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Modal from '../../common/Modal';
 import { ISprint } from '../../../store/actions';
+import { calculateStoryPoints } from '../../../utils/';
 import { formatDate } from '../../../utils/formatDate';
-import CreateTicketForm from '../CreateTicketForm/CreateTicketForm';
+import CreateTicketForm from '../../Forms/CreateTicketForm/CreateTicketForm';
 
 interface SprintConsoleProps {
   sprint?: ISprint | null;
 }
 const SprintConsole: React.FC<SprintConsoleProps> = ({ sprint }) => {
-  const [showCreateTicket, setShowCreateTicket] = React.useState(false);
+  const [displayModal, setDisplayModal] = React.useState(false);
+
   const renderModal = () => {
-    return showCreateTicket ? (
-      <Modal title='Create Ticket' showModal={setShowCreateTicket}>
+    return displayModal ? (
+      <Modal title='Create Ticket' showModal={setDisplayModal}>
         <CreateTicketForm sprint_id={sprint!._id} />
       </Modal>
     ) : null;
   };
+
   const renderCreateTicketBtn = () => {
     return sprint?._id ? (
-      <div onClick={() => setShowCreateTicket(true)} id='create-ticket-btn'>
+      <div onClick={() => setDisplayModal(true)} id='create-ticket-btn'>
         Create Ticket
       </div>
     ) : null;
   };
+
   const renderStoryPoints = () => {
-    let total = 0;
-    sprint!.tickets.forEach((t: any) => {
-      total += t.storyPoints;
-    });
+    let total = calculateStoryPoints(sprint!.tickets);
     return sprint?._id ? (
       <div className='story-points'>
         <div className='story-points__title'>Story Points</div>
@@ -36,6 +37,7 @@ const SprintConsole: React.FC<SprintConsoleProps> = ({ sprint }) => {
       </div>
     ) : null;
   };
+
   const renderSprintDetails = () => {
     return sprint?.startDate ? (
       <>
@@ -62,4 +64,5 @@ const SprintConsole: React.FC<SprintConsoleProps> = ({ sprint }) => {
 const mapStateToProps = (state: any) => ({
   sprint: state.sprints.sprint,
 });
+
 export default connect(mapStateToProps, {})(SprintConsole);

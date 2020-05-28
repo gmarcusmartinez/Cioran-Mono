@@ -16,6 +16,7 @@ const SprintItem: React.FC<SprintItemProps> = ({
   const onClick = () => {
     getSprint(project, item._id);
   };
+
   return (
     <div className='sprint-item' onClick={onClick}>
       <p className='sprint-item__title'>{item.title} </p>

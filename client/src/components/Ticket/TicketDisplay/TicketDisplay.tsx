@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { TItem } from './TicketDisplayItem';
-import { firstNameOnly } from '../Ticket/Ticket';
+import { firstNameOnly } from '../../../utils';
 import { assignTicket } from '../../../store/actions';
 import { formatDate } from '../../../utils/formatDate';
 

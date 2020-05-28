@@ -1,5 +1,5 @@
-import mongoose from 'mongoose';
 import jwt from 'jsonwebtoken';
+import mongoose from 'mongoose';
 import { TicketDoc, ticketSchema } from './Ticket';
 import { PasswordManager } from '../services/PasswordManager';
 
@@ -20,6 +20,7 @@ export interface UserDoc extends mongoose.Document {
   email: string;
   password: string;
   photo: string;
+  googleId: string;
   assignedTickets: TicketDoc[];
   submittedTickets: TicketDoc[];
   getSignedJwtToken(): string;
@@ -38,13 +39,15 @@ const userSchema = new mongoose.Schema(
       type: String,
       required: true,
     },
+    googleId: {
+      type: String,
+    },
     email: {
       type: String,
       required: true,
     },
     password: {
       type: String,
-      required: true,
     },
     photo: {
       type: String,

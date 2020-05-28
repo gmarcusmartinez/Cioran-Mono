@@ -27,14 +27,11 @@ export const getSprint = (project: IProject, id: string) => (
       type: ActionTypes.GET_SPRINT,
       payload: sprint,
     });
-    dispatch<AnyAction>({
-      type: ActionTypes.SET_CURRENT_PAGE,
-      payload: 1,
-    });
   } catch (err) {
     console.log(err.message);
   }
 };
+
 export interface SetCurrentPageAction {
   type: ActionTypes.SET_CURRENT_PAGE;
   payload: number;

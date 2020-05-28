@@ -7,30 +7,31 @@
 @import 'components/btn';
 @import 'components/form';
 
-//Pages
 @import '../pages/Landing/styles';
 @import '../pages/Project/styles';
 @import '../pages/Dashboard/styles';
 
-//Components
-@import '../components/Project/Ticket/styles';
-@import '../components/Project/SprintQue/styles';
-@import '../components/Project/SprintItem/styles';
-@import '../components/Project/SprintConsole/styles';
-@import '../components/Project/SprintSideBar/styles';
-@import '../components/Project/CreateSprintForm/styles';
-@import '../components/Project/CreateTicketForm/styles';
-@import '../components/Project/TicketDisplay/styles.scss';
+@import '../components/Forms/CreateSprintForm/styles';
+@import '../components/Forms/CreateTicketForm/styles';
+@import '../components/Forms/CreateProjectForm/styles';
 
-@import '../components/Dashboard/CreateProjectForm/styles';
-@import '../components/Dashboard/ProjectConsole/styles';
-@import '../components/Dashboard/ProjectItem/styles';
-@import '../components/Dashboard/DashSideBar/styles';
+@import '../components/Ticket/TicketRow/styles';
+@import '../components/Ticket/TicketDisplay/styles.scss';
 
-@import '../components/Landing/AuthCard/styles.scss';
-@import '../components/Landing/AuthCard/Signup/styles.scss';
-@import '../components/Landing/AuthCard/Signin/styles.scss';
-@import '../components/Landing/AuthCard/Default/styles.scss';
+@import '../components/Sprint/SprintQue/styles';
+@import '../components/Sprint/SprintItem/styles';
+@import '../components/Sprint/SprintConsole/styles';
+@import '../components/Sprint/SprintSideBar/styles';
+
+@import '../components/Project/ProjectConsole/styles';
+@import '../components/Project/ProjectItem/styles';
+
+@import '../components/Dashboard/DashboardSideBar/styles';
+
+@import '../components/AuthCard/styles.scss';
+@import '../components/AuthCard/Signup/styles.scss';
+@import '../components/AuthCard/Signin/styles.scss';
+@import '../components/AuthCard/Default/styles.scss';
 
 @import '../components/common/GoogleBtn/styles';
 @import '../components/common/Modal/styles';

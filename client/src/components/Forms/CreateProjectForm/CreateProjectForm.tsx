@@ -43,9 +43,7 @@ const CreateProjectForm: React.FC<ICreateProjectFormProps> = ({
         onChange={handleChange}
         info='Slug should be between 4-6 characters'
       />
-      <button className='btn-primary' style={{ width: '40%' }}>
-        Submit
-      </button>
+      <button className='btn-dark'>Submit</button>
     </form>
   );
 };

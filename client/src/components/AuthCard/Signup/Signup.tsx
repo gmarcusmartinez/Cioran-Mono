@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { signup, ISignupForm } from '../../../../store/actions';
+import { signup, ISignupForm } from '../../../store/actions';
 
 interface SignupFormProps {
   setFormDisplay: Function;

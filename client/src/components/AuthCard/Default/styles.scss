@@ -3,7 +3,8 @@
   height: 100%;
   width: 100%;
   display: grid;
-  grid-template-rows: 30% 15% 15% 40%;
+  padding: 2rem;
+  grid-template-rows: 30% 15% 20% 35%;
   .auth-title {
     display: flex;
     align-items: center;

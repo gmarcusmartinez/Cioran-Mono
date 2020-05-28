@@ -1,5 +1,5 @@
 import React from 'react';
-import GoogleBtn from '../../../common/GoogleBtn/GoogleBtn';
+import GoogleBtn from '../../common/GoogleBtn/GoogleBtn';
 
 interface DefaultFormProps {
   setFormDisplay: Function;

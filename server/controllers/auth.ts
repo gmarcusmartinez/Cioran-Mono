@@ -1,5 +1,5 @@
+import passport from 'passport';
 import { Request, Response } from 'express';
-
 import { User } from '../models/User';
 import { asyncHandler } from '../middlewares/async';
 import { BadRequestError } from '../errors/bad-request-error';
@@ -19,6 +19,9 @@ export const signup = asyncHandler(async (req: Request, res: Response) => {
 
   const existingUser = await User.findOne({ email });
   if (existingUser) throw new BadRequestError('Email in use.');
+
+  if (!email || !password || !name)
+    throw new BadRequestError('Please provide all required fields.');
 
   const user = User.build({ name, email, password });
   await user.save();
@@ -47,4 +50,12 @@ export const signin = asyncHandler(async (req: Request, res: Response) => {
 export const signout = asyncHandler(async (req: Request, res: Response) => {
   req.session = null;
   res.send({ msg: 'User signed out' });
+});
+
+export const googleOAuth = passport.authenticate('google', {
+  scope: ['profile', 'email'],
+});
+
+export const googleCallback = passport.authenticate('google', {
+  scope: ['profile', 'email'],
 });

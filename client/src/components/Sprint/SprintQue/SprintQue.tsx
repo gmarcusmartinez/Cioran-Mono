@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Ticket from '../Ticket/Ticket';
+import Ticket from '../../Ticket/TicketRow/Ticket';
 import Pagination from '../../common/Pagination/Pagination';
 import { ITicket, ISprint, setCurrentPage } from '../../../store/actions';
 
@@ -19,11 +19,6 @@ interface SprintQueProps {
   ticketPage: number;
   setCurrentPage: Function;
 }
-/**
- * Sprint Item sets current page to 1 on App state
- * Sprint Que takes value from state and sets it to current page
- */
-
 const SprintQue: React.FC<SprintQueProps> = ({
   tickets,
   sprint,
@@ -35,30 +30,33 @@ const SprintQue: React.FC<SprintQueProps> = ({
   const lastIndex = ticketPage * ticketsPerPage;
   const firstIndex = lastIndex - ticketsPerPage;
   const currentTickets = tickets.slice(firstIndex, lastIndex);
-
   let list = currentTickets.map((t) => <Ticket key={t._id} ticket={t} />);
+
   const paginate = (num: number) => {
     setCurrentPage(num);
   };
-  const renderTable = () => {
-    return sprint!._id ? (
-      <>
-        <table>
-          <thead>
-            <tr className='ticket-table'>{ths}</tr>
-          </thead>
-          <tbody>{list}</tbody>
-        </table>
+
+  const renderTable = () => (
+    <table>
+      <thead>
+        <tr className='ticket-table'>{ths}</tr>
+      </thead>
+      <tbody>{list}</tbody>
+    </table>
+  );
+
+  return (
+    <div className='sprint-que'>
+      {sprint?._id ? renderTable() : null}
+      {sprint?._id ? (
         <Pagination
           totalItems={tickets.length}
           itemsPerPage={ticketsPerPage}
           paginate={paginate}
         />
-      </>
-    ) : null;
-  };
-
-  return <div className='sprint-que'>{renderTable()}</div>;
+      ) : null}
+    </div>
+  );
 };
 
 const mapStateToProps = (state: any) => ({

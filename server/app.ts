@@ -1,8 +1,10 @@
 import express from 'express';
+import passport from 'passport';
 import 'colors';
 import 'express-async-errors';
 import cookieSession from 'cookie-session';
 
+import './services/Passport';
 import { NotFoundError } from './errors/not-found-error';
 import { errorHandler } from './middlewares/error-handler';
 
@@ -14,12 +16,14 @@ import { ticketRouter } from './routes/tickets';
 const app = express();
 
 app.use(express.json());
+
 app.use(
   cookieSession({
     signed: false,
     secure: false,
   })
 );
+
 app.use('/api/auth', authRouter);
 app.use('/api/sprints', sprintRouter);
 app.use('/api/tickets', ticketRouter);

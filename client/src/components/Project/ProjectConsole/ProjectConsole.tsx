@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Modal from '../../common/Modal';
 import ProjectItem from '../ProjectItem/ProjectItem';
-import CreateProjectForm from '../CreateProjectForm/CreateProjectForm';
+import CreateProjectForm from '../../Forms/CreateProjectForm/CreateProjectForm';
 import { IProject, getCurrentUser, getProjects } from '../../../store/actions';
 
 interface ProjectsProps {
@@ -12,6 +12,7 @@ interface ProjectsProps {
 
 const ProjectConsole: React.FC<ProjectsProps> = ({ projects, getProjects }) => {
   const [displayModal, setDisplayModal] = React.useState(false);
+
   React.useEffect(() => {
     getCurrentUser();
     getProjects();
@@ -28,6 +29,7 @@ const ProjectConsole: React.FC<ProjectsProps> = ({ projects, getProjects }) => {
       </Modal>
     ) : null;
   };
+
   const renderBtn = () => {
     return (
       <div className='create-project-btn' onClick={() => setDisplayModal(true)}>
@@ -35,6 +37,7 @@ const ProjectConsole: React.FC<ProjectsProps> = ({ projects, getProjects }) => {
       </div>
     );
   };
+
   return (
     <div className='project-console'>
       <div className='project-console__title'>My Projects</div>

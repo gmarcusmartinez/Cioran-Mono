@@ -5,8 +5,8 @@
   margin: 0 2rem;
 
   display: grid;
-  grid-template-rows: 40% 30% 30%;
   grid-template-columns: 25rem auto;
+  grid-template-rows: 40% 30% 30%;
 
   grid-template-areas:
     'title  body'
@@ -50,6 +50,7 @@
       text-align: center;
     }
   }
+
   #create-ticket-btn {
     grid-area: createTicket;
     color: var(--color-grey-light);

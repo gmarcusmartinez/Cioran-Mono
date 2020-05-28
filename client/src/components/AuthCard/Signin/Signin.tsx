@@ -1,8 +1,8 @@
 import React from 'react';
-import GoogleBtn from '../../../common/GoogleBtn/GoogleBtn';
+import GoogleBtn from '../../common/GoogleBtn/GoogleBtn';
 
 import { connect } from 'react-redux';
-import { signin, ISigninForm, setAlert } from '../../../../store/actions';
+import { signin, ISigninForm, setAlert } from '../../../store/actions';
 
 interface SigninProps {
   setFormDisplay: Function;

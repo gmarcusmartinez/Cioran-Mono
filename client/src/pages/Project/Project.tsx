@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import SprintQue from '../../components/Project/SprintQue/SprintQue';
-import SprintSideBar from '../../components/Project/SprintSideBar/SprintSideBar';
-import SprintConsole from '../../components/Project/SprintConsole/SprintConsole';
+import SprintQue from '../../components/Sprint/SprintQue/SprintQue';
+import SprintSideBar from '../../components/Sprint/SprintSideBar/SprintSideBar';
+import SprintConsole from '../../components/Sprint/SprintConsole/SprintConsole';
 
 import { getProject, IProject } from '../../store/actions';
 
