@@ -23,13 +23,13 @@ export interface CreateTicketAction {
   payload: ITicket;
 }
 
-interface FormState {
+export interface FormState {
   title: string;
   ticketType: string;
   storyPoints: number;
   description: string;
   priority: string;
-  project: string;
+  projectId: string;
 }
 
 export const createTicket = (formData: FormState, sprint_id: string) => async (
@@ -37,6 +37,7 @@ export const createTicket = (formData: FormState, sprint_id: string) => async (
 ) => {
   const config = { headers: { 'Content-Type': 'application/json' } };
   const res = await sprints.post(`/${sprint_id}/tickets`, formData, config);
+  console.log(res.data);
   dispatch<CreateTicketAction>({
     type: ActionTypes.CREATE_TICKET,
     payload: res.data,

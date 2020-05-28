@@ -1,5 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+
 interface ModalProps {
   showModal: Function;
   title: string;
@@ -11,16 +12,16 @@ const Modal: React.FC<ModalProps> = ({
   showModal,
   title,
   children,
-  titleFontSize,
   headerMargin,
+  titleFontSize,
 }) => {
   return ReactDOM.createPortal(
-    <div className='modal'>
-      <div className='modal__body'>
+    <div className='modal' onClick={() => showModal(false)}>
+      <div className='modal__body' onClick={(e) => e.stopPropagation()}>
         <div
           className='modal__header'
           style={{
-            margin: `${headerMargin ? headerMargin : '2rem 2rem 2rem 4rem'}`,
+            margin: `${headerMargin ? headerMargin : '2rem'}`,
           }}
         >
           <h3

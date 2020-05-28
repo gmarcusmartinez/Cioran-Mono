@@ -23,11 +23,12 @@ export const sprints = (state = initialState, action: Action) => {
         ticketPage: action.payload,
       };
     case ActionTypes.CREATE_TICKET:
+    case ActionTypes.ASSIGN_TICKET:
       return {
         ...state,
         sprint: {
           ...state.sprint,
-          tickets: [...state.sprint.tickets, action.payload],
+          tickets: [action.payload, ...state.sprint.tickets],
         },
       };
     default:

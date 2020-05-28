@@ -17,6 +17,7 @@ const Ticket: React.FC<TicketProps> = ({ ticket, sprint, getTicket }) => {
     getTicket(sprint, ticket._id);
     setDisplayModal(true);
   };
+
   const renderModal = () => {
     return displayModal ? (
       <Modal
@@ -25,7 +26,7 @@ const Ticket: React.FC<TicketProps> = ({ ticket, sprint, getTicket }) => {
         headerMargin='3rem'
         showModal={setDisplayModal}
       >
-        <TicketDisplay ticket={ticket} />
+        <TicketDisplay ticket={ticket} setDisplayModal={setDisplayModal} />
       </Modal>
     ) : null;
   };

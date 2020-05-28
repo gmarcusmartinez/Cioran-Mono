@@ -10,16 +10,23 @@ interface TicketDisplayProps {
   sprintId: string;
   projectId: string;
   assignTicket: Function;
+  setDisplayModal: Function;
 }
 
 const TicketDisplay: React.FC<TicketDisplayProps> = ({
   ticket,
-  projectId,
   sprintId,
+  projectId,
   assignTicket,
+  setDisplayModal,
 }) => {
-  const handleAssignTicket = () => {
-    return assignTicket({ sprintId, projectId }, ticket._id);
+  const handleAssignTicket = async () => {
+    try {
+      await assignTicket({ sprintId, projectId }, ticket._id);
+      setDisplayModal(false);
+    } catch (err) {
+      console.log(err.message);
+    }
   };
 
   const renderAssignToQueBtn = (text: string) => {
@@ -45,6 +52,7 @@ const TicketDisplay: React.FC<TicketDisplayProps> = ({
     </div>
   );
 };
+
 const mapStateToProps = (state: any) => ({
   projectId: state.projects.project._id,
   sprintId: state.sprints.sprint._id,

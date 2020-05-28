@@ -1,4 +1,6 @@
-import { TicketDoc, SprintSubDoc, ProjectSubDoc } from '../../models/Ticket';
+import { TicketDoc } from '../../models/Ticket';
+import { SprintSubDoc } from '../../models/Sprint';
+import { ProjectSubDoc } from '../../models/Project';
 
 export const buildTicket = (
   doc: TicketDoc,
@@ -9,5 +11,6 @@ export const buildTicket = (
   doc.sprint = sprint;
   doc.project = project;
   doc.createdBy = id;
+  doc.status = 'unassigned';
   return doc;
 };

@@ -13,7 +13,8 @@ export const createTicket = asyncHandler(
     if (!project) throw new BadRequestError('Project Not Found.');
     if (!project.team.includes(user)) throw new NotAuthorizedError();
 
-    const sprint = find.findSprint(project.sprints, req.params.sprintId);
+    const { sprintId } = req.params;
+    const sprint = find.findSprint(project.sprints, sprintId);
     const sprintSubDoc = sprint.createSubDoc();
     const projectSubDoc = project.createSubDoc();
 

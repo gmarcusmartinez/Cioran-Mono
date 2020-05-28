@@ -1,4 +1,4 @@
-import { Dispatch, AnyAction } from 'redux';
+import { Dispatch } from 'redux';
 import { ActionTypes } from '../types';
 import { IProject } from '../projects/createProject';
 

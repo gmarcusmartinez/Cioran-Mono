@@ -15,10 +15,14 @@ interface FormState {
 export const assignTicket = (formData: FormState, ticket_id: string) => async (
   dispatch: Dispatch
 ) => {
-  const config = { headers: { 'Content-Type': 'application/json' } };
-  const res = await tickets.put(`/${ticket_id}/assign`, formData, config);
-  dispatch<AssignTicketAction>({
-    type: ActionTypes.ASSIGN_TICKET,
-    payload: res.data,
-  });
+  try {
+    const config = { headers: { 'Content-Type': 'application/json' } };
+    const res = await tickets.put(`/${ticket_id}/assign`, formData, config);
+    dispatch<AssignTicketAction>({
+      type: ActionTypes.ASSIGN_TICKET,
+      payload: res.data,
+    });
+  } catch (err) {
+    console.log(err.message);
+  }
 };

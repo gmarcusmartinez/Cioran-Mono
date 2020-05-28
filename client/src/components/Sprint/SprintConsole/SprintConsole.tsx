@@ -15,7 +15,10 @@ const SprintConsole: React.FC<SprintConsoleProps> = ({ sprint }) => {
   const renderModal = () => {
     return displayModal ? (
       <Modal title='Create Ticket' showModal={setDisplayModal}>
-        <CreateTicketForm sprint_id={sprint!._id} />
+        <CreateTicketForm
+          sprint_id={sprint!._id}
+          setDisplayModal={setDisplayModal}
+        />
       </Modal>
     ) : null;
   };
