@@ -3,9 +3,7 @@ import { connect } from 'react-redux';
 import { FormInput } from '../../common/Form';
 import DatePicker from '../../common/DatePicker/DatePicker';
 
-interface CreateSprintFormProps {}
-
-const CreateSprintForm: React.FC<CreateSprintFormProps> = ({}) => {
+const CreateSprintForm: React.FC = () => {
   const [formData, setFormData] = React.useState({
     title: '',
   });

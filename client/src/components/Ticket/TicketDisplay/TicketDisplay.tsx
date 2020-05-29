@@ -1,42 +1,18 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { TItem } from './TicketDisplayItem';
+import TicketActions from './TicketActions';
 import { firstNameOnly } from '../../../utils';
-import { assignTicket } from '../../../store/actions';
 import { formatDate } from '../../../utils/formatDate';
 
 interface TicketDisplayProps {
   ticket: any;
-  sprintId: string;
-  projectId: string;
-  assignTicket: Function;
   setDisplayModal: Function;
 }
 
 const TicketDisplay: React.FC<TicketDisplayProps> = ({
   ticket,
-  sprintId,
-  projectId,
-  assignTicket,
   setDisplayModal,
 }) => {
-  const handleAssignTicket = async () => {
-    try {
-      await assignTicket({ sprintId, projectId }, ticket._id);
-      setDisplayModal(false);
-    } catch (err) {
-      console.log(err.message);
-    }
-  };
-
-  const renderAssignToQueBtn = (text: string) => {
-    return !ticket.assignedTo ? (
-      <button className='btn-dark' onClick={handleAssignTicket}>
-        {text}
-      </button>
-    ) : null;
-  };
-
   return (
     <div className='ticket-display'>
       <TItem text='Type'>{ticket.ticketType}</TItem>
@@ -48,14 +24,9 @@ const TicketDisplay: React.FC<TicketDisplayProps> = ({
       <TItem text='Date Assigned'>{formatDate(ticket.dateAssigned)}</TItem>
       <TItem text='Date Completed'>{formatDate(ticket.dateCompleted)}</TItem>
       <TItem text='Description'>{ticket.description}</TItem>
-      {renderAssignToQueBtn('Assign to Que')}
+      <TicketActions ticket={ticket} setDisplayModal={setDisplayModal} />
     </div>
   );
 };
 
-const mapStateToProps = (state: any) => ({
-  projectId: state.projects.project._id,
-  sprintId: state.sprints.sprint._id,
-});
-
-export default connect(mapStateToProps, { assignTicket })(TicketDisplay);
+export default TicketDisplay;

@@ -13,6 +13,7 @@ import {
   CreateTicketAction,
   GetTicketAction,
   AssignTicketAction,
+  SubmitTicketAction,
 } from './';
 
 export enum ActionTypes {
@@ -30,6 +31,7 @@ export enum ActionTypes {
   CREATE_TICKET = 'CREATE_TICKET',
   GET_TICKET = 'GET_TICKET',
   ASSIGN_TICKET = 'ASSIGN_TICKET',
+  SUBMIT_TICKET = 'SUBMIT_TICKET',
 }
 export type Action =
   | SignoutAction
@@ -46,4 +48,5 @@ export type Action =
   | RemovetAlertAction
   | GetCurrentUserAction
   | GetTicketAction
-  | AssignTicketAction;
+  | AssignTicketAction
+  | SubmitTicketAction;

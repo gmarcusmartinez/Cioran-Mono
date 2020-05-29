@@ -3,8 +3,8 @@ import { ActionTypes } from '../types';
 import { ITicket } from './createTicket';
 import tickets from '../../../api/tickets';
 
-export interface AssignTicketAction {
-  type: ActionTypes.ASSIGN_TICKET;
+export interface SubmitTicketAction {
+  type: ActionTypes.SUBMIT_TICKET;
   payload: ITicket;
 }
 interface FormState {
@@ -12,17 +12,18 @@ interface FormState {
   projectId: string;
 }
 
-export const assignTicket = (formData: FormState, ticket_id: string) => async (
+export const submitTicket = (formData: FormState, ticket_id: string) => async (
   dispatch: Dispatch
 ) => {
   try {
     const config = { headers: { 'Content-Type': 'application/json' } };
-    const res = await tickets.put(`/${ticket_id}/assign`, formData, config);
-    dispatch<AssignTicketAction>({
-      type: ActionTypes.ASSIGN_TICKET,
+    const res = await tickets.put(`/${ticket_id}/submit`, formData, config);
+    dispatch<SubmitTicketAction>({
+      type: ActionTypes.SUBMIT_TICKET,
       payload: res.data,
     });
   } catch (err) {
-    console.log(err.message);
+    console.log('ran');
+    console.log(err);
   }
 };

@@ -96,7 +96,7 @@ export const submitTicketForReview = asyncHandler(
 
     await project.save();
     await user.save();
-    res.send({ success: true, ticketProjectCopy });
+    res.send(ticketProjectCopy);
   }
 );
 

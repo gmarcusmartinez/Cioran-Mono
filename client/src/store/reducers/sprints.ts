@@ -24,6 +24,7 @@ export const sprints = (state = initialState, action: Action) => {
       };
     case ActionTypes.CREATE_TICKET:
     case ActionTypes.ASSIGN_TICKET:
+    case ActionTypes.SUBMIT_TICKET:
       return {
         ...state,
         sprint: {
