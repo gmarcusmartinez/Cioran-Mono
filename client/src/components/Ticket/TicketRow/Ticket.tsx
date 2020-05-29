@@ -20,12 +20,7 @@ const Ticket: React.FC<TicketProps> = ({ ticket, sprint, getTicket }) => {
 
   const renderModal = () => {
     return displayModal ? (
-      <Modal
-        title={ticket.title}
-        titleFontSize='1.4rem'
-        headerMargin='3rem'
-        showModal={setDisplayModal}
-      >
+      <Modal title='' showModal={setDisplayModal}>
         <TicketDisplay ticket={ticket} setDisplayModal={setDisplayModal} />
       </Modal>
     ) : null;

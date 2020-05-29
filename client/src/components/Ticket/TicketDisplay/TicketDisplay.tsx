@@ -15,15 +15,23 @@ const TicketDisplay: React.FC<TicketDisplayProps> = ({
 }) => {
   return (
     <div className='ticket-display'>
-      <TItem text='Type'>{ticket.ticketType}</TItem>
-      <TItem text='Priority'>{ticket.priority}</TItem>
-      <TItem text='Status'>{ticket.status}</TItem>
-      <TItem text='Assigned To'>
-        {ticket.assignedTo ? firstNameOnly(ticket.assignedTo.name) : null}
-      </TItem>
-      <TItem text='Date Assigned'>{formatDate(ticket.dateAssigned)}</TItem>
-      <TItem text='Date Completed'>{formatDate(ticket.dateCompleted)}</TItem>
-      <TItem text='Description'>{ticket.description}</TItem>
+      <TItem text={ticket.title} value='' />
+      <TItem text='Priority' value={ticket.priority} />
+      <TItem text='Type' value={ticket.ticketType} />
+      <TItem text='Status' value={ticket.status} />
+      <TItem
+        text='Assigned To'
+        value={firstNameOnly(ticket.assignedTo?.name)}
+      />
+      <TItem
+        text='Date Assigned'
+        value={ticket.dateAssigned ? formatDate(ticket.dateAssigned) : null}
+      />
+      <TItem
+        text='Date Completed'
+        value={ticket.dateCompleted ? formatDate(ticket.dateCompleted) : null}
+      />
+      <TItem text='Description' value={ticket.description} />
       <TicketActions ticket={ticket} setDisplayModal={setDisplayModal} />
     </div>
   );

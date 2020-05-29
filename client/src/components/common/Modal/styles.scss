@@ -35,12 +35,13 @@
   &__title {
     letter-spacing: 0.1rem;
     font-weight: 400;
+    font-size: 2.1rem;
   }
 
   &__close {
     position: absolute;
-    top: -1rem;
-    right: 0;
+    top: -2.8rem;
+    right: -1rem;
 
     font-size: 3rem;
     cursor: pointer;

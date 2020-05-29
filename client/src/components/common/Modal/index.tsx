@@ -4,32 +4,14 @@ import ReactDOM from 'react-dom';
 interface ModalProps {
   showModal: Function;
   title: string;
-  titleFontSize?: string;
-  headerMargin?: string;
 }
 
-const Modal: React.FC<ModalProps> = ({
-  showModal,
-  title,
-  children,
-  headerMargin,
-  titleFontSize,
-}) => {
+const Modal: React.FC<ModalProps> = ({ showModal, title, children }) => {
   return ReactDOM.createPortal(
     <div className='modal' onClick={() => showModal(false)}>
       <div className='modal__body' onClick={(e) => e.stopPropagation()}>
-        <div
-          className='modal__header'
-          style={{
-            margin: `${headerMargin ? headerMargin : '2rem'}`,
-          }}
-        >
-          <h3
-            className='modal__title'
-            style={{ fontSize: `${titleFontSize ? titleFontSize : '2.1rem'}` }}
-          >
-            {title}
-          </h3>
+        <div className='modal__header'>
+          <h3 className='modal__title'>{title}</h3>
           <p className='modal__close' onClick={() => showModal(false)}>
             &times;
           </p>

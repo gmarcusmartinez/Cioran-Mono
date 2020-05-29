@@ -14,12 +14,7 @@ const MyQueTicket: React.FC<MyQueTicketProps> = ({ ticket }) => {
   };
   const renderModal = () => {
     return displayModal ? (
-      <Modal
-        title={ticket.title}
-        titleFontSize='1.4rem'
-        headerMargin='2rem'
-        showModal={setDisplayModal}
-      >
+      <Modal title='' showModal={setDisplayModal}>
         {/* <TicketDisplay ticket={ticket} /> */}
       </Modal>
     ) : null;

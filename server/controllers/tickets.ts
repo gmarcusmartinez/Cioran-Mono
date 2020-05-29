@@ -115,6 +115,6 @@ export const markTicketAsComplete = asyncHandler(
     ticketProjectCopy.markComplete();
 
     await project.save();
-    res.send({ success: true, ticketProjectCopy });
+    res.send(ticketProjectCopy);
   }
 );

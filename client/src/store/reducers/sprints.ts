@@ -25,11 +25,17 @@ export const sprints = (state = initialState, action: Action) => {
     case ActionTypes.CREATE_TICKET:
     case ActionTypes.ASSIGN_TICKET:
     case ActionTypes.SUBMIT_TICKET:
+    case ActionTypes.MARK_TICKET_COMPLETE:
       return {
         ...state,
         sprint: {
           ...state.sprint,
-          tickets: [action.payload, ...state.sprint.tickets],
+          tickets: [
+            action.payload,
+            ...state.sprint.tickets.filter(
+              (t: any) => t._id !== action.payload._id
+            ),
+          ],
         },
       };
     default:

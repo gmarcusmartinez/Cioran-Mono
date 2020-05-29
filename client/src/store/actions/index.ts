@@ -16,3 +16,4 @@ export * from './tickets/getTicket';
 export * from './tickets/createTicket';
 export * from './tickets/assignTicket';
 export * from './tickets/submitTicket';
+export * from './tickets/completeTicket';
