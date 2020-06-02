@@ -12,3 +12,13 @@ export const firstNameOnly = (name: string | null): string => {
   if (!name) return '';
   return name.split(' ')[0];
 };
+
+export const setCurrentTickets = (
+  tickets: any[],
+  ticketPage: number,
+  itemsPerPage: number
+) => {
+  const lastIndex = ticketPage * itemsPerPage;
+  const firstIndex = lastIndex - itemsPerPage;
+  return tickets.slice(firstIndex, lastIndex);
+};

@@ -1,9 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import Queue from '../../common/Queue/Queue';
 import Ticket from '../../Ticket/TicketRow/Ticket';
+import { setCurrentTickets } from '../../../utils/index';
 import Pagination from '../../common/Pagination/Pagination';
-import { ITicket, ISprint, setCurrentPage } from '../../../store/actions';
+import { SprintState } from '../../../store/reducers/sprints';
+import { ITicket, setCurrentPage } from '../../../store/actions';
 
 const headers = [
   { text: 'Ticket', sort: 'title' },
@@ -15,53 +18,40 @@ const headers = [
 
 interface SprintQueProps {
   tickets: ITicket[];
-  sprint?: ISprint;
-  ticketPage: number;
+  sprints: SprintState;
   setCurrentPage: Function;
 }
+
 const SprintQue: React.FC<SprintQueProps> = ({
   tickets,
-  sprint,
-  ticketPage,
   setCurrentPage,
+  sprints: { sprint, ticketPage },
 }) => {
-  const ticketsPerPage = 12;
-
-  const lastIndex = ticketPage * ticketsPerPage;
-  const firstIndex = lastIndex - ticketsPerPage;
-  const currentTickets = tickets.slice(firstIndex, lastIndex);
-  let list = currentTickets.map((t) => <Ticket key={t._id} ticket={t} />);
-
+  const itemsPerPage = 12;
+  const currentTickets = setCurrentTickets(tickets, ticketPage, itemsPerPage);
+  let list = currentTickets.map((t: any) => <Ticket key={t._id} ticket={t} />);
   const paginate = (num: number) => {
     setCurrentPage(num);
   };
 
   const classNames = ['sprint-que', '', 'ticket-table'];
-  const queueProps = {
-    headers,
-    list,
-    classNames,
-  };
+  const queueProps = { headers, list, classNames };
+  const paginationProps = { count: tickets.length, itemsPerPage, paginate };
+
   return (
     <>
       {sprint?._id ? (
-        <>
-          <Queue {...queueProps} />
-          <Pagination
-            totalItems={tickets.length}
-            itemsPerPage={ticketsPerPage}
-            paginate={paginate}
-          />
-        </>
+        <Queue {...queueProps}>
+          <Pagination {...paginationProps} />
+        </Queue>
       ) : null}
     </>
   );
 };
 
 const mapStateToProps = (state: any) => ({
+  sprints: state.sprints,
   tickets: state.sprints.sprint?.tickets,
-  sprint: state.sprints.sprint,
-  ticketPage: state.sprints.ticketPage,
 });
 
 export default connect(mapStateToProps, { setCurrentPage })(SprintQue);

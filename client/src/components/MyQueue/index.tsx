@@ -7,7 +7,6 @@ import MyQueTicket from './MyQueueTicket/MyQueTicket';
 const headers = [
   { text: 'Project', sort: 'project' },
   { text: 'Ticket', sort: 'ticket' },
-  { text: 'Story Points', sort: 'storyPoints' },
   { text: 'Due By', sort: 'date' },
 ];
 

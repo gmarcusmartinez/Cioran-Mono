@@ -1,21 +1,21 @@
 import React from 'react';
 
 interface PaginationProps {
-  totalItems: number;
+  count: number;
   paginate: Function;
   itemsPerPage: number;
 }
 
 const Pagination: React.FC<PaginationProps> = ({
   paginate,
-  totalItems,
+  count,
   itemsPerPage,
 }) => {
   const blockSize = 5;
   const [block, setBlock] = React.useState(0);
 
   const pageNums = [];
-  const lastPageNumber = Math.ceil(totalItems / itemsPerPage);
+  const lastPageNumber = Math.ceil(count / itemsPerPage);
   for (let i = 1; i <= lastPageNumber; i++) pageNums.push(i);
 
   const blocks: any[] = [];

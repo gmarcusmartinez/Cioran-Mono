@@ -1,4 +1,12 @@
 import { Action, ActionTypes } from '../actions/types';
+import { ISprint } from '../actions';
+
+export interface SprintState {
+  loading: boolean;
+  ticketPage: number;
+  sprint: ISprint;
+}
+
 const initialState = {
   loading: true,
   ticketPage: 1,

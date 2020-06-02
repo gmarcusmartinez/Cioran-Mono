@@ -6,14 +6,14 @@ interface Props {
   classNames: any[];
 }
 
-const Queue: React.FC<Props> = ({ headers, list, classNames }) => {
+const Queue: React.FC<Props> = ({ headers, list, classNames, children }) => {
   const ths = headers.map((h) => (
     <th key={h.text} className={classNames[1]}>
       {h.text}
     </th>
   ));
 
-  const renderQueue = () => (
+  const renderTable = () => (
     <table>
       <thead>
         <tr className={classNames[2]}>{ths}</tr>
@@ -21,7 +21,12 @@ const Queue: React.FC<Props> = ({ headers, list, classNames }) => {
       <tbody>{list}</tbody>
     </table>
   );
-  return <div className={classNames[0]}>{renderQueue()}</div>;
+  return (
+    <div className={classNames[0]}>
+      {renderTable()}
+      {children}
+    </div>
+  );
 };
 
 export default Queue;

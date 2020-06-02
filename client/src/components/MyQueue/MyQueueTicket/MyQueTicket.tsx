@@ -23,10 +23,11 @@ const MyQueTicket: React.FC<MyQueTicketProps> = ({ ticket }) => {
   return (
     <>
       <tr className='my-que-ticket' onClick={handleClick}>
-        <td className={`t-col ${ticket.priority}`}></td>
+        <td className={`t-col ${ticket.priority}`}>
+          <div>{ticket.storyPoints}</div>
+        </td>
         <td className='t-col'>{ticket.project.slug}</td>
         <td className='t-col'>{ticket.title}</td>
-        <td className='t-col'>{ticket.storyPoints}</td>
         <td className='t-col'>{formatDate(ticket.sprint.endDate)}</td>
       </tr>
       {renderModal()}
