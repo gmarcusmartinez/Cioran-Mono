@@ -3,7 +3,6 @@ import { Action, ActionTypes } from '../actions/types';
 export const initialAuthState = {
   loading: true,
   currentUser: null,
-  isAuthenticated: false,
 };
 
 export const auth = (state = initialAuthState, action: Action) => {
@@ -20,7 +19,6 @@ export const auth = (state = initialAuthState, action: Action) => {
         ...state,
         loading: false,
         currentUser: payload,
-        isAuthenticated: false,
       };
     case ActionTypes.SIGNUP:
     case ActionTypes.SIGNIN:
@@ -28,7 +26,6 @@ export const auth = (state = initialAuthState, action: Action) => {
         ...state,
         loading: false,
         currentUser: payload,
-        isAuthenticated: true,
       };
     default:
       return state;

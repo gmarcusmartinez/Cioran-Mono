@@ -23,7 +23,8 @@ export const signin = (formData: ISigninForm) => async (dispatch: Dispatch) => {
     });
     history.push('/dashboard/projects');
   } catch (err) {
-    const { errors } = err.response.data;
-    console.log(errors);
+    // const { errors } = err.response.data;
+    // console.log(errors);
+    console.log(err);
   }
 };

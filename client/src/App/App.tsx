@@ -3,11 +3,12 @@ import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
 import '../styles/main.scss';
-import Alert from '../components/common/Alert/Alert';
 import Landing from '../pages/Landing/Landing';
 import Project from '../pages/Project/Project';
 import Dashboard from '../pages/Dashboard/Dashboard';
+import Alert from '../components/common/Alert/Alert';
 import { getCurrentUser, ICurrentUser } from '../store/actions';
+import ProtectedRoute from '../components/common/ProtectedRoute';
 
 interface AppProps {
   getCurrentUser: Function;
@@ -24,7 +25,7 @@ const App: React.FC<AppProps> = ({ getCurrentUser, currentUser }) => {
       <Alert />
       <Switch>
         <Route exact path='/' render={() => <Landing user={currentUser} />} />
-        <Route path='/dashboard' component={Dashboard} />
+        <ProtectedRoute currentUser={currentUser} component={Dashboard} />
         <Route path='/project/:id' component={Project} />
       </Switch>
     </>
