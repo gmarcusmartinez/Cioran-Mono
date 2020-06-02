@@ -16,6 +16,7 @@
     @include formEl;
     color: var(--color-grey-light);
     text-transform: capitalize;
+    -moz-appearance: inherit;
   }
 
   textarea {

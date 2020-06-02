@@ -2,6 +2,7 @@
   @include ticketEl;
   display: grid;
   grid-template-columns: 1% 9% 50% 25% 15%;
+  height: 4rem;
   .t-col {
     @include ticketCol;
     &:not(:nth-child(3)) {
@@ -10,5 +11,12 @@
     &:nth-child(3) {
       margin-left: 2rem;
     }
+    &:nth-child(5) {
+      margin-left: auto;
+      margin-right: 1rem;
+    }
+  }
+  @include respond(tablet) {
+    height: 5rem;
   }
 }

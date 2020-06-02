@@ -19,7 +19,7 @@ const Modal: React.FC<ModalProps> = ({ showModal, title, children }) => {
         <div className='modal__content'>{children}</div>
       </div>
     </div>,
-    document.querySelector('#portal')!
+    document.querySelector('#modal')!
   );
 };
 

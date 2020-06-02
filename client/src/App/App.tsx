@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
 import '../styles/main.scss';
+import Alert from '../components/common/Alert/Alert';
 import Landing from '../pages/Landing/Landing';
 import Project from '../pages/Project/Project';
 import Dashboard from '../pages/Dashboard/Dashboard';
@@ -19,11 +20,14 @@ const App: React.FC<AppProps> = ({ getCurrentUser, currentUser }) => {
   }, [getCurrentUser]);
 
   return (
-    <Switch>
-      <Route exact path='/' render={() => <Landing user={currentUser} />} />
-      <Route path='/dashboard' component={Dashboard} />
-      <Route path='/project/:id' component={Project} />
-    </Switch>
+    <>
+      <Alert />
+      <Switch>
+        <Route exact path='/' render={() => <Landing user={currentUser} />} />
+        <Route path='/dashboard' component={Dashboard} />
+        <Route path='/project/:id' component={Project} />
+      </Switch>
+    </>
   );
 };
 

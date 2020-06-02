@@ -4,11 +4,9 @@ export const formatDate = (d: Date | undefined): string => {
   let shortDate = trimDate(d);
   const year = shortDate[0];
   const month = formatMonth(+shortDate[1] - 1);
+  const date = +shortDate[2];
 
-  const date = +shortDate[2].split('')[1];
-  const day = +shortDate[2].split('')[0] + formatSuffix(date);
-
-  return `${month} ${day} ${year}`;
+  return `${month}/${prefixZero(date)}/${year}`;
 };
 
 const trimDate = (d: Date): string[] => {
@@ -20,11 +18,7 @@ const formatMonth = (idx: number): string => {
   return months[idx];
 };
 
-const formatSuffix = (date: number): string => {
-  let day;
-  if (date === 1) day = `${date}st`;
-  else if (date === 2) day = `${date}nd`;
-  else if (date === 3) day = `${date}rd`;
-  else day = `${date}th`;
-  return day;
+const prefixZero = (d: number) => {
+  if (d <= 9) return `0${d}`;
+  return d;
 };

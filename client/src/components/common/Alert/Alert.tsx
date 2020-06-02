@@ -1,24 +1,47 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { IAlert } from '../../../store/actions';
 
-interface AlertProps {
+interface AlertBoxProps {
   alerts?: IAlert[];
 }
+interface Props {
+  a: any;
+  setAnimate: Function;
+  animate: boolean;
+}
+const Alert: React.FC<Props> = ({ setAnimate, a, animate }) => {
+  React.useEffect(() => {
+    setAnimate(true);
+    setTimeout(() => {
+      setAnimate(false);
+    }, 2000);
+  });
+  return (
+    <div className={`alert ${a.type} ${animate ? 'animate' : ''}`}>
+      {a.message}
+    </div>
+  );
+};
 
-const Alert: React.FC<AlertProps> = ({ alerts }) => {
+const AlertBox: React.FC<AlertBoxProps> = ({ alerts }) => {
+  const [animate, setAnimate] = React.useState(false);
+
   const list = alerts
-    ? alerts.map((a) => (
-        <div key={a.id} className='alert'>
-          {a.message}
-        </div>
+    ? alerts.map((a: IAlert) => (
+        <Alert a={a} setAnimate={setAnimate} animate={animate} key={a.id} />
       ))
     : null;
-  return <div>{list}</div>;
+
+  return ReactDOM.createPortal(
+    <div className='alert-container'>{list}</div>,
+    document.querySelector('#alert')!
+  );
 };
 
 const mapStateToProps = (state: any) => ({
   alerts: state.alerts,
 });
 
-export default connect(mapStateToProps, {})(Alert);
+export default connect(mapStateToProps, {})(AlertBox);

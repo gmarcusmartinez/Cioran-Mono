@@ -7,9 +7,15 @@ import CreateSprintForm from '../../Forms/CreateSprintForm/CreateSprintForm';
 
 interface SprintSideBarProps {
   sprintArr: ISprint[];
+  collapseSideBar: boolean;
+  setCollapseSideBar: Function;
 }
 
-const SprintSideBar: React.FC<SprintSideBarProps> = ({ sprintArr }) => {
+const SprintSideBar: React.FC<SprintSideBarProps> = ({
+  sprintArr,
+  setCollapseSideBar,
+  collapseSideBar,
+}) => {
   const [displayModal, setDisplayModal] = React.useState(false);
 
   let list = sprintArr
@@ -24,22 +30,30 @@ const SprintSideBar: React.FC<SprintSideBarProps> = ({ sprintArr }) => {
     ) : null;
   };
 
-  const renderBtn = () => {
-    return (
-      <div onClick={() => setDisplayModal(true)} className='sprint-nav__btn'>
-        Create Sprint +
-      </div>
-    );
-  };
+  const renderBtn = (text: string) => (
+    <div onClick={() => setDisplayModal(true)} className='sprint-nav__btn'>
+      {text}
+    </div>
+  );
+
+  const renderCollapseBtn = () => (
+    <div
+      onClick={() => setCollapseSideBar(!collapseSideBar)}
+      className='collapse-btn'
+    >
+      {collapseSideBar ? <>&rarr;</> : <>&larr;</>}
+    </div>
+  );
 
   return (
-    <div className='sprint-sidebar'>
+    <div className={`sprint-sidebar ${collapseSideBar ? 'collapsed' : ''}`}>
+      {renderCollapseBtn()}
       <div className='sprint-nav'>
         <h2 className='sprint-nav__title'>Sprints</h2>
-        {renderBtn()}
+        {renderBtn('Create Sprint +')}
         {list}
-        {renderModal()}
       </div>
+      {renderModal()}
     </div>
   );
 };

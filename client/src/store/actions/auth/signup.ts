@@ -29,7 +29,7 @@ export const signup = (formData: ISignupForm) => async (dispatch: Dispatch) => {
     const { errors } = err.response.data;
     if (errors) {
       errors.forEach((e: { message: string }) => {
-        setAlert(e.message);
+        setAlert(e.message, 'fail');
       });
     }
   }

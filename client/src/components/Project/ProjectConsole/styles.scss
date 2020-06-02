@@ -8,20 +8,21 @@
     letter-spacing: 0.1rem;
     margin: 1rem 0 0 2rem;
   }
-  @media (max-width: 500px) {
+  @include respond(mobile) {
     height: 100%;
     width: 100%;
   }
 }
+
 .project-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  @media (max-width: 500px) {
+  @include respond(mobile) {
     height: 100%;
     width: 100%;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
   }
 }
 .polygon-border-bottom-primary-light {
@@ -29,6 +30,9 @@
   background-color: var(--color-primary-light);
   height: 1rem;
   clip-path: polygon(2% 0, 100% 0, 98% 100%, 0 100%);
+  @include respond(mobile) {
+    margin: 1rem 0 2rem 0;
+  }
 }
 
 .create-project-btn {
@@ -41,4 +45,8 @@
   font-size: 1.6rem;
   font-weight: 300;
   letter-spacing: 0.1rem;
+  @include respond(mobile) {
+    border: 0.1rem dashed var(--color-grey-light);
+    background-color: var(--color-dark-theme-tertiary);
+  }
 }

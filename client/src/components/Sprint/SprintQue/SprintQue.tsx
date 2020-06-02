@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Queue from '../../common/Queue/Queue';
 import Ticket from '../../Ticket/TicketRow/Ticket';
 import Pagination from '../../common/Pagination/Pagination';
 import { ITicket, ISprint, setCurrentPage } from '../../../store/actions';
@@ -11,7 +12,6 @@ const headers = [
   { text: 'Status', sort: 'status' },
   { text: 'Story Points', sort: 'storyPoints' },
 ];
-const ths = headers.map((h) => <th key={h.text}>{h.text}</th>);
 
 interface SprintQueProps {
   tickets: ITicket[];
@@ -36,26 +36,25 @@ const SprintQue: React.FC<SprintQueProps> = ({
     setCurrentPage(num);
   };
 
-  const renderTable = () => (
-    <table>
-      <thead>
-        <tr className='ticket-table'>{ths}</tr>
-      </thead>
-      <tbody>{list}</tbody>
-    </table>
-  );
-
+  const classNames = ['sprint-que', '', 'ticket-table'];
+  const queueProps = {
+    headers,
+    list,
+    classNames,
+  };
   return (
-    <div className='sprint-que'>
-      {sprint?._id ? renderTable() : null}
+    <>
       {sprint?._id ? (
-        <Pagination
-          totalItems={tickets.length}
-          itemsPerPage={ticketsPerPage}
-          paginate={paginate}
-        />
+        <>
+          <Queue {...queueProps} />
+          <Pagination
+            totalItems={tickets.length}
+            itemsPerPage={ticketsPerPage}
+            paginate={paginate}
+          />
+        </>
       ) : null}
-    </div>
+    </>
   );
 };
 

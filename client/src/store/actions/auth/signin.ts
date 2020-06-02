@@ -21,7 +21,7 @@ export const signin = (formData: ISigninForm) => async (dispatch: Dispatch) => {
       type: ActionTypes.SIGNIN,
       payload: res.data,
     });
-    history.push('/dashboard');
+    history.push('/dashboard/projects');
   } catch (err) {
     const { errors } = err.response.data;
     console.log(errors);

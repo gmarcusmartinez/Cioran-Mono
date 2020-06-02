@@ -2,9 +2,9 @@ import { Request, Response } from 'express';
 import { User } from '../models/User';
 import { Project } from '../models/Project';
 import { asyncHandler } from '../middlewares/async';
+import { find, buildTicket, validate } from '../utils';
 import { BadRequestError } from '../errors/bad-request-error';
 import { NotAuthorizedError } from '../errors/not-authorized-error';
-import { find, buildTicket, validate } from '../utils';
 
 export const createTicket = asyncHandler(
   async (req: Request, res: Response) => {

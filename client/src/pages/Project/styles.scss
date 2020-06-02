@@ -2,25 +2,50 @@
   height: 100%;
   width: 100%;
   background-color: var(--color-dark-theme-secondary);
-  display: grid;
-  grid-template-columns: 200px auto;
-
-  @media (max-width: 970px) {
-    height: 100%;
-    width: 100%;
-    margin: 0rem;
+  display: inline-grid;
+  grid-template-columns: 6rem 18rem auto;
+  @-moz-document url-prefix() {
+    transition: 0.4s ease-in-out;
   }
+  .app-nav {
+    background-color: var(--color-dark-theme-secondary);
+    box-shadow: 2px 0 8px -5px rgb(0, 0, 0);
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    &__link {
+      display: flex;
+      text-align: center;
+      text-decoration: none;
+      &:first-child {
+        margin-top: 10rem;
+      }
+      i {
+        color: var(--color-primary-light);
+        font-size: 2.5rem;
+        margin-bottom: 4rem;
+      }
+    }
+  }
   .sprint-wrapper {
+    width: auto;
     display: grid;
-    overflow-y: scroll;
     grid-template-rows: 15% 15% 70%;
   }
 
   .project-team-section {
-    margin: 2rem;
+    margin: 2rem 4rem;
     color: var(--color-grey-light);
     letter-spacing: 0.25rem;
     font-size: 1.6rem;
+
+    display: flex;
+  }
+}
+.pw-coll {
+  grid-template-columns: 6rem 0 auto;
+  @-moz-document url-prefix() {
+    transition: 0.4s ease-in-out;
   }
 }

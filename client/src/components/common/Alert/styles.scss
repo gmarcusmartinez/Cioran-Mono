@@ -1,9 +1,26 @@
+.alert-container {
+  position: fixed;
+  top: 5rem;
+  left: 50%;
+}
+
 .alert {
   width: 32rem;
-  background-color: red;
-  color: var(--color-grey-light);
+  background-color: var(--color-dark-theme-primary);
   padding: 0.25rem;
   margin-bottom: 0.25rem;
   text-align: center;
-  border-radius: 0.2rem;
+  // border-radius: 0.4rem;
+  transition: 0.25s;
+  transform: translateY(100px);
+}
+.fail {
+  color: var(--color-red);
+}
+.success {
+  color: var(--color-green);
+}
+
+.animate {
+  transform: translateY(0);
 }

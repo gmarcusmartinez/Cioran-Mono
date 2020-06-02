@@ -1,11 +1,11 @@
-@import 'base/base';
-@import 'base/typography';
-@import 'base/animations';
-
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
 @import 'components/btn';
 @import 'components/form';
+
+@import 'base/base';
+@import 'base/typography';
+@import 'base/animations';
 
 @import '../pages/Landing/styles';
 @import '../pages/Project/styles';
@@ -26,7 +26,8 @@
 @import '../components/Project/ProjectConsole/styles';
 @import '../components/Project/ProjectItem/styles';
 
-@import '../components/Dashboard/DashboardSideBar/styles';
+@import '../components/Dashboard/DashboardNav/styles';
+@import '../components/Dashboard/DashboardMobileNav/styles';
 
 @import '../components/AuthCard/styles.scss';
 @import '../components/AuthCard/Signup/styles.scss';
@@ -38,5 +39,5 @@
 @import '../components/common/Alert/styles';
 @import '../components/common/DatePicker/styles';
 
-@import '../components/MyQue/styles';
-@import '../components/MyQue/MyQueTicket/styles';
+@import '../components/MyQueue/styles';
+@import '../components/MyQueue/MyQueueTicket/styles';

@@ -12,7 +12,7 @@ const Landing: React.FC<LandingProps> = ({ user }) => {
   return (
     <>
       {user ? (
-        <Redirect to='/dashboard' />
+        <Redirect to='/dashboard/projects' />
       ) : (
         <div className='landing'>
           <div className='landing__hero'>

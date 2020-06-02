@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createTicket, FormState } from '../../../store/actions';
+import { createTicket, FormState, setAlert } from '../../../store/actions';
 import { FormInput, FormSelect, FormTextArea } from '../../common/Form';
 
 import {
@@ -15,12 +15,14 @@ interface CreateTicketFormProps {
   projectId: string;
   createTicket: Function;
   setDisplayModal: Function;
+  setAlert: Function;
 }
 
 const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
   sprint_id,
   createTicket,
   projectId,
+  setAlert,
   setDisplayModal,
 }) => {
   const [formData, setFormData] = React.useState<FormState>(formInitialState);
@@ -44,6 +46,7 @@ const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
       await createTicket(formData, sprint_id!);
       setFormData(formInitialState);
       setDisplayModal(false);
+      setAlert('Ticket Created', 'success');
     } catch (err) {
       console.log(err.message);
     }
@@ -100,4 +103,6 @@ const mapStateToProps = (state: any) => ({
   projectId: state.projects.project._id,
 });
 
-export default connect(mapStateToProps, { createTicket })(CreateTicketForm);
+export default connect(mapStateToProps, { createTicket, setAlert })(
+  CreateTicketForm
+);

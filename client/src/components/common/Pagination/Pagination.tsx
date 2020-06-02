@@ -7,9 +7,9 @@ interface PaginationProps {
 }
 
 const Pagination: React.FC<PaginationProps> = ({
+  paginate,
   totalItems,
   itemsPerPage,
-  paginate,
 }) => {
   const blockSize = 5;
   const [block, setBlock] = React.useState(0);
@@ -38,11 +38,13 @@ const Pagination: React.FC<PaginationProps> = ({
   );
 
   const renderBlock = (): any => {
-    return blocks[block].map((num: number) => (
-      <li key={num} onClick={() => paginate(num)}>
-        {num}
-      </li>
-    ));
+    return blocks.length
+      ? blocks[block].map((num: number) => (
+          <li key={num} onClick={() => paginate(num)}>
+            {num}
+          </li>
+        ))
+      : null;
   };
   return (
     <div className='pagination'>

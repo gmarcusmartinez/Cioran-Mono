@@ -32,7 +32,14 @@ body,
   box-sizing: inherit;
 }
 html {
-  font-size: 62.5%;
+  font-size: 62.5%; // 1rem = 10px
+
+  @include respond(tablet) {
+    font-size: 57.5%; // 1rem = 8px
+  }
+  @include respond(mobile) {
+    font-size: 50%; // 1rem = 8px
+  }
 }
 
 body {

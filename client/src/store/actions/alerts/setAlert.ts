@@ -6,6 +6,7 @@ export interface IAlert {
   id: string;
   message: string;
   field: string;
+  type: string;
 }
 
 export interface SetAlertAction {
@@ -18,11 +19,13 @@ export interface RemovetAlertAction {
   payload: string;
 }
 
-export const setAlert = (message: string) => (dispatch: Dispatch) => {
+export const setAlert = (message: string, type: string) => (
+  dispatch: Dispatch
+) => {
   const id = v4();
   dispatch({
     type: ActionTypes.SET_ALERT,
-    payload: { message, id },
+    payload: { message, id, type },
   });
   setTimeout(
     () =>
@@ -30,6 +33,6 @@ export const setAlert = (message: string) => (dispatch: Dispatch) => {
         type: ActionTypes.REMOVE_ALERT,
         payload: id,
       }),
-    3000
+    2000
   );
 };
