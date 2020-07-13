@@ -14,7 +14,7 @@ const SprintItem: React.FC<SprintItemProps> = ({
   project,
 }) => {
   const onClick = () => {
-    getSprint(project, item._id);
+    getSprint(project._id, item._id);
   };
 
   return (

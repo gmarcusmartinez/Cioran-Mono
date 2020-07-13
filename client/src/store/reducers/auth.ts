@@ -9,24 +9,15 @@ export const auth = (state = initialAuthState, action: Action) => {
   const { type, payload } = action;
   switch (type) {
     case ActionTypes.GET_CURRENT_USER:
-      return {
-        ...state,
-        loading: false,
-        currentUser: payload,
-      };
+    case ActionTypes.SIGNIN:
+    case ActionTypes.SIGNUP:
     case ActionTypes.SIGNOUT:
       return {
         ...state,
         loading: false,
         currentUser: payload,
       };
-    case ActionTypes.SIGNUP:
-    case ActionTypes.SIGNIN:
-      return {
-        ...state,
-        loading: false,
-        currentUser: payload,
-      };
+
     default:
       return state;
   }

@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
-import history from '../../../core/history';
 import auth from '../../../api/auth';
 import { ActionTypes } from '../types';
+import history from '../../../core/history';
 import { ICurrentUser } from './getCurrentUser';
 
 export interface SigninAction {
@@ -23,8 +23,7 @@ export const signin = (formData: ISigninForm) => async (dispatch: Dispatch) => {
     });
     history.push('/dashboard/projects');
   } catch (err) {
-    // const { errors } = err.response.data;
-    // console.log(errors);
-    console.log(err);
+    const { errors } = err.response.data;
+    console.log(errors);
   }
 };

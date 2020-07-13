@@ -1,21 +1,21 @@
 import React, { ChangeEvent } from 'react';
 
-interface FormSelectProps {
+interface IProps {
   name: string;
   label: string;
   value: string | number;
-  onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
-  renderOptions: Function;
   options: any[];
+  renderOptions: Function;
+  onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
 }
 
-export const FormSelect: React.FC<FormSelectProps> = ({
+export const FormSelect: React.FC<IProps> = ({
   name,
   label,
   value,
-  onChange,
-  renderOptions,
   options,
+  renderOptions,
+  onChange,
 }) => {
   return (
     <div className='form-field'>

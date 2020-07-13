@@ -1,4 +1,5 @@
 import { Action, ActionTypes } from '../actions/types';
+
 const initialState = {
   loading: false,
   project: null,
@@ -12,7 +13,7 @@ export const projects = (state = initialState, action: Action) => {
     case ActionTypes.CREATE_PROJECT:
       return {
         ...state,
-        project: payload,
+        projects: [...state.projects, payload],
       };
     case ActionTypes.GET_PROJECT:
       return {

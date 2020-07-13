@@ -1,23 +1,19 @@
 import React from 'react';
-import { Redirect, Route } from 'react-router';
+import { Redirect, Route, RouteProps } from 'react-router';
 import { ICurrentUser } from '../../../store/actions';
 
-export interface ProtectedRouteProps {
-  component: any;
+export interface ProtectedRouteProps extends RouteProps {
   currentUser: ICurrentUser;
 }
 
-const ProtectedRoute: React.FC<ProtectedRouteProps> = ({
-  component,
-  currentUser,
-}) => {
-  const routeComponent = () =>
-    currentUser ? (
-      React.createElement(component)
-    ) : (
-      <Redirect to={{ pathname: '/' }} />
-    );
-  return <Route render={routeComponent} />;
-};
+export const ProtectedRoute: React.FC<ProtectedRouteProps> = (props) => {
+  let redirectPath = '';
+  if (!props.currentUser) redirectPath = '/';
 
-export default ProtectedRoute;
+  if (redirectPath) {
+    const renderComponent = () => <Redirect to={{ pathname: redirectPath }} />;
+    return <Route {...props} component={renderComponent} render={undefined} />;
+  } else {
+    return <Route {...props} />;
+  }
+};

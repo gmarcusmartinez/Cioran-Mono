@@ -2,8 +2,8 @@ import React from 'react';
 import { NavLink } from 'react-router-dom';
 
 interface IDashNavLink {
-  text: string;
   to: string;
+  text: string;
 }
 
 export const links = [

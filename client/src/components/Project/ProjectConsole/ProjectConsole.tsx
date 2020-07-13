@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Modal from '../../common/Modal';
 import ProjectItem from '../ProjectItem/ProjectItem';
-import CreateProjectForm from '../../Forms/CreateProjectForm/CreateProjectForm';
+import CreateProjectForm from '../../Forms/CreateProjectForm';
 import { IProject, getCurrentUser, getProjects } from '../../../store/actions';
 
 interface ProjectsProps {

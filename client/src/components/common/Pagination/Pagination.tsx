@@ -31,7 +31,7 @@ const Pagination: React.FC<PaginationProps> = ({
     else setBlock(block - 1);
   };
 
-  const renderNavArrow = (arrow: any, click: any) => (
+  const renderNavArrow = (arrow: string, click: any) => (
     <div className='arrow' onClick={click}>
       {arrow === 'left' ? <>&larr;</> : <>&rarr;</>}
     </div>

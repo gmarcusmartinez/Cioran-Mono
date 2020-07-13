@@ -3,15 +3,12 @@ import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
 import { IAlert } from '../../../store/actions';
 
-interface AlertBoxProps {
-  alerts?: IAlert[];
-}
-interface Props {
+interface IProps {
   a: any;
   setAnimate: Function;
   animate: boolean;
 }
-const Alert: React.FC<Props> = ({ setAnimate, a, animate }) => {
+const Alert: React.FC<IProps> = ({ setAnimate, a, animate }) => {
   React.useEffect(() => {
     setAnimate(true);
     setTimeout(() => {
@@ -25,6 +22,9 @@ const Alert: React.FC<Props> = ({ setAnimate, a, animate }) => {
   );
 };
 
+interface AlertBoxProps {
+  alerts?: IAlert[];
+}
 const AlertBox: React.FC<AlertBoxProps> = ({ alerts }) => {
   const [animate, setAnimate] = React.useState(false);
 

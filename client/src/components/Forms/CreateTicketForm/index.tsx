@@ -2,15 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { createTicket, FormState, setAlert } from '../../../store/actions';
 import { FormInput, FormSelect, FormTextArea } from '../../common/Form';
+import * as options from './options';
 
-import {
-  formInitialState,
-  ticketTypeOptions,
-  storyPointOptions,
-  priorityOptions,
-} from './options';
-
-interface CreateTicketFormProps {
+interface IProps {
   sprint_id: string | null;
   projectId: string;
   createTicket: Function;
@@ -18,14 +12,16 @@ interface CreateTicketFormProps {
   setAlert: Function;
 }
 
-const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
+const CreateTicketForm: React.FC<IProps> = ({
   sprint_id,
   createTicket,
   projectId,
   setAlert,
   setDisplayModal,
 }) => {
-  const [formData, setFormData] = React.useState<FormState>(formInitialState);
+  const [formData, setFormData] = React.useState<FormState>(
+    options.formInitialState
+  );
 
   const handleChange = (
     e: React.ChangeEvent<
@@ -44,7 +40,7 @@ const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
     try {
       e.preventDefault();
       await createTicket(formData, sprint_id!);
-      setFormData(formInitialState);
+      setFormData(options.formInitialState);
       setDisplayModal(false);
       setAlert('Ticket Created', 'success');
     } catch (err) {
@@ -71,7 +67,7 @@ const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
         name='ticketType'
         onChange={handleChange}
         renderOptions={renderOptions}
-        options={ticketTypeOptions}
+        options={options.ticketTypeOptions}
       />
       <FormSelect
         label='Story Points'
@@ -79,7 +75,7 @@ const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
         name='storyPoints'
         onChange={handleChange}
         renderOptions={renderOptions}
-        options={storyPointOptions}
+        options={options.storyPointOptions}
       />
       <FormSelect
         label='Priority'
@@ -87,7 +83,7 @@ const CreateTicketForm: React.FC<CreateTicketFormProps> = ({
         name='priority'
         onChange={handleChange}
         renderOptions={renderOptions}
-        options={priorityOptions}
+        options={options.priorityOptions}
       />
       <FormTextArea
         label='description'

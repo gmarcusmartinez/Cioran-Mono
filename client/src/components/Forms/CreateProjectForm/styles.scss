@@ -1,5 +1,7 @@
+$create-project-form-width: 80%;
+
 .create-project-form {
   display: flex;
   flex-direction: column;
-  width: 80%;
+  width: $create-project-form-width;
 }

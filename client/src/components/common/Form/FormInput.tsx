@@ -1,14 +1,14 @@
 import React, { ChangeEvent } from 'react';
 
-interface FormInputProps {
+interface IProps {
   label: string;
   value: string;
   name: string;
-  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
   info?: string;
+  onChange: (event: ChangeEvent<HTMLInputElement>) => void;
 }
 
-export const FormInput: React.FC<FormInputProps> = ({
+export const FormInput: React.FC<IProps> = ({
   label,
   name,
   value,

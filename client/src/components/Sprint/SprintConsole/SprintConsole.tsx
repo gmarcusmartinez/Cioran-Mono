@@ -4,7 +4,7 @@ import Modal from '../../common/Modal';
 import { ISprint } from '../../../store/actions';
 import { calculateStoryPoints } from '../../../utils/';
 import { formatDate } from '../../../utils/formatDate';
-import CreateTicketForm from '../../Forms/CreateTicketForm/CreateTicketForm';
+import CreateTicketForm from '../../Forms/CreateTicketForm';
 
 interface SprintConsoleProps {
   sprint?: ISprint | null;

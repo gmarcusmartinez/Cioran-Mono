@@ -6,7 +6,7 @@
 */
 @mixin respond($breakpoint) {
   @if $breakpoint == mobile {
-    @media (max-width: 30em) {
+    @media (max-width: 32em) {
       @content;
     } // 480px
   }
@@ -15,6 +15,26 @@
       @content;
     } // 768px
   }
+}
+
+@mixin full_wh {
+  height: 100%;
+  width: 100%;
+}
+
+@mixin flex_center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+@mixin flex_direction_col {
+  display: flex;
+  flex-direction: column;
+}
+@mixin absolute_tl {
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 @mixin btn {

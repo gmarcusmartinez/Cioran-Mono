@@ -1,21 +1,29 @@
+$my-que-margin: 2rem 0;
+$my-que-table-width: 100%;
+
+$ticket-table-grid-cols: 10rem auto 15%;
+$ticket-table-header-height: 4rem;
+$ticket-table-header-padding: 0.5rem 0.5rem;
+$ticket-table-header-font-size: 1.4rem;
+$ticket-table-header-font-weight: 500;
+
 .my-que {
-  margin: 2rem 0;
-  display: flex;
-  flex-direction: column;
+  margin: $my-que-margin;
   table {
-    width: 100%;
+    width: $my-que-table-width;
   }
   &__ticket-table {
+    color: var(--color-white);
     display: grid;
-    grid-template-columns: min-content auto 15%;
-    color: #fff;
+    grid-template-columns: $ticket-table-grid-cols;
   }
   &__th {
-    padding: 0.4rem 0;
-    font-size: 1.4rem;
-    letter-spacing: 0.1rem;
-    font-weight: 500;
-    text-align: center;
+    background-color: var(--color-dark-theme-primary);
+    font-size: $ticket-table-header-font-size;
+    font-weight: $ticket-table-header-font-weight;
+    height: $ticket-table-header-height;
+    letter-spacing: var(--letter-spacing-sm);
+    padding: $ticket-table-header-padding;
   }
   @include respond(mobile) {
     &__th {

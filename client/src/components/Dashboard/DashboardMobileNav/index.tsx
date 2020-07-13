@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { links } from '../DashboardNav/NavLinks';
+import { links } from '../NavLinks';
 
 const DashboardMobileNav: React.FC = () => {
   const mobileNavLinks = links.map((l: any) => (

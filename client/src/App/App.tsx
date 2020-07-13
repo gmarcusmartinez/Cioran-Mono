@@ -8,7 +8,7 @@ import Project from '../pages/Project/Project';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import Alert from '../components/common/Alert/Alert';
 import { getCurrentUser, ICurrentUser } from '../store/actions';
-import ProtectedRoute from '../components/common/ProtectedRoute';
+import { ProtectedRoute } from '../components/common/ProtectedRoute';
 
 interface AppProps {
   getCurrentUser: Function;
@@ -25,7 +25,11 @@ const App: React.FC<AppProps> = ({ getCurrentUser, currentUser }) => {
       <Alert />
       <Switch>
         <Route exact path='/' render={() => <Landing user={currentUser} />} />
-        <ProtectedRoute currentUser={currentUser} component={Dashboard} />
+        <ProtectedRoute
+          path='/dashboard'
+          component={Dashboard}
+          currentUser={currentUser}
+        />
         <Route path='/project/:id' component={Project} />
       </Switch>
     </>

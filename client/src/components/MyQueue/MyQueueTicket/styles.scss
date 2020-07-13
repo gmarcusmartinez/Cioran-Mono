@@ -1,8 +1,14 @@
+$my-queue-ticket-grid-cols: 1.8rem 8% auto 15%;
+$my-queue-ticket-height: 4rem;
+
+$tablet-my-queue-ticket-grid-cols: 2rem 4rem auto;
+$tablet-my-queue-ticket-height: 5rem;
+
 .my-que-ticket {
   @include ticketEl;
   display: grid;
-  grid-template-columns: 1.8rem 8% auto 15%;
-  height: 4rem;
+  grid-template-columns: $my-queue-ticket-grid-cols;
+  height: $my-queue-ticket-height;
   .t-col {
     @include ticketCol;
     &:not(:nth-child(3)) {
@@ -12,22 +18,22 @@
       color: var(--color-dark-theme-primary);
     }
     &:nth-child(2) {
-      margin-left: 2rem;
+      margin-left: var(--margin-md);
     }
     &:nth-child(3) {
-      margin-left: 2rem;
+      margin-left: var(--margin-md);
     }
     &:nth-child(4) {
       margin-left: auto;
-      margin-right: 1rem;
+      margin-right: var(--margin-sm);
     }
   }
   @include respond(tablet) {
-    height: 5rem;
+    height: $tablet-my-queue-ticket-height;
   }
 
   @include respond(mobile) {
-    grid-template-columns: 2rem 4rem auto;
+    grid-template-columns: $tablet-my-queue-ticket-grid-cols;
     .t-col {
       &:nth-child(4) {
         display: none;

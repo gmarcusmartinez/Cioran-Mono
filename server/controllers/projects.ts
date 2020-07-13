@@ -1,9 +1,9 @@
-import { Request, Response } from 'express';
+import { Request, Response } from "express";
 
-import { Project } from '../models/Project';
-import { asyncHandler } from '../middlewares/async';
-import { BadRequestError } from '../errors/bad-request-error';
-import { NotAuthorizedError } from '../errors/not-authorized-error';
+import { Project } from "../models/Project";
+import { asyncHandler } from "../middlewares/async";
+import { BadRequestError } from "../errors/bad-request-error";
+import { NotAuthorizedError } from "../errors/not-authorized-error";
 
 export const getProjects = asyncHandler(async (req: Request, res: Response) => {
   const projects = await Project.find();
@@ -12,7 +12,7 @@ export const getProjects = asyncHandler(async (req: Request, res: Response) => {
 
 export const getProject = asyncHandler(async (req: Request, res: Response) => {
   const project = await Project.findById(req.params.id);
-  if (!project) throw new BadRequestError('Project Not Found.');
+  if (!project) throw new BadRequestError("Project Not Found.");
   if (!project.team.includes(req.currentUser._id.toString())) {
     throw new NotAuthorizedError();
   }
@@ -27,14 +27,14 @@ export const createProject = asyncHandler(
 
     await project.save();
     res.status(201).send(project);
-  }
+  },
 );
 
 export const updateProject = asyncHandler(
   async (req: Request, res: Response) => {
     let project = await Project.findById(req.params.id);
 
-    if (!project) throw new BadRequestError('Project Not Found.');
+    if (!project) throw new BadRequestError("Project Not Found.");
     if (project.projectOwner.toString() !== req.currentUser._id) {
       throw new NotAuthorizedError();
     }
@@ -44,19 +44,19 @@ export const updateProject = asyncHandler(
       runValidators: true,
     });
     res.status(200).send({ sucess: true, data: project });
-  }
+  },
 );
 
 export const deleteProject = asyncHandler(
   async (req: Request, res: Response) => {
     let project = await Project.findById(req.params.id);
 
-    if (!project) throw new BadRequestError('Project Not Found.');
+    if (!project) throw new BadRequestError("Project Not Found.");
     if (project.projectOwner.toString() !== req.currentUser._id) {
       throw new NotAuthorizedError();
     }
 
     project.remove();
     res.status(200).send({});
-  }
+  },
 );

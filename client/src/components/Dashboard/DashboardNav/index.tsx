@@ -1,18 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signout, ICurrentUser } from '../../../store/actions';
-import { navLinks } from './NavLinks';
-import DashboardMobileNav from '../DashboardMobileNav/DashboardMobileNav';
+import { navLinks } from '../NavLinks';
+import DashboardMobileNav from '../DashboardMobileNav';
 
-interface DashboardNavProps {
+interface IProps {
   signout: Function;
-  currentUser?: ICurrentUser;
+  currentUser: ICurrentUser;
 }
 
-const DashboardNav: React.FC<DashboardNavProps> = ({
-  signout,
-  currentUser,
-}) => {
+const DashboardNav: React.FC<IProps> = ({ signout, currentUser }) => {
   return (
     <>
       <div className='dashboard-nav'>

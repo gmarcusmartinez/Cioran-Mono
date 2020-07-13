@@ -1,15 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createProject, ICreateProjectFormState } from '../../../store/actions';
-import { FormInput } from '../../common/Form';
 
-interface ICreateProjectFormProps {
+import { FormInput } from '../../common/Form';
+import { createProject, ICreateProjectFormState } from 'store/actions';
+
+interface IProps {
   createProject: Function;
 }
 
-const CreateProjectForm: React.FC<ICreateProjectFormProps> = ({
-  createProject,
-}) => {
+const CreateProjectForm: React.FC<IProps> = ({ createProject }) => {
   const [formData, setFormData] = React.useState<ICreateProjectFormState>({
     title: '',
     slug: '',

@@ -2,7 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import ProjectAppNav from './ProjectAppNav';
+import DashboardNav from '../../components/Dashboard/DashboardNav';
 import SprintQue from '../../components/Sprint/SprintQue/SprintQue';
+import { FormSelect } from '../../components/common/Form/FormSelect';
 import SprintSideBar from '../../components/Sprint/SprintSideBar/SprintSideBar';
 import SprintConsole from '../../components/Sprint/SprintConsole/SprintConsole';
 
@@ -29,13 +31,24 @@ const Project: React.FC<ProjectProps> = ({ getProject, match, project }) => {
   return (
     <div className={`projects-wrapper ${collapseSideBar ? 'pw-coll' : ''}`}>
       <ProjectAppNav />
+      <DashboardNav />
       <SprintSideBar
         sprintArr={project?.sprints}
         collapseSideBar={collapseSideBar}
         setCollapseSideBar={setCollapseSideBar}
       />
       <div className='sprint-wrapper'>
-        <div className='project-team-section'>{project?.title}</div>
+        <div className='project-team-section'>
+          {project?.title}
+          {/* <FormSelect
+        label='Select Sprint'
+        value={ticketType}
+        name='ticketType'
+        onChange={handleChange}
+        renderOptions={renderOptions}
+        options={ticketTypeOptions}
+      /> */}
+        </div>
         <SprintConsole />
         <SprintQue />
       </div>

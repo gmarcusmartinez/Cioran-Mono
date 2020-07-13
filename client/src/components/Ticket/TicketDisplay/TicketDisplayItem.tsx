@@ -6,6 +6,7 @@ interface TItemProps {
 const capitalize = (str: string) => {
   return str.charAt(0).toUpperCase() + str.slice(1);
 };
+
 export const TItem: React.FC<TItemProps> = ({ text, value }) => {
   return (
     <div className='ticket-display__item'>

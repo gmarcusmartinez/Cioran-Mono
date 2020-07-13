@@ -1,13 +1,13 @@
 import React, { ChangeEvent } from 'react';
 
-interface FormTextAreaProps {
+interface IProps {
   label: string;
   value: string;
   name: string;
   onChange: (event: ChangeEvent<HTMLTextAreaElement>) => void;
 }
 
-export const FormTextArea: React.FC<FormTextAreaProps> = ({
+export const FormTextArea: React.FC<IProps> = ({
   label,
   value,
   name,

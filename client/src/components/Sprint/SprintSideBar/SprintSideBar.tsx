@@ -3,7 +3,7 @@ import React from 'react';
 import Modal from '../../common/Modal';
 import SprintItem from '../SprintItem/SprintItem';
 import { ISprint } from '../../../store/actions';
-import CreateSprintForm from '../../Forms/CreateSprintForm/CreateSprintForm';
+import CreateSprintForm from '../../Forms/CreateSprintForm';
 
 interface SprintSideBarProps {
   sprintArr: ISprint[];
