@@ -1,3 +1,57 @@
+$project-item-border-radius: 0.4rem;
+$project-item-box-shadow: 0 10px 20px rgb(0, 0, 0);
+$project-item-box-shadow-hover: 0 20px 40px rgb(0, 0, 0);
+$project-item-height: 15rem;
+$project-item-width: 15rem;
+$project-item-title-font-size: 1.6rem;
+$project-item-hover-transform: translateY(0.2rem);
+
+$small-screen-project-item-height: 12.5rem;
+$small-screen-project-item-width: 12.5rem;
+
+$mobile-project-item-height: 8rem;
+$mobile-project-item-width: 100%;
+$mobile-project-item-box-shadow: 0 1px 4px -1px rgb(0, 0, 0);
+$mobile-project-item-box-shadow-hover: 0 2px 5px rgb(0, 0, 0);
+
 .project-item {
-  @include projectItem;
+  background-color: var(--color-dark-theme-tertiary);
+  border-radius: $project-item-border-radius;
+  box-shadow: $project-item-box-shadow;
+  cursor: pointer;
+  display: flex;
+  height: $project-item-height;
+  justify-content: center;
+  margin: var(--margin-xs);
+  padding: var(--padding-sm);
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  width: $project-item-width;
+  &__title {
+    color: var(--color-grey-light);
+    font-size: $project-item-title-font-size;
+    letter-spacing: var(--letter-spacing-sm);
+    text-align: center;
+  }
+  &:hover {
+    box-shadow: $project-item-box-shadow-hover;
+    transform: $project-item-hover-transform;
+  }
+  @media (max-width: 970px) {
+    height: $small-screen-project-item-height;
+    width: $small-screen-project-item-width;
+  }
+  @include respond(mobile) {
+    align-items: center;
+    background-color: var(--color-dark-theme-primary);
+    box-shadow: $mobile-project-item-box-shadow;
+    height: $mobile-project-item-height;
+    letter-spacing: var(--letter-spacing-md);
+    margin-bottom: var(--margin-xs);
+    width: $mobile-project-item-width;
+    &:hover {
+      box-shadow: $mobile-project-item-box-shadow-hover;
+    }
+  }
 }

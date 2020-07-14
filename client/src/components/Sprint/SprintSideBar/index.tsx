@@ -1,17 +1,17 @@
 import React from 'react';
 
+import { ISprint } from 'store/actions';
 import Modal from '../../common/Modal';
 import SprintItem from '../SprintItem/SprintItem';
-import { ISprint } from '../../../store/actions';
 import CreateSprintForm from '../../Forms/CreateSprintForm';
 
-interface SprintSideBarProps {
+interface IProps {
   sprintArr: ISprint[];
   collapseSideBar: boolean;
   setCollapseSideBar: Function;
 }
 
-const SprintSideBar: React.FC<SprintSideBarProps> = ({
+const SprintSideBar: React.FC<IProps> = ({
   sprintArr,
   setCollapseSideBar,
   collapseSideBar,

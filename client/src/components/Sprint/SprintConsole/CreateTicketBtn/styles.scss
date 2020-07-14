@@ -1,0 +1,15 @@
+$create-ticket-btn-bg-color: transparent;
+$create-ticket-grid-area: createTicket;
+
+#create-ticket-btn {
+  @include border_outline_none;
+  background-color: $create-ticket-btn-bg-color;
+  color: var(--color-grey-light);
+  grid-area: $create-ticket-grid-area;
+  font-size: 1.4rem;
+  letter-spacing: var(--letter-spacing-sm);
+  transition: var(--transition-fast);
+  &:hover {
+    color: var(--color-primary);
+  }
+}

@@ -1,0 +1,24 @@
+$arrow-font-size: 1.4rem;
+$arrow-margin: 0.5rem 0.1rem;
+$arrow-padding: 0.5rem 1rem;
+
+.pagination {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: flex-end;
+  .arrow,
+  li {
+    background: var(--color-dark-theme-primary);
+    color: var(--color-primary);
+    display: inline-block;
+    font-size: $arrow-font-size;
+    list-style: none;
+    margin: $arrow-margin;
+    padding: $arrow-padding;
+    transition: var(--transition-fast);
+    &:hover {
+      background: var(--color-dark-theme-tertiary);
+    }
+  }
+}

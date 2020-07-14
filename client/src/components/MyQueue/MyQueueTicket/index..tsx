@@ -4,11 +4,11 @@ import { ITicket } from '../../../store/actions';
 import { formatDate } from '../../../utils/formatDate';
 import TicketDisplay from '../../Ticket/TicketDisplay/TicketDisplay';
 
-interface MyQueTicketProps {
+interface IProps {
   ticket: ITicket;
 }
 
-const MyQueTicket: React.FC<MyQueTicketProps> = ({ ticket }) => {
+const MyQueTicket: React.FC<IProps> = ({ ticket }) => {
   const [displayModal, setDisplayModal] = React.useState(false);
   const handleClick = () => {
     setDisplayModal(true);

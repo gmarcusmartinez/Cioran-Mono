@@ -1,0 +1,30 @@
+$story-points-border: 0.6rem solid var(--color-primary-light);
+$story-points-border-radius: 50%;
+$story-points-diameter: 8rem;
+$story-points-diameter: 8rem;
+$story-points-font-size: 1.4rem;
+$story-points-line-height: 1.4;
+$story-points-padding: 0.5rem;
+$story-points-title-font-size: 1.1rem;
+$story-points-title-font-weight: 300;
+
+.story-points {
+  @include flex_center;
+  @include flex_direction_col;
+  align-self: center;
+  border: $story-points-border;
+  border-radius: $story-points-border-radius;
+  color: var(--color-grey-light);
+  grid-area: body;
+  font-size: $story-points-font-size;
+  height: $story-points-diameter;
+  line-height: $story-points-line-height;
+  margin-left: auto;
+  padding: $story-points-padding;
+  text-align: center;
+  width: $story-points-diameter;
+  &__title {
+    font-size: $story-points-title-font-size;
+    font-weight: $story-points-title-font-weight;
+  }
+}

@@ -1,70 +1,24 @@
+@import './CreateTicketBtn/styles';
+@import './SprintDetails/styles';
+@import './StoryPoints/styles';
+
+$sprint-console-grid-cols: 25rem auto;
+$sprint-console-grid-rows: 40% 30% 30%;
+$sprint-console-height: 100%;
+$sprint-console-margin: 0 2rem;
+$sprint-console-z-index: 0;
+
 .sprint-console {
   color: var(--color-grey-light);
-
-  height: 100%;
-  margin: 0 2rem;
-
   display: grid;
-  grid-template-columns: 25rem auto;
-  grid-template-rows: 40% 30% 30%;
-
+  grid-template-columns: $sprint-console-grid-cols;
+  grid-template-rows: $sprint-console-grid-rows;
   grid-template-areas:
     'title  body'
     'date  body'
     'createTicket  body';
 
-  &__title {
-    font-weight: 300;
-    font-size: 2.4rem;
-  }
-  &__dates {
-    grid-area: date;
-    font-size: 1.35rem;
-    font-style: italic;
-    color: var(--color-primary-light);
-  }
-
-  .story-points {
-    grid-area: body;
-
-    color: var(--color-grey-light);
-    margin-left: auto;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    justify-content: center;
-    font-size: 1.4rem;
-    align-self: center;
-
-    padding: 0.5rem;
-    line-height: 1.4;
-    width: 8rem;
-    height: 8rem;
-    border: 0.6rem solid var(--color-primary-light);
-    border-radius: 50%;
-    &__title {
-      font-weight: 300;
-      font-size: 1.1rem;
-      text-align: center;
-    }
-  }
-
-  #create-ticket-btn {
-    grid-area: createTicket;
-    color: var(--color-grey-light);
-    background-color: transparent;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    font-size: 1.4rem;
-    letter-spacing: 0.2rem;
-
-    transition: 0.25s ease-in-out;
-    &:hover {
-      color: var(--color-primary);
-    }
-  }
-  z-index: 0;
+  height: $sprint-console-height;
+  margin: $sprint-console-margin;
+  z-index: $sprint-console-z-index;
 }

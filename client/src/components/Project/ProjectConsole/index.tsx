@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import Modal from '../../common/Modal';
-import ProjectItem from '../ProjectItem/ProjectItem';
+import ProjectItem from '../ProjectItem';
 import CreateProjectForm from '../../Forms/CreateProjectForm';
 import { IProject, getCurrentUser, getProjects } from '../../../store/actions';
 
-interface ProjectsProps {
+interface IProps {
   projects: IProject[] | null;
   getProjects: Function;
 }
 
-const ProjectConsole: React.FC<ProjectsProps> = ({ projects, getProjects }) => {
+const ProjectConsole: React.FC<IProps> = ({ projects, getProjects }) => {
   const [displayModal, setDisplayModal] = React.useState(false);
 
   React.useEffect(() => {
@@ -32,7 +32,10 @@ const ProjectConsole: React.FC<ProjectsProps> = ({ projects, getProjects }) => {
 
   const renderBtn = () => {
     return (
-      <div className='create-project-btn' onClick={() => setDisplayModal(true)}>
+      <div
+        className='create-project-btn project-item'
+        onClick={() => setDisplayModal(true)}
+      >
         Create Project
       </div>
     );
@@ -41,7 +44,7 @@ const ProjectConsole: React.FC<ProjectsProps> = ({ projects, getProjects }) => {
   return (
     <div className='project-console'>
       <div className='project-console__title'>My Projects</div>
-      <div className='polygon-border-bottom-primary-light'></div>
+      <div className='polygon-border'></div>
       <div className='project-list'>
         {renderBtn()}
         {list}
@@ -50,7 +53,11 @@ const ProjectConsole: React.FC<ProjectsProps> = ({ projects, getProjects }) => {
     </div>
   );
 };
-const mapStateToProps = (state: any) => ({
+
+interface IState {
+  projects: { projects: IProject[] };
+}
+const mapStateToProps = (state: IState) => ({
   projects: state.projects?.projects,
 });
 

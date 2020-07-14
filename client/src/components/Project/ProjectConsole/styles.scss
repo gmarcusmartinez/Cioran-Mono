@@ -1,52 +1,50 @@
+$project-console-max-width: 65rem;
+$project-console-title-font-size: 2.4rem;
+$project-console-title-margin: 1rem 0 0 2rem;
+
+$polygon-clip-path: polygon(2% 0, 100% 0, 98% 100%, 0 100%);
+$polygon-border-height: 1rem;
+$polygon-border-margin: 1rem 0 1.5rem 0;
+$mobile-polygon-border-margin: 1rem 0 1rem 0;
+
+$create-project-btn-border: 0.2rem dashed var(--color-grey-light);
+$create-project-btn-font-weight: 300;
+
 .project-console {
-  display: flex;
-  flex-direction: column;
-  max-width: 65rem;
+  @include flex-direction_col;
+  max-width: $project-console-max-width;
   &__title {
     color: var(--color-grey-light);
-    font-size: 2.4rem;
-    letter-spacing: 0.1rem;
-    margin: 1rem 0 0 2rem;
+    font-size: $project-console-title-font-size;
+    letter-spacing: var(--letter-spacing-sm);
+    margin: $project-console-title-margin;
   }
   @include respond(mobile) {
-    height: 100%;
-    width: 100%;
+    @include full_wh;
   }
 }
-
 .project-list {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   @include respond(mobile) {
-    height: 100%;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
+    @include full_wh;
+    @include flex-direction_col;
   }
 }
-.polygon-border-bottom-primary-light {
-  margin: 2rem 0;
+.polygon-border {
   background-color: var(--color-primary-light);
-  height: 1rem;
-  clip-path: polygon(2% 0, 100% 0, 98% 100%, 0 100%);
+  clip-path: $polygon-clip-path;
+  height: $polygon-border-height;
+  margin: $polygon-border-margin;
   @include respond(mobile) {
-    margin: 1rem 0 2rem 0;
+    margin: $mobile-polygon-border-margin;
   }
 }
 
 .create-project-btn {
-  border: 0.2rem dashed var(--color-grey-light);
-  @include projectItem;
-  display: flex;
-  text-align: center;
-
+  border: $create-project-btn-border;
   color: var(--color-grey-light);
-  font-size: 1.6rem;
-  font-weight: 300;
-  letter-spacing: 0.1rem;
-  @include respond(mobile) {
-    border: 0.1rem dashed var(--color-grey-light);
-    background-color: var(--color-dark-theme-tertiary);
-  }
+  font-weight: $create-project-btn-font-weight;
+  letter-spacing: var(--letter-spacing-sm);
 }

@@ -3,7 +3,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import MyQue from '../../components/MyQueue';
 import DashboardNav from '../../components/Dashboard/DashboardNav';
-import ProjectConsole from '../../components/Project/ProjectConsole/ProjectConsole';
+import ProjectConsole from '../../components/Project/ProjectConsole';
 
 const Dashboard = () => {
   return (

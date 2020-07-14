@@ -7,6 +7,8 @@ $ticket-table-header-padding: 0.5rem 0.5rem;
 $ticket-table-header-font-size: 1.4rem;
 $ticket-table-header-font-weight: 500;
 
+$tablet-ticket-table-header-height: 5rem;
+
 .my-que {
   margin: $my-que-margin;
   table {
@@ -24,6 +26,11 @@ $ticket-table-header-font-weight: 500;
     height: $ticket-table-header-height;
     letter-spacing: var(--letter-spacing-sm);
     padding: $ticket-table-header-padding;
+  }
+  @include respond(tablet) {
+    &__th {
+      height: $tablet-ticket-table-header-height;
+    }
   }
   @include respond(mobile) {
     &__th {

@@ -27,14 +27,22 @@
   align-items: center;
   justify-content: center;
 }
+
 @mixin flex_direction_col {
   display: flex;
   flex-direction: column;
 }
+
 @mixin absolute_tl {
   position: absolute;
   top: 0;
   left: 0;
+}
+
+@mixin border_outline_none {
+  border: none;
+  outline: none;
+  cursor: pointer;
 }
 
 @mixin btn {
@@ -46,51 +54,6 @@
   font-size: 1.4rem;
   font-weight: 500;
   outline: none;
-}
-
-@mixin projectItem {
-  border-radius: 0.4rem;
-  cursor: pointer;
-  background-color: var(--color-dark-theme-tertiary);
-  box-shadow: 0 10px 20px rgb(0, 0, 0);
-
-  height: 15rem;
-  width: 15rem;
-
-  display: flex;
-  justify-content: center;
-  position: relative;
-
-  margin: 0.5rem;
-  padding: 1rem;
-  text-decoration: none;
-  &__title {
-    font-size: 1.6rem;
-    text-align: center;
-    letter-spacing: 0.1rem;
-    color: var(--color-grey-light);
-  }
-  &:hover {
-    transform: translateY(2px);
-    box-shadow: 0 20px 40px rgb(0, 0, 0);
-  }
-  @media (max-width: 970px) {
-    height: 12.5rem;
-    width: 12.5rem;
-  }
-  @include respond(mobile) {
-    box-shadow: 0 1px 4px -1px rgb(0, 0, 0);
-    border-radius: 0;
-    justify-content: flex-start;
-    margin-bottom: 1rem;
-
-    height: 8rem;
-    width: 100%;
-    &:hover {
-      transform: translateY(2px);
-      box-shadow: 0 5px 10px rgb(0, 0, 0);
-    }
-  }
 }
 
 @mixin formEl {

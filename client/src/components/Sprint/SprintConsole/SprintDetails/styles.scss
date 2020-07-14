@@ -1,0 +1,18 @@
+$sprint-console-title-font-size: 2.4rem;
+$sprint-console-title-font-weight: 300;
+$sprint-console-date-font-size: 1.35rem;
+$sprint-console-title-font-style: italic;
+$sprint-console-title-grid-area: date;
+
+.sprint-console {
+  &__title {
+    font-size: $sprint-console-title-font-weight;
+    font-weight: $sprint-console-title-font-weight;
+  }
+  &__dates {
+    color: var(--color-primary-light);
+    grid-area: $sprint-console-title-grid-area;
+    font-size: $sprint-console-date-font-size;
+    font-style: $sprint-console-title-font-style;
+  }
+}

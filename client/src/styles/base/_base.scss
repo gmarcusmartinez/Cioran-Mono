@@ -30,8 +30,15 @@ body,
   --margin-sm: 1rem;
   --margin-md: 2rem;
 
+  --padding-xs: 0.5rem;
+  --padding-sm: 1rem;
+  --padding-md: 2rem;
+
   --letter-spacing-sm: 0.1rem;
   --letter-spacing-md: 0.2rem;
+
+  --transition-fast: 0.25s ease-in;
+  --transition-md: 0.4s ease-in;
 }
 
 *,

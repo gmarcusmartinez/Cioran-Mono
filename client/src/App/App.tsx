@@ -4,7 +4,7 @@ import { Route, Switch } from 'react-router-dom';
 
 import '../styles/main.scss';
 import Landing from '../pages/Landing/Landing';
-import Project from '../pages/Project/Project';
+import Project from '../pages/Project';
 import Dashboard from '../pages/Dashboard/Dashboard';
 import Alert from '../components/common/Alert/Alert';
 import { getCurrentUser, ICurrentUser } from '../store/actions';
