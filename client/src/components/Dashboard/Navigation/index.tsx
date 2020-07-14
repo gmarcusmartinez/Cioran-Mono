@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { signout, ICurrentUser } from '../../../store/actions';
-import { navLinks } from '../NavLinks';
-import DashboardMobileNav from '../DashboardMobileNav';
+import { navLinks } from '../Links';
+import MobileNavigation from '../MobileNavigation';
 
 interface IProps {
   signout: Function;
@@ -19,13 +19,16 @@ const DashboardNav: React.FC<IProps> = ({ signout, currentUser }) => {
         <button className='dashboard-nav-link' onClick={() => signout()}>
           <div className='dashboard-nav-link__text'>Signout</div>
         </button>
-        <DashboardMobileNav />
+        <MobileNavigation />
       </div>
     </>
   );
 };
 
-const mapStateToProps = (state: any) => ({
+interface IState {
+  auth: { currentUser: ICurrentUser };
+}
+const mapStateToProps = (state: IState) => ({
   currentUser: state.auth.currentUser,
 });
 

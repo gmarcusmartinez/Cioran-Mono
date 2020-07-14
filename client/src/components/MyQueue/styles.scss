@@ -2,7 +2,10 @@ $my-que-margin: 2rem 0;
 $my-que-table-width: 100%;
 
 $ticket-table-grid-cols: 10rem auto 15%;
+$mobile-ticket-table-grid-cols: 10rem auto;
+
 $ticket-table-header-height: 4rem;
+$ticket-table-header-width: 100%;
 $ticket-table-header-padding: 0.5rem 0.5rem;
 $ticket-table-header-font-size: 1.4rem;
 $ticket-table-header-font-weight: 500;
@@ -33,6 +36,10 @@ $tablet-ticket-table-header-height: 5rem;
     }
   }
   @include respond(mobile) {
+    &__ticket-table {
+      grid-template-columns: $mobile-ticket-table-grid-cols;
+    }
+
     &__th {
       &:nth-child(3) {
         display: none;

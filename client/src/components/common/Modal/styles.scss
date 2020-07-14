@@ -33,7 +33,7 @@
     position: relative;
   }
   &__title {
-    letter-spacing: 0.1rem;
+    letter-spacing: var(--letter-spacing-md);
     font-weight: 400;
     font-size: 2.1rem;
   }

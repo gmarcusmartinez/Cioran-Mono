@@ -25,7 +25,7 @@ const ProjectConsole: React.FC<IProps> = ({ projects, getProjects }) => {
   const renderModal = () => {
     return displayModal ? (
       <Modal showModal={setDisplayModal} title='Create Project'>
-        <CreateProjectForm />
+        <CreateProjectForm setDisplayModal={setDisplayModal} />
       </Modal>
     ) : null;
   };

@@ -1,19 +1,27 @@
+$alert-contianer-position: fixed;
+$alert-contianer-top: 5rem;
+$alert-contianer-left: 50%;
+$alert-margin-bottom: 0.25rem;
+$alert-padding: 0.25rem;
 $alert-width: 32rem;
+$alert-transform: translateY(100px);
+
+$animate-transform: translateY(0);
 
 .alert-container {
-  position: fixed;
-  top: 5rem;
-  left: 50%;
+  left: $alert-contianer-left;
+  position: $alert-contianer-position;
+  top: $alert-contianer-top;
 }
 
 .alert {
-  width: $alert-width;
   background-color: var(--color-dark-theme-primary);
-  padding: 0.25rem;
-  margin-bottom: 0.25rem;
+  margin-bottom: $alert-margin-bottom;
+  padding: $alert-padding;
   text-align: center;
-  transition: 0.25s;
   transform: translateY(100px);
+  transition: var(--transition-fast);
+  width: $alert-width;
 }
 .fail {
   color: var(--color-red);

@@ -1,7 +1,6 @@
 @import 'abstracts/variables';
 @import 'abstracts/mixins';
 @import 'components/btn';
-@import 'components/form';
 
 @import 'base/base';
 @import 'base/typography';
@@ -26,18 +25,19 @@
 @import '../components/Project/ProjectConsole/styles';
 @import '../components/Project/ProjectItem/styles';
 
-@import '../components/Dashboard/NavLinks/styles';
-@import '../components/Dashboard/DashboardNav/styles';
-@import '../components/Dashboard/DashboardMobileNav/styles';
+@import '../components/Dashboard/Links/styles';
+@import '../components/Dashboard/Navigation/styles';
+@import '../components/Dashboard/MobileNavigation/styles';
 
 @import '../components/AuthCard/styles.scss';
 @import '../components/AuthCard/Signup/styles.scss';
 @import '../components/AuthCard/Signin/styles.scss';
 @import '../components/AuthCard/Default/styles.scss';
 
-@import '../components/common/GoogleBtn/styles';
+@import '../components/common/Form/styles';
 @import '../components/common/Modal/styles';
 @import '../components/common/Alert/styles';
+@import '../components/common/GoogleBtn/styles';
 @import '../components/common/DatePicker/styles';
 @import '../components/common/Pagination/styles';
 

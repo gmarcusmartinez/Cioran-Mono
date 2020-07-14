@@ -1,5 +1,5 @@
-// Media Query Manager
 /*
+ Media Query Manager
 320 - 480px     Mobile 
 481 - 768px     Tablet 
 769 - 1024px    Laptop - Normal Styles
@@ -58,22 +58,18 @@
 
 @mixin formEl {
   background-color: var(--color-dark-theme-primary);
-
   border: none;
-  border: 0.1rem solid var(--color-dark-theme-secondary);
-  border-radius: 0.2rem;
-
-  height: 4rem;
-  width: 100%;
-
-  line-height: 1.6rem;
-  font-size: 1.4rem;
+  border-bottom: 0.1rem solid var(--color-dark-theme-tertiary);
   color: var(--color-grey-light);
+  font-size: 1.4rem;
+  height: 4rem;
+  line-height: 1.6rem;
+  width: 100%;
 
   &:focus {
     outline: none;
-    border: 0.2rem solid var(--color-primary-light);
-    transition: 0.25s ease-out;
+    border-bottom: 0.2rem solid var(--color-primary-light);
+    transition: var(--transition-fast);
   }
 }
 

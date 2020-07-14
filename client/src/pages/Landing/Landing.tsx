@@ -9,31 +9,27 @@ interface LandingProps {
 }
 
 const Landing: React.FC<LandingProps> = ({ user }) => {
+  if (user) return <Redirect to='/dashboard/projects' />;
+
   return (
-    <>
-      {user ? (
-        <Redirect to='/dashboard/projects' />
-      ) : (
-        <div className='landing'>
-          <div className='landing__hero'>
-            <div className='hero__header'></div>
-            <div className='hero__display'>
-              <h1 className='app-logo'>Cioran</h1>
-              <p className='hero__slogan'>
-                Plan, track, and manage your agile and software development
-                projects in Cioran. Customize your workflow, collaborate, and
-                release great software.
-              </p>
-            </div>
-            <div className='hero__auth'>
-              <Alert />
-              <AuthCard />
-            </div>
-          </div>
-          <section className='landing__about'></section>
+    <div className='landing'>
+      <div className='landing__hero'>
+        <div className='hero__header'></div>
+        <div className='hero__display'>
+          <h1 className='app-logo'>Cioran</h1>
+          <p className='hero__slogan'>
+            Plan, track, and manage your agile and software development projects
+            in Cioran. Customize your workflow, collaborate, and release great
+            software.
+          </p>
         </div>
-      )}
-    </>
+        <div className='hero__auth'>
+          <Alert />
+          <AuthCard />
+        </div>
+      </div>
+      <section className='landing__about'></section>
+    </div>
   );
 };
 

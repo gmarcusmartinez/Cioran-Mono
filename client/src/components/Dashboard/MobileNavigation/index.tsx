@@ -1,8 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import { links } from '../NavLinks';
+import { links } from '../Links';
 
-const DashboardMobileNav: React.FC = () => {
+const MobileNavigation: React.FC = () => {
   const mobileNavLinks = links.map((l: any) => (
     <NavLink
       key={l.to}
@@ -17,4 +17,4 @@ const DashboardMobileNav: React.FC = () => {
   return <div className='dashboard-mobile-nav'>{mobileNavLinks}</div>;
 };
 
-export default DashboardMobileNav;
+export default MobileNavigation;

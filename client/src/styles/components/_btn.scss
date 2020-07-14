@@ -1,21 +1,21 @@
 .btn-primary {
-  background-color: var(--color-primary);
   @include btn;
+  background-color: var(--color-primary);
   &:hover {
     background-color: var(--color-primary-light);
   }
 }
 .btn-primary-light {
-  background-color: var(--color-primary);
   @include btn;
+  background-color: var(--color-primary);
   &:hover {
     background-color: var(--color-primary-dark);
   }
 }
 
 .btn-dark {
+  @include border_outline_none;
   background-color: transparent;
-  border: none;
   color: var(--color-grey-light);
   font-size: 1.4rem;
   height: 4rem;

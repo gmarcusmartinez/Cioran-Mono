@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createTicket, FormState, setAlert } from '../../../store/actions';
+import { createTicket, FormState, setAlert } from 'store/actions';
 import { FormInput, FormSelect, FormTextArea } from '../../common/Form';
 import * as options from './options';
 
@@ -10,6 +10,9 @@ interface IProps {
   createTicket: Function;
   setDisplayModal: Function;
   setAlert: Function;
+}
+interface Option {
+  text: string;
 }
 
 const CreateTicketForm: React.FC<IProps> = ({
@@ -48,7 +51,7 @@ const CreateTicketForm: React.FC<IProps> = ({
     }
   };
 
-  const renderOptions = (arr: any[]) => {
+  const renderOptions = (arr: Option[]) => {
     return arr.map((el) => <option key={el.text}>{el.text}</option>);
   };
   const { title, ticketType, priority, storyPoints, description } = formData;

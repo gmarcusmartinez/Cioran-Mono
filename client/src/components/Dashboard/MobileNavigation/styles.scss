@@ -1,20 +1,20 @@
-$mobile_nav_icon_size: 2.4rem;
+$flex-grow: 1;
+$mobile-nav-icon-size: 2.4rem;
+$mobile-nav-link-height: 100%;
 
 .dashboard-mobile-nav {
   @include full_wh;
   display: none;
-
   &__link {
     @include flex_center;
     color: var(--color-primary-light);
-    flex-grow: 1;
-    height: 100%;
+    flex-grow: $flex-grow;
+    height: $mobile-nav-link-height;
     text-decoration: none;
     i {
       font-size: $mobile_nav_icon_size;
     }
   }
-
   @include respond(mobile) {
     @include flex_center;
     text-align: center;
