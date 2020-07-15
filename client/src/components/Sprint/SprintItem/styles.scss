@@ -1,7 +1,7 @@
 $sprint-item-background-color: transparent;
-$sprint-item-height: 4rem;
+$sprint-item-height: 5rem;
 $sprint-item-z-index: 0;
-$sprint-item-title-margin: 0 2rem;
+$sprint-item-title-margin: 0 0 0 3rem;
 
 .sprint-item {
   @include btn_hover_animation;
@@ -16,5 +16,6 @@ $sprint-item-title-margin: 0 2rem;
   z-index: $sprint-item-z-index;
   &__title {
     margin: $sprint-item-title-margin;
+    letter-spacing: var(--letter-spacing-md);
   }
 }

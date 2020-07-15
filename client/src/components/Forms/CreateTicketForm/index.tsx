@@ -47,7 +47,8 @@ const CreateTicketForm: React.FC<IProps> = ({
       setDisplayModal(false);
       setAlert('Ticket Created', 'success');
     } catch (err) {
-      console.log(err.message);
+      setDisplayModal(false);
+      setAlert(err.message, 'fail');
     }
   };
 

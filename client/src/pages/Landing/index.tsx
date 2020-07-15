@@ -2,7 +2,7 @@ import React from 'react';
 import { Redirect } from 'react-router-dom';
 import AuthCard from '../../components/AuthCard';
 import { ICurrentUser } from '../../store/actions';
-import Alert from '../../components/common/Alert/Alert';
+import AlertContainer from '../../components/common/Alert/AlertContainer';
 
 interface LandingProps {
   user: ICurrentUser;
@@ -24,7 +24,7 @@ const Landing: React.FC<LandingProps> = ({ user }) => {
           </p>
         </div>
         <div className='hero__auth'>
-          <Alert />
+          <AlertContainer />
           <AuthCard />
         </div>
       </div>

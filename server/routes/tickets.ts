@@ -6,12 +6,18 @@ import {
   submitTicketForReview,
   markTicketAsComplete,
 } from '../controllers/tickets';
+import { createTicketValidation } from '../validation/ticket-validation';
+import { validateRequest } from '../middlewares/validate-request';
+
 import { currentUser } from '../middlewares/current-user';
 import { requireAuth } from '../middlewares/require-auth';
 
 const router = Router({ mergeParams: true });
 
-router.route('/').post(currentUser, createTicket);
+router
+  .route('/')
+  .post(currentUser, createTicketValidation, validateRequest, createTicket);
+
 router.route('/:id/assign').put(currentUser, requireAuth, assignTicket);
 router.route('/:id/unassign').put(currentUser, requireAuth, unassignTicket);
 router

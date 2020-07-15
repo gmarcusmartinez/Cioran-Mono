@@ -59,15 +59,13 @@ export const unassignTicket = asyncHandler(
     const userId = req.currentUser._id;
 
     const user = await User.findById(userId);
-    if (!user) throw new NotAuthorizedError();
-
     const project = await Project.findById(projectId);
     if (!project) throw new BadRequestError('Project Not Found.');
 
     const ticket = find.ticket(project, sprintId, ticketId, userId);
 
     ticket.unassign();
-    user.removeFromQ(ticket);
+    user!.removeFromQ(ticket);
 
     await project.save();
     await user!.save();

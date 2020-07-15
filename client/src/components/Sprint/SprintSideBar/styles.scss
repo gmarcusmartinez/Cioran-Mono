@@ -1,21 +1,16 @@
 $sprint-sidebar-height: 100%;
-$sprint-sidebar-width: 20rem;
 $sprint-sidebar-box-shadow: 2px 0 8px -6px rgb(0, 0, 0);
 
 $sprint-title-font-size: 2.4rem;
 $sprint-title-font-weight: 300;
 $create-sprint-btn-font-size: 1.4rem;
 
-$collapse-sidebar-btn-border: 0.2rem solid var(--color-primary-light);
-$collapse-sidebar-btn-border-radius: 50%;
-$collapse-sidebar-btn-diameter: 3.8rem;
-$collapse-sidebar-btn-position-top: 2.2rem;
-$collapse-sidebar-btn-position-right: -2rem;
+$collapse-sidebar-btn-diameter: 4rem;
+$collapse-sidebar-btn-font-size: 2.4rem;
 
 .sprint-sidebar {
   background-color: var(--color-dark-theme-secondary);
   box-shadow: $sprint-sidebar-box-shadow;
-  width: $sprint-sidebar-width;
 
   height: $sprint-sidebar-height;
   color: var(--color-grey-light);
@@ -48,14 +43,13 @@ $collapse-sidebar-btn-position-right: -2rem;
 .collapse-btn {
   @include flex_center;
   background-color: var(--color-dark-theme-secondary);
-  border: $collapse-sidebar-btn-border;
-  border-radius: $collapse-sidebar-btn-border-radius;
   color: var(--color-primary-light);
   cursor: pointer;
+  font-size: $collapse-sidebar-btn-font-size;
   height: $collapse-sidebar-btn-diameter;
-  position: absolute;
-  right: $collapse-sidebar-btn-position-right;
-  top: $collapse-sidebar-btn-position-top;
+  margin-left: auto;
+  margin-top: 0.5rem;
+  margin-bottom: 0.5rem;
   width: $collapse-sidebar-btn-diameter;
 }
 

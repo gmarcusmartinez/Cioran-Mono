@@ -2,16 +2,16 @@ import React from 'react';
 import { connect } from 'react-redux';
 import Modal from '../../common/Modal';
 import { firstNameOnly } from '../../../utils';
-import TicketDisplay from '../TicketDisplay/TicketDisplay';
+import TicketDisplay from '../';
 import { ITicket, getTicket, ISprint } from '../../../store/actions';
 
-interface TicketProps {
+interface IProps {
   ticket: ITicket;
   sprint: ISprint;
   getTicket: Function;
 }
 
-const Ticket: React.FC<TicketProps> = ({ ticket, sprint, getTicket }) => {
+const Ticket: React.FC<IProps> = ({ ticket, sprint, getTicket }) => {
   const [displayModal, setDisplayModal] = React.useState(false);
   const handleClick = () => {
     getTicket(sprint, ticket._id);

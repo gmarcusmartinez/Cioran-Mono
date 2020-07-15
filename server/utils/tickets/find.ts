@@ -10,9 +10,9 @@ const findSprint = (arr: SprintDoc[], id: string): SprintDoc => {
   return sprint;
 };
 
-const findTicket = (arr: TicketDoc[], id: string): TicketDoc => {
-  const ticket = arr.find((el: any) => el._id.toString() === id);
-  if (!ticket) throw new BadRequestError('Ticket Not Found in Sprint.');
+const findTicket = (ticketArray: TicketDoc[], id: string): TicketDoc => {
+  const ticket = ticketArray.find((t: any) => t._id.toString() === id);
+  if (!ticket) throw new BadRequestError('Ticket Not Found.');
   return ticket;
 };
 

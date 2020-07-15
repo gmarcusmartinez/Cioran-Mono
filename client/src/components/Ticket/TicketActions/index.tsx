@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+
 import {
   assignTicket,
   submitTicket,
@@ -35,7 +36,7 @@ const TicketActions: React.FC<TicketActionsProps> = ({
     return !assignedTo ? (
       <button
         className='btn-dark'
-        onClick={() => handleSubmit(assignTicket, 'Ticket assigned to queue')}
+        onClick={() => handleSubmit(assignTicket, 'Ticket Assigned To Queue')}
       >
         {text}
       </button>
@@ -66,11 +67,12 @@ const TicketActions: React.FC<TicketActionsProps> = ({
 
   const handleSubmit = async (cb: Function, msg: string) => {
     try {
-      await cb({ sprintId, projectId }, _id);
+      // await cb({ sprintId, projectId }, _id);
       setDisplayModal(false);
       setAlert(msg, 'success');
     } catch (err) {
-      console.log(err.message);
+      setDisplayModal(false);
+      setAlert(err.message, 'fail');
     }
   };
 

@@ -41,7 +41,7 @@ const SprintSideBar: React.FC<IProps> = ({
       onClick={() => setCollapseSideBar(!collapseSideBar)}
       className='collapse-btn'
     >
-      {collapseSideBar ? <>&rarr;</> : <>&larr;</>}
+      {collapseSideBar ? <>&#9664;</> : <>&#9664;</>}
     </div>
   );
 
@@ -49,8 +49,7 @@ const SprintSideBar: React.FC<IProps> = ({
     <div className={`sprint-sidebar ${collapseSideBar ? 'collapsed' : ''}`}>
       {renderCollapseBtn()}
       <div className='sprint-nav'>
-        <h2 className='sprint-nav__title'>Sprints</h2>
-        {renderBtn('Create Sprint +')}
+        {/* {renderBtn('Create Sprint +')} */}
         {list}
       </div>
       {renderModal()}

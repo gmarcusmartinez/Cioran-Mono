@@ -2,11 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 
 import { FormInput } from '../../common/Form';
-import {
-  createProject,
-  ICreateProjectFormState,
-  setAlert,
-} from 'store/actions';
+import { createProject, ICreateProjectFormState } from 'store/actions';
 
 interface IProps {
   createProject: Function;
@@ -31,8 +27,6 @@ const CreateProjectForm: React.FC<IProps> = ({
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setDisplayModal(false);
-    // if (formData.slug.length > 6)
-    setAlert('Slug must not exceed 6 characters.', 'fail');
     createProject(formData);
     setFormData({ title: '', slug: '' });
   };

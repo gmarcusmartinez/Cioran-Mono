@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 
 import '../styles/main.scss';
-import Landing from '../pages/Landing/Landing';
+import Landing from '../pages/Landing';
 import Project from '../pages/Project';
-import Dashboard from '../pages/Dashboard/Dashboard';
-import Alert from '../components/common/Alert/Alert';
+import Dashboard from '../pages/Dashboard';
+import Alert from '../components/common/Alert/AlertContainer';
 import { getCurrentUser, ICurrentUser } from '../store/actions';
 import { ProtectedRoute } from '../components/common/ProtectedRoute';
 

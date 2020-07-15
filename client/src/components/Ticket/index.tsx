@@ -1,8 +1,8 @@
 import React from 'react';
-import { TItem } from './TicketDisplayItem';
+import TicketCol from './TicketCol';
 import TicketActions from './TicketActions';
-import { firstNameOnly } from '../../../utils';
-import { formatDate } from '../../../utils/formatDate';
+import { firstNameOnly } from '../../utils';
+import { formatDate } from '../../utils/formatDate';
 
 interface TicketDisplayProps {
   ticket: any;
@@ -15,23 +15,23 @@ const TicketDisplay: React.FC<TicketDisplayProps> = ({
 }) => {
   return (
     <div className='ticket-display'>
-      <TItem text={ticket.title} value='' />
-      <TItem text='Priority' value={ticket.priority} />
-      <TItem text='Type' value={ticket.ticketType} />
-      <TItem text='Status' value={ticket.status} />
-      <TItem
+      <TicketCol text={ticket.title} value='' />
+      <TicketCol text='Priority' value={ticket.priority} />
+      <TicketCol text='Type' value={ticket.ticketType} />
+      <TicketCol text='Status' value={ticket.status} />
+      <TicketCol
         text='Assigned To'
         value={firstNameOnly(ticket.assignedTo?.name)}
       />
-      <TItem
+      <TicketCol
         text='Date Assigned'
         value={ticket.dateAssigned ? formatDate(ticket.dateAssigned) : null}
       />
-      <TItem
+      <TicketCol
         text='Date Completed'
         value={ticket.dateCompleted ? formatDate(ticket.dateCompleted) : null}
       />
-      <TItem text='Description' value={ticket.description} />
+      <TicketCol text='Description' value={ticket.description} />
       <TicketActions ticket={ticket} setDisplayModal={setDisplayModal} />
     </div>
   );

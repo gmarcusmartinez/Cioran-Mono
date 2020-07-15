@@ -2,7 +2,7 @@ import React from 'react';
 import Modal from '../../common/Modal';
 import { ITicket } from '../../../store/actions';
 import { formatDate } from '../../../utils/formatDate';
-import TicketDisplay from '../../Ticket/TicketDisplay/TicketDisplay';
+import TicketDisplay from '../../Ticket';
 
 interface IProps {
   ticket: ITicket;

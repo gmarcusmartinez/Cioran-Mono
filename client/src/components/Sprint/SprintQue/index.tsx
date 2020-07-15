@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import Queue from '../../common/Queue/Queue';
 import { setCurrentTickets } from 'utils/index';
-import Ticket from '../../Ticket/TicketRow/Ticket';
+import Ticket from '../../Ticket/TicketRow';
 import { SprintState } from 'store/reducers/sprints';
 import { ITicket, setCurrentPage } from 'store/actions';
 import Pagination from '../../common/Pagination/Pagination';
