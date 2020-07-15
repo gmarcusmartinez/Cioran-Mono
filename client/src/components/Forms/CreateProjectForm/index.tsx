@@ -1,39 +1,37 @@
-import React from 'react';
+import React, { FC } from 'react';
 import { connect } from 'react-redux';
-
-import { FormInput } from '../../common/Form';
-import { createProject, ICreateProjectFormState } from 'store/actions';
+import { FormInput } from 'components/common/Form';
+import { createProject, setDisplayModal } from 'store/actions';
 
 interface IProps {
   createProject: Function;
   setDisplayModal: Function;
 }
 
-const CreateProjectForm: React.FC<IProps> = ({
-  createProject,
-  setDisplayModal,
-}) => {
-  const [formData, setFormData] = React.useState<ICreateProjectFormState>({
-    title: '',
-    slug: '',
-  });
+const CreateProjectForm: FC<IProps> = ({ createProject, setDisplayModal }) => {
+  const defaultFormState = { title: '', slug: '' };
+  const [formData, setFormData] = React.useState(defaultFormState);
+
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
+    setFormData({ ...formData, [name]: value });
   };
+  const handleCloseModal = () => setDisplayModal(false);
+
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setDisplayModal(false);
     createProject(formData);
-    setFormData({ title: '', slug: '' });
+    setFormData(defaultFormState);
   };
 
   const { title, slug } = formData;
   return (
     <form className='create-project-form' onSubmit={handleSubmit}>
+      <div className='create-project-form__header'>
+        <h2>Create Project</h2>
+        <span onClick={handleCloseModal}>&times;</span>
+      </div>
       <FormInput
         label='Project Name'
         name='title'
@@ -52,4 +50,6 @@ const CreateProjectForm: React.FC<IProps> = ({
   );
 };
 
-export default connect(null, { createProject })(CreateProjectForm);
+export default connect(null, { createProject, setDisplayModal })(
+  CreateProjectForm
+);

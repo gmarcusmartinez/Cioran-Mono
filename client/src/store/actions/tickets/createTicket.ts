@@ -29,7 +29,7 @@ export interface FormState {
   storyPoints: number;
   description: string;
   priority: string;
-  projectId: string;
+  project_id: string;
 }
 
 export const createTicket = (formData: FormState, sprint_id: string) => async (

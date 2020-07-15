@@ -1,30 +1,26 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Modal from '../../common/Modal';
-import { firstNameOnly } from '../../../utils';
-import TicketDisplay from '../';
-import { ITicket, getTicket, ISprint } from '../../../store/actions';
+import { firstNameOnly } from 'utils';
+import { ITicket, getTicket, ISprint, setDisplayModal } from 'store/actions';
 
 interface IProps {
   ticket: ITicket;
   sprint: ISprint;
   getTicket: Function;
+  setDisplayModal: Function;
 }
 
-const Ticket: React.FC<IProps> = ({ ticket, sprint, getTicket }) => {
-  const [displayModal, setDisplayModal] = React.useState(false);
+const Ticket: React.FC<IProps> = ({
+  ticket,
+  sprint,
+  getTicket,
+  setDisplayModal,
+}) => {
   const handleClick = () => {
     getTicket(sprint, ticket._id);
-    setDisplayModal(true);
+    setDisplayModal(true, 'TICKET');
   };
 
-  const renderModal = () => {
-    return displayModal ? (
-      <Modal title='' showModal={setDisplayModal}>
-        <TicketDisplay ticket={ticket} setDisplayModal={setDisplayModal} />
-      </Modal>
-    ) : null;
-  };
   return (
     <>
       <tr className={`ticket ${ticket.status}`} onClick={handleClick}>
@@ -37,11 +33,10 @@ const Ticket: React.FC<IProps> = ({ ticket, sprint, getTicket }) => {
         <td className='t-col'>{ticket.status}</td>
         <td className='t-col'>{ticket.storyPoints}</td>
       </tr>
-      {renderModal()}
     </>
   );
 };
 const mapStateToProps = (state: any) => ({
   sprint: state.sprints.sprint,
 });
-export default connect(mapStateToProps, { getTicket })(Ticket);
+export default connect(mapStateToProps, { getTicket, setDisplayModal })(Ticket);

@@ -1,25 +1,18 @@
 import React from 'react';
-import Modal from '../../common/Modal';
-import { ITicket } from '../../../store/actions';
-import { formatDate } from '../../../utils/formatDate';
-import TicketDisplay from '../../Ticket';
+import { connect } from 'react-redux';
+import { formatDate } from 'utils/formatDate';
+import { ITicket, setDisplayModal } from 'store/actions';
 
 interface IProps {
   ticket: ITicket;
+  setDisplayModal: Function;
 }
 
-const MyQueTicket: React.FC<IProps> = ({ ticket }) => {
-  const [displayModal, setDisplayModal] = React.useState(false);
+const MyQueTicket: React.FC<IProps> = ({ ticket, setDisplayModal }) => {
   const handleClick = () => {
-    setDisplayModal(true);
+    setDisplayModal(true, 'Ticket');
   };
-  const renderModal = () => {
-    return displayModal ? (
-      <Modal title='' showModal={setDisplayModal}>
-        <TicketDisplay ticket={ticket} setDisplayModal={setDisplayModal} />
-      </Modal>
-    ) : null;
-  };
+
   return (
     <>
       <tr className='my-que-ticket' onClick={handleClick}>
@@ -30,9 +23,8 @@ const MyQueTicket: React.FC<IProps> = ({ ticket }) => {
         <td className='t-col'>{ticket.title}</td>
         <td className='t-col'>{formatDate(ticket.sprint.endDate)}</td>
       </tr>
-      {renderModal()}
     </>
   );
 };
 
-export default MyQueTicket;
+export default connect(null, { setDisplayModal })(MyQueTicket);

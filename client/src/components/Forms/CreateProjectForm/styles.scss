@@ -1,7 +1,29 @@
-$create-project-form-width: 95%;
+$create-project-form-width: 100%;
+$create-project-form-title-font-size: 1.8rem;
+$create-project-form-title-font-weight: 300;
+$create-project-form-close-font-size: 2.6rem;
 
 .create-project-form {
   display: flex;
   flex-direction: column;
   width: $create-project-form-width;
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--color-white);
+    h2 {
+      font-size: $create-project-form-title-font-size;
+      font-weight: $create-project-form-title-font-weight;
+      letter-spacing: var(--letter-spacing-md);
+    }
+    span {
+      cursor: pointer;
+      font-size: $create-project-form-close-font-size;
+      transition: var(--transition-fast);
+      &:hover {
+        color: var(--color-primary);
+      }
+    }
+  }
 }

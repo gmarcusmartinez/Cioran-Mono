@@ -1,12 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { createTicket, FormState, setAlert } from 'store/actions';
-import { FormInput, FormSelect, FormTextArea } from '../../common/Form';
+
+import { FormInput, FormSelect, FormTextArea } from 'components/common/Form';
+import {
+  createTicket,
+  FormState,
+  setAlert,
+  setDisplayModal,
+} from 'store/actions';
 import * as options from './options';
 
 interface IProps {
   sprint_id: string | null;
-  projectId: string;
+  project_id: string;
   createTicket: Function;
   setDisplayModal: Function;
   setAlert: Function;
@@ -16,9 +22,9 @@ interface Option {
 }
 
 const CreateTicketForm: React.FC<IProps> = ({
-  sprint_id,
   createTicket,
-  projectId,
+  sprint_id,
+  project_id,
   setAlert,
   setDisplayModal,
 }) => {
@@ -35,7 +41,7 @@ const CreateTicketForm: React.FC<IProps> = ({
     setFormData({
       ...formData,
       [name]: value,
-      projectId,
+      project_id,
     });
   };
 
@@ -100,9 +106,12 @@ const CreateTicketForm: React.FC<IProps> = ({
   );
 };
 const mapStateToProps = (state: any) => ({
-  projectId: state.projects.project._id,
+  sprint_id: state.sprints.sprint._id,
+  project_id: state.projects.project._id,
 });
 
-export default connect(mapStateToProps, { createTicket, setAlert })(
-  CreateTicketForm
-);
+export default connect(mapStateToProps, {
+  createTicket,
+  setAlert,
+  setDisplayModal,
+})(CreateTicketForm);

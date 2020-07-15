@@ -14,43 +14,19 @@
   opacity: 1;
 
   &__body {
+    @include flex_direction_col;
     background-color: var(--color-dark-theme-primary);
-    width: 40rem;
-    height: 75%;
     border-radius: 0.4rem;
-    transition: all 0.5s 0.2s;
+    min-height: 50rem;
+    max-height: 75%;
+    padding: 1.5rem 4rem 4rem 4rem;
     overflow-y: scroll;
-  }
-  &__header {
-    color: var(--color-grey-light);
-    margin: 2rem;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    justify-content: space-between;
-
-    position: relative;
-  }
-  &__title {
-    letter-spacing: var(--letter-spacing-md);
-    font-weight: 400;
-    font-size: 2.1rem;
+    transition: all 0.5s 0.2s;
+    width: 40rem;
   }
 
-  &__close {
-    position: absolute;
-    top: -2.8rem;
-    right: -1rem;
-
-    font-size: 3rem;
-    cursor: pointer;
-    &:hover {
-      color: var(--color-primary);
-    }
-  }
   &__content {
-    margin: 1rem 2rem;
+    margin: var(--margin-sm) 0;
     height: max-content;
 
     display: flex;

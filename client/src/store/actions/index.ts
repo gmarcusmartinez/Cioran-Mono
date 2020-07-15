@@ -6,6 +6,8 @@ export * from './auth/signin';
 export * from './auth/signout';
 export * from './auth/getCurrentUser';
 
+export * from './modal/setDisplayModal';
+
 export * from './projects/getProject';
 export * from './projects/getProjects';
 export * from './projects/createProject';

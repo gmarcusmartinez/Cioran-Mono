@@ -1,20 +1,21 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Modal from '../../common/Modal';
 import ProjectItem from '../ProjectItem';
 import CustomBtn from 'components/common/CustomBtn';
-import CreateProjectForm from '../../Forms/CreateProjectForm';
-import { IProject, getProjects } from 'store/actions';
+import { IProject, getProjects, setDisplayModal } from 'store/actions';
 
 interface IProps {
   projects: IProject[] | null;
   getProjects: Function;
+  setDisplayModal: Function;
 }
 
-const ProjectConsole: React.FC<IProps> = ({ projects, getProjects }) => {
-  const [displayModal, setDisplayModal] = React.useState(false);
-
+const ProjectConsole: React.FC<IProps> = ({
+  projects,
+  getProjects,
+  setDisplayModal,
+}) => {
   React.useEffect(() => {
     getProjects();
   }, [getProjects]);
@@ -23,14 +24,6 @@ const ProjectConsole: React.FC<IProps> = ({ projects, getProjects }) => {
     ? projects.map((p: IProject) => <ProjectItem key={p._id} item={p} />)
     : null;
 
-  const renderModal = () => {
-    return displayModal ? (
-      <Modal showModal={setDisplayModal} title='Create Project'>
-        <CreateProjectForm setDisplayModal={setDisplayModal} />
-      </Modal>
-    ) : null;
-  };
-
   return (
     <div className='project-console'>
       <div className='project-console__title'>My Projects</div>
@@ -38,12 +31,11 @@ const ProjectConsole: React.FC<IProps> = ({ projects, getProjects }) => {
       <div className='project-list'>
         <CustomBtn
           text='Create Project'
-          cb={() => setDisplayModal(true)}
+          cb={() => setDisplayModal(true, 'CREATE_PROJECT')}
           className='create-project-btn project-item'
         />
         {list}
       </div>
-      {renderModal()}
     </div>
   );
 };
@@ -55,4 +47,6 @@ const mapStateToProps = (state: IState) => ({
   projects: state.projects?.projects,
 });
 
-export default connect(mapStateToProps, { getProjects })(ProjectConsole);
+export default connect(mapStateToProps, { getProjects, setDisplayModal })(
+  ProjectConsole
+);

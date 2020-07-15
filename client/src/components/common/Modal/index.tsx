@@ -1,26 +1,38 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import ReactDOM from 'react-dom';
+import { setDisplayModal } from 'store/actions';
+import CreateTicketForm from 'components/Forms/CreateTicketForm';
+import CreateProjectForm from 'components/Forms/CreateProjectForm';
 
-interface ModalProps {
-  showModal: Function;
-  title: string;
+interface IProps {
+  component: string;
+  setDisplayModal: Function;
 }
 
-const Modal: React.FC<ModalProps> = ({ showModal, title, children }) => {
+const Modal: React.FC<IProps> = ({ component, setDisplayModal }) => {
+  const renderContent = () => {
+    switch (component) {
+      case 'CREATE_PROJECT':
+        return <CreateProjectForm />;
+      case 'CREATE_TICKET':
+        return <CreateTicketForm />;
+      default:
+        return null;
+    }
+  };
+
   return ReactDOM.createPortal(
-    <div className='modal' onClick={() => showModal(false)}>
+    <div className='modal' onClick={() => setDisplayModal(false)}>
       <div className='modal__body' onClick={(e) => e.stopPropagation()}>
-        <div className='modal__header'>
-          <h3 className='modal__title'>{title}</h3>
-          <p className='modal__close' onClick={() => showModal(false)}>
-            &times;
-          </p>
-        </div>
-        <div className='modal__content'>{children}</div>
+        <div className='modal__content'>{renderContent()}</div>
       </div>
     </div>,
     document.querySelector('#modal')!
   );
 };
 
-export default Modal;
+const mapStateToProps = (state: any) => ({
+  component: state.modal.component,
+});
+export default connect(mapStateToProps, { setDisplayModal })(Modal);
