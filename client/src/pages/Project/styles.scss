@@ -7,9 +7,7 @@
   @-moz-document url-prefix() {
     transition: 0.4s ease-in-out;
   }
-  .sprint-sidebar {
-    width: 26rem;
-  }
+
   .sprint-wrapper {
     width: 100%;
     display: grid;
@@ -40,11 +38,5 @@
       height: 100vh;
       overflow-y: scroll;
     }
-  }
-}
-.collapsed {
-  transition: var(--transition-md);
-  .sprint-sidebar {
-    width: 6rem;
   }
 }

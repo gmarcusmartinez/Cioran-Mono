@@ -14,5 +14,6 @@ $sprint-console-title-grid-area: date;
     grid-area: $sprint-console-title-grid-area;
     font-size: $sprint-console-date-font-size;
     font-style: $sprint-console-title-font-style;
+    letter-spacing: var(--letter-spacing-sm);
   }
 }

@@ -18,6 +18,9 @@ export interface RemovetAlertAction {
   type: ActionTypes.REMOVE_ALERT;
   payload: string;
 }
+export interface ErrorObj {
+  message: string;
+}
 
 export const setAlert = (message: string, type: string) => (
   dispatch: Dispatch

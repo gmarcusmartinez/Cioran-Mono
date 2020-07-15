@@ -1,6 +1,6 @@
 import projects from 'api/projects';
 import { ActionTypes } from '../types';
-import { setAlert } from '../alerts/setAlert';
+import { setAlert, ErrorObj } from '../alerts/setAlert';
 
 export interface IProject {
   _id: string;
@@ -21,9 +21,7 @@ export interface ICreateProjectFormState {
   title: string;
   slug: string;
 }
-interface ErrorObj {
-  message: string;
-}
+
 export const createProject = (formData: ICreateProjectFormState) => async (
   dispatch: any
 ) => {

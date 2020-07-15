@@ -1,26 +1,21 @@
 import React from 'react';
-
 import { ISprint } from 'store/actions';
-import Modal from '../../common/Modal';
-import SprintItem from '../SprintItem/SprintItem';
-import CreateSprintForm from '../../Forms/CreateSprintForm';
+import CustomBtn from 'components/common/CustomBtn';
+import CreateSprintForm from 'components/Forms/CreateSprintForm';
+import SprintItem from 'components/Sprint/SprintItem';
+import Modal from 'components/common/Modal';
 
 interface IProps {
   sprintArr: ISprint[];
-  collapseSideBar: boolean;
-  setCollapseSideBar: Function;
 }
 
-const SprintSideBar: React.FC<IProps> = ({
-  sprintArr,
-  setCollapseSideBar,
-  collapseSideBar,
-}) => {
+const SprintSideBar: React.FC<IProps> = ({ sprintArr }) => {
   const [displayModal, setDisplayModal] = React.useState(false);
+  const [collapseSideBar, setCollapseSideBar] = React.useState(false);
 
-  let list = sprintArr
-    ? sprintArr.map((s) => <SprintItem key={s._id} item={s} />)
-    : null;
+  let sprints = null;
+  if (sprintArr)
+    sprints = sprintArr.map((s) => <SprintItem key={s._id} item={s} />);
 
   const renderModal = () => {
     return displayModal ? (
@@ -30,28 +25,19 @@ const SprintSideBar: React.FC<IProps> = ({
     ) : null;
   };
 
-  const renderBtn = (text: string) => (
-    <div onClick={() => setDisplayModal(true)} className='sprint-nav__btn'>
-      {text}
-    </div>
-  );
-
-  const renderCollapseBtn = () => (
-    <div
-      onClick={() => setCollapseSideBar(!collapseSideBar)}
-      className='collapse-btn'
-    >
-      {collapseSideBar ? <>&#9664;</> : <>&#9664;</>}
-    </div>
-  );
-
   return (
     <div className={`sprint-sidebar ${collapseSideBar ? 'collapsed' : ''}`}>
-      {renderCollapseBtn()}
-      <div className='sprint-nav'>
-        {/* {renderBtn('Create Sprint +')} */}
-        {list}
-      </div>
+      <CustomBtn
+        text={`${collapseSideBar ? 'right' : 'left'}`}
+        cb={() => setCollapseSideBar(!collapseSideBar)}
+        className='collapse-btn'
+      />
+      <CustomBtn
+        text='Create Sprint'
+        cb={() => setDisplayModal(true)}
+        className='create-sprint-btn'
+      />
+      {sprints}
       {renderModal()}
     </div>
   );

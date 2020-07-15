@@ -4,8 +4,7 @@ import { connect } from 'react-redux';
 import SprintQue from 'components/Sprint/SprintQue';
 import SprintSideBar from 'components/Sprint/SprintSideBar';
 import SprintConsole from 'components/Sprint/SprintConsole';
-
-import { getProject, IProject } from '../../store/actions';
+import { getProject, IProject } from 'store/actions';
 
 interface IProps {
   getProject: Function;
@@ -14,28 +13,27 @@ interface IProps {
 }
 
 const Project: React.FC<IProps> = ({ getProject, match, project }) => {
-  const [collapseSideBar, setCollapseSideBar] = React.useState(false);
-  const projectId = match.params.id;
   React.useEffect(() => {
-    getProject(projectId);
-  }, [getProject, projectId]);
+    getProject(match.params.id);
+  }, [getProject, match.params.id]);
 
+  if (!project) return <>Loading</>;
   return (
-    <div className={`project-wrapper ${collapseSideBar ? 'collapsed' : ''}`}>
-      <SprintSideBar
-        sprintArr={project?.sprints}
-        collapseSideBar={collapseSideBar}
-        setCollapseSideBar={setCollapseSideBar}
-      />
+    <div className='project-wrapper'>
+      <SprintSideBar sprintArr={project.sprints} />
       <div className='sprint-wrapper'>
-        <div className='project-team-section'>{project?.title}</div>
+        <div className='project-team-section'>{project.title}</div>
         <SprintConsole />
         <SprintQue />
       </div>
     </div>
   );
 };
-const mapStateToProps = (state: any) => ({
+
+interface IState {
+  projects: { project: IProject };
+}
+const mapStateToProps = (state: IState) => ({
   project: state.projects.project,
 });
 

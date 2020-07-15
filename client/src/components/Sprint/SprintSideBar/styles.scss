@@ -1,41 +1,38 @@
 $sprint-sidebar-height: 100%;
 $sprint-sidebar-box-shadow: 2px 0 8px -6px rgb(0, 0, 0);
-
-$sprint-title-font-size: 2.4rem;
-$sprint-title-font-weight: 300;
-$create-sprint-btn-font-size: 1.4rem;
+$sprint-sidebar-width: 26rem;
 
 $collapse-sidebar-btn-diameter: 4rem;
 $collapse-sidebar-btn-font-size: 2.4rem;
+$create-sprint-btn-font-size: 1.4rem;
 
 .sprint-sidebar {
   background-color: var(--color-dark-theme-secondary);
   box-shadow: $sprint-sidebar-box-shadow;
-
   height: $sprint-sidebar-height;
   color: var(--color-grey-light);
   position: relative;
-
-  .sprint-nav {
-    @include flex_direction_col;
-    &__title {
-      margin: var(--margin-md);
-      font-weight: $sprint-title-font-weight;
-      font-size: $sprint-title-font-size;
-      letter-spacing: var(--letter-spacing-md);
+  width: $sprint-sidebar-width;
+  .create-sprint-btn {
+    border: none;
+    cursor: pointer;
+    font-size: $create-sprint-btn-font-size;
+    letter-spacing: var(--letter-spacing-md);
+    margin: 2rem 3rem;
+    outline: none;
+    transition: var(--transition-fast);
+    &:hover {
+      color: var(--color-primary-light);
     }
-    &__btn {
-      border: none;
-      cursor: pointer;
-      font-size: $create-sprint-btn-font-size;
-      letter-spacing: var(--letter-spacing-md);
-      margin: 0 var(--margin-md);
-      outline: none;
-      padding: var(----padding-sm) 0;
-      transition: var(--transition-fast);
-      &:hover {
-        color: var(--color-primary-light);
-      }
+  }
+  &.collapsed {
+    transition: var(--transition-fast);
+    width: 6rem;
+    .create-sprint-btn {
+      display: none;
+    }
+    .sprint-item {
+      display: none;
     }
   }
 }
@@ -51,10 +48,4 @@ $collapse-sidebar-btn-font-size: 2.4rem;
   margin-top: 0.5rem;
   margin-bottom: 0.5rem;
   width: $collapse-sidebar-btn-diameter;
-}
-
-.collapsed {
-  .sprint-nav {
-    display: none;
-  }
 }
