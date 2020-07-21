@@ -1,7 +1,6 @@
 import { Dispatch } from 'redux';
-import { ActionTypes } from '../types';
-import { ITicket } from './createTicket';
-import { ISprint } from '../sprints/getSprint';
+import { ITicket, ISprint } from 'interfaces';
+import { ActionTypes } from 'store/actions/types';
 
 export interface GetTicketAction {
   type: ActionTypes.GET_TICKET;

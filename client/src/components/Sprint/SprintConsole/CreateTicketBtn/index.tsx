@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { ISprint } from 'store/actions';
+import { ISprint } from 'interfaces';
 import { setDisplayModal } from 'store/actions';
 
 interface IProps {
@@ -9,11 +9,10 @@ interface IProps {
 }
 
 const CreateTicketBtn: React.FC<IProps> = ({ setDisplayModal, sprint }) => {
+  const handleClick = () => setDisplayModal(true, 'CREATE_TICKET');
+
   return sprint?._id ? (
-    <div
-      onClick={() => setDisplayModal(true, 'CREATE_TICKET')}
-      id='create-ticket-btn'
-    >
+    <div onClick={handleClick} id='create-ticket-btn'>
       Create Ticket
     </div>
   ) : null;

@@ -1,7 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { firstNameOnly } from 'utils';
-import { ITicket, getTicket, ISprint, setDisplayModal } from 'store/actions';
+import { ITicket, ISprint } from 'interfaces';
+import { getTicket, setDisplayModal } from 'store/actions';
+import { splitName } from 'utils';
 
 interface IProps {
   ticket: ITicket;
@@ -28,7 +29,7 @@ const Ticket: React.FC<IProps> = ({
         <td className='t-col'>{ticket.title}</td>
         <td className='t-col'>{ticket.ticketType}</td>
         <td className='t-col'>
-          {ticket.assignedTo ? firstNameOnly(ticket.assignedTo.name) : null}
+          {ticket.assignedTo ? splitName(ticket.assignedTo.name) : null}
         </td>
         <td className='t-col'>{ticket.status}</td>
         <td className='t-col'>{ticket.storyPoints}</td>

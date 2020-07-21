@@ -1,9 +1,9 @@
 import React from 'react';
 
 interface Props {
-  headers: any[];
-  list: any[] | null;
-  classNames: any[];
+  headers: { text: string }[];
+  list: JSX.Element[] | null;
+  classNames: string[];
 }
 
 const Queue: React.FC<Props> = ({ headers, list, classNames, children }) => {

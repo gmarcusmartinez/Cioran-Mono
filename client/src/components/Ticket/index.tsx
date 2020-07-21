@@ -1,8 +1,7 @@
 import React from 'react';
 import TicketCol from './TicketCol';
 import TicketActions from './TicketActions';
-import { firstNameOnly } from '../../utils';
-import { formatDate } from '../../utils/formatDate';
+import { splitName, formatDate } from 'utils';
 
 interface TicketDisplayProps {
   ticket: any;
@@ -21,7 +20,7 @@ const TicketDisplay: React.FC<TicketDisplayProps> = ({
       <TicketCol text='Status' value={ticket.status} />
       <TicketCol
         text='Assigned To'
-        value={firstNameOnly(ticket.assignedTo?.name)}
+        value={splitName(ticket.assignedTo?.name)}
       />
       <TicketCol
         text='Date Assigned'

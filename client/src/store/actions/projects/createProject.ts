@@ -1,16 +1,7 @@
 import projects from 'api/projects';
-import { ActionTypes } from '../types';
-import { setAlert, ErrorObj } from '../alerts/setAlert';
-
-export interface IProject {
-  _id: string;
-  title: string;
-  photo: string;
-  slug: string;
-  projectOwner: string;
-  sprints: any[];
-  team: any[];
-}
+import { IProject } from 'interfaces';
+import { ActionTypes } from 'store/actions/types';
+import { setAlert, ErrorObj } from 'store/actions/alerts/setAlert';
 
 export interface CreateProjectAction {
   type: ActionTypes.CREATE_PROJECT;
@@ -27,10 +18,10 @@ export const createProject = (formData: ICreateProjectFormState) => async (
 ) => {
   try {
     const config = { headers: { 'Content-Type': 'application/json' } };
-    const res = await projects.post('/', formData, config);
+    const { data } = await projects.post('/', formData, config);
     dispatch({
       type: ActionTypes.CREATE_PROJECT,
-      payload: res.data,
+      payload: data,
     });
   } catch (err) {
     const errors = err.response.data.errors;

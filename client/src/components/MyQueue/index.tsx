@@ -1,15 +1,15 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import { ITicket } from 'store/actions';
-import Queue from '../common/Queue/Queue';
-import MyQueTicket from './MyQueueTicket/index.';
+import Queue from 'components/common/Queue/Queue';
+import { ITicket } from 'interfaces';
+import MyQueueTicket from './MyQueueTicket/index.';
 
 interface IProps {
   tickets: ITicket[];
 }
 
-const MyQue: React.FC<IProps> = ({ tickets }) => {
+const MyQueue: React.FC<IProps> = ({ tickets }) => {
   const headers = [
     { text: 'Project', sort: 'project' },
     { text: 'Ticket', sort: 'ticket' },
@@ -17,7 +17,7 @@ const MyQue: React.FC<IProps> = ({ tickets }) => {
   ];
 
   let list = tickets
-    ? tickets.map((t) => <MyQueTicket key={t._id} ticket={t} />)
+    ? tickets.map((t) => <MyQueueTicket key={t._id} ticket={t} />)
     : null;
 
   const classNames = ['my-que', 'my-que__th', 'my-que__ticket-table'];
@@ -38,4 +38,4 @@ const mapStateToProps = (state: IState) => ({
   tickets: state.auth.currentUser?.assignedTickets,
 });
 
-export default connect(mapStateToProps, {})(MyQue);
+export default connect(mapStateToProps, {})(MyQueue);

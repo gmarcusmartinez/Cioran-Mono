@@ -1,23 +1,8 @@
-import sprints from '../../../api/sprints';
 import { Dispatch } from 'redux';
-import { ActionTypes } from '../types';
+import sprints from 'api/sprints';
+import { ITicket } from 'interfaces';
+import { ActionTypes } from 'store/actions/types';
 
-export interface ITicket {
-  _id: string;
-  title: string;
-  ticketType: string;
-  status: string;
-  storyPoints: number;
-  priority: string;
-  description: string;
-  sprint: { endDate: Date };
-  project: { slug: string };
-  assignedTo: { name: string };
-  createdBy: string;
-  dateAssigned: Date;
-  dateCompleted: Date;
-  createdAt: Date;
-}
 export interface CreateTicketAction {
   type: ActionTypes.CREATE_TICKET;
   payload: ITicket;

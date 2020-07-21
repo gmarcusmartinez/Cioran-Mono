@@ -1,6 +1,6 @@
 import React from 'react';
+import { ISprint } from 'interfaces';
 import { calculateStoryPoints } from 'utils';
-import { ISprint } from 'store/actions';
 
 interface IProps {
   sprint: ISprint;
@@ -8,12 +8,13 @@ interface IProps {
 
 const StoryPoints: React.FC<IProps> = ({ sprint }) => {
   let total = calculateStoryPoints(sprint!.tickets);
-  return sprint._id ? (
+  if (!sprint._id) return null;
+  return (
     <div className='story-points'>
       <div className='story-points__title'>Story Points</div>
       {total}
     </div>
-  ) : null;
+  );
 };
 
 export default StoryPoints;

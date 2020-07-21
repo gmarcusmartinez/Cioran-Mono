@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import Queue from '../../common/Queue/Queue';
-import { setCurrentTickets } from 'utils/index';
-import Ticket from '../../Ticket/TicketRow';
+import Queue from 'components/common/Queue/Queue';
+import Pagination from 'components/common/Pagination/Pagination';
+import Ticket from 'components/Ticket/TicketRow';
+import { ITicket } from 'interfaces';
 import { SprintState } from 'store/reducers/sprints';
-import { ITicket, setCurrentPage } from 'store/actions';
-import Pagination from '../../common/Pagination/Pagination';
+import { setCurrentPage } from 'store/actions';
+import { setCurrentTickets } from 'utils/index';
 
 const headers = [
   { text: 'Ticket', sort: 'title' },

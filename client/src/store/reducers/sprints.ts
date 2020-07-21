@@ -1,5 +1,5 @@
-import { Action, ActionTypes } from '../actions/types';
-import { ISprint } from '../actions';
+import { ISprint, ITicket } from 'interfaces';
+import { Action, ActionTypes } from 'store/actions/types';
 
 export interface SprintState {
   loading: boolean;
@@ -41,7 +41,7 @@ export const sprints = (state = initialState, action: Action) => {
           tickets: [
             action.payload,
             ...state.sprint.tickets.filter(
-              (t: any) => t._id !== action.payload._id
+              (t: ITicket) => t._id !== action.payload._id
             ),
           ],
         },

@@ -1,17 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { formatDate } from 'utils/formatDate';
-import { ITicket, setDisplayModal } from 'store/actions';
+import { formatDate } from 'utils';
+import { ITicket } from 'interfaces';
+import { setDisplayModal } from 'store/actions';
 
 interface IProps {
   ticket: ITicket;
   setDisplayModal: Function;
 }
 
-const MyQueTicket: React.FC<IProps> = ({ ticket, setDisplayModal }) => {
-  const handleClick = () => {
-    setDisplayModal(true, 'Ticket');
-  };
+const MyQueueTicket: React.FC<IProps> = ({ ticket, setDisplayModal }) => {
+  const handleClick = () => setDisplayModal(true, 'Ticket');
 
   return (
     <>
@@ -27,4 +26,4 @@ const MyQueTicket: React.FC<IProps> = ({ ticket, setDisplayModal }) => {
   );
 };
 
-export default connect(null, { setDisplayModal })(MyQueTicket);
+export default connect(null, { setDisplayModal })(MyQueueTicket);

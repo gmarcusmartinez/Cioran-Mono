@@ -1,6 +1,6 @@
 import React from 'react';
-import { ISprint } from 'store/actions';
-import { formatDate } from 'utils/formatDate';
+import { formatDate } from 'utils';
+import { ISprint } from 'interfaces';
 
 interface IProps {
   sprint: ISprint;

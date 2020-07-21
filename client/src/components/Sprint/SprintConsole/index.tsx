@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { ISprint } from 'store/actions';
 import StoryPoints from './StoryPoints';
 import SprintDetails from './SprintDetails';
 import CreateTicketBtn from './CreateTicketBtn';
+import { ISprint } from 'interfaces';
 
 interface IProps {
   sprint?: ISprint | null;

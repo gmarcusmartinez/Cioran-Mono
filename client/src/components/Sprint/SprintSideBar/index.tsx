@@ -1,7 +1,7 @@
 import React from 'react';
-import { ISprint } from 'store/actions';
 import CustomBtn from 'components/common/CustomBtn';
 import SprintItem from 'components/Sprint/SprintItem';
+import { ISprint } from 'interfaces';
 
 interface IProps {
   sprintArr: ISprint[];

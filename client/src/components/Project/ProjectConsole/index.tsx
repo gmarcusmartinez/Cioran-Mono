@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-import ProjectItem from '../ProjectItem';
+import { IProject } from 'interfaces';
 import CustomBtn from 'components/common/CustomBtn';
-import { IProject, getProjects, setDisplayModal } from 'store/actions';
+import ProjectItem from 'components/Project/ProjectItem';
+import { getProjects, setDisplayModal } from 'store/actions';
 
 interface IProps {
   projects: IProject[] | null;

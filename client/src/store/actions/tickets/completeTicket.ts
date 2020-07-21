@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
-import { ActionTypes } from '../types';
-import { ITicket } from './createTicket';
-import tickets from '../../../api/tickets';
+import tickets from 'api/tickets';
+import { ITicket } from 'interfaces';
+import { ActionTypes } from 'store/actions/types';
 
 export interface MarkTicketCompleteAction {
   type: ActionTypes.MARK_TICKET_COMPLETE;

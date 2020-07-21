@@ -1,7 +1,7 @@
 import { Dispatch } from 'redux';
-import { ActionTypes } from '../types';
-import { ITicket } from './createTicket';
-import tickets from '../../../api/tickets';
+import tickets from 'api/tickets';
+import { ITicket } from 'interfaces';
+import { ActionTypes } from 'store/actions/types';
 
 export interface SubmitTicketAction {
   type: ActionTypes.SUBMIT_TICKET;
@@ -23,7 +23,6 @@ export const submitTicket = (formData: FormState, ticket_id: string) => async (
       payload: res.data,
     });
   } catch (err) {
-    console.log('ran');
     console.log(err);
   }
 };

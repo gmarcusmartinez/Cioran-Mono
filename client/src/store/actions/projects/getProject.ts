@@ -1,7 +1,7 @@
-import projects from '../../../api/projects';
 import { Dispatch } from 'redux';
-import { ActionTypes } from '../types';
-import { IProject } from './createProject';
+import projects from 'api/projects';
+import { IProject } from 'interfaces';
+import { ActionTypes } from 'store/actions/types';
 
 export interface GetProjectAction {
   type: ActionTypes.GET_PROJECT;

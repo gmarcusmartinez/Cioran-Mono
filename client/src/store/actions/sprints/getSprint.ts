@@ -1,17 +1,7 @@
 import { Dispatch } from 'redux';
-import { ActionTypes } from '../types';
-import sprints from '../../../api/sprints';
-
-export interface ISprint {
-  _id: string;
-  title: string;
-  totalStoryPoints: number;
-  project: string;
-  createdAt: Date;
-  tickets: [];
-  startDate: Date;
-  endDate: Date;
-}
+import sprints from 'api/sprints';
+import { ISprint } from 'interfaces';
+import { ActionTypes } from 'store/actions/types';
 
 export interface GetSprintAction {
   type: ActionTypes.GET_SPRINT;
