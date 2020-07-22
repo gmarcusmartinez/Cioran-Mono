@@ -1,9 +1,8 @@
 import React from 'react';
 import { Route, Switch } from 'react-router-dom';
-
-import MyQue from '../../components/MyQueue';
-import Navigation from '../../components/Dashboard/Navigation';
-import ProjectConsole from '../../components/Project/ProjectConsole';
+import MyQue from 'components/MyQueue';
+import Navigation from 'components/Dashboard/Navigation';
+import ProjectConsole from 'components/Project/ProjectConsole';
 
 const Dashboard = () => {
   return (

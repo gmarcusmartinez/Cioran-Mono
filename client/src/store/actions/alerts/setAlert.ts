@@ -1,13 +1,7 @@
 import { v4 } from 'uuid';
 import { Dispatch } from 'redux';
 import { ActionTypes } from '../types';
-
-export interface IAlert {
-  id: string;
-  message: string;
-  field: string;
-  type: string;
-}
+import { IAlert } from 'interfaces';
 
 export interface SetAlertAction {
   type: ActionTypes.SET_ALERT;

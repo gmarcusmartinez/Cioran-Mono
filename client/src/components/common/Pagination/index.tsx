@@ -3,14 +3,10 @@ import React from 'react';
 interface PaginationProps {
   count: number;
   paginate: Function;
-  itemsPerPage: number;
 }
 
-const Pagination: React.FC<PaginationProps> = ({
-  paginate,
-  count,
-  itemsPerPage,
-}) => {
+const Pagination: React.FC<PaginationProps> = ({ paginate, count }) => {
+  const itemsPerPage = 12;
   const blockSize = 5;
   const [block, setBlock] = React.useState(0);
 

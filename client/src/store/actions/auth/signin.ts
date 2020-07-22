@@ -1,12 +1,12 @@
 import auth from 'api/auth';
 import { ActionTypes } from '../types';
 import history from 'core/history';
-import { ICurrentUser } from './getCurrentUser';
 import { setAlert, ErrorObj } from '../alerts/setAlert';
+import { IUser } from 'interfaces';
 
 export interface SigninAction {
   type: ActionTypes.SIGNIN;
-  payload: ICurrentUser;
+  payload: IUser;
 }
 
 export interface ISigninForm {

@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import { IAlert } from 'store/actions';
+import { IAlert } from 'interfaces';
 import Alert from '.';
 
 interface IState {

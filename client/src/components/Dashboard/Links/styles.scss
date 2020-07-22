@@ -1,8 +1,8 @@
 $nav-link-background-color: transparent;
 $nav-link-height: 5rem;
 $nav-link-color-transition: 0.5s;
-$nav-link-text-margin-l: 20%;
-$nav-link-text-font-size: 1.6rem;
+$nav-link-padding-l: 20%;
+$nav-link-font-size: 1.6rem;
 
 .dashboard-nav-link {
   @include btn_hover_animation;
@@ -11,22 +11,19 @@ $nav-link-text-font-size: 1.6rem;
   background-color: $nav-link-background-color;
   color: var(--color-grey-light);
   display: flex;
+  font-size: $nav-link-font-size;
   height: $nav-link-height;
+  letter-spacing: var(--letter-spacing-md);
   position: relative;
+  padding-left: $nav-link-padding-l;
   text-decoration: none;
+  text-transform: capitalize;
   z-index: 0;
-  &__text {
-    font-size: $nav-link-text-font-size;
-    letter-spacing: var(--letter-spacing-md);
-    margin-left: $nav-link-text-margin-l;
-    text-transform: capitalize;
-  }
+
   @include respond(tablet) {
     @include flex_center;
     height: 100%;
-    &__text {
-      margin-left: 0;
-    }
+    padding-left: 0;
   }
   @include respond(mobile) {
     display: none;

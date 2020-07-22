@@ -1,11 +1,11 @@
 import React from 'react';
 import { Redirect } from 'react-router-dom';
-import AuthCard from '../../components/AuthCard';
-import { ICurrentUser } from '../../store/actions';
-import AlertContainer from '../../components/common/Alert/AlertContainer';
+import AuthCard from 'components/AuthCard';
+import AlertContainer from 'components/common/Alert/AlertContainer';
+import { IUser } from 'interfaces';
 
 interface LandingProps {
-  user: ICurrentUser;
+  user: IUser;
 }
 
 const Landing: React.FC<LandingProps> = ({ user }) => {

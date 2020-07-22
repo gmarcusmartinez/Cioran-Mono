@@ -10,7 +10,7 @@ interface IProps {
 }
 
 const MyQueueTicket: React.FC<IProps> = ({ ticket, setDisplayModal }) => {
-  const handleClick = () => setDisplayModal(true, 'Ticket');
+  const handleClick = () => setDisplayModal(true, 'MY_QUEUE_TICKET');
 
   return (
     <>

@@ -1,21 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
-
-import '../styles/main.scss';
+import 'styles/main.scss';
+import { ProtectedRoute } from 'components/common/ProtectedRoute';
+import Modal from 'components/common/Modal';
+import Alert from 'components/common/Alert/AlertContainer';
 import Landing from 'pages/Landing';
 import Project from 'pages/Project';
 import Dashboard from 'pages/Dashboard';
-
-import Modal from 'components/common/Modal';
-import Alert from 'components/common/Alert/AlertContainer';
-import { getCurrentUser, ICurrentUser } from 'store/actions';
-import { ProtectedRoute } from '../components/common/ProtectedRoute';
+import { IUser } from 'interfaces';
+import { getCurrentUser } from 'store/actions';
+import { IState } from 'interfaces/state';
+import { selectCurrentUser } from 'store/selectors/auth';
+import { selectDisplayModal } from 'store/selectors/modal';
 
 interface AppProps {
   displayModal: boolean;
   getCurrentUser: Function;
-  user: ICurrentUser;
+  user: IUser;
 }
 
 const App: React.FC<AppProps> = ({ getCurrentUser, user, displayModal }) => {
@@ -36,13 +38,9 @@ const App: React.FC<AppProps> = ({ getCurrentUser, user, displayModal }) => {
   );
 };
 
-interface IState {
-  auth: { currentUser: ICurrentUser };
-  modal: { displayModal: boolean };
-}
 const mapStateToProps = (state: IState) => ({
-  user: state.auth.currentUser,
-  displayModal: state.modal.displayModal,
+  user: selectCurrentUser(state),
+  displayModal: selectDisplayModal(state),
 });
 
 export default connect(mapStateToProps, { getCurrentUser })(App);

@@ -1,10 +1,11 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
-import { IProject } from 'interfaces';
 import CustomBtn from 'components/common/CustomBtn';
 import ProjectItem from 'components/Project/ProjectItem';
+import { IProject } from 'interfaces';
 import { getProjects, setDisplayModal } from 'store/actions';
+import { selectProjects } from 'store/selectors/projects';
+import { IState } from 'interfaces/state';
 
 interface IProps {
   projects: IProject[] | null;
@@ -41,11 +42,8 @@ const ProjectConsole: React.FC<IProps> = ({
   );
 };
 
-interface IState {
-  projects: { projects: IProject[] };
-}
 const mapStateToProps = (state: IState) => ({
-  projects: state.projects?.projects,
+  projects: selectProjects(state),
 });
 
 export default connect(mapStateToProps, { getProjects, setDisplayModal })(

@@ -3,13 +3,12 @@ import { NavLink } from 'react-router-dom';
 import { links } from '../Links';
 
 const MobileNavigation: React.FC = () => {
+  const activeClassName = 'active';
+  const className = 'dashboard-mobile-nav__link';
+  const props = { className, activeClassName };
+
   const mobileNavLinks = links.map((l: any) => (
-    <NavLink
-      key={l.to}
-      to={l.to}
-      className='dashboard-mobile-nav__link'
-      activeClassName='active'
-    >
+    <NavLink key={l.to} to={l.to} {...props}>
       <i className={l.icon}></i>
     </NavLink>
   ));

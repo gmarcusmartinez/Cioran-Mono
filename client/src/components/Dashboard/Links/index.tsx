@@ -28,14 +28,12 @@ export const links = [
     icon: 'fas fa-cog',
   },
 ];
+const activeClassName = 'active';
+const className = 'dashboard-nav-link';
+const props = { activeClassName, className };
 
 export const navLinks = links.map((l: IDashNavLink) => (
-  <NavLink
-    to={l.to}
-    className='dashboard-nav-link'
-    activeClassName='active'
-    key={l.to}
-  >
-    <div className='dashboard-nav-link__text'>{l.text}</div>
+  <NavLink key={l.to} to={l.to} {...props}>
+    {l.text}
   </NavLink>
 ));

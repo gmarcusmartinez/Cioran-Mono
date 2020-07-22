@@ -1,20 +1,11 @@
 import { Dispatch } from 'redux';
-import auth from '../../../api/auth';
+import auth from 'api/auth';
 import { ActionTypes } from '../types';
-
-export interface ICurrentUser {
-  _id: string;
-  name: string;
-  email: string;
-  photo: string;
-  projects: [];
-  assignedTickets: [];
-  submittedTickets: [];
-}
+import { IUser } from 'interfaces';
 
 export interface GetCurrentUserAction {
   type: ActionTypes.GET_CURRENT_USER;
-  payload: ICurrentUser;
+  payload: IUser;
 }
 export const getCurrentUser = () => async (dispatch: Dispatch) => {
   const res = await auth.get('/currentUser');

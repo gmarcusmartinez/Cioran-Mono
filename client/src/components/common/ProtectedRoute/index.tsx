@@ -1,9 +1,9 @@
 import React from 'react';
 import { Redirect, Route, RouteProps } from 'react-router';
-import { ICurrentUser } from '../../../store/actions';
+import { IUser } from 'interfaces';
 
 export interface IProps extends RouteProps {
-  user: ICurrentUser;
+  user: IUser;
 }
 
 export const ProtectedRoute: React.FC<IProps> = (props) => {

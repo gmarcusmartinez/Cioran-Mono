@@ -1,14 +1,13 @@
 import { Dispatch } from 'redux';
-
-import auth from '../../../api/auth';
-import { ActionTypes } from '../types';
-import history from '../../../core/history';
-import { ICurrentUser } from './getCurrentUser';
-import { setAlert } from '../alerts/setAlert';
+import auth from 'api/auth';
+import history from 'core/history';
+import { IUser } from 'interfaces';
+import { ActionTypes } from 'store/actions/types';
+import { setAlert } from 'store/actions/alerts/setAlert';
 
 export interface SignupAction {
   type: ActionTypes.SIGNUP;
-  payload: ICurrentUser;
+  payload: IUser;
 }
 export interface ISignupForm {
   name: string;

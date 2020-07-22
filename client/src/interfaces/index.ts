@@ -1,3 +1,10 @@
+export interface IAlert {
+  id: string;
+  message: string;
+  field: string;
+  type: string;
+}
+
 export interface IProject {
   _id: string;
   photo: string;
@@ -34,4 +41,13 @@ export interface ITicket {
   dateAssigned: Date;
   dateCompleted: Date;
   createdAt: Date;
+}
+
+export interface IUser {
+  _id: string;
+  photo: string;
+  projects: [];
+  name: string;
+  email: string;
+  assignedTickets: [];
 }

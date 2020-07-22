@@ -1,5 +1,5 @@
-import { IAlert } from '../actions';
-import { Action, ActionTypes } from '../actions/types';
+import { IAlert } from 'interfaces';
+import { Action, ActionTypes } from 'store/actions/types';
 
 const initialState: IAlert[] = [];
 
