@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import { signout } from 'store/actions';
 import { navLinks } from '../Links';
 import MobileNavigation from '../MobileNavigation';
-import { IUser } from 'interfaces';
+import { IState } from 'interfaces/state';
+import { selectName } from 'store/selectors/auth';
 
 interface IProps {
   signout: Function;
@@ -26,11 +27,8 @@ const DashboardNav: React.FC<IProps> = ({ signout, name }) => {
   );
 };
 
-interface IState {
-  auth: { currentUser: IUser };
-}
 const mapStateToProps = (state: IState) => ({
-  name: state.auth.currentUser.name,
+  name: selectName(state),
 });
 
 export default connect(mapStateToProps, { signout })(DashboardNav);

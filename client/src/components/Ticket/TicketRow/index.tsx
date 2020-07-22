@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { ITicket, ISprint } from 'interfaces';
 import { getTicket, setDisplayModal } from 'store/actions';
 import { splitName } from 'utils';
+import { IState } from 'interfaces/state';
+import { selectSprint } from 'store/selectors/sprints';
 
 interface IProps {
   ticket: ITicket;
@@ -37,7 +39,7 @@ const Ticket: React.FC<IProps> = ({
     </>
   );
 };
-const mapStateToProps = (state: any) => ({
-  sprint: state.sprints.sprint,
+const mapStateToProps = (state: IState) => ({
+  sprint: selectSprint(state),
 });
 export default connect(mapStateToProps, { getTicket, setDisplayModal })(Ticket);

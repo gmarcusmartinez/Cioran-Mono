@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import Queue from 'components/common/Queue';
 import { ITicket } from 'interfaces';
 import MyQueueTicket from './MyQueueTicket/index.';
+import { IState } from 'interfaces/state';
+import { selectCurrentUserTickets } from 'store/selectors/auth';
 
 const headers = [
   { text: 'Project', sort: 'project' },
@@ -25,16 +27,8 @@ const MyQueue: React.FC<IProps> = ({ tickets }) => {
   return <Queue {...props} />;
 };
 
-interface IState {
-  auth: {
-    currentUser: {
-      assignedTickets: ITicket[] | [];
-    };
-  };
-}
-
 const mapStateToProps = (state: IState) => ({
-  tickets: state.auth.currentUser?.assignedTickets,
+  tickets: selectCurrentUserTickets(state),
 });
 
 export default connect(mapStateToProps, {})(MyQueue);

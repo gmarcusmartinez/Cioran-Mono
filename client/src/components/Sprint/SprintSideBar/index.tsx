@@ -12,7 +12,7 @@ const SprintSideBar: React.FC<IProps> = ({ sprintArr }) => {
 
   let sprints = null;
   if (sprintArr)
-    sprints = sprintArr.map((s) => <SprintItem key={s._id} item={s} />);
+    sprints = sprintArr.map((s) => <SprintItem key={s._id} sprint={s} />);
 
   return (
     <div className={`sprint-sidebar ${collapseSideBar ? 'collapsed' : ''}`}>

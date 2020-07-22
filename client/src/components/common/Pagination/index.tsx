@@ -14,7 +14,7 @@ const Pagination: React.FC<PaginationProps> = ({ paginate, count }) => {
   const lastPageNumber = Math.ceil(count / itemsPerPage);
   for (let i = 1; i <= lastPageNumber; i++) pageNums.push(i);
 
-  const blocks: any[] = [];
+  const blocks: number[][] = [];
   while (pageNums.length) blocks.push(pageNums.splice(0, blockSize));
 
   const next = () => {
@@ -27,13 +27,13 @@ const Pagination: React.FC<PaginationProps> = ({ paginate, count }) => {
     else setBlock(block - 1);
   };
 
-  const renderNavArrow = (arrow: string, click: any) => (
-    <div className='arrow' onClick={click}>
+  const renderNavArrow = (arrow: string, click: Function) => (
+    <div className='arrow' onClick={() => click}>
       {arrow === 'left' ? <>&larr;</> : <>&rarr;</>}
     </div>
   );
 
-  const renderBlock = (): any => {
+  const renderBlock = () => {
     return blocks.length
       ? blocks[block].map((num: number) => (
           <li key={num} onClick={() => paginate(num)}>

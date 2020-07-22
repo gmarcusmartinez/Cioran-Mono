@@ -4,7 +4,7 @@ interface WithSpinnerProps {
   loading: boolean;
 }
 
-export default (WrappedComponent: any) => {
+export default (WrappedComponent: React.FC) => {
   const hocComponent: React.FC<WithSpinnerProps> = ({ loading, ...props }) =>
     loading ? (
       <div className='spinner-overlay'>

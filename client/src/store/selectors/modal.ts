@@ -7,3 +7,7 @@ export const selectDisplayModal = createSelector(
   [selectModalState],
   (modal) => modal.displayModal
 );
+export const selectComponent = createSelector(
+  [selectModalState],
+  (modal) => modal.component
+);

@@ -11,8 +11,8 @@ import Dashboard from 'pages/Dashboard';
 import { IUser } from 'interfaces';
 import { getCurrentUser } from 'store/actions';
 import { IState } from 'interfaces/state';
-import { selectCurrentUser } from 'store/selectors/auth';
 import { selectDisplayModal } from 'store/selectors/modal';
+import { selectCurrentUser } from 'store/selectors/auth';
 
 interface AppProps {
   displayModal: boolean;

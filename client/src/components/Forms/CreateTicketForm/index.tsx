@@ -1,6 +1,5 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import { FormInput, FormSelect, FormTextArea } from 'components/common/Form';
 import {
   createTicket,
@@ -9,6 +8,9 @@ import {
   setDisplayModal,
 } from 'store/actions';
 import * as options from './options';
+import { IState } from 'interfaces/state';
+import { selectProjectId } from 'store/selectors/projects';
+import { selectSprintId } from 'store/selectors/sprints';
 
 interface IProps {
   sprint_id: string | null;
@@ -105,9 +107,9 @@ const CreateTicketForm: React.FC<IProps> = ({
     </form>
   );
 };
-const mapStateToProps = (state: any) => ({
-  sprint_id: state.sprints.sprint._id,
-  project_id: state.projects.project._id,
+const mapStateToProps = (state: IState) => ({
+  sprint_id: selectSprintId(state),
+  project_id: selectProjectId(state),
 });
 
 export default connect(mapStateToProps, {

@@ -4,24 +4,21 @@ import ReactDOM from 'react-dom';
 import { setDisplayModal } from 'store/actions';
 import CreateTicketForm from 'components/Forms/CreateTicketForm';
 import CreateProjectForm from 'components/Forms/CreateProjectForm';
-import MyQueueTicket from 'components/MyQueue/MyQueueTicket/index.';
-import { ITicket } from 'interfaces';
+import { IState } from 'interfaces/state';
+import { selectComponent } from 'store/selectors/modal';
 
 interface IProps {
   component: string;
   setDisplayModal: Function;
-  ticket?: ITicket;
 }
 
-const Modal: React.FC<IProps> = ({ component, setDisplayModal, ticket }) => {
+const Modal: React.FC<IProps> = ({ component, setDisplayModal }) => {
   const renderContent = () => {
     switch (component) {
       case 'CREATE_PROJECT':
         return <CreateProjectForm />;
       case 'CREATE_TICKET':
         return <CreateTicketForm />;
-      // case 'MY_QUEUE_TICKET':
-      //   return <MyQueueTicket />
       default:
         return null;
     }
@@ -37,8 +34,8 @@ const Modal: React.FC<IProps> = ({ component, setDisplayModal, ticket }) => {
   );
 };
 
-const mapStateToProps = (state: any) => ({
-  component: state.modal.component,
-  ticket: state.tickets.ticket,
+const mapStateToProps = (state: IState) => ({
+  component: selectComponent(state),
 });
+
 export default connect(mapStateToProps, { setDisplayModal })(Modal);

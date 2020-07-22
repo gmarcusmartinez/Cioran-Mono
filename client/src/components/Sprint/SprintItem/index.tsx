@@ -1,29 +1,28 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { IProject, ISprint } from 'interfaces';
+import { ISprint } from 'interfaces';
 import { getSprint } from 'store/actions';
+import { IState } from 'interfaces/state';
+import { selectProjectId } from 'store/selectors/projects';
 
 interface IProps {
-  item: ISprint;
+  sprint: ISprint;
   getSprint: Function;
-  project: IProject;
+  projectId: string;
 }
 
-const SprintItem: React.FC<IProps> = ({ item, getSprint, project }) => {
-  const onClick = () => getSprint(project._id, item._id);
+const SprintItem: React.FC<IProps> = ({ sprint, getSprint, projectId }) => {
+  const onClick = () => getSprint(projectId, sprint._id);
 
   return (
     <div className='sprint-item' onClick={onClick}>
-      <p className='sprint-item__title'>{item.title} </p>
+      <p className='sprint-item__title'>{sprint.title} </p>
     </div>
   );
 };
 
-interface IState {
-  projects: { project: IProject };
-}
 const mapStateToProps = (state: IState) => ({
-  project: state.projects.project,
+  projectId: selectProjectId(state),
 });
 
 export default connect(mapStateToProps, { getSprint })(SprintItem);

@@ -4,7 +4,7 @@ interface IProps {
   name: string;
   label: string;
   value: string | number;
-  options: any[];
+  options: {}[];
   renderOptions: Function;
   onChange: (event: ChangeEvent<HTMLSelectElement>) => void;
 }

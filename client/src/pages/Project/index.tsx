@@ -3,7 +3,9 @@ import { connect } from 'react-redux';
 import SprintQue from 'components/Sprint/SprintQue';
 import SprintConsole from 'components/Sprint/SprintConsole';
 import { IProject } from 'interfaces';
+import { IState } from 'interfaces/state';
 import { getProject } from 'store/actions';
+import { selectProject } from 'store/selectors/projects';
 
 interface IProps {
   getProject: Function;
@@ -27,11 +29,8 @@ const Project: React.FC<IProps> = ({ match, project, getProject }) => {
   );
 };
 
-interface IState {
-  projects: { project: IProject };
-}
 const mapStateToProps = (state: IState) => ({
-  project: state.projects.project,
+  project: selectProject(state),
 });
 
 export default connect(mapStateToProps, { getProject })(Project);

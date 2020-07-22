@@ -4,6 +4,8 @@ import StoryPoints from './StoryPoints';
 import SprintDetails from './SprintDetails';
 import CreateTicketBtn from './CreateTicketBtn';
 import { ISprint } from 'interfaces';
+import { IState } from 'interfaces/state';
+import { selectSprint } from 'store/selectors/sprints';
 
 interface IProps {
   sprint?: ISprint | null;
@@ -21,11 +23,8 @@ const SprintConsole: React.FC<IProps> = ({ sprint }) => {
   );
 };
 
-interface IState {
-  sprints: { sprint: ISprint };
-}
 const mapStateToProps = (state: IState) => ({
-  sprint: state.sprints.sprint,
+  sprint: selectSprint(state),
 });
 
 export default connect(mapStateToProps, {})(SprintConsole);

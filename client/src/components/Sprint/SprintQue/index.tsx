@@ -7,6 +7,8 @@ import { ITicket } from 'interfaces';
 import { SprintState } from 'store/reducers/sprints';
 import { setCurrentPage } from 'store/actions';
 import { setCurrentTickets } from 'utils/index';
+import { IState } from 'interfaces/state';
+import { selectSprints, selectSprintTickets } from 'store/selectors/sprints';
 
 const headers = [
   { text: 'Ticket', sort: 'title' },
@@ -32,7 +34,9 @@ const SprintQue: React.FC<IProps> = ({
   const paginationProps = { count: tickets.length, paginate };
 
   const classNames = ['sprint-que', '', 'ticket-table'];
-  let list = currentTickets.map((t: any) => <Ticket key={t._id} ticket={t} />);
+  let list = currentTickets.map((t: ITicket) => (
+    <Ticket key={t._id} ticket={t} />
+  ));
   const queueProps = { headers, list, classNames };
 
   return (
@@ -46,9 +50,9 @@ const SprintQue: React.FC<IProps> = ({
   );
 };
 
-const mapStateToProps = (state: any) => ({
-  sprints: state.sprints,
-  tickets: state.sprints.sprint?.tickets,
+const mapStateToProps = (state: IState) => ({
+  sprints: selectSprints(state),
+  tickets: selectSprintTickets(state),
 });
 
 export default connect(mapStateToProps, { setCurrentPage })(SprintQue);

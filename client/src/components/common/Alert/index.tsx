@@ -1,7 +1,8 @@
 import React from 'react';
+import { IAlert } from 'interfaces';
 
 interface IProps {
-  alert: any;
+  alert: IAlert;
   setAnimate: Function;
   animate: boolean;
 }

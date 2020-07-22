@@ -1,14 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { connect } from 'react-redux';
-import { IAlert } from 'interfaces';
 import Alert from '.';
+import { IAlert } from 'interfaces';
+import { IState } from 'interfaces/state';
+import { selectAlerts } from 'store/selectors/alerts';
 
-interface IState {
-  alerts: IAlert[] | [];
-}
 interface IProps {
-  alerts?: IAlert[];
+  alerts: IAlert[];
 }
 const AlertContainer: React.FC<IProps> = ({ alerts }) => {
   const [animate, setAnimate] = React.useState(false);
@@ -26,7 +25,7 @@ const AlertContainer: React.FC<IProps> = ({ alerts }) => {
 };
 
 const mapStateToProps = (state: IState) => ({
-  alerts: state.alerts,
+  alerts: selectAlerts(state),
 });
 
 export default connect(mapStateToProps, {})(AlertContainer);

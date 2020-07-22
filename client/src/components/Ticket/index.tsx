@@ -2,9 +2,10 @@ import React from 'react';
 import TicketCol from './TicketCol';
 import TicketActions from './TicketActions';
 import { splitName, formatDate } from 'utils';
+import { ITicket } from 'interfaces';
 
 interface TicketDisplayProps {
-  ticket: any;
+  ticket: ITicket;
   setDisplayModal: Function;
 }
 

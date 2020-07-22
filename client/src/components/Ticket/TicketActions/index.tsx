@@ -1,12 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
-
 import {
   assignTicket,
   submitTicket,
   completeTicket,
   setAlert,
-} from '../../../store/actions';
+} from 'store/actions';
+import { IState } from 'interfaces/state';
+import { selectCurrentUser } from 'store/selectors/auth';
 
 interface TicketActionsProps {
   ticket: any;
@@ -85,8 +86,8 @@ const TicketActions: React.FC<TicketActionsProps> = ({
   );
 };
 
-const mapStateToProps = (state: any) => ({
-  user: state.auth.currentUser,
+const mapStateToProps = (state: IState) => ({
+  user: selectCurrentUser(state),
 });
 
 export default connect(mapStateToProps, {

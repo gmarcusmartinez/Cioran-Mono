@@ -10,8 +10,8 @@ export interface IProject {
   photo: string;
   projectOwner: string;
   slug: string;
-  sprints: any[];
-  team: any[];
+  sprints: ISprint[];
+  team: string[];
   title: string;
 }
 
