@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SprintQue from 'components/Sprint/SprintQue';
 import SprintConsole from 'components/Sprint/SprintConsole';
+import ProjectNavigation from 'components/Project/ProjectNavigation';
 import { IProject } from 'interfaces';
 import { IState } from 'interfaces/state';
 import { getProject } from 'store/actions';
@@ -19,7 +20,8 @@ const Project: React.FC<IProps> = ({ match, project, getProject }) => {
 
   if (!project) return <>Loading</>;
   return (
-    <div className='project-wrapper'>
+    <div className='project'>
+      <ProjectNavigation />
       <div className='sprint-wrapper'>
         <div className='project-team-section'>{project.title}</div>
         <SprintConsole />

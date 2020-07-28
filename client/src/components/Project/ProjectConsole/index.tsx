@@ -3,24 +3,25 @@ import { connect } from 'react-redux';
 import CustomBtn from 'components/common/CustomBtn';
 import ProjectItem from 'components/Project/ProjectItem';
 import { IProject } from 'interfaces';
-import { getProjects, setDisplayModal } from 'store/actions';
+import { setDisplayModal } from 'store/actions';
+import { fetchProjectsStart } from 'store/actions/projects/fetchProjects';
 import { selectProjects } from 'store/selectors/projects';
 import { IState } from 'interfaces/state';
 
 interface IProps {
   projects: IProject[] | null;
-  getProjects: Function;
+  fetchProjectsStart: Function;
   setDisplayModal: Function;
 }
 
 const ProjectConsole: React.FC<IProps> = ({
   projects,
-  getProjects,
+  fetchProjectsStart,
   setDisplayModal,
 }) => {
   React.useEffect(() => {
-    getProjects();
-  }, [getProjects]);
+    fetchProjectsStart();
+  }, [fetchProjectsStart]);
 
   let list = projects
     ? projects.map((p: IProject) => <ProjectItem key={p._id} item={p} />)
@@ -46,6 +47,7 @@ const mapStateToProps = (state: IState) => ({
   projects: selectProjects(state),
 });
 
-export default connect(mapStateToProps, { getProjects, setDisplayModal })(
-  ProjectConsole
-);
+export default connect(mapStateToProps, {
+  fetchProjectsStart,
+  setDisplayModal,
+})(ProjectConsole);

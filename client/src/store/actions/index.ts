@@ -9,7 +9,7 @@ export * from './auth/getCurrentUser';
 export * from './modal/setDisplayModal';
 
 export * from './projects/getProject';
-export * from './projects/getProjects';
+export * from './projects/fetchProjects';
 export * from './projects/createProject';
 
 export * from './sprints/getSprint';

@@ -6,7 +6,6 @@ import {
   SignoutAction,
   SigninAction,
   GetProjectAction,
-  GetProjectsAction,
   CreateProjectAction,
   GetSprintAction,
   SetCurrentPageAction,
@@ -17,6 +16,12 @@ import {
   MarkTicketCompleteAction,
 } from './';
 
+export enum ProjectActionTypes {
+  FETCH_PROJECTS_START = 'FETCH_PROJECTS_START',
+  FETCH_PROJECTS_SUCCESS = 'FETCH_PROJECTS_SUCCESS',
+  FETCH_PROJECTS_FAILURE = 'FETCH_PROJECTS_FAILURE',
+}
+
 export enum ActionTypes {
   SET_ALERT = 'SET_ALERT',
   REMOVE_ALERT = 'REMOVE_ALERT',
@@ -26,7 +31,6 @@ export enum ActionTypes {
   SIGNOUT = 'SIGNOUT',
   CREATE_PROJECT = 'CREATE_PROJECT',
   GET_PROJECT = 'GET_PROJECT',
-  GET_PROJECTS = 'GET_PROJECTS',
   GET_SPRINT = 'GET_SPRINT',
   SET_CURRENT_PAGE = 'SET_CURRENT_PAGE',
   CREATE_TICKET = 'CREATE_TICKET',
@@ -40,7 +44,6 @@ export type Action =
   | SignupAction
   | SigninAction
   | GetProjectAction
-  | GetProjectsAction
   | CreateProjectAction
   | CreateProjectAction
   | GetSprintAction

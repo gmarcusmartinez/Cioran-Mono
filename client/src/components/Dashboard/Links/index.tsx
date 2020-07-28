@@ -9,12 +9,12 @@ interface IDashNavLink {
 export const links = [
   {
     text: 'projects',
-    to: '/dashboard/projects',
+    to: '/dashboard',
     icon: 'fas fa-tachometer-alt',
   },
   {
-    text: 'my que',
-    to: '/dashboard/que',
+    text: 'my queue',
+    to: '/dashboard/queue',
     icon: 'fas fa-th-list',
   },
   {

@@ -1,4 +1,6 @@
-import { Action, ActionTypes } from '../actions/types';
+import { AnyAction } from 'redux';
+import { ActionTypes } from 'store/actions/types';
+import { ProjectActionTypes } from 'store/actions/types';
 
 const initialState = {
   loading: true,
@@ -6,7 +8,7 @@ const initialState = {
   projects: [],
 };
 
-export const projects = (state = initialState, action: Action) => {
+export const projects = (state = initialState, action: AnyAction) => {
   const { type, payload } = action;
 
   switch (type) {
@@ -21,7 +23,12 @@ export const projects = (state = initialState, action: Action) => {
         loading: false,
         project: payload,
       };
-    case ActionTypes.GET_PROJECTS:
+    case ProjectActionTypes.FETCH_PROJECTS_START:
+      return {
+        ...state,
+        loading: false,
+      };
+    case ProjectActionTypes.FETCH_PROJECTS_SUCCESS:
       return {
         ...state,
         loading: false,

@@ -9,7 +9,7 @@ interface LandingProps {
 }
 
 const Landing: React.FC<LandingProps> = ({ user }) => {
-  if (user) return <Redirect to='/dashboard/projects' />;
+  if (user) return <Redirect to='/dashboard' />;
 
   return (
     <div className='landing'>
