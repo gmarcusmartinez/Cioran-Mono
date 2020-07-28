@@ -4,12 +4,11 @@ import { ProjectActionTypes } from 'store/actions/types';
 export const fetchProjectsStart = () => ({
   type: ProjectActionTypes.FETCH_PROJECTS_START,
 });
-
-export const fetchProjectsSuccess = (data: IProject[]) => ({
+export const success = (data: IProject[]) => ({
   type: ProjectActionTypes.FETCH_PROJECTS_SUCCESS,
   payload: data,
 });
-export const fetchProjectsFailure = (message: string) => ({
+export const failure = (message: string) => ({
   type: ProjectActionTypes.FETCH_PROJECTS_FAILURE,
   payload: message,
 });

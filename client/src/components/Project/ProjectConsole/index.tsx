@@ -3,10 +3,10 @@ import { connect } from 'react-redux';
 import CustomBtn from 'components/common/CustomBtn';
 import ProjectItem from 'components/Project/ProjectItem';
 import { IProject } from 'interfaces';
+import { IState } from 'interfaces/state';
 import { setDisplayModal } from 'store/actions';
 import { fetchProjectsStart } from 'store/actions/projects/fetchProjects';
 import { selectProjects } from 'store/selectors/projects';
-import { IState } from 'interfaces/state';
 
 interface IProps {
   projects: IProject[] | null;

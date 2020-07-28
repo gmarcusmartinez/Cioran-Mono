@@ -1,14 +1,17 @@
 import React, { FC } from 'react';
 import { connect } from 'react-redux';
 import { FormInput } from 'components/common/Form';
-import { createProject, setDisplayModal } from 'store/actions';
-
+import { setDisplayModal } from 'store/actions';
+import { createProjectStart } from 'store/actions/projects/createProject';
 interface IProps {
-  createProject: Function;
+  createProjectStart: Function;
   setDisplayModal: Function;
 }
 
-const CreateProjectForm: FC<IProps> = ({ createProject, setDisplayModal }) => {
+const CreateProjectForm: FC<IProps> = ({
+  createProjectStart,
+  setDisplayModal,
+}) => {
   const defaultFormState = { title: '', slug: '' };
   const [formData, setFormData] = React.useState(defaultFormState);
 
@@ -21,7 +24,7 @@ const CreateProjectForm: FC<IProps> = ({ createProject, setDisplayModal }) => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setDisplayModal(false);
-    createProject(formData);
+    createProjectStart(formData);
     setFormData(defaultFormState);
   };
 
@@ -50,6 +53,6 @@ const CreateProjectForm: FC<IProps> = ({ createProject, setDisplayModal }) => {
   );
 };
 
-export default connect(null, { createProject, setDisplayModal })(
+export default connect(null, { createProjectStart, setDisplayModal })(
   CreateProjectForm
 );

@@ -5,8 +5,6 @@ import {
   SignupAction,
   SignoutAction,
   SigninAction,
-  GetProjectAction,
-  CreateProjectAction,
   GetSprintAction,
   SetCurrentPageAction,
   CreateTicketAction,
@@ -17,9 +15,17 @@ import {
 } from './';
 
 export enum ProjectActionTypes {
+  FETCH_PROJECT_START = 'FETCH_PROJECT_START',
+  FETCH_PROJECT_SUCCESS = 'FETCH_PROJECT_SUCCESS',
+  FETCH_PROJECT_FAILURE = 'FETCH_PROJECT_FAILURE',
+
   FETCH_PROJECTS_START = 'FETCH_PROJECTS_START',
   FETCH_PROJECTS_SUCCESS = 'FETCH_PROJECTS_SUCCESS',
   FETCH_PROJECTS_FAILURE = 'FETCH_PROJECTS_FAILURE',
+
+  CREATE_PROJECT_START = 'CREATE_PROJECT_START',
+  CREATE_PROJECT_SUCCESS = 'CREATE_PROJECT_SUCCESS',
+  CREATE_PROJECT_FAILURE = 'CREATE_PROJECTS_FAILURE',
 }
 
 export enum ActionTypes {
@@ -30,7 +36,6 @@ export enum ActionTypes {
   SIGNIN = 'SIGNIN',
   SIGNOUT = 'SIGNOUT',
   CREATE_PROJECT = 'CREATE_PROJECT',
-  GET_PROJECT = 'GET_PROJECT',
   GET_SPRINT = 'GET_SPRINT',
   SET_CURRENT_PAGE = 'SET_CURRENT_PAGE',
   CREATE_TICKET = 'CREATE_TICKET',
@@ -43,9 +48,6 @@ export type Action =
   | SignoutAction
   | SignupAction
   | SigninAction
-  | GetProjectAction
-  | CreateProjectAction
-  | CreateProjectAction
   | GetSprintAction
   | SetCurrentPageAction
   | CreateTicketAction

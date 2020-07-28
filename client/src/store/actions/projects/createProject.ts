@@ -1,32 +1,25 @@
-import projects from 'api/projects';
+// import { setAlert, ErrorObj } from 'store/actions/alerts/setAlert';
 import { IProject } from 'interfaces';
-import { ActionTypes } from 'store/actions/types';
-import { setAlert, ErrorObj } from 'store/actions/alerts/setAlert';
-
-export interface CreateProjectAction {
-  type: ActionTypes.CREATE_PROJECT;
-  payload: IProject;
-}
+import { ProjectActionTypes } from 'store/actions/types';
 
 export interface ICreateProjectFormState {
   title: string;
   slug: string;
 }
+export const createProjectStart = (formData: ICreateProjectFormState) => ({
+  type: ProjectActionTypes.CREATE_PROJECT_START,
+  payload: formData,
+});
+export const success = (data: IProject) => ({
+  type: ProjectActionTypes.CREATE_PROJECT_SUCCESS,
+  payload: data,
+});
+export const failure = (message: string) => ({
+  type: ProjectActionTypes.CREATE_PROJECT_FAILURE,
+  payload: message,
+});
 
-export const createProject = (formData: ICreateProjectFormState) => async (
-  dispatch: any
-) => {
-  try {
-    const config = { headers: { 'Content-Type': 'application/json' } };
-    const { data } = await projects.post('/', formData, config);
-    dispatch({
-      type: ActionTypes.CREATE_PROJECT,
-      payload: data,
-    });
-  } catch (err) {
-    const errors = err.response.data.errors;
-    errors.forEach((e: ErrorObj) => {
-      dispatch(setAlert(e.message, 'fail'));
-    });
-  }
-};
+// const errors = err.response.data.errors;
+// errors.forEach((e: ErrorObj) => {
+//   dispatch(setAlert(e.message, 'fail'));
+// });
